@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background-primary text-text-primary font-sans antialiased pb-[72px] md:pb-0;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold text-text-primary tracking-tight;
+  }
+
+  /* Custom Text Selection */
+  ::selection {
+    @apply bg-accent-primary/20 text-text-primary;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background-primary;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-border-hover transition-colors;
+  }
+}
+
+@layer utilities {
+  .animate-infinite-scroll {
+    animation: infinite-scroll 25s linear infinite;
+  }
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% / 3)); }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-primary text-white rounded-md px-6 py-3 hover:bg-accent-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-semibold shadow-sm;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-border text-text-primary rounded-md px-6 py-3 hover:border-border-hover hover:bg-background-secondary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-semibold;
+  }
+  
+  .card {
+    @apply bg-background-card border border-border rounded-2xl p-6;
+  }
+  
+  .section-label {
+    @apply text-accent-primary text-sm font-medium uppercase tracking-widest;
+  }
+}
