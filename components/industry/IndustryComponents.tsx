@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Play, Star, Check } from "lucide-react";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import Link from "next/link";
-import React from "react";
+import { ElementType } from "react";
 
 // --- HERO ---
-export function IndustryHero({ label, headline, subtext, trustLine }: any) {
+export function IndustryHero({ label, headline, subtext, trustLine }: { label: string; headline: string; subtext: string; trustLine: string }) {
   return (
     <section className="bg-background-primary pt-32 pb-20 md:pt-40 md:pb-24">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -50,7 +49,7 @@ export function IndustryHero({ label, headline, subtext, trustLine }: any) {
 }
 
 // --- VIDEO ---
-export function IndustryVideoSection({ headline, subtext, features }: any) {
+export function IndustryVideoSection({ headline, subtext, features }: { headline: string; subtext: string; features: string[] }) {
   return (
     <section className="bg-background-secondary py-20">
       <div className="max-w-[900px] mx-auto px-6 flex flex-col items-center">
@@ -82,7 +81,9 @@ export function IndustryVideoSection({ headline, subtext, features }: any) {
 }
 
 // --- CASE STUDIES ---
-export function IndustryCaseStudies({ headline, studies }: any) {
+interface StudyMetric { value: string; label: string; }
+interface Study { business: string; description: string; metrics: StudyMetric[]; }
+export function IndustryCaseStudies({ headline, studies }: { headline: string; studies: Study[] }) {
   return (
     <section className="bg-background-primary py-20">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -91,14 +92,14 @@ export function IndustryCaseStudies({ headline, studies }: any) {
         </motion.h2>
 
         <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {studies.map((study: any, i: number) => (
+          {studies.map((study: Study, i: number) => (
             <motion.div key={i} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="bg-background-card border border-border rounded-2xl p-8 flex flex-col h-full">
               <span className="text-accent-primary text-xs uppercase tracking-widest font-medium mb-2 block">Case Study</span>
               <h3 className="font-serif text-[22px] text-text-primary mb-2">{study.business}</h3>
               <p className="text-sm text-text-secondary mb-8 leading-relaxed flex-grow">{study.description}</p>
               
               <div className="flex flex-col space-y-4 mb-8">
-                {study.metrics.map((metric: any, idx: number) => (
+                {study.metrics.map((metric: StudyMetric, idx: number) => (
                   <div key={idx} className="flex flex-col">
                     <span className="font-serif text-[28px] text-accent-primary leading-none">{metric.value}</span>
                     <span className="text-sm text-text-muted mt-1">{metric.label}</span>
@@ -118,7 +119,8 @@ export function IndustryCaseStudies({ headline, studies }: any) {
 }
 
 // --- SERVICES ---
-export function IndustryServices({ headline, subtext, services }: any) {
+interface ServiceItem { icon: ElementType; title: string; description: string; bullets: string[]; }
+export function IndustryServices({ headline, subtext, services }: { headline: string; subtext: string; services: ServiceItem[] }) {
   return (
     <section className="bg-background-secondary py-20">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -132,7 +134,7 @@ export function IndustryServices({ headline, subtext, services }: any) {
         </div>
 
         <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {services.map((service: any, i: number) => {
+          {services.map((service: ServiceItem, i: number) => {
             const Icon = service.icon;
             return (
               <motion.div key={i} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }} className="bg-background-card border border-border rounded-2xl p-6 flex flex-col">
@@ -160,12 +162,12 @@ export function IndustryServices({ headline, subtext, services }: any) {
 }
 
 // --- TESTIMONIAL ---
-export function IndustryTestimonial({ quote, reviewer, title }: any) {
+export function IndustryTestimonial({ quote, reviewer, title }: { quote: string; reviewer: string; title: string }) {
   return (
     <section className="bg-background-primary py-20">
       <div className="max-w-[700px] mx-auto px-6 flex flex-col items-center text-center">
         <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5 }}>
-          <span className="font-serif text-[60px] text-accent-primary/20 leading-none block mb-4">"</span>
+          <span className="font-serif text-[60px] text-accent-primary/20 leading-none block mb-4">&quot;</span>
         </motion.div>
         
         <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: 0.1 }} className="font-serif text-[22px] text-text-primary leading-relaxed mb-6">

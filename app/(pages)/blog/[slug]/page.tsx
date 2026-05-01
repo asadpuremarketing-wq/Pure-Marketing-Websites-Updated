@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowLeft, Share2, Twitter, Linkedin, Facebook } from "lucide-react";
+import { ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 import CTABanner from "@/components/sections/CTABanner";
 
@@ -56,24 +55,24 @@ export default function BlogPostTemplate() {
         <div className="lg:w-2/3 w-full">
           <div className="prose prose-lg max-w-none text-text-secondary">
             {/* Placeholder Content simulating MDX / Rich Text */}
-            <p>If you run a local service business, you know the drill. Some weeks your phone rings off the hook. Other weeks, it's crickets. This inconsistency makes it impossible to hire, scale, or even plan your month.</p>
-            
-            <p>Relying solely on word-of-mouth or neighborhood referrals worked ten years ago. Today, when a homeowner needs a plumber, an electrician, or an HVAC tech, they don't ask their neighbor-they ask Google.</p>
-            
+            <p>If you run a local service business, you know the drill. Some weeks your phone rings off the hook. Other weeks, it&apos;s crickets. This inconsistency makes it impossible to hire, scale, or even plan your month.</p>
+
+            <p>Relying solely on word-of-mouth or neighborhood referrals worked ten years ago. Today, when a homeowner needs a plumber, an electrician, or an HVAC tech, they don&apos;t ask their neighbor - they ask Google.</p>
+
             <h2 className="font-serif text-[28px] text-text-primary mt-12 mb-6">The Three Pillars of Local Lead Generation</h2>
-            
-            <p>After managing marketing for over 150 local service businesses across North America, we've identified that the most successful companies don't rely on a single channel. They use an integrated "Three Pillar" system.</p>
+
+            <p>After managing marketing for over 150 local service businesses across North America, we&apos;ve identified that the most successful companies don&apos;t rely on a single channel. They use an integrated &quot;Three Pillar&quot; system.</p>
             
             <h3 className="font-serif text-[22px] text-text-primary mt-8 mb-4">1. Local Search Dominance (High Intent)</h3>
-            <p>This is capturing people who have a problem right now and need it fixed immediately. They are searching for terms like "emergency plumber near me" or "ac repair open now".</p>
+            <p>This is capturing people who have a problem right now and need it fixed immediately. They are searching for terms like &quot;emergency plumber near me&quot; or &quot;ac repair open now&quot;.</p>
             <ul className="list-disc pl-6 space-y-2 mb-6">
               <li><strong>Google Local Service Ads (LSAs):</strong> The absolute best ROI for trades. You only pay when a qualified lead calls you.</li>
               <li><strong>Google Search Ads:</strong> Used to capture overflow traffic and specific high-ticket services that LSAs might miss.</li>
-              <li><strong>Google Business Profile SEO:</strong> Ranking in the "Map Pack" (the top 3 local results) is critical for long-term free leads.</li>
+              <li><strong>Google Business Profile SEO:</strong> Ranking in the &quot;Map Pack&quot; (the top 3 local results) is critical for long-term free leads.</li>
             </ul>
 
             <blockquote className="border-l-4 border-accent-primary pl-6 my-8 italic text-lg text-text-primary">
-              "Companies that dominate the Google Map Pack capture 68% of all local search traffic for their industry."
+              &quot;Companies that dominate the Google Map Pack capture 68% of all local search traffic for their industry.&quot;
             </blockquote>
             
             <h3 className="font-serif text-[22px] text-text-primary mt-8 mb-4">2. Social Media and Brand Awareness (Medium Intent)</h3>
@@ -86,7 +85,7 @@ export default function BlogPostTemplate() {
             <h2 className="font-serif text-[28px] text-text-primary mt-12 mb-6">Implementing the System</h2>
             <p>Building this system takes time. If you try to do everything at once, you will get overwhelmed and fail. Here is the exact order of operations we recommend for implementing this playbook:</p>
             <ol className="list-decimal pl-6 space-y-4 mb-8">
-              <li><strong>Optimize your website for conversions:</strong> Don't drive traffic to a leaky bucket. Make sure your site loads fast on mobile and has clear call-to-actions.</li>
+              <li><strong>Optimize your website for conversions:</strong> Don&apos;t drive traffic to a leaky bucket. Make sure your site loads fast on mobile and has clear call-to-actions.</li>
               <li><strong>Launch Google Local Service Ads:</strong> Get through the background check process ASAP. This is your fastest path to ROI.</li>
               <li><strong>Dial in your Google Business Profile:</strong> Set up a system to automatically request reviews from satisfied customers.</li>
             </ol>

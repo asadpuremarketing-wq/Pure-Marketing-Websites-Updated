@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const SOCIAL = [
   {
     name: "Instagram",

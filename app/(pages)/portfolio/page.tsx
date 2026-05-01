@@ -326,7 +326,7 @@ export default function PortfolioPage() {
         <div className="max-w-[700px] mx-auto px-6 flex flex-col items-center text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <p className="text-[26px] font-bold text-text-primary leading-relaxed mb-6">
-              "These guys completely understand how to market to electricians. We went from scrambling for work to booking months out. Best investment we made."
+              &quot;These guys completely understand how to market to electricians. We went from scrambling for work to booking months out. Best investment we made.&quot;
             </p>
           </motion.div>
           

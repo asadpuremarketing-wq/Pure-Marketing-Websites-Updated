@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, TrendingUp, Video, Share2, BarChart2, Check, ChevronDown } from "lucide-react";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import Link from "next/link";
 import CTABanner from "@/components/sections/CTABanner";
 import PageHero from "@/components/ui/PageHero";
@@ -251,7 +250,7 @@ export default function ServicesPage() {
                     </div>
                     
                     <div className="lg:w-1/4 flex flex-col">
-                      <span className="text-sm text-text-muted uppercase tracking-wider font-semibold mb-4 block">What's Included</span>
+                      <span className="text-sm text-text-muted uppercase tracking-wider font-semibold mb-4 block">What&apos;s Included</span>
                       <ul className="space-y-3 mb-6">
                         {service.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-2">
