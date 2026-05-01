@@ -64,9 +64,6 @@ function AccordionItem({ question, answer }: { question: string, answer: string 
   );
 }
 
-// Replace YOUR_FORM_ID below with your Formspree form ID (from formspree.io/forms)
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
@@ -74,11 +71,19 @@ export default function ContactPage() {
     e.preventDefault();
     setFormStatus("submitting");
     const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      industry: (form.elements.namedItem("industry") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      strategyCall: (form.elements.namedItem("strategy_call") as HTMLInputElement).checked,
+    };
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
       if (res.ok) {
         setFormStatus("success");
@@ -127,6 +132,11 @@ export default function ContactPage() {
                       <label className="text-sm text-text-primary font-medium block mb-2">Phone Number</label>
                       <input required name="phone" type="tel" placeholder="(647) 555-0100" className="w-full bg-white border border-border rounded-lg px-4 py-3 text-base text-text-primary focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-colors" />
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm text-text-primary font-medium block mb-2">Email Address</label>
+                    <input required name="email" type="email" placeholder="you@example.com" className="w-full bg-white border border-border rounded-lg px-4 py-3 text-base text-text-primary focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-colors" />
                   </div>
 
                   <div>

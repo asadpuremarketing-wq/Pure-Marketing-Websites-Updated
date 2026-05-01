@@ -3,15 +3,138 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
+const BASE = "https://puremarketing.ca";
+
 export const metadata: Metadata = {
-  title: "Pure Marketing | Premium Marketing Agency",
-  description: "Elevating local businesses with premium digital experiences and conversion-focused marketing.",
+  metadataBase: new URL(BASE),
+  title: {
+    default: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
+    template: "%s | Pure Marketing",
+  },
+  description:
+    "Pure Marketing is a Hamilton, Ontario digital marketing agency specializing in Google Ads, Meta Ads, web design, and lead generation for local service businesses across Canada.",
+  keywords: [
+    "marketing agency Hamilton",
+    "digital marketing Hamilton Ontario",
+    "Google Ads Hamilton",
+    "lead generation Hamilton",
+    "web design Hamilton",
+    "SEO agency Hamilton Ontario",
+    "local service business marketing",
+    "electrician marketing",
+    "plumber marketing",
+    "HVAC marketing",
+    "Pure Marketing",
+  ],
+  authors: [{ name: "Pure Marketing", url: BASE }],
+  creator: "Pure Marketing",
+  publisher: "Pure Marketing",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: BASE,
+    siteName: "Pure Marketing",
+    title: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
+    description:
+      "Hamilton-based digital marketing agency helping local service businesses get more leads with Google Ads, Meta Ads, and conversion-focused web design.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pure Marketing - Digital Marketing Agency Hamilton Ontario",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
+    description:
+      "Hamilton-based digital marketing agency helping local service businesses get more leads.",
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: BASE,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "",
+  },
+};
+
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  "@id": `${BASE}/#organization`,
+  name: "Pure Marketing",
+  url: BASE,
+  logo: `${BASE}/logo.png`,
+  image: `${BASE}/og-image.jpg`,
+  description:
+    "Pure Marketing is a Hamilton, Ontario digital marketing agency specializing in Google Ads, Meta Ads, lead generation, and web design for local service businesses across Canada.",
+  telephone: "+16479512786",
+  email: "info@puremarketing.ca",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Hamilton",
+    addressRegion: "ON",
+    addressCountry: "CA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 43.2557,
+    longitude: -79.8711,
+  },
+  areaServed: [
+    { "@type": "City", name: "Hamilton", addressRegion: "ON" },
+    { "@type": "City", name: "Toronto", addressRegion: "ON" },
+    { "@type": "City", name: "Mississauga", addressRegion: "ON" },
+    { "@type": "City", name: "Brampton", addressRegion: "ON" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "United States" },
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  sameAs: [
+    "https://www.instagram.com/puremarketing",
+    "https://www.facebook.com/puremarketing",
+    "https://www.linkedin.com/company/puremarketing",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Digital Marketing Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Google Ads Management" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads Management" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Design & Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lead Generation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Local SEO" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Production" } },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "8",
+    bestRating: "5",
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +147,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-background-primary text-text-primary min-h-screen flex flex-col`}
       >
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
+        />
         <Navbar />
         <main className="flex-grow">
           {children}
