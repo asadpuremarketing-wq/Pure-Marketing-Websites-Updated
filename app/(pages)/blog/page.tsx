@@ -20,7 +20,6 @@ const BLOG_POSTS = [
   }
 ];
 
-const CATEGORIES = ["All", "Restaurant Marketing"];
 
 export default function BlogPage() {
   const post = BLOG_POSTS[0];

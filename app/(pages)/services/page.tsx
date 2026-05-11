@@ -281,7 +281,6 @@ const stagger = {
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState(0);
   const service = SERVICES_DETAILED[activeService];
-  const ServiceIcon = service.icon;
 
   return (
     <div className="flex flex-col min-h-screen">

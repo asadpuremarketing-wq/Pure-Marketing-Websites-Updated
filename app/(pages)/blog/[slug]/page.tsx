@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Clock, User, Calendar, Share2 } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, Share2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import CTABanner from "@/components/sections/CTABanner";

@@ -295,7 +295,7 @@ export default function About() {
               {/* Pull quote */}
               <blockquote className="border-l-4 border-accent-primary pl-5 py-1 my-6">
                 <p className="text-[18px] font-semibold text-text-primary leading-snug italic">
-                  "We manage marketing for businesses across Canada and the US, helping them generate consistent leads month over month."
+                  &ldquo;We manage marketing for businesses across Canada and the US, helping them generate consistent leads month over month.&rdquo;
                 </p>
               </blockquote>
 
