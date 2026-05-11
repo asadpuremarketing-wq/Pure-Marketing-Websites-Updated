@@ -218,14 +218,15 @@ export default function ContactPage() {
                 <p className="text-sm text-text-secondary mt-2">We reply to all emails within 24 hours</p>
               </motion.a>
 
-              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="bg-background-card border border-border rounded-2xl p-6 text-center">
-                <div className="w-16 h-16 mx-auto bg-accent-primary/10 rounded-full flex items-center justify-center mb-4">
+              <motion.a variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} href="https://maps.google.com/?q=870+Queenston+Rd,+Stoney+Creek,+ON+L8G+0B9" target="_blank" rel="noopener noreferrer" className="bg-background-card border border-border rounded-2xl p-6 text-center hover:border-accent-primary transition-colors group block">
+                <div className="w-16 h-16 mx-auto bg-accent-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <MapPin className="w-8 h-8 text-accent-primary" />
                 </div>
                 <span className="text-sm text-text-muted uppercase tracking-wider font-semibold">Office</span>
-                <p className="text-[20px] font-bold text-text-primary mt-2">Hamilton, Ontario</p>
-                <p className="text-sm text-text-secondary mt-2">Serving all of Canada and US</p>
-              </motion.div>
+                <p className="text-[18px] font-bold text-text-primary mt-2">870 Queenston Rd</p>
+                <p className="text-[15px] font-medium text-text-secondary">Stoney Creek, ON L8G 0B9</p>
+                <p className="text-sm text-accent-primary mt-2 group-hover:underline">View on Google Maps →</p>
+              </motion.a>
 
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-center mt-8">
                 <span className="text-sm text-text-muted">Follow us on social</span>
@@ -248,7 +249,25 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* SECTION 3 - FAQ SECTION */}
+      {/* SECTION 3 - MAP */}
+      <section className="bg-background-primary py-12">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.5!2d-79.7214!3d43.2157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b2c2c2c2c2d%3A0x0!2s870+Queenston+Rd%2C+Stoney+Creek%2C+ON+L8G+0B9!5e0!3m2!1sen!2sca!4v1700000000000"
+              width="100%"
+              height="380"
+              style={{ border: 0, display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Pure Marketing Office Location"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 - FAQ SECTION */}
       <section className="bg-background-primary py-20">
         <div className="max-w-[700px] mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-12">

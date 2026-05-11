@@ -6,31 +6,37 @@ import { ArrowRight } from "lucide-react";
 
 const CASES = [
   {
-    title: "Sparks Electrical - 340% More Leads",
-    category: "Electrician · Google Ads + SEO",
-    metric: "+340% leads",
-    period: "60 days",
+    title: "Gravity Contractors - New Website + More Local Leads",
+    category: "Contractors · Web Development + SEO",
+    metric: "Live in 14 days",
+    period: "Hamilton, ON",
     bg: "from-[#111] to-[#1a1a1a]",
     accent: "from-accent-primary/20 to-transparent",
+    screenshot: "/screenshots/gravity-contractors.webp",
     featured: true,
+    href: "https://www.gravitycontractors.ca/",
   },
   {
-    title: "GTA Plumbing - Fully Booked in 30 Days",
-    category: "Plumber · Lead Generation",
-    metric: "Booked out 6 weeks",
-    period: "30 days",
+    title: "Weather Guard Coatings - Brand New Online Presence",
+    category: "Painting · Web Development",
+    metric: "Full site built",
+    period: "London, ON",
     bg: "from-[#0f1a11] to-[#111]",
     accent: "from-accent-primary/15 to-transparent",
+    screenshot: "/screenshots/weatherguard.webp",
     featured: false,
+    href: "https://www.weatherguardcoating.ca/",
   },
   {
-    title: "Prime Realty - 3x Website Traffic",
-    category: "Real Estate · Web + Social",
-    metric: "3x traffic",
-    period: "30 days",
-    bg: "from-[#1a110f] to-[#111]",
+    title: "Apply Buddies - International Education Platform",
+    category: "Education · Web Development",
+    metric: "Modern redesign",
+    period: "Canada-wide",
+    bg: "from-[#0f1118] to-[#111]",
     accent: "from-accent-primary/15 to-transparent",
+    screenshot: "/screenshots/apply-buddies.webp",
     featured: false,
+    href: "https://www.applybuddies.com/",
   },
 ];
 
@@ -89,11 +95,16 @@ export default function CaseStudies() {
             transition={{ duration: 0.5 }}
             className="md:col-span-2 group relative rounded-2xl overflow-hidden h-[340px] md:h-[400px] cursor-pointer"
           >
-            <div className={`absolute inset-0 bg-gradient-to-br ${featured.bg}`} />
-            <div className={`absolute inset-0 bg-gradient-to-t ${featured.accent}`} />
+            {/* Screenshot background */}
+            {featured.screenshot && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={featured.screenshot} alt={featured.title} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+            )}
+            <div className={`absolute inset-0 bg-gradient-to-br ${featured.bg} ${featured.screenshot ? 'opacity-70' : 'opacity-100'}`} />
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent`} />
             {/* Hover accent bar */}
             <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full bg-accent-primary transition-all duration-500 rounded-full" />
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+            <a href={featured.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 p-8 flex flex-col justify-end">
               <span className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">{featured.category}</span>
               <h3 className="text-white text-[22px] md:text-[26px] font-bold leading-tight mb-4 group-hover:-translate-y-1 transition-transform duration-300">
                 {featured.title}
@@ -102,9 +113,9 @@ export default function CaseStudies() {
                 <div className="bg-accent-primary rounded-lg px-4 py-2">
                   <span className="text-white text-sm font-bold">{featured.metric}</span>
                 </div>
-                <span className="text-[#888] text-sm">in {featured.period}</span>
+                <span className="text-white/60 text-sm">{featured.period}</span>
               </div>
-            </div>
+            </a>
           </motion.div>
 
           {/* Two smaller cards stacked */}
@@ -118,10 +129,15 @@ export default function CaseStudies() {
                 transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
                 className="group relative rounded-2xl overflow-hidden flex-1 min-h-[190px] cursor-pointer"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${c.bg}`} />
-                <div className={`absolute inset-0 bg-gradient-to-t ${c.accent}`} />
+                {/* Screenshot background */}
+                {c.screenshot && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={c.screenshot} alt={c.title} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                )}
+                <div className={`absolute inset-0 bg-gradient-to-br ${c.bg} ${c.screenshot ? 'opacity-60' : 'opacity-100'}`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full bg-accent-primary transition-all duration-500" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <a href={c.href} target="_blank" rel="noopener noreferrer" className="absolute inset-0 p-6 flex flex-col justify-end">
                   <span className="text-accent-primary text-[10px] font-semibold uppercase tracking-widest mb-2">{c.category}</span>
                   <h3 className="text-white text-[16px] font-bold leading-snug mb-3 group-hover:-translate-y-0.5 transition-transform duration-300">
                     {c.title}
@@ -130,9 +146,9 @@ export default function CaseStudies() {
                     <div className="bg-accent-primary/20 border border-accent-primary/30 rounded-md px-3 py-1">
                       <span className="text-accent-primary text-xs font-bold">{c.metric}</span>
                     </div>
-                    <span className="text-[#666] text-xs">in {c.period}</span>
+                    <span className="text-white/50 text-xs">{c.period}</span>
                   </div>
-                </div>
+                </a>
               </motion.div>
             ))}
           </div>

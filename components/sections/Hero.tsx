@@ -105,6 +105,19 @@ export default function Hero() {
             >
               Trusted by <span className="text-white font-medium">150+ local businesses</span> across Canada · No contracts · Results guaranteed
             </motion.p>
+
+            <motion.div
+              className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-[#666] pt-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.75 }}
+            >
+              <span>Websites from <span className="text-[#999]">$2,500</span></span>
+              <span className="hidden sm:block w-px h-3 bg-[#333]" />
+              <span>Lead gen from <span className="text-[#999]">$1,500/mo</span></span>
+              <span className="hidden sm:block w-px h-3 bg-[#333]" />
+              <span>Free strategy call included</span>
+            </motion.div>
           </div>
 
           {/* RIGHT: Stats card */}

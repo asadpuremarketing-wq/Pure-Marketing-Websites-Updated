@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Script from "next/script";
 import {
   Globe,
   TrendingUp,
@@ -14,6 +15,8 @@ import {
   Play,
 } from "lucide-react";
 import CTABanner from "@/components/sections/CTABanner";
+
+const BASE = "https://puremarketing.ca";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Globe,
@@ -84,8 +87,39 @@ export default function IndustryPageTemplate({ config }: Props) {
     resultStatLabel,
   } = config;
 
+  const slug = industry.toLowerCase().replace(/\s+/g, "-");
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${BASE}/#organization`,
+    name: "Pure Marketing",
+    url: `${BASE}/industries/${slug}`,
+    telephone: "+16479512786",
+    email: "info@puremarketing.ca",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hamilton",
+      addressRegion: "ON",
+      addressCountry: "CA",
+    },
+    description: `Pure Marketing provides specialized digital marketing services for ${industry.toLowerCase()} businesses across Canada, including Google Ads, lead generation, and web design.`,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `Digital Marketing Services for ${industry}`,
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.name, description: s.description },
+      })),
+    },
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <Script
+        id={`local-business-schema-${slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       {/* ── SECTION 1: HERO ────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#111]">
         {/* Background layers */}

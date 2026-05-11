@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -25,6 +25,15 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleDropdownBlur = () => {
+    setTimeout(() => {
+      if (dropdownRef.current && !dropdownRef.current.contains(document.activeElement)) {
+        setIsIndustriesOpen(false);
+      }
+    }, 100);
+  };
 
   const isDarkHero = DARK_HERO_PATHS.includes(pathname ?? "");
   // When not scrolled on a dark-hero page, use white text; otherwise dark
@@ -65,6 +74,7 @@ export default function Navbar() {
               { label: "Home", href: "/" },
               { label: "About", href: "/about" },
               { label: "Services", href: "/services" },
+              { label: "Packages", href: "/social-media-packages" },
               { label: "Portfolio", href: "/portfolio" },
               { label: "Blog", href: "/blog" },
             ].map(({ label, href }) => (
@@ -83,32 +93,46 @@ export default function Navbar() {
 
             {/* Industries dropdown */}
             <div
+              ref={dropdownRef}
               className="relative"
               onMouseEnter={() => setIsIndustriesOpen(true)}
               onMouseLeave={() => setIsIndustriesOpen(false)}
+              onBlur={handleDropdownBlur}
             >
               <Link
                 href="/industries"
+                onFocus={() => setIsIndustriesOpen(true)}
+                onKeyDown={(e) => {
+                  if (e.key === "ArrowDown") { e.preventDefault(); setIsIndustriesOpen(true); }
+                  if (e.key === "Escape") setIsIndustriesOpen(false);
+                }}
                 className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${hoverColor} py-2 ${
                   pathname?.startsWith("/industries") ? "text-accent-primary" : textColor
                 }`}
               >
                 Industries
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-4 h-4" aria-hidden="true" />
               </Link>
               <AnimatePresence>
                 {isIndustriesOpen && (
                   <motion.div
+                    role="menu"
+                    aria-label="Industry pages"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15 }}
                     className="absolute top-full left-0 w-48 bg-white border border-border rounded-xl shadow-xl py-2 mt-1"
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") { setIsIndustriesOpen(false); }
+                    }}
                   >
                     {INDUSTRIES.map((industry) => (
                       <Link
                         key={industry.name}
                         href={industry.href}
+                        role="menuitem"
+                        onClick={() => setIsIndustriesOpen(false)}
                         className={`block px-4 py-2.5 text-sm transition-colors hover:bg-background-secondary hover:text-accent-primary ${
                           pathname === industry.href ? "text-accent-primary font-semibold" : "text-text-primary"
                         }`}
@@ -161,6 +185,7 @@ export default function Navbar() {
                 { label: "Home", href: "/" },
                 { label: "About", href: "/about" },
                 { label: "Services", href: "/services" },
+                { label: "Packages", href: "/social-media-packages" },
                 { label: "Portfolio", href: "/portfolio" },
                 { label: "Blog", href: "/blog" },
                 { label: "Contact", href: "/contact" },

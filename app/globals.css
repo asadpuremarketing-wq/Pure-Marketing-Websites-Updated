@@ -14,6 +14,11 @@
     @apply font-sans font-bold text-text-primary tracking-tight;
   }
 
+  /* Focus visible - keyboard navigation accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-primary rounded;
+  }
+
   /* Custom Text Selection */
   ::selection {
     @apply bg-accent-primary/20 text-text-primary;

@@ -12,12 +12,13 @@ interface Breadcrumb {
 interface PageHeroProps {
   label?: string;
   title: string;
-  titleAccent?: string; // portion of title to highlight in orange
+  titleAccent?: string;
   subtitle?: string;
   breadcrumbs?: Breadcrumb[];
+  fadeToColor?: string; // bottom fade target color, defaults to background-primary (white)
 }
 
-export default function PageHero({ label, title, titleAccent, subtitle, breadcrumbs }: PageHeroProps) {
+export default function PageHero({ label, title, titleAccent, subtitle, breadcrumbs, fadeToColor = "#ffffff" }: PageHeroProps) {
   return (
     <section className="relative bg-[#111] pt-[100px] pb-16 md:pt-[120px] md:pb-20 overflow-hidden">
       {/* Background gradient */}
@@ -31,8 +32,8 @@ export default function PageHero({ label, title, titleAccent, subtitle, breadcru
           backgroundSize: "28px 28px",
         }}
       />
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background-primary to-transparent" />
+      {/* Bottom fade into the next section's background color */}
+      <div className="absolute bottom-0 left-0 right-0 h-12 to-transparent" style={{ background: `linear-gradient(to top, ${fadeToColor}, transparent)` }} />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6">
         {/* Breadcrumbs */}

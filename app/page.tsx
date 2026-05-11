@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
 import IntroVideo from "@/components/sections/IntroVideo";
 import StatsSection from "@/components/sections/StatsSection";
 import Services from "@/components/sections/Services";
-import VideoTestimonials from "@/components/sections/VideoTestimonials";
-import CaseStudies from "@/components/sections/CaseStudies";
-import ClientsCarousel from "@/components/sections/ClientsCarousel";
-import Reviews from "@/components/sections/Reviews";
 import CTABanner from "@/components/sections/CTABanner";
+
+const VideoTestimonials = dynamic(() => import("@/components/sections/VideoTestimonials"));
+const CaseStudies = dynamic(() => import("@/components/sections/CaseStudies"));
+const ClientsCarousel = dynamic(() => import("@/components/sections/ClientsCarousel"));
+const Reviews = dynamic(() => import("@/components/sections/Reviews"));
 
 const BASE = "https://puremarketing.ca";
 

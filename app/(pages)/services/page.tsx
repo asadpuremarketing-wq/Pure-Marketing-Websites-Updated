@@ -4,7 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, TrendingUp, Video, Share2, BarChart2,
-  Check, ChevronDown, MapPin, ArrowRight, Phone,
+  Check, ChevronDown, ChevronRight, MapPin, ArrowRight, Phone,
+  Users, Award, Zap, Star,
+  Plug, Droplets, Wind, PaintbrushIcon, UtensilsCrossed, Building2, KeyRound, HardHat,
 } from "lucide-react";
 import Link from "next/link";
 import CTABanner from "@/components/sections/CTABanner";
@@ -14,10 +16,10 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 /* ─── Data ─────────────────────────────────────────────────── */
 
 const TRUST_STATS = [
-  { value: "150+", label: "Businesses Served" },
-  { value: "$2M+", label: "Ad Spend Managed" },
-  { value: "7–14", label: "Days to First Lead" },
-  { value: "4.9★", label: "Client Rating" },
+  { value: "150+", label: "Businesses Served", icon: Users },
+  { value: "$2M+", label: "Ad Spend Managed", icon: Award },
+  { value: "7–14", label: "Days to First Lead", icon: Zap },
+  { value: "4.9★", label: "Client Rating", icon: Star },
 ];
 
 const SERVICES_DETAILED = [
@@ -191,14 +193,14 @@ const PROCESS_STEPS = [
 ];
 
 const INDUSTRIES = [
-  { label: "Electricians", href: "/industries/electricians" },
-  { label: "Plumbers", href: "/industries/plumbers" },
-  { label: "HVAC", href: "/industries/hvac" },
-  { label: "Painters", href: "/industries/painters" },
-  { label: "Restaurants", href: "/industries/restaurants" },
-  { label: "Real Estate", href: "/industries/real-estate" },
-  { label: "Locksmiths", href: "/industries/locksmiths" },
-  { label: "General Contractors", href: "/industries/general-contractors" },
+  { label: "Electricians",        tagline: "More service calls & panel jobs",    icon: Plug,              href: "/industries/electricians" },
+  { label: "Plumbers",            tagline: "Emergency leads & booked installs",  icon: Droplets,          href: "/industries/plumbers" },
+  { label: "HVAC",                tagline: "Seasonal campaigns that convert",    icon: Wind,              href: "/industries/hvac" },
+  { label: "Painters",            tagline: "Residential & commercial projects",  icon: PaintbrushIcon,    href: "/industries/painters" },
+  { label: "Restaurants",         tagline: "Fill tables & grow delivery orders", icon: UtensilsCrossed,   href: "/industries/restaurants" },
+  { label: "Real Estate",         tagline: "Listings, leads & agent branding",   icon: Building2,         href: "/industries/real-estate" },
+  { label: "Locksmiths",          tagline: "24/7 emergency call capture",        icon: KeyRound,          href: "/industries/locksmiths" },
+  { label: "General Contractors", tagline: "Renovations, builds & bids",         icon: HardHat,           href: "/industries/general-contractors" },
 ];
 
 const FAQS = [
@@ -277,6 +279,10 @@ const stagger = {
 /* ─── Page ──────────────────────────────────────────────────── */
 
 export default function ServicesPage() {
+  const [activeService, setActiveService] = useState(0);
+  const service = SERVICES_DETAILED[activeService];
+  const ServiceIcon = service.icon;
+
   return (
     <div className="flex flex-col min-h-screen">
 
@@ -287,32 +293,37 @@ export default function ServicesPage() {
         titleAccent="for Local Businesses"
         subtitle="We build integrated marketing systems where every piece works together — bringing you consistent leads and growth in Hamilton, the GTA, and beyond."
         breadcrumbs={[{ label: "Services" }]}
+        fadeToColor="#111111"
       />
 
       {/* TRUST STATS BAR */}
-      <section className="bg-accent-primary py-12">
+      <section className="bg-[#111] py-16 border-t border-white/5">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
           >
-            {TRUST_STATS.map((s, i) => (
-              <motion.div key={i} variants={fadeUp} custom={i}>
-                <div className="text-[38px] md:text-[46px] font-bold text-white leading-none">{s.value}</div>
-                <div className="text-sm text-white/80 mt-1 font-medium">{s.label}</div>
-              </motion.div>
-            ))}
+            {TRUST_STATS.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <motion.div key={i} variants={fadeUp} custom={i} className="flex flex-col items-center gap-2">
+                  <Icon className="w-5 h-5 text-accent-primary opacity-70" />
+                  <div className="text-[42px] md:text-[50px] font-bold text-white leading-none">{s.value}</div>
+                  <div className="text-sm text-[#666] font-medium">{s.label}</div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
 
-      {/* SERVICES DETAILED */}
+      {/* SERVICES DETAILED — tab panel */}
       <section className="bg-background-secondary py-20">
         <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col items-center text-center mb-16">
+          <div className="flex flex-col items-center text-center mb-12">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-4">
               <SectionLabel>What We Offer</SectionLabel>
             </motion.div>
@@ -326,70 +337,90 @@ export default function ServicesPage() {
             </motion.p>
           </div>
 
-          <div className="flex flex-col space-y-6">
-            {SERVICES_DETAILED.map((service, i) => {
-              const Icon = service.icon;
-              return (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="bg-background-card border border-border rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row"
+          >
+            {/* Left: service tabs */}
+            <div className="lg:w-[300px] flex-shrink-0 border-b lg:border-b-0 lg:border-r border-border flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible">
+              {SERVICES_DETAILED.map((s, i) => {
+                const Icon = s.icon;
+                const isActive = activeService === i;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setActiveService(i)}
+                    className={`flex items-center gap-3 px-5 py-4 text-left w-full flex-shrink-0 border-b border-border last:border-b-0 transition-all duration-200 relative ${
+                      isActive
+                        ? "bg-accent-primary/5 lg:border-l-[3px] lg:border-l-accent-primary"
+                        : "hover:bg-background-secondary"
+                    }`}
+                  >
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
+                      isActive ? "bg-accent-primary/20" : "bg-background-secondary"
+                    }`}>
+                      <Icon className={`w-4 h-4 transition-colors ${isActive ? "text-accent-primary" : "text-text-muted"}`} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className={`text-sm font-semibold leading-tight transition-colors ${isActive ? "text-text-primary" : "text-text-secondary"}`}>
+                        {s.title}
+                      </p>
+                      <p className="text-[11px] text-accent-primary mt-0.5">{s.tag}</p>
+                    </div>
+                    {isActive && <ChevronRight className="w-4 h-4 text-accent-primary ml-auto flex-shrink-0 hidden lg:block" />}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right: detail pane */}
+            <div className="flex-1 p-8 lg:p-10 min-h-[420px]">
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="bg-background-card border border-border rounded-2xl overflow-hidden p-8 hover:border-accent-primary hover:shadow-lg transition-all duration-300 group"
+                  key={activeService}
+                  initial={{ opacity: 0, x: 12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -12 }}
+                  transition={{ duration: 0.2 }}
+                  className="h-full flex flex-col"
                 >
-                  <div className="flex flex-col lg:flex-row gap-8">
+                  <span className="text-xs font-semibold text-accent-primary bg-accent-primary/10 px-3 py-1 rounded-full w-fit mb-4">
+                    {service.tag}
+                  </span>
+                  <h3 className="text-[24px] font-bold text-text-primary mb-3">{service.title}</h3>
+                  <p className="text-[15px] text-text-secondary leading-relaxed mb-5">{service.description}</p>
 
-                    {/* Icon + Title */}
-                    <div className="lg:w-1/4 flex flex-col items-start">
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className="text-xs font-semibold text-accent-primary bg-accent-primary/10 px-3 py-1 rounded-full">
-                          {service.tag}
-                        </span>
+                  <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-3 py-1.5 w-fit mb-7">
+                    <TrendingUp className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                    <span className="text-xs text-green-700 font-medium">{service.result}</span>
+                  </div>
+
+                  <p className="text-xs text-text-muted uppercase tracking-widest font-semibold mb-3">What&apos;s Included</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8 flex-grow">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-text-secondary">{feature}</span>
                       </div>
-                      <div className="w-14 h-14 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-4 group-hover:bg-accent-primary/20 transition-colors">
-                        <Icon className="w-8 h-8 text-accent-primary" />
-                      </div>
-                      <h3 className="text-[22px] font-bold text-text-primary">{service.title}</h3>
-                    </div>
+                    ))}
+                  </div>
 
-                    {/* Description + Result */}
-                    <div className="lg:w-2/4 flex flex-col justify-between gap-4">
-                      <p className="text-[16px] text-text-secondary leading-relaxed">{service.description}</p>
-                      <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-4 py-2 w-fit">
-                        <TrendingUp className="w-4 h-4 text-green-600 flex-shrink-0" />
-                        <span className="text-sm text-green-700 font-medium">{service.result}</span>
-                      </div>
-                    </div>
-
-                    {/* Features + CTA */}
-                    <div className="lg:w-1/4 flex flex-col">
-                      <span className="text-sm text-text-muted uppercase tracking-wider font-semibold mb-4 block">
-                        What&apos;s Included
-                      </span>
-                      <ul className="space-y-3 mb-6 flex-grow">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-text-secondary">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link
-                        href={service.href}
-                        className="btn-primary text-sm text-center flex items-center justify-center gap-2 group/btn"
-                      >
-                        Get a Free Quote
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </div>
-
+                  <div className="flex items-center gap-4 mt-auto">
+                    <Link href={service.href} className="btn-primary text-sm inline-flex items-center gap-2 group/btn">
+                      Get a Free Quote
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                    <Link href="/services" className="text-sm text-text-secondary hover:text-accent-primary transition-colors">
+                      See all services →
+                    </Link>
                   </div>
                 </motion.div>
-              );
-            })}
-          </div>
+              </AnimatePresence>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -417,17 +448,28 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
           >
-            {INDUSTRIES.map((ind, i) => (
-              <motion.div key={i} variants={fadeUp} custom={i}>
-                <Link
-                  href={ind.href}
-                  className="flex items-center justify-between bg-background-secondary border border-border rounded-xl px-4 py-3 text-sm font-medium text-text-primary hover:border-accent-primary hover:text-accent-primary hover:shadow-md transition-all duration-200 group"
-                >
-                  {ind.label}
-                  <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:text-accent-primary group-hover:translate-x-0.5 transition-all" />
-                </Link>
-              </motion.div>
-            ))}
+            {INDUSTRIES.map((ind, i) => {
+              const Icon = ind.icon;
+              return (
+                <motion.div key={i} variants={fadeUp} custom={i}>
+                  <Link
+                    href={ind.href}
+                    className="flex flex-col gap-3 bg-background-card border border-border rounded-2xl p-5 hover:border-accent-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-accent-primary/10 flex items-center justify-center group-hover:bg-accent-primary/20 transition-colors flex-shrink-0">
+                      <Icon className="w-5 h-5 text-accent-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[14px] text-text-primary group-hover:text-accent-primary transition-colors leading-tight">
+                        {ind.label}
+                      </p>
+                      <p className="text-[12px] text-text-muted mt-0.5 leading-snug">{ind.tagline}</p>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:text-accent-primary group-hover:translate-x-0.5 transition-all mt-auto" />
+                  </Link>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -554,7 +596,7 @@ export default function ServicesPage() {
                 key={i}
                 variants={fadeUp}
                 custom={i}
-                className="relative bg-background-card border border-border rounded-2xl p-6 text-center flex flex-col items-center shadow-sm hover:border-accent-primary hover:shadow-md transition-all duration-300"
+                className="relative bg-background-card border border-border border-l-4 border-l-accent-primary rounded-2xl p-6 text-left flex flex-col shadow-sm hover:shadow-md transition-all duration-300"
               >
                 {/* Connector arrow (desktop only) */}
                 {i < PROCESS_STEPS.length - 1 && (
@@ -569,7 +611,7 @@ export default function ServicesPage() {
                   </div>
                 )}
 
-                <span className="text-[48px] font-bold text-accent-primary/20 leading-none mb-4">{step.num}</span>
+                <span className="text-[13px] font-bold text-accent-primary uppercase tracking-widest block mb-3">{step.num}</span>
                 <h3 className="font-semibold text-[17px] text-text-primary mb-3">{step.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{step.description}</p>
               </motion.div>

@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 const SOCIAL_LINKS = [
   {
     name: "Instagram",
-    href: "https://instagram.com/puremarketing",
+    href: "https://www.instagram.com/puremarketing0",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -15,7 +15,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Facebook",
-    href: "https://facebook.com/puremarketing",
+    href: "https://www.facebook.com/profile.php?id=61576684511407",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -24,7 +24,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/company/puremarketing",
+    href: "https://www.linkedin.com/company/pure-marketing0/",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />

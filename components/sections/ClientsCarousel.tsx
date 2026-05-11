@@ -1,18 +1,21 @@
 "use client";
 
-// Replace these with real client logo image paths once available.
-// Each item renders as a text-based logo placeholder.
+import Image from "next/image";
+
 const CLIENTS = [
-  "Sparks Electric",
-  "GTA Plumbing",
-  "AirFlow HVAC",
-  "Prime Realty",
-  "Casa Restaurant",
-  "TrueCoat Painters",
-  "Metro Electric",
-  "ClearPipe Co.",
-  "Summit Real Estate",
-  "Flame Kitchen",
+  { name: "Weather Guard Coatings",       src: "/logos/weather-guard-coatings.png" },
+  { name: "Gravity Contractors",           src: "/logos/gravity-contractors.png" },
+  { name: "Greypro Concrete Designs",      src: "/logos/greypro-concrete.png" },
+  { name: "Apply Buddies",                 src: "/logos/apply-buddies.png" },
+  { name: "Tranquility Compassion",        src: "/logos/tranquility-compassion.png" },
+  { name: "Faizan Global Relief Foundation", src: "/logos/fgrf.png" },
+  { name: "Quick Car Repair",              src: "/logos/quick-car-repair.png" },
+  { name: "GO Safe Driving",              src: "/logos/go-safe-driving.png" },
+  { name: "Isnad Association",             src: "/logos/isnad-association.webp" },
+  { name: "Prudent Locksmith & Garage",    src: "/logos/prudent-locksmith.jpg" },
+  { name: "Bowld Up",                      src: "/logos/bowld-up.png" },
+  { name: "Kukus Chicken",                 src: "/logos/kukus-chicken.png" },
+  { name: "Moussas Shawarma",              src: "/logos/moussas-shawarma.png" },
 ];
 
 // Triple the list for seamless infinite loop
@@ -34,12 +37,18 @@ export default function ClientsCarousel() {
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-background-secondary to-transparent pointer-events-none" />
 
         <div className="flex gap-6 animate-infinite-scroll hover:[animation-play-state:paused]">
-          {ITEMS.map((name, i) => (
+          {ITEMS.map((client, i) => (
             <div
               key={i}
-              className="flex-shrink-0 bg-background-card border border-border rounded-xl px-6 py-4 flex items-center justify-center min-w-[160px] h-[64px] shadow-sm hover:border-accent-primary/30 transition-colors duration-300"
+              className="flex-shrink-0 bg-background-card border border-border rounded-xl px-5 py-3 flex items-center justify-center min-w-[160px] h-[72px] shadow-sm hover:border-accent-primary/30 transition-colors duration-300"
             >
-              <span className="text-text-secondary text-sm font-semibold whitespace-nowrap">{name}</span>
+              <Image
+                src={client.src}
+                alt={client.name}
+                width={120}
+                height={48}
+                className="object-contain max-h-[48px] w-auto"
+              />
             </div>
           ))}
         </div>

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Star, ExternalLink } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, ExternalLink, Camera, Globe, Video, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import CTABanner from "@/components/sections/CTABanner";
 import PageHero from "@/components/ui/PageHero";
 
@@ -12,71 +13,78 @@ const WEB_DEV_CLIENTS = [
     id: 1, name: "Weather Guard Coatings", category: "Contractors",
     description: "Painting Company", location: "London, Ontario",
     href: "https://www.weatherguardcoating.ca/",
-    screenshot: "", // replace with /screenshots/weatherguard.png
+    screenshot: "/screenshots/weatherguard.webp",
     accent: "#E8EDF5",
   },
   {
     id: 2, name: "Gravity Contractors", category: "Contractors",
     description: "Construction & Renovation Company", location: "Hamilton, Ontario",
     href: "https://www.gravitycontractors.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/gravity-contractors.webp",
     accent: "#E8EDF5",
   },
   {
     id: 3, name: "Greypro Concrete Designs", category: "Contractors",
     description: "Concrete Design Company", location: "Hamilton, Ontario",
     href: "https://greypro.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/greypro.webp",
     accent: "#E8EDF5",
   },
   {
     id: 4, name: "Apply Buddies", category: "Education",
     description: "International Education Company", location: "Canada",
     href: "https://www.applybuddies.com/",
-    screenshot: "",
+    screenshot: "/screenshots/apply-buddies.webp",
     accent: "#E0EFF5",
   },
   {
     id: 5, name: "Tranquility Compassion", category: "Healthcare",
     description: "Elderly Care Company", location: "Canada",
     href: "https://www.tranquilitycompassion.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/tranquility-compassion.webp",
     accent: "#E5F0E8",
   },
   {
     id: 6, name: "Faizan Global Relief Foundation", category: "Non-Profit",
     description: "Canadian Relief Organization", location: "Canada",
     href: "https://www.fgrf.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/fgrf.webp",
     accent: "#F0EBF5",
   },
   {
     id: 7, name: "Greypro Concrete Designs", category: "Contractors",
     description: "Concrete Design Company", location: "Hamilton, Ontario",
     href: "https://greypro.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/greypro.webp",
     accent: "#E8EDF5",
   },
   {
     id: 8, name: "Quick Car Repair", category: "Automotive",
     description: "Auto Mechanic Shop", location: "Hamilton, Ontario",
     href: "https://www.quickcarrepair.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/quick-car-repair.webp",
     accent: "#F7E6DF",
   },
   {
     id: 9, name: "GO Safe Driving", category: "Education",
     description: "Driving School", location: "Hamilton, Ontario",
     href: "https://www.gosafedriving.ca/",
-    screenshot: "",
+    screenshot: "/screenshots/go-safe-driving.webp",
     accent: "#F9EFE6",
   },
   {
     id: 10, name: "Isnad Association", category: "Non-Profit",
     description: "Non-Profit Organization", location: "Canada",
     href: "https://isnadassociation.org/",
-    screenshot: "",
+    screenshot: "/screenshots/isnad-association.webp",
     accent: "#F0EBF5",
+  },
+  {
+    id: 11, name: "Prudent Locksmith & Garage Services", category: "Home Services",
+    description: "Locksmith & Garage Door Company", location: "Hamilton, Ontario",
+    href: "https://www.purdentlocksmith.ca/",
+    screenshot: "/screenshots/Prudentlocksmith.webp",
+    accent: "#E8EDF5",
   },
 ];
 
@@ -98,10 +106,44 @@ const SOCIAL_MEDIA_CLIENTS = [
   ]},
 ];
 
-const WEB_FILTERS = ["All", "Contractors", "Education", "Healthcare", "Automotive", "Non-Profit"];
+const WEB_FILTERS = ["All", "Contractors", "Education", "Healthcare", "Automotive", "Non-Profit", "Home Services"];
+
+const REVIEWS = [
+  { initials: "DA", name: "Dennis Aboagye", badge: "", time: "a month ago", text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
+  { initials: "UO", name: "Unnati Oza", badge: "Local Guide", time: "a month ago", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
+  { initials: "BY", name: "Benard Yeboah", badge: "", time: "a month ago", text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
+  { initials: "WB", name: "Wade Beattie", badge: "", time: "7 months ago", text: "Great communication, and pricing." },
+  { initials: "EW", name: "Eleanor Wilson", badge: "", time: "4 months ago", text: "Gravity contractors referred me to them and they do a very good job." },
+  { initials: "JR", name: "John Riadhh", badge: "Local Guide", time: "4 months ago", text: "Asad was very professional in helping, definitely recommend their marketing team." },
+  { initials: "JW", name: "John Williamson", badge: "", time: "14 hours ago", text: "Fantastic business first class." },
+  { initials: "N2", name: "Negril 25", badge: "", time: "9 months ago", text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him." },
+];
+
+const VISIBLE = 3;
+
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const totalPages = Math.ceil(REVIEWS.length / VISIBLE);
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setPage(p => (p + 1) % totalPages);
+  }, [totalPages]);
+
+  const prev = () => {
+    setDirection(-1);
+    setPage(p => (p - 1 + totalPages) % totalPages);
+  };
+
+  useEffect(() => {
+    const id = setInterval(next, 4000);
+    return () => clearInterval(id);
+  }, [next]);
+
+  const visible = REVIEWS.slice(page * VISIBLE, page * VISIBLE + VISIBLE);
 
   const filteredItems = activeFilter === "All"
     ? UNIQUE_WEB_CLIENTS
@@ -116,6 +158,7 @@ export default function PortfolioPage() {
         titleAccent="Real Businesses."
         subtitle="See the websites we built, the campaigns we ran, and the results we delivered for local businesses just like yours."
         breadcrumbs={[{ label: "Portfolio" }]}
+        fadeToColor="#F8FAFC"
       />
 
       {/* SECTION 2 - PORTFOLIO FILTER AND GRID */}
@@ -155,8 +198,7 @@ export default function PortfolioPage() {
                 {/* Screenshot area */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden" style={{ backgroundColor: item.accent }}>
                   {item.screenshot ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={item.screenshot} alt={item.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={item.screenshot} alt={item.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center gap-2 opacity-50">
                       <div className="w-8 h-8 rounded border-2 border-current text-text-muted" />
@@ -203,148 +245,99 @@ export default function PortfolioPage() {
       </section>
 
       {/* SECTION 3 - SOCIAL MEDIA MANAGEMENT */}
-      <section className="bg-background-primary py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="bg-[#111] py-24 relative overflow-hidden">
+        {/* Background dot grid */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_50%,_rgba(240,100,40,0.06),_transparent)]" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+
           {/* Header */}
-          <div className="mb-14">
-            <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">
-              Social Media Management
-            </motion.p>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-              <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }} className="text-[28px] md:text-[38px] font-bold text-text-primary tracking-tight leading-tight">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div>
+              <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">
+                Social Media Management
+              </motion.p>
+              <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }} className="text-[28px] md:text-[42px] font-bold text-white tracking-tight leading-tight">
                 Brands We Manage Online
               </motion.h2>
-              <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }} className="text-text-secondary text-sm max-w-sm">
-                Content creation, community management, and growth across Instagram, Facebook & TikTok.
-              </motion.p>
             </div>
+            {/* Platform pills */}
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="flex flex-wrap gap-3">
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 text-white/70 text-xs font-medium rounded-full px-4 py-2">
+                <Camera className="w-3.5 h-3.5 text-accent-primary" /> Instagram
+              </span>
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 text-white/70 text-xs font-medium rounded-full px-4 py-2">
+                <Globe className="w-3.5 h-3.5 text-accent-primary" /> Facebook
+              </span>
+              <span className="flex items-center gap-2 bg-white/5 border border-white/10 text-white/70 text-xs font-medium rounded-full px-4 py-2">
+                <Video className="w-3.5 h-3.5 text-accent-primary" /> TikTok
+              </span>
+            </motion.div>
           </div>
 
           {/* Grouped by industry */}
-          <div className="space-y-12">
+          <div className="space-y-14">
             {SOCIAL_MEDIA_CLIENTS.map((group, gi) => (
               <motion.div
                 key={gi}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: gi * 0.1 }}
               >
                 {/* Group label */}
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-[13px] font-bold text-text-primary uppercase tracking-widest">{group.group}</span>
-                  <div className="flex-grow h-px bg-border" />
-                  <span className="text-xs text-text-muted">{group.clients.length} {group.clients.length === 1 ? "client" : "clients"}</span>
+                <div className="flex items-center gap-4 mb-7">
+                  <span className="text-[11px] font-bold text-white/40 uppercase tracking-widest">{group.group}</span>
+                  <div className="flex-grow h-px bg-white/10" />
+                  <span className="text-[11px] text-white/30">{group.clients.length} {group.clients.length === 1 ? "client" : "clients"}</span>
                 </div>
 
                 {/* Client cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {group.clients.map((client, ci) => (
-                    <div
+                    <motion.div
                       key={ci}
-                      className="bg-background-card border border-border rounded-2xl p-5 flex items-center gap-4 hover:border-accent-primary/40 hover:shadow-md transition-all duration-300"
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: ci * 0.07 }}
+                      className="group relative bg-white/[0.03] border border-white/[0.08] rounded-2xl p-5 flex items-center gap-4 hover:bg-white/[0.06] hover:border-accent-primary/40 transition-all duration-300 overflow-hidden"
                     >
+                      {/* Subtle orange glow on hover */}
+                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_0%_50%,_rgba(240,100,40,0.07),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                       {/* Avatar */}
-                      <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="relative w-12 h-12 rounded-xl bg-accent-primary/15 border border-accent-primary/20 flex items-center justify-center flex-shrink-0">
                         <span className="text-accent-primary text-lg font-bold">{client.initial}</span>
                       </div>
+
                       {/* Info */}
-                      <div className="min-w-0">
-                        <p className="font-bold text-[15px] text-text-primary leading-tight truncate">{client.name}</p>
-                        <p className="text-xs text-text-muted mt-0.5">{client.location}</p>
+                      <div className="relative min-w-0 flex-1">
+                        <p className="font-semibold text-[15px] text-white leading-tight truncate">{client.name}</p>
+                        <p className="text-xs text-white/40 mt-0.5">{client.location}</p>
                       </div>
-                    </div>
+
+                      {/* Active dot */}
+                      <div className="relative flex-shrink-0 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-[10px] text-white/30 font-medium">Active</span>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* SECTION 4 - FEATURED CASE STUDY */}
-      <section className="bg-background-primary py-20">
+      {/* SECTION 4 - REVIEWS CAROUSEL */}
+      <section id="reviews" className="bg-background-secondary py-20">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[38px] font-bold text-text-primary text-center leading-tight mb-16">
-            Featured Case Study
-          </motion.h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative w-full aspect-video rounded-2xl bg-[#F7E6DF] flex items-center justify-center shadow-lg border border-border overflow-hidden group">
-              <span className="text-sm text-text-muted">Case Study Image</span>
-            </motion.div>
-            
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="flex flex-col">
-              <span className="text-accent-primary uppercase text-xs tracking-wider font-semibold mb-2 block">Electrician</span>
-              <h3 className="text-[32px] font-bold text-text-primary leading-tight mb-4">Bright Spark Electric</h3>
-              <p className="text-sm text-text-secondary leading-relaxed mb-6">
-                Full-service electrical contractor in Hamilton, Ontario. Wanted to move away from relying on referrals and phone book and build a predictable lead generation system.
-              </p>
-              
-              <div className="mb-6">
-                <span className="text-sm text-text-muted uppercase tracking-wider font-semibold block mb-2">Challenge</span>
-                <p className="text-[16px] text-text-secondary">
-                  Bright Spark was getting 2-3 qualified leads per week but wanted to scale to 5-6. Their main concern was that their website was outdated and they had no consistent way to capture emergency calls.
-                </p>
-              </div>
-              
-              <div className="mb-8">
-                <span className="text-sm text-text-muted uppercase tracking-wider font-semibold block mb-2">Solution</span>
-                <p className="text-[16px] text-text-secondary">
-                  We rebuilt their website with lead capture focus. Set up Google Local Service Ads to capture emergency electrician searches. Built a Google Ads campaign targeting specific electrical services. Created before and after video content of their work for social media.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <span className="text-sm text-text-muted uppercase tracking-wider font-semibold block mb-4">Results</span>
-                <div className="flex flex-wrap sm:flex-nowrap gap-4">
-                  <div className="bg-background-card border border-border rounded-xl p-4 text-center flex-1">
-                    <span className="text-[28px] font-bold text-accent-primary block leading-none mb-1">312%</span>
-                    <span className="text-xs text-text-muted">Increase in leads</span>
-                  </div>
-                  <div className="bg-background-card border border-border rounded-xl p-4 text-center flex-1">
-                    <span className="text-[28px] font-bold text-accent-primary block leading-none mb-1">18</span>
-                    <span className="text-xs text-text-muted">Average leads/week</span>
-                  </div>
-                  <div className="bg-background-card border border-border rounded-xl p-4 text-center flex-1">
-                    <span className="text-[28px] font-bold text-accent-primary block leading-none mb-1">$34K</span>
-                    <span className="text-xs text-text-muted">Revenue 90 days</span>
-                  </div>
-                </div>
-              </div>
-
-              <Link href="/contact" className="btn-primary self-start">Read Full Case Study</Link>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4 - TESTIMONIAL CALLOUT */}
-      <section className="bg-background-secondary py-20">
-        <div className="max-w-[700px] mx-auto px-6 flex flex-col items-center text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <p className="text-[26px] font-bold text-text-primary leading-relaxed mb-6">
-              &quot;These guys completely understand how to market to electricians. We went from scrambling for work to booking months out. Best investment we made.&quot;
-            </p>
-          </motion.div>
-          
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="flex flex-col items-center">
-            <span className="font-semibold text-text-primary">John Martinez</span>
-            <span className="text-sm text-text-muted mt-1">Owner, Bright Spark Electric</span>
-            <div className="flex space-x-1 mt-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 text-accent-primary" fill="currentColor" />
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 5 - ALL GOOGLE REVIEWS */}
-      <section id="reviews" className="bg-background-primary py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
+          {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">
@@ -355,7 +348,7 @@ export default function PortfolioPage() {
               </motion.h2>
             </div>
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }} className="flex items-center gap-3">
-              <div className="flex space-x-1">
+              <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-accent-primary" fill="currentColor" />)}
               </div>
               <span className="text-text-primary font-bold text-xl">5.0</span>
@@ -363,51 +356,69 @@ export default function PortfolioPage() {
             </motion.div>
           </div>
 
-          <motion.div
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.08 } } }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {[
-              { initials: "DA", name: "Dennis Aboagye", badge: "", time: "a month ago", text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
-              { initials: "UO", name: "Unnati Oza", badge: "Local Guide", time: "a month ago", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
-              { initials: "BY", name: "Benard Yeboah", badge: "", time: "a month ago", text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
-              { initials: "WB", name: "Wade Beattie", badge: "", time: "7 months ago", text: "Great communication, and pricing." },
-              { initials: "EW", name: "Eleanor Wilson", badge: "", time: "4 months ago", text: "Gravity contractors referred me to them and they do a very good job." },
-              { initials: "JR", name: "John Riadhh", badge: "Local Guide", time: "4 months ago", text: "Asad was very professional in helping, definitely recommend their marketing team." },
-              { initials: "JW", name: "John Williamson", badge: "", time: "14 hours ago", text: "Fantastic business first class." },
-              { initials: "N2", name: "Negril 25", badge: "", time: "9 months ago", text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him." },
-            ].map((review, i) => (
+          {/* Carousel */}
+          <div className="relative overflow-hidden">
+            <AnimatePresence mode="popLayout" custom={direction}>
               <motion.div
-                key={i}
-                variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-                className="bg-background-card border border-border rounded-2xl p-6 flex flex-col h-full hover:border-accent-primary/40 hover:shadow-lg transition-all duration-300"
+                key={page}
+                custom={direction}
+                initial={{ opacity: 0, x: direction * 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction * -80 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-accent-primary/15 text-accent-primary flex items-center justify-center font-medium text-sm flex-shrink-0">
-                      {review.initials}
+                {visible.map((review, i) => (
+                  <div key={i} className="bg-background-card border border-border rounded-2xl p-6 flex flex-col h-full hover:border-accent-primary/40 hover:shadow-lg transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-accent-primary/15 text-accent-primary flex items-center justify-center font-bold text-sm flex-shrink-0">
+                          {review.initials}
+                        </div>
+                        <div>
+                          <p className="text-text-primary font-medium text-sm leading-tight">{review.name}</p>
+                          {review.badge && <p className="text-text-muted text-xs">{review.badge}</p>}
+                        </div>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, idx) => <Star key={idx} className="w-3.5 h-3.5 text-accent-primary" fill="currentColor" />)}
+                      </div>
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-text-primary font-medium text-sm">{review.name}</span>
-                      {review.badge && <span className="text-text-muted text-xs">{review.badge}</span>}
+                    <p className="text-text-secondary text-sm leading-relaxed flex-grow mb-4">{review.text}</p>
+                    <div className="flex items-center gap-2 text-xs text-text-muted mt-auto pt-4 border-t border-border">
+                      <span>Google</span>
+                      <span className="w-1 h-1 rounded-full bg-text-muted/50" />
+                      <span>{review.time}</span>
                     </div>
                   </div>
-                  <div className="flex space-x-0.5">
-                    {[...Array(5)].map((_, idx) => <Star key={idx} className="w-3.5 h-3.5 text-accent-primary" fill="currentColor" />)}
-                  </div>
-                </div>
-                <p className="text-text-secondary text-sm leading-relaxed flex-grow mb-4">{review.text}</p>
-                <div className="flex items-center space-x-2 text-xs text-text-muted mt-auto">
-                  <span>Google</span>
-                  <span className="w-1 h-1 rounded-full bg-text-muted/50"></span>
-                  <span>{review.time}</span>
-                </div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center justify-between mt-8">
+            {/* Dot indicators */}
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setDirection(i > page ? 1 : -1); setPage(i); }}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === page ? "w-6 bg-accent-primary" : "w-2 bg-border hover:bg-accent-primary/40"}`}
+                />
+              ))}
+            </div>
+
+            {/* Prev / Next */}
+            <div className="flex gap-2">
+              <button onClick={prev} className="w-10 h-10 rounded-full border border-border bg-background-card flex items-center justify-center text-text-muted hover:border-accent-primary hover:text-accent-primary transition-colors">
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button onClick={next} className="w-10 h-10 rounded-full border border-border bg-background-card flex items-center justify-center text-text-muted hover:border-accent-primary hover:text-accent-primary transition-colors">
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
 
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 }} className="mt-10 text-center">
             <a href="https://g.page/r/review" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-border text-text-secondary rounded-lg px-6 py-3 text-sm font-medium hover:border-accent-primary hover:text-accent-primary transition-colors duration-200">
@@ -415,6 +426,7 @@ export default function PortfolioPage() {
               <ExternalLink className="w-4 h-4" />
             </a>
           </motion.div>
+
         </div>
       </section>
 
