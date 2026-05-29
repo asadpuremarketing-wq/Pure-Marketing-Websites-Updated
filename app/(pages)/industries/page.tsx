@@ -21,6 +21,7 @@ export default function Industries() {
         titleAccent="Your Industry"
         subtitle="We specialize in local service businesses. Pick your industry to see exactly how we help businesses like yours get more leads and grow faster."
         breadcrumbs={[{ label: "Industries" }]}
+        fadeToColor="#ffffff"
       />
 
       <section className="bg-background-primary py-20">

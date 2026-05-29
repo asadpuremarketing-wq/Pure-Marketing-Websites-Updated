@@ -7,9 +7,6 @@ import {
   MapPin,
   Star,
   CheckCircle2,
-  Target,
-  Zap,
-  Heart,
   Users,
   TrendingUp,
   Award,
@@ -50,27 +47,6 @@ const STATS = [
   { value: "5 yrs", label: "In Business", icon: Clock },
 ];
 
-const VALUES = [
-  {
-    icon: Target,
-    title: "Results-First",
-    description:
-      "Every strategy we build is tied to real business outcomes — leads, calls, and revenue — not vanity metrics.",
-  },
-  {
-    icon: Heart,
-    title: "Local Focus",
-    description:
-      "We exclusively serve local businesses. That specialization means deeper expertise and better results for you.",
-  },
-  {
-    icon: Zap,
-    title: "Transparent",
-    description:
-      "No hidden fees, no long-term lock-ins, no jargon. You always know what we're doing and why.",
-  },
-];
-
 
 const TEAM = [
   {
@@ -104,7 +80,7 @@ const TEAM = [
 
 const TESTIMONIALS = [
   {
-    initials: "DA",
+    photo: "https://randomuser.me/api/portraits/men/32.jpg",
     quote: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence.",
     author: "Dennis Aboagye",
     badge: "",
@@ -112,7 +88,7 @@ const TESTIMONIALS = [
     rating: 5,
   },
   {
-    initials: "UO",
+    photo: "https://randomuser.me/api/portraits/women/44.jpg",
     quote: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%.",
     author: "Unnati Oza",
     badge: "Local Guide",
@@ -120,7 +96,7 @@ const TESTIMONIALS = [
     rating: 5,
   },
   {
-    initials: "N2",
+    photo: "https://randomuser.me/api/portraits/men/88.jpg",
     quote: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will highly recommend him.",
     author: "Negril 25",
     badge: "",
@@ -311,50 +287,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CORE VALUES */}
-      <section className="bg-background-primary py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col items-center text-center mb-14">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-4">
-              <SectionLabel>Our Values</SectionLabel>
-            </motion.div>
-            <motion.h2 variants={fadeUp} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-[30px] md:text-[38px] font-bold text-text-primary leading-tight">
-              What We Stand For
-            </motion.h2>
-          </div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {VALUES.map((v, i) => {
-              const Icon = v.icon;
-              return (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  custom={i}
-                  className="bg-background-card border border-border rounded-2xl p-8 text-center hover:border-accent-primary hover:shadow-lg transition-all duration-300 group"
-                >
-                  <div className="w-14 h-14 bg-accent-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-accent-primary/20 transition-colors">
-                    <Icon className="w-7 h-7 text-accent-primary" />
-                  </div>
-                  <h3 className="font-bold text-[18px] text-text-primary mb-3">
-                    {v.title}
-                  </h3>
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {v.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
       {/* MEET THE TEAM */}
       <section className="bg-background-primary py-20">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -468,8 +400,8 @@ export default function About() {
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-border flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-accent-primary/15 flex items-center justify-center flex-shrink-0">
-                    <span className="text-accent-primary text-xs font-bold">{t.initials}</span>
+                  <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-accent-primary/15">
+                    <Image src={t.photo} alt={t.author} width={36} height={36} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <p className="font-semibold text-text-primary text-sm">{t.author}</p>

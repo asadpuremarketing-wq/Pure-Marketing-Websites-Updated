@@ -108,6 +108,7 @@ export default function ContactPage() {
         titleAccent="Your Business"
         subtitle="Whether you have questions about our services, want to discuss your specific needs, or are ready to get started, we would love to hear from you."
         breadcrumbs={[{ label: "Contact" }]}
+        fadeToColor="#F8FAFC"
       />
 
       {/* SECTION 2 - TWO COLUMN CONTACT LAYOUT */}

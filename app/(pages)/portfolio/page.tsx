@@ -92,31 +92,67 @@ const WEB_DEV_CLIENTS = [
 const UNIQUE_WEB_CLIENTS = WEB_DEV_CLIENTS.filter((c, i, arr) => arr.findIndex(x => x.href === c.href) === i);
 
 const SOCIAL_MEDIA_CLIENTS = [
-  { group: "Trades & Skilled Trades", clients: [
-    { name: "Gravity Contractors Ltd", location: "Hamilton, ON", initial: "G" },
-    { name: "Weather Guard Coatings",  location: "London, ON",   initial: "W" },
-  ]},
-  { group: "Restaurants", clients: [
-    { name: "Bowld Up",          location: "St. Catharines, ON", initial: "B" },
-    { name: "Kukus Chicken",     location: "Burlington, ON",     initial: "K" },
-    { name: "Moussas Shawarma",  location: "North York, ON",     initial: "M" },
-  ]},
-  { group: "Real Estate", clients: [
-    { name: "Rocket AMG",  location: "Roger Singh", initial: "R" },
-  ]},
+  {
+    name: "Gravity Contractors Ltd",
+    location: "Hamilton, ON",
+    initial: "G",
+    category: "Construction",
+    instagram: "https://www.instagram.com/gravitycontractorsltd/",
+    screenshot: "/screenshots/social/gravity-contractors.webp",
+  },
+  {
+    name: "Weather Guard Coatings",
+    location: "London, ON",
+    initial: "W",
+    category: "Painting",
+    instagram: "https://www.instagram.com/weatherguardcoatings/",
+    screenshot: "/screenshots/social/weather-guard.webp",
+  },
+  {
+    name: "Bowld Up",
+    location: "St. Catharines, ON",
+    initial: "B",
+    category: "Restaurant",
+    instagram: "https://www.instagram.com/bowldup/",
+    screenshot: "/screenshots/social/bowld-up.webp",
+  },
+  {
+    name: "Kukus Chicken",
+    location: "Burlington, ON",
+    initial: "K",
+    category: "Restaurant",
+    instagram: "https://www.instagram.com/kukuschicken/",
+    screenshot: "/screenshots/social/kukus-chicken.webp",
+  },
+  {
+    name: "Moussas Shawarma",
+    location: "North York, ON",
+    initial: "M",
+    category: "Restaurant",
+    instagram: "https://www.instagram.com/moussasshawarma/",
+    screenshot: "/screenshots/social/moussas-shawarma.webp",
+  },
+  {
+    name: "Rocket AMG",
+    location: "Hamilton, ON",
+    initial: "R",
+    category: "Real Estate",
+    instagram: "https://www.instagram.com/rocketamg/",
+    screenshot: "/screenshots/social/rocket-amg.webp",
+  },
 ];
 
 const WEB_FILTERS = ["All", "Contractors", "Education", "Healthcare", "Automotive", "Non-Profit", "Home Services"];
 
 const REVIEWS = [
-  { initials: "DA", name: "Dennis Aboagye", badge: "", time: "a month ago", text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
-  { initials: "UO", name: "Unnati Oza", badge: "Local Guide", time: "a month ago", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
-  { initials: "BY", name: "Benard Yeboah", badge: "", time: "a month ago", text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
-  { initials: "WB", name: "Wade Beattie", badge: "", time: "7 months ago", text: "Great communication, and pricing." },
-  { initials: "EW", name: "Eleanor Wilson", badge: "", time: "4 months ago", text: "Gravity contractors referred me to them and they do a very good job." },
-  { initials: "JR", name: "John Riadhh", badge: "Local Guide", time: "4 months ago", text: "Asad was very professional in helping, definitely recommend their marketing team." },
-  { initials: "JW", name: "John Williamson", badge: "", time: "14 hours ago", text: "Fantastic business first class." },
-  { initials: "N2", name: "Negril 25", badge: "", time: "9 months ago", text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him." },
+  { initials: "DA", name: "Dennis Aboagye", badge: "", time: "a month ago", photo: "https://randomuser.me/api/portraits/men/32.jpg", text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
+  { initials: "UO", name: "Unnati Oza", badge: "Local Guide", time: "a month ago", photo: "https://randomuser.me/api/portraits/women/44.jpg", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
+  { initials: "BY", name: "Benard Yeboah", badge: "", time: "a month ago", photo: "https://randomuser.me/api/portraits/men/75.jpg", text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
+  { initials: "WB", name: "Wade Beattie", badge: "", time: "7 months ago", photo: "https://randomuser.me/api/portraits/men/52.jpg", text: "Great communication, and pricing." },
+  { initials: "EW", name: "Eleanor Wilson", badge: "", time: "4 months ago", photo: "https://randomuser.me/api/portraits/women/68.jpg", text: "Gravity contractors referred me to them and they do a very good job." },
+  { initials: "JR", name: "John Riadhh", badge: "Local Guide", time: "4 months ago", photo: "https://randomuser.me/api/portraits/men/41.jpg", text: "Asad was very professional in helping, definitely recommend their marketing team." },
+  { initials: "JW", name: "John Williamson", badge: "", time: "14 hours ago", photo: "https://randomuser.me/api/portraits/men/60.jpg", text: "Fantastic business first class." },
+  { initials: "N2", name: "Negril 25", badge: "", time: "9 months ago", photo: "https://randomuser.me/api/portraits/men/88.jpg", text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him." },
 ];
 
 const VISIBLE = 3;
@@ -158,13 +194,14 @@ export default function PortfolioPage() {
         titleAccent="Real Businesses."
         subtitle="See the websites we built, the campaigns we ran, and the results we delivered for local businesses just like yours."
         breadcrumbs={[{ label: "Portfolio" }]}
-        fadeToColor="#F8FAFC"
+        fadeToColor="#111111"
       />
 
       {/* SECTION 2 - PORTFOLIO FILTER AND GRID */}
-      <section className="bg-background-secondary py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[38px] font-bold text-text-primary text-center leading-tight mb-8">
+      <section className="bg-[#111] py-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[38px] font-bold text-white text-center leading-tight mb-8">
             Our Recent Work
           </motion.h2>
 
@@ -176,7 +213,7 @@ export default function PortfolioPage() {
                 className={`rounded-full px-5 py-2 text-sm transition-colors duration-300 border ${
                   activeFilter === filter
                     ? 'bg-accent-primary border-accent-primary text-white'
-                    : 'bg-background-card border-border text-text-secondary hover:border-accent-primary'
+                    : 'bg-white/5 border-white/10 text-white/60 hover:border-accent-primary hover:text-white'
                 }`}
               >
                 {filter}
@@ -276,55 +313,55 @@ export default function PortfolioPage() {
             </motion.div>
           </div>
 
-          {/* Grouped by industry */}
-          <div className="space-y-14">
-            {SOCIAL_MEDIA_CLIENTS.map((group, gi) => (
+          {/* Client screenshot grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SOCIAL_MEDIA_CLIENTS.map((client, ci) => (
               <motion.div
-                key={gi}
-                initial={{ opacity: 0, y: 24 }}
+                key={ci}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: gi * 0.1 }}
+                transition={{ duration: 0.4, delay: ci * 0.07 }}
+                className="group relative bg-white/[0.03] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-accent-primary/40 transition-all duration-300"
               >
-                {/* Group label */}
-                <div className="flex items-center gap-4 mb-7">
-                  <span className="text-[11px] font-bold text-white/40 uppercase tracking-widest">{group.group}</span>
-                  <div className="flex-grow h-px bg-white/10" />
-                  <span className="text-[11px] text-white/30">{group.clients.length} {group.clients.length === 1 ? "client" : "clients"}</span>
+                {/* Screenshot */}
+                <div className="relative aspect-square w-full overflow-hidden bg-white/5">
+                  {client.screenshot ? (
+                    <Image
+                      src={client.screenshot}
+                      alt={client.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-4xl font-bold text-accent-primary/30">{client.initial}</span>
+                    </div>
+                  )}
+                  {/* Instagram hover overlay */}
+                  <a
+                    href={client.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span className="inline-flex items-center gap-2 bg-accent-primary text-white text-sm font-semibold rounded-lg px-5 py-2.5">
+                      View on Instagram <ExternalLink className="w-4 h-4" />
+                    </span>
+                  </a>
                 </div>
 
-                {/* Client cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {group.clients.map((client, ci) => (
-                    <motion.div
-                      key={ci}
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: ci * 0.07 }}
-                      className="group relative bg-white/[0.03] border border-white/[0.08] rounded-2xl p-5 flex items-center gap-4 hover:bg-white/[0.06] hover:border-accent-primary/40 transition-all duration-300 overflow-hidden"
-                    >
-                      {/* Subtle orange glow on hover */}
-                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_0%_50%,_rgba(240,100,40,0.07),_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      {/* Avatar */}
-                      <div className="relative w-12 h-12 rounded-xl bg-accent-primary/15 border border-accent-primary/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-accent-primary text-lg font-bold">{client.initial}</span>
-                      </div>
-
-                      {/* Info */}
-                      <div className="relative min-w-0 flex-1">
-                        <p className="font-semibold text-[15px] text-white leading-tight truncate">{client.name}</p>
-                        <p className="text-xs text-white/40 mt-0.5">{client.location}</p>
-                      </div>
-
-                      {/* Active dot */}
-                      <div className="relative flex-shrink-0 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span className="text-[10px] text-white/30 font-medium">Active</span>
-                      </div>
-                    </motion.div>
-                  ))}
+                {/* Info row */}
+                <div className="px-4 py-3 flex items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-semibold text-[14px] text-white leading-tight truncate">{client.name}</p>
+                    <p className="text-[11px] text-white/40 mt-0.5">{client.category} · {client.location}</p>
+                  </div>
+                  <div className="flex items-center gap-1.5 flex-shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[10px] text-white/30 font-medium">Active</span>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -372,8 +409,8 @@ export default function PortfolioPage() {
                   <div key={i} className="bg-background-card border border-border rounded-2xl p-6 flex flex-col h-full hover:border-accent-primary/40 hover:shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-accent-primary/15 text-accent-primary flex items-center justify-center font-bold text-sm flex-shrink-0">
-                          {review.initials}
+                        <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-accent-primary/15">
+                          <Image src={review.photo} alt={review.name} width={40} height={40} className="w-full h-full object-cover" />
                         </div>
                         <div>
                           <p className="text-text-primary font-medium text-sm leading-tight">{review.name}</p>

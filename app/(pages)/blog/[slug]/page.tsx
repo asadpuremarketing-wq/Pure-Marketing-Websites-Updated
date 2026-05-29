@@ -7,41 +7,49 @@ import CTABanner from "@/components/sections/CTABanner";
 
 export default function BlogPostPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background-primary pt-32 pb-20 md:pt-40">
+    <div className="flex flex-col min-h-screen">
 
-      {/* POST HERO */}
-      <div className="max-w-[1000px] mx-auto px-6 w-full">
-        <Link href="/blog" className="inline-flex items-center text-accent-primary text-sm font-medium hover:underline mb-8">
-          <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blog
-        </Link>
+      {/* POST HERO — dark header matching site style */}
+      <section className="relative bg-[#111] pt-[100px] pb-14 md:pt-[120px] md:pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#111] to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_20%_50%,_rgba(240,100,40,0.08),_transparent)]" />
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-12" style={{ background: "linear-gradient(to top, #ffffff, transparent)" }} />
 
-        <div className="flex flex-col mb-10">
-          <span className="text-accent-primary text-sm uppercase tracking-wider font-semibold mb-4 block">Restaurant Marketing</span>
-          <h1 className="font-serif text-[32px] md:text-[48px] text-text-primary leading-tight mb-6">
+        <div className="relative z-10 max-w-[1000px] mx-auto px-6 w-full">
+          <Link href="/blog" className="inline-flex items-center text-accent-primary text-sm font-medium hover:underline mb-8">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blog
+          </Link>
+
+          <span className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-4 block">Restaurant Marketing</span>
+          <h1 className="font-serif text-[32px] md:text-[48px] text-white leading-tight mb-6 max-w-[800px]">
             How GTA Restaurants Can Fill More Tables Using Digital Marketing in 2024
           </h1>
-          <p className="text-[18px] text-text-secondary max-w-[800px] leading-relaxed mb-8">
-            The restaurant industry in Greater Toronto is one of the most competitive markets in Canada. Here&apos;s the exact digital marketing playbook we use to help local restaurants stand out, get found, and fill seats consistently — even against big chains.
+          <p className="text-[17px] text-white/60 max-w-[680px] leading-relaxed mb-10">
+            The restaurant industry in Greater Toronto is one of the most competitive markets in Canada. Here&apos;s the exact digital marketing playbook we use to help local restaurants stand out, get found, and fill seats consistently.
           </p>
 
-          <div className="flex flex-wrap items-center justify-between border-t border-border pt-6 pb-2">
-            <div className="flex items-center gap-6 text-sm text-text-muted mb-4 sm:mb-0">
+          <div className="flex flex-wrap items-center justify-between border-t border-white/10 pt-6">
+            <div className="flex items-center gap-6 text-sm text-white/50 mb-4 sm:mb-0">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center text-white text-xs font-bold flex-shrink-0">AS</div>
-                <span className="font-medium text-text-primary">Asad Saif</span>
+                <span className="font-medium text-white/80">Asad Saif</span>
               </div>
               <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> April 22, 2024</span>
               <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> 11 min read</span>
             </div>
-
             <div className="flex items-center gap-3">
-              <span className="text-sm text-text-muted">Share:</span>
-              <button className="w-8 h-8 rounded-full bg-background-card border border-border flex items-center justify-center text-text-muted hover:text-accent-primary transition-colors">
+              <span className="text-sm text-white/40">Share:</span>
+              <button className="w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white/50 hover:text-accent-primary transition-colors">
                 <Share2 className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
+      </section>
+
+      <div className="bg-background-primary pb-20">
+        <div className="max-w-[1000px] mx-auto px-6 w-full pt-12">
 
         <div className="relative w-full aspect-video md:aspect-[21/9] max-h-[500px] rounded-2xl overflow-hidden mb-16 shadow-lg border border-border">
           <Image
@@ -56,7 +64,7 @@ export default function BlogPostPage() {
       </div>
 
       {/* CONTENT + SIDEBAR */}
-      <div className="max-w-[1200px] mx-auto px-6 w-full flex flex-col lg:flex-row gap-16 relative">
+      <div className="max-w-[1200px] mx-auto px-6 w-full flex flex-col lg:flex-row gap-16 relative pt-4">
 
         {/* MAIN CONTENT */}
         <div className="lg:w-2/3 w-full">
@@ -413,6 +421,7 @@ export default function BlogPostPage() {
           </div>
         </div>
       </div>
+      </div>{/* end bg-background-primary wrapper */}
 
       {/* BOTTOM CTA */}
       <div className="w-full bg-background-secondary py-20 mt-16">

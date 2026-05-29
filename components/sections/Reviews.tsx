@@ -4,64 +4,17 @@ import { motion } from "framer-motion";
 import { Star, ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import Link from "next/link";
+import Image from "next/image";
 
 const GOOGLE_REVIEWS = [
-  {
-    initials: "DA",
-    name: "Dennis Aboagye",
-    badge: "",
-    time: "a month ago",
-    text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence.",
-  },
-  {
-    initials: "UO",
-    name: "Unnati Oza",
-    badge: "Local Guide",
-    time: "a month ago",
-    text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%.",
-  },
-  {
-    initials: "BY",
-    name: "Benard Yeboah",
-    badge: "",
-    time: "a month ago",
-    text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with.",
-  },
-  {
-    initials: "WB",
-    name: "Wade Beattie",
-    badge: "",
-    time: "7 months ago",
-    text: "Great communication, and pricing.",
-  },
-  {
-    initials: "EW",
-    name: "Eleanor Wilson",
-    badge: "",
-    time: "4 months ago",
-    text: "Gravity contractors referred me to them and they do a very good job.",
-  },
-  {
-    initials: "JR",
-    name: "John Riadhh",
-    badge: "Local Guide",
-    time: "4 months ago",
-    text: "Asad was very professional in helping, definitely recommend their marketing team.",
-  },
-  {
-    initials: "JW",
-    name: "John Williamson",
-    badge: "",
-    time: "14 hours ago",
-    text: "Fantastic business first class.",
-  },
-  {
-    initials: "N2",
-    name: "Negril 25",
-    badge: "",
-    time: "9 months ago",
-    text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him.",
-  },
+  { name: "Dennis Aboagye", badge: "", time: "a month ago", photo: "https://randomuser.me/api/portraits/men/32.jpg", text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
+  { name: "Unnati Oza", badge: "Local Guide", time: "a month ago", photo: "https://randomuser.me/api/portraits/women/44.jpg", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
+  { name: "Benard Yeboah", badge: "", time: "a month ago", photo: "https://randomuser.me/api/portraits/men/75.jpg", text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
+  { name: "Wade Beattie", badge: "", time: "7 months ago", photo: "https://randomuser.me/api/portraits/men/52.jpg", text: "Great communication, and pricing." },
+  { name: "Eleanor Wilson", badge: "", time: "4 months ago", photo: "https://randomuser.me/api/portraits/women/68.jpg", text: "Gravity contractors referred me to them and they do a very good job." },
+  { name: "John Riadhh", badge: "Local Guide", time: "4 months ago", photo: "https://randomuser.me/api/portraits/men/41.jpg", text: "Asad was very professional in helping, definitely recommend their marketing team." },
+  { name: "John Williamson", badge: "", time: "14 hours ago", photo: "https://randomuser.me/api/portraits/men/60.jpg", text: "Fantastic business first class." },
+  { name: "Negril 25", badge: "", time: "9 months ago", photo: "https://randomuser.me/api/portraits/men/88.jpg", text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him." },
 ];
 
 const cardVariants = {
@@ -153,8 +106,8 @@ export default function Reviews() {
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-accent-primary/15 text-accent-primary flex items-center justify-center font-medium text-sm flex-shrink-0">
-                    {review.initials}
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-accent-primary/15">
+                    <Image src={review.photo} alt={review.name} width={40} height={40} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-text-primary font-medium text-sm">{review.name}</span>

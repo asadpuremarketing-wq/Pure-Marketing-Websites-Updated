@@ -1,58 +1,44 @@
 import Stripe from "stripe";
 import { NextRequest, NextResponse } from "next/server";
 
-/* ─── Plan configuration ─────────────────────────────────────── */
-
-const PLANS: Record<
-  string,
-  { name: string; description: string; amountCents: number; billingLabel: string }
-> = {
+const PLANS: Record<string, {
+  name: string;
+  description: string;
+  amountCents: number;
+  cancellationNote: string;
+}> = {
   "1-month": {
-    name: "Social Media Management — Month-to-Month",
-    description:
-      "Full social media management: daily posting on Instagram & Facebook, custom content creation, community engagement, monthly analytics report, dedicated account manager.",
-    amountCents: 149900, // $1,499.00
-    billingLabel: "Monthly plan — cancel anytime",
+    name: "Social Media Management — Monthly",
+    description: "Full social media management. Instagram, Facebook, daily content, community engagement, monthly analytics. Cancel anytime.",
+    amountCents: 149900,
+    cancellationNote: "Cancel anytime. No cancellation fee.",
   },
   "3-month": {
-    name: "Social Media Management — 3-Month Package",
-    description:
-      "Everything in Month-to-Month + priority content, TikTok & LinkedIn, bi-weekly check-ins, competitor analysis, Story & Reel creation, ad creative templates. Paid once.",
-    amountCents: 359700, // $3,597.00
-    billingLabel: "$1,199/mo × 3 months — paid once",
+    name: "Social Media Management — 3 Month Plan",
+    description: "Everything in Monthly plus TikTok, LinkedIn, bi-weekly check-ins, competitor analysis, Story and Reel creation. Billed monthly for 3 months. 25% cancellation fee if cancelled early.",
+    amountCents: 119900,
+    cancellationNote: "Billed monthly for 3 months. 25% cancellation fee applies if cancelled before 3 months.",
   },
   "6-month": {
-    name: "Social Media Management — 6-Month Package",
-    description:
-      "Everything in 3-Month + full platform management, weekly strategy calls, 2 monthly Reels, influencer outreach, custom brand voice guide, priority 24/7 support. Paid once.",
-    amountCents: 539400, // $5,394.00
-    billingLabel: "$899/mo × 6 months — paid once",
+    name: "Social Media Management — 6 Month Plan",
+    description: "Everything in 3 Month plus all platforms, weekly strategy calls, 2 Reels per month, priority support. Billed monthly for 6 months. 25% cancellation fee if cancelled early.",
+    amountCents: 89900,
+    cancellationNote: "Billed monthly for 6 months. 25% cancellation fee applies if cancelled before 6 months.",
   },
 };
-
-/* ─── Route handler ─────────────────────────────────────────── */
 
 export async function POST(req: NextRequest) {
   const stripeKey = process.env.STRIPE_SECRET_KEY;
   if (!stripeKey) {
     return NextResponse.json(
-      { error: "Stripe is not configured. Please add STRIPE_SECRET_KEY to your environment variables." },
+      { error: "Stripe is not configured. Add STRIPE_SECRET_KEY to your environment variables." },
       { status: 500 }
     );
   }
 
   const stripe = new Stripe(stripeKey, { apiVersion: "2026-04-22.dahlia" });
 
-  const {
-    firstName,
-    lastName,
-    email,
-    phone,
-    businessName,
-    industry,
-    message,
-    plan,
-  } = await req.json();
+  const { firstName, lastName, email, phone, businessName, industry, message, plan } = await req.json();
 
   if (!firstName || !lastName || !email || !phone || !businessName || !industry || !plan) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -68,7 +54,7 @@ export async function POST(req: NextRequest) {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      mode: "payment",
+      mode: "subscription",
       customer_email: email,
       line_items: [
         {
@@ -77,9 +63,11 @@ export async function POST(req: NextRequest) {
             product_data: {
               name: planConfig.name,
               description: planConfig.description,
-              images: [`${baseUrl}/og-image.jpg`],
             },
             unit_amount: planConfig.amountCents,
+            recurring: {
+              interval: "month",
+            },
           },
           quantity: 1,
         },
@@ -94,21 +82,28 @@ export async function POST(req: NextRequest) {
         industry,
         message: message ?? "",
       },
+      subscription_data: {
+        metadata: {
+          plan,
+          firstName,
+          lastName,
+          phone,
+          businessName,
+          industry,
+        },
+      },
       success_url: `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&plan=${plan}`,
       cancel_url: `${baseUrl}/checkout?plan=${plan}&cancelled=true`,
-      billing_address_collection: "auto",
-      phone_number_collection: { enabled: false },
       custom_text: {
         submit: {
-          message:
-            "After payment, our team will reach out within 1 business day to schedule your onboarding call and get you started.",
+          message: planConfig.cancellationNote,
         },
       },
     });
 
     return NextResponse.json({ url: session.url });
   } catch (err) {
-    console.error("Stripe session creation error:", err);
+    console.error("Stripe session error:", err);
     return NextResponse.json({ error: "Failed to create payment session" }, { status: 500 });
   }
 }
