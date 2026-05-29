@@ -468,8 +468,6 @@ const SERVICES = [
   },
 ];
 
-const ALL_SERVICES = SERVICES.map(s => ({ slug: s.slug, title: s.title, icon: s.icon }));
-
 export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = SERVICES.find(s => s.slug === params.slug);
   if (!service) notFound();
