@@ -97,7 +97,7 @@ export async function POST(req: NextRequest) {
             businessName,
             industry,
           },
-        },
+        } as Parameters<typeof stripe.checkout.sessions.create>[0]["subscription_data"],
         success_url: `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&plan=growth-system`,
         cancel_url: `${baseUrl}/checkout?product=growth-system&cancelled=true`,
         custom_text: {
@@ -163,7 +163,7 @@ export async function POST(req: NextRequest) {
           businessName,
           industry,
         },
-      },
+      } as Parameters<typeof stripe.checkout.sessions.create>[0]["subscription_data"],
       success_url: `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&plan=${plan}`,
       cancel_url: `${baseUrl}/checkout?plan=${plan}&cancelled=true`,
       custom_text: {
