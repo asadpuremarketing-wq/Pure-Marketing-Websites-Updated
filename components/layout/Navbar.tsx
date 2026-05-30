@@ -226,16 +226,6 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            <Link
-              href="/checkout"
-              className={`text-sm font-semibold px-4 py-2 rounded-lg border transition-all duration-200 ${
-                !isScrolled && isDarkHero
-                  ? "border-white/30 text-white hover:bg-white hover:text-text-primary"
-                  : "border-border text-text-primary hover:border-accent-primary hover:text-accent-primary"
-              }`}
-            >
-              Pay Now
-            </Link>
             <Link href="/contact" className="btn-primary text-sm">
               Get a Free Audit
             </Link>
@@ -319,13 +309,6 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <Link
-                href="/checkout"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-center border border-border rounded-xl py-3 text-sm font-semibold text-text-primary hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
-              >
-                Pay Now
-              </Link>
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
