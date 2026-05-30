@@ -1,6 +1,20 @@
 import Stripe from "stripe";
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
+
+/* ─── Mailer ─────────────────────────────────────────────────── */
+
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT ?? 465),
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+}
 
 /* ─── Webhook handler ───────────────────────────────────────── */
 
@@ -13,7 +27,6 @@ export async function POST(req: NextRequest) {
   }
 
   const stripe = new Stripe(stripeKey, { apiVersion: "2026-04-22.dahlia" });
-  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const body = await req.text();
   const signature = req.headers.get("stripe-signature");
@@ -41,16 +54,7 @@ export async function POST(req: NextRequest) {
     }
 
     const meta = session.metadata ?? {};
-    const {
-      plan,
-      firstName,
-      lastName,
-      email,
-      phone,
-      businessName,
-      industry,
-      message,
-    } = meta;
+    const { plan, productType, firstName, lastName, email, phone, businessName, industry, message } = meta;
 
     const fullName = `${firstName} ${lastName}`;
     const amountPaid = session.amount_total
@@ -58,27 +62,31 @@ export async function POST(req: NextRequest) {
       : "—";
 
     const PLAN_LABELS: Record<string, string> = {
-      "1-month": "Month-to-Month Plan — $1,499/mo",
-      "3-month": "3-Month Package — $1,199/mo · $3,597 total",
-      "6-month": "6-Month Package — $899/mo · $5,394 total",
+      "1-month": "Social Media Management — Month-to-Month ($1,499/mo)",
+      "3-month": "Social Media Management — 3-Month Plan ($1,199/mo)",
+      "6-month": "Social Media Management — 6-Month Plan ($899/mo)",
+      "growth-system": "90-Day Growth System ($1,500/mo × 3 months)",
     };
     const planLabel = PLAN_LABELS[plan] ?? plan;
+    const isGrowth = productType === "growth-system";
 
     try {
+      const transporter = createTransporter();
+
       await Promise.all([
         /* Internal notification to Pure Marketing */
-        resend.emails.send({
-          from: "Pure Marketing Website <noreply@puremarketing.ca>",
+        transporter.sendMail({
+          from: `"Pure Marketing Website" <${process.env.SMTP_USER}>`,
           to: "info@puremarketing.ca",
-          subject: `💳 Payment Received: ${fullName} — Social Media ${planLabel}`,
+          subject: `💳 Payment Received: ${fullName} — ${planLabel}`,
           html: internalEmail({ fullName, email, phone, businessName, industry, message, planLabel, amountPaid }),
         }),
         /* Confirmation to the client */
-        resend.emails.send({
-          from: "Pure Marketing <noreply@puremarketing.ca>",
+        transporter.sendMail({
+          from: `"Pure Marketing" <${process.env.SMTP_USER}>`,
           to: email,
           subject: "Payment Confirmed — Welcome to Pure Marketing! 🎉",
-          html: clientEmail({ firstName, planLabel, amountPaid }),
+          html: clientEmail({ firstName, planLabel, amountPaid, isGrowth }),
         }),
       ]);
     } catch (emailErr) {
@@ -136,7 +144,7 @@ function internalEmail({
             <p style="margin:0;color:#1a1a1a;font-size:15px;line-height:1.6;">${message.replace(/\n/g, "<br>")}</p>
           </div>` : ""}
 
-          <div style="margin-top:28px;display:flex;gap:12px;">
+          <div style="margin-top:28px;">
             <a href="mailto:${email}" style="display:inline-block;background:#F06428;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;margin-right:10px;">
               Email ${fullName.split(" ")[0]}
             </a>
@@ -167,10 +175,22 @@ function row(label: string, value: string) {
 }
 
 function clientEmail({
-  firstName, planLabel, amountPaid,
+  firstName, planLabel, amountPaid, isGrowth,
 }: {
-  firstName: string; planLabel: string; amountPaid: string;
+  firstName: string; planLabel: string; amountPaid: string; isGrowth: boolean;
 }) {
+  const steps = isGrowth ? [
+    { num: "1", title: "Kickoff call scheduled", desc: "Our team will reach out within 1 business day to schedule your project kickoff call." },
+    { num: "2", title: "Brand intake & strategy", desc: "We gather your brand details, goals, and target audience to build your system." },
+    { num: "3", title: "Build & launch", desc: "Website, ads, and automation are built and launched within your 90-day timeline." },
+    { num: "4", title: "Optimize & grow", desc: "We monitor, optimize, and report results every month throughout the program." },
+  ] : [
+    { num: "1", title: "Onboarding call scheduled", desc: "Our team will reach out within 1 business day to schedule your kickoff call." },
+    { num: "2", title: "Brand intake & strategy", desc: "We learn your brand voice, goals, target audience, and content preferences." },
+    { num: "3", title: "Content calendar approved", desc: "You'll review and approve your first month of content before we go live." },
+    { num: "4", title: "We go live!", desc: "Daily posting begins — sit back and watch your audience grow." },
+  ];
+
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -182,11 +202,11 @@ function clientEmail({
 
         <tr><td style="background:#F06428;border-radius:12px 12px 0 0;padding:32px 36px;text-align:center;">
           <h1 style="margin:0;color:#fff;font-size:26px;font-weight:700;">Pure Marketing</h1>
-          <p style="margin:6px 0 0;color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:0.3px;">SOCIAL MEDIA MANAGEMENT</p>
+          <p style="margin:6px 0 0;color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:0.3px;">${isGrowth ? "90-DAY GROWTH SYSTEM" : "SOCIAL MEDIA MANAGEMENT"}</p>
         </td></tr>
 
         <tr><td style="background:#d8612a;padding:15px;text-align:center;">
-          <p style="margin:0;color:#fff;font-size:14px;font-weight:600;">🎉 Payment Confirmed — Welcome to the Family!</p>
+          <p style="margin:0;color:#fff;font-size:14px;font-weight:600;">🎉 Payment Confirmed — Welcome to Pure Marketing!</p>
         </td></tr>
 
         <tr><td style="background:#fff;padding:40px 36px;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;">
@@ -204,10 +224,7 @@ function clientEmail({
           <div style="background:#f7f7f7;border-radius:10px;padding:24px;margin-bottom:28px;">
             <p style="margin:0 0 16px;color:#1a1a1a;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">What Happens Next</p>
             <table width="100%" cellpadding="0" cellspacing="0">
-              ${step("1", "Onboarding call scheduled", "Our team will reach out within 1 business day to schedule your kickoff call.")}
-              ${step("2", "Brand intake & strategy", "We learn your brand voice, goals, target audience, and content preferences.")}
-              ${step("3", "Content calendar approved", "You'll review and approve your first month of content before we go live.")}
-              ${step("4", "We go live!", "Daily posting begins — sit back and watch your audience grow.")}
+              ${steps.map(s => step(s.num, s.title, s.desc)).join("")}
             </table>
           </div>
 
@@ -239,7 +256,7 @@ function step(num: string, title: string, desc: string) {
   return `
     <tr>
       <td style="vertical-align:top;width:32px;padding-bottom:14px;">
-        <div style="width:26px;height:26px;background:#F06428;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
+        <div style="width:26px;height:26px;background:#F06428;border-radius:50%;text-align:center;line-height:26px;">
           <span style="color:#fff;font-size:12px;font-weight:700;">${num}</span>
         </div>
       </td>

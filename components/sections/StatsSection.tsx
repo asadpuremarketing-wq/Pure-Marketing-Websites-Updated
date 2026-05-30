@@ -6,7 +6,7 @@ const STATS = [
   { value: "350+", label: "Projects Completed" },
   { value: "92%", label: "Client Retention Rate" },
   { value: "4.2x", label: "Average ROI Increase" },
-  { value: "8+", label: "Years of Experience" },
+  { value: "5+", label: "Years of Experience" },
 ];
 
 export default function StatsSection() {
