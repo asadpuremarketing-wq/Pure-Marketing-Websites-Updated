@@ -251,7 +251,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-border overflow-hidden shadow-lg"
+            className="md:hidden bg-white border-b border-border shadow-lg overflow-y-auto"
+            style={{ maxHeight: "calc(100vh - 68px)" }}
           >
             <div className="flex flex-col divide-y divide-border">
               {/* Main links */}
