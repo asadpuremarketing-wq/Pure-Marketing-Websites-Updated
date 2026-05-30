@@ -35,7 +35,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Google",
-    href: "https://g.page/puremarketing",
+    href: "https://maps.app.goo.gl/a1Rx6gwFfTPTayaN9",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -132,8 +132,8 @@ export default function Footer() {
         <div className="border-t border-[#6B6560]/30 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-[#6B6560]">
           <p>&copy; {new Date().getFullYear()} Pure Marketing. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

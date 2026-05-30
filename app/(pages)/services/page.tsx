@@ -71,58 +71,26 @@ const SERVICES_DETAILED = [
   },
 ];
 
-const PACKAGES = [
+const PAYMENT_SERVICES = [
   {
-    title: "Build Your Own",
-    subtext: "Pick the services you need",
-    price: "From $1,500",
-    period: "/month",
-    roi: "Ideal for businesses testing one channel first",
-    features: [
-      "Choose any single service",
-      "No minimum contract",
-      "Month-to-month",
-      "Dedicated support",
-    ],
-    button: "Start With One Service",
-    href: "/contact?service=custom",
+    icon: Share2,
+    tag: "SOCIAL GROWTH",
+    title: "Social Media Management",
+    desc: "Consistent content, strategy and engagement that grows your brand and keeps you top of mind.",
+    plans: ["Monthly — $1,499/mo", "3-Month — $1,199/mo", "6-Month — $899/mo"],
+    button: "Get Started",
+    href: "/checkout?product=social-media",
     popular: false,
   },
   {
-    title: "Growth Package",
-    subtext: "The complete lead system",
-    price: "$4,500",
-    period: "/month",
-    roi: "Clients typically see 6–10× ROI within 90 days",
-    features: [
-      "Custom website",
-      "Full lead generation system",
-      "Daily social media management",
-      "One video shoot per month",
-      "Monthly reporting",
-      "Dedicated account manager",
-    ],
+    icon: TrendingUp,
+    tag: "LEAD GENERATION",
+    title: "90-Day Growth System",
+    desc: "Complete lead generation system: website, Google Ads, Meta Ads, SEO, automation and more — paid in 3 installments.",
+    plans: ["3 installments of $1,500 CAD", "Total investment: $4,500 CAD", "Full system built in 90 days"],
     button: "Start Growing Now",
-    href: "/contact?service=growth-package",
+    href: "/checkout?product=growth-system",
     popular: true,
-  },
-  {
-    title: "Premium System",
-    subtext: "Full service and concierge",
-    price: "Custom",
-    period: " pricing",
-    roi: "Built around your specific growth targets",
-    features: [
-      "Everything in Growth Package",
-      "Three video shoots per month",
-      "Advanced analytics and reporting",
-      "Monthly strategy calls",
-      "Priority support",
-      "Custom integrations",
-    ],
-    button: "Schedule Consultation",
-    href: "/contact?service=premium",
-    popular: false,
   },
 ];
 
@@ -165,7 +133,7 @@ const FAQS = [
   },
   {
     q: "What if we only want one service, not the full package?",
-    a: "Absolutely. We offer all services individually. Many clients start with one service and add more as they see results. No pressure to buy everything at once.",
+    a: "Absolutely. We offer all services individually. Online payments are available for Social Media Management and the 90-Day Growth System. For any other individual service, contact us and we will put together a custom quote — no pressure.",
   },
   {
     q: "How do you measure success?",
@@ -337,64 +305,90 @@ export default function ServicesPage() {
             </motion.div>
             <motion.h2
               {...fadeUp(0.1)}
-              className="text-[32px] md:text-[46px] font-black text-white leading-tight"
+              className="text-[32px] md:text-[46px] font-black text-white leading-tight mb-4"
             >
-              How to Work With Us
+              Ready to Get Started?
             </motion.h2>
+            <motion.p {...fadeUp(0.2)} className="text-[17px] text-white/50 max-w-[540px]">
+              We process online payments for our two core offerings below. Need something else? Contact us and we will build a custom quote for you.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-            {PACKAGES.map((pkg, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.12)}
-                className={`rounded-2xl p-8 flex flex-col border relative ${
-                  pkg.popular
-                    ? "bg-white/[0.08] border-accent-primary shadow-[0_0_60px_rgba(240,100,40,0.15)] lg:-translate-y-6"
-                    : "bg-white/[0.04] border-white/10"
-                }`}
-              >
-                {pkg.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent-primary text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full whitespace-nowrap">
-                    Most Popular
-                  </div>
-                )}
-
-                <h3 className="text-[24px] font-black text-white mb-1">{pkg.title}</h3>
-                <p className="text-sm text-white/40 mb-6">{pkg.subtext}</p>
-
-                <div className="mb-3">
-                  <span className="text-[42px] font-black text-white">{pkg.price}</span>
-                  <span className="text-[#666] text-sm">{pkg.period}</span>
-                </div>
-
-                <div className="flex items-start gap-2 bg-accent-primary/10 border border-accent-primary/20 rounded-xl px-4 py-2.5 mb-7">
-                  <TrendingUp className="w-4 h-4 text-accent-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-accent-primary font-medium leading-snug">{pkg.roi}</span>
-                </div>
-
-                <ul className="space-y-3 mb-8 flex-grow">
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-white/70">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href={pkg.href}
-                  className={`w-full py-3.5 rounded-xl text-center font-bold transition-all duration-300 ${
-                    pkg.popular
-                      ? "bg-accent-primary text-white hover:bg-accent-primary/90"
-                      : "border border-white/20 text-white hover:bg-white hover:text-[#0d0d0d]"
+          {/* Two payable services */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[860px] mx-auto mb-12">
+            {PAYMENT_SERVICES.map((svc, i) => {
+              const Icon = svc.icon;
+              return (
+                <motion.div
+                  key={i}
+                  {...fadeUp(i * 0.12)}
+                  className={`rounded-2xl p-8 flex flex-col border relative ${
+                    svc.popular
+                      ? "bg-white/[0.08] border-accent-primary shadow-[0_0_60px_rgba(240,100,40,0.15)]"
+                      : "bg-white/[0.04] border-white/10"
                   }`}
                 >
-                  {pkg.button}
-                </Link>
-              </motion.div>
-            ))}
+                  {svc.popular && (
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent-primary text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full whitespace-nowrap">
+                      Most Popular
+                    </div>
+                  )}
+
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-accent-primary" />
+                    </div>
+                    <div>
+                      <span className="inline-block bg-accent-primary/[0.12] text-accent-primary text-[10px] font-bold uppercase rounded-full px-3 py-1 mb-1">{svc.tag}</span>
+                      <h3 className="text-[22px] font-black text-white leading-tight">{svc.title}</h3>
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-white/50 mb-6 leading-relaxed">{svc.desc}</p>
+
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {svc.plans.map((plan, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-white/70">{plan}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={svc.href}
+                    className={`w-full py-3.5 rounded-xl text-center font-bold transition-all duration-300 ${
+                      svc.popular
+                        ? "bg-accent-primary text-white hover:bg-accent-primary/90"
+                        : "border border-white/20 text-white hover:bg-white hover:text-[#0d0d0d]"
+                    }`}
+                  >
+                    {svc.button}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
+
+          {/* Contact for individual services */}
+          <motion.div
+            {...fadeUp(0.25)}
+            className="max-w-[860px] mx-auto bg-white/[0.04] border border-white/10 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
+          >
+            <div>
+              <h3 className="text-white font-black text-[20px] mb-1">Need a Single Service?</h3>
+              <p className="text-white/50 text-sm leading-relaxed max-w-[460px]">
+                Looking for web development, video production, Google &amp; Meta Ads, or lead generation only? Contact us and we will put together a custom quote tailored to your needs.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="flex-shrink-0 inline-flex items-center gap-2 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl hover:bg-white hover:text-[#0d0d0d] transition-all duration-300 whitespace-nowrap"
+            >
+              <Phone className="w-4 h-4" />
+              Get a Custom Quote
+            </Link>
+          </motion.div>
         </div>
       </section>
 

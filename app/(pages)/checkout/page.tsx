@@ -3,42 +3,134 @@
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Lock, CreditCard, User, Mail, Phone, Building2, ChevronDown, ArrowRight, AlertCircle, Shield } from "lucide-react";
+import {
+  Check, Lock, CreditCard, User, Mail, Phone, Building2,
+  ChevronDown, ArrowRight, AlertCircle, Shield, TrendingUp, Share2,
+} from "lucide-react";
 import Link from "next/link";
 
-const PLANS = [
+/* ── product types ────────────────────────────────────────── */
+const PRODUCT_TYPES = [
+  {
+    key: "social-media",
+    icon: Share2,
+    title: "Social Media Management",
+    desc: "Daily content, community engagement, and platform growth across Instagram, Facebook, TikTok & more.",
+  },
+  {
+    key: "growth-system",
+    icon: TrendingUp,
+    title: "90-Day Growth System",
+    desc: "Complete lead generation system: website, Google Ads, Meta Ads, SEO, automation, and more.",
+  },
+];
+
+/* ── plans per product ─────────────────────────────────────── */
+const SOCIAL_PLANS = [
   {
     key: "1-month",
     name: "Monthly",
     price: 1499,
-    totalLabel: "$1,499/mo",
-    billing: "Billed monthly",
+    label: "$1,499/mo",
+    billing: "Billed monthly · Cancel anytime",
     cancellation: null,
     savings: null,
     badge: null,
-    features: ["Instagram and Facebook", "Daily content creation", "Community engagement", "Monthly analytics report", "Cancel anytime"],
+    features: [
+      "Instagram and Facebook",
+      "Daily content creation",
+      "Community engagement",
+      "Monthly analytics report",
+      "Cancel anytime",
+    ],
   },
   {
     key: "3-month",
     name: "3 Months",
     price: 1199,
-    totalLabel: "$1,199/mo",
+    label: "$1,199/mo",
     billing: "Billed monthly for 3 months",
     cancellation: "25% cancellation fee if cancelled early",
     savings: "Save $900",
     badge: "Most Popular",
-    features: ["Everything in Monthly", "TikTok and LinkedIn", "Bi-weekly check-ins", "Competitor analysis", "Story and Reel creation"],
+    features: [
+      "Everything in Monthly",
+      "TikTok and LinkedIn",
+      "Bi-weekly check-ins",
+      "Competitor analysis",
+      "Story and Reel creation",
+    ],
   },
   {
     key: "6-month",
     name: "6 Months",
     price: 899,
-    totalLabel: "$899/mo",
+    label: "$899/mo",
     billing: "Billed monthly for 6 months",
     cancellation: "25% cancellation fee if cancelled early",
     savings: "Save $3,600",
     badge: "Best Value",
-    features: ["Everything in 3 Months", "All platforms", "Weekly strategy calls", "2 Reels per month", "Priority support"],
+    features: [
+      "Everything in 3 Months",
+      "All platforms",
+      "Weekly strategy calls",
+      "2 Reels per month",
+      "Priority support",
+    ],
+  },
+];
+
+const GROWTH_PLANS = [
+  {
+    key: "growth-installment-1",
+    name: "Installment 1 of 3",
+    price: 1500,
+    label: "$1,500 CAD",
+    billing: "Due at project start",
+    cancellation: null,
+    savings: null,
+    badge: null,
+    features: [
+      "Project kickoff & strategy",
+      "Website development begins",
+      "Google Business Profile setup",
+      "Tracking & analytics setup",
+      "Brand onboarding session",
+    ],
+  },
+  {
+    key: "growth-installment-2",
+    name: "Installment 2 of 3",
+    price: 1500,
+    label: "$1,500 CAD",
+    billing: "Due after foundation is completed",
+    cancellation: null,
+    savings: null,
+    badge: null,
+    features: [
+      "Website goes live",
+      "Review system activated",
+      "Monthly content begins",
+      "Follow-up automation setup",
+      "Google & Meta Ads launched",
+    ],
+  },
+  {
+    key: "growth-installment-3",
+    name: "Installment 3 of 3",
+    price: 1500,
+    label: "$1,500 CAD",
+    billing: "Due during advertising & scaling phase",
+    cancellation: null,
+    savings: null,
+    badge: null,
+    features: [
+      "Retargeting campaigns live",
+      "SEO & geo growth setup",
+      "Full system optimization",
+      "Performance reporting",
+      "Ongoing lead generation",
+    ],
   },
 ];
 
@@ -53,9 +145,8 @@ type FormState = {
   businessName: string; industry: string; message: string; plan: string;
 };
 
-function Field({
-  label, id, type = "text", placeholder, value, onChange, required = false, icon: Icon,
-}: {
+/* ── field component ───────────────────────────────────────── */
+function Field({ label, id, type = "text", placeholder, value, onChange, required = false, icon: Icon }: {
   label: string; id: string; type?: string; placeholder: string; value: string;
   onChange: (v: string) => void; required?: boolean; icon?: React.ElementType;
 }) {
@@ -76,21 +167,36 @@ function Field({
   );
 }
 
+/* ── main checkout ─────────────────────────────────────────── */
 function CheckoutContent() {
   const searchParams = useSearchParams();
-  const initialPlan = searchParams.get("plan") ?? "1-month";
   const wasCancelled = searchParams.get("cancelled") === "true";
+  const urlProduct = searchParams.get("product");
 
+  const [productType, setProductType] = useState<"social-media" | "growth-system">(
+    urlProduct === "growth-system" ? "growth-system" : "social-media"
+  );
   const [form, setForm] = useState<FormState>({
     firstName: "", lastName: "", email: "", phone: "",
     businessName: "", industry: "", message: "",
-    plan: PLANS.find((p) => p.key === initialPlan) ? initialPlan : "1-month",
+    plan: productType === "growth-system" ? "growth-installment-1" : "1-month",
   });
   const [status, setStatus] = useState<"idle" | "redirecting" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const update = (key: keyof FormState) => (val: string) =>
     setForm((prev) => ({ ...prev, [key]: val }));
+
+  const switchProduct = (type: "social-media" | "growth-system") => {
+    setProductType(type);
+    setForm((prev) => ({
+      ...prev,
+      plan: type === "growth-system" ? "growth-installment-1" : "1-month",
+    }));
+  };
+
+  const plans = productType === "growth-system" ? GROWTH_PLANS : SOCIAL_PLANS;
+  const selected = plans.find((p) => p.key === form.plan) ?? plans[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -100,7 +206,7 @@ function CheckoutContent() {
       const res = await fetch("/api/stripe/create-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, productType }),
       });
       const data = await res.json();
       if (!res.ok || !data.url) throw new Error(data.error ?? "Something went wrong");
@@ -110,8 +216,6 @@ function CheckoutContent() {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     }
   };
-
-  const selected = PLANS.find((p) => p.key === form.plan) ?? PLANS[0];
 
   return (
     <div className="max-w-[1100px] mx-auto px-6 py-12">
@@ -128,80 +232,121 @@ function CheckoutContent() {
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 items-start">
+      {/* ── Step 1: Choose service ── */}
+      <div className="mb-10">
+        <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">Step 1 — Select a Service</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {PRODUCT_TYPES.map(({ key, icon: Icon, title, desc }) => {
+            const isSelected = productType === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                onClick={() => switchProduct(key as "social-media" | "growth-system")}
+                className={`relative text-left rounded-2xl border-2 p-6 transition-all duration-200 focus:outline-none ${
+                  isSelected
+                    ? "border-accent-primary bg-white shadow-lg shadow-accent-primary/10"
+                    : "border-border bg-background-card hover:border-accent-primary/40"
+                }`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${isSelected ? "bg-accent-primary" : "bg-accent-primary/10"}`}>
+                    <Icon className={`w-5 h-5 ${isSelected ? "text-white" : "text-accent-primary"}`} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="font-bold text-[15px] text-text-primary">{title}</p>
+                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${isSelected ? "border-accent-primary bg-accent-primary" : "border-border"}`}>
+                        {isSelected && <Check className="w-3 h-3 text-white" />}
+                      </div>
+                    </div>
+                    <p className="text-[13px] text-text-secondary mt-1 leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 items-start">
         {/* LEFT */}
         <div className="space-y-6">
 
-          {/* Plan selector */}
+          {/* ── Step 2: Choose plan ── */}
           <div>
-            <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">Select a Plan</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {PLANS.map((plan) => {
-                const isSelected = form.plan === plan.key;
-                return (
-                  <button
-                    key={plan.key}
-                    type="button"
-                    onClick={() => update("plan")(plan.key)}
-                    className={`relative text-left rounded-2xl border-2 p-5 transition-all duration-200 focus:outline-none ${
-                      isSelected
-                        ? "border-accent-primary bg-white shadow-md"
-                        : "border-border bg-background-card hover:border-accent-primary/30"
-                    }`}
-                  >
-                    {plan.badge && (
-                      <span className="absolute -top-2.5 left-4 bg-accent-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full">
-                        {plan.badge}
-                      </span>
-                    )}
-                    <div className="flex items-center justify-between mb-3 mt-1">
-                      <p className="font-bold text-[14px] text-text-primary">{plan.name}</p>
-                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all ${
-                        isSelected ? "border-accent-primary bg-accent-primary" : "border-border"
-                      }`}>
-                        {isSelected && <Check className="w-2.5 h-2.5 text-white" />}
+            <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">
+              Step 2 — {productType === "growth-system" ? "Select Your Installment" : "Select a Plan"}
+            </p>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={productType}
+                initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-3"
+              >
+                {plans.map((plan) => {
+                  const isSelected = form.plan === plan.key;
+                  return (
+                    <button
+                      key={plan.key}
+                      type="button"
+                      onClick={() => update("plan")(plan.key)}
+                      className={`relative text-left rounded-2xl border-2 p-5 transition-all duration-200 focus:outline-none ${
+                        isSelected
+                          ? "border-accent-primary bg-white shadow-md"
+                          : "border-border bg-background-card hover:border-accent-primary/30"
+                      }`}
+                    >
+                      {plan.badge && (
+                        <span className="absolute -top-2.5 left-4 bg-accent-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full">
+                          {plan.badge}
+                        </span>
+                      )}
+                      <div className="flex items-center justify-between mb-3 mt-1">
+                        <p className="font-bold text-[14px] text-text-primary">{plan.name}</p>
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? "border-accent-primary bg-accent-primary" : "border-border"}`}>
+                          {isSelected && <Check className="w-2.5 h-2.5 text-white" />}
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-baseline gap-1 mb-1">
-                      <span className="text-[24px] font-extrabold text-text-primary">${plan.price.toLocaleString()}</span>
-                      <span className="text-xs text-text-muted">/mo</span>
-                    </div>
-                    <p className="text-[11px] text-text-muted mb-2">{plan.billing}</p>
-                    {plan.savings && (
-                      <span className="inline-block bg-green-50 border border-green-200 text-green-700 text-[11px] font-semibold px-2 py-0.5 rounded-md mb-2">
-                        {plan.savings}
-                      </span>
-                    )}
-                    {plan.cancellation && (
-                      <p className="text-[11px] text-text-muted">{plan.cancellation}</p>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+                      <div className="flex items-baseline gap-1 mb-1">
+                        <span className="text-[22px] font-extrabold text-text-primary">{plan.label}</span>
+                      </div>
+                      <p className="text-[11px] text-text-muted mb-2">{plan.billing}</p>
+                      {plan.savings && (
+                        <span className="inline-block bg-green-50 border border-green-200 text-green-700 text-[11px] font-semibold px-2 py-0.5 rounded-md">
+                          {plan.savings}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* Form */}
+          {/* ── Step 3: Details form ── */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
             className="bg-white border border-border rounded-2xl overflow-hidden"
           >
+            <div className="px-6 py-5 border-b border-border bg-background-secondary">
+              <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest">Step 3 — Your Details</p>
+            </div>
+
             {/* Contact */}
             <div className="px-6 py-6 border-b border-border">
-              <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">Your Details</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="First Name" id="firstName" placeholder="Jane" value={form.firstName} onChange={update("firstName")} required icon={User} />
                 <Field label="Last Name" id="lastName" placeholder="Smith" value={form.lastName} onChange={update("lastName")} required />
                 <Field label="Email" id="email" type="email" placeholder="jane@business.com" value={form.email} onChange={update("email")} required icon={Mail} />
-                <Field label="Phone" id="phone" type="tel" placeholder="+1 (416) 555-0123" value={form.phone} onChange={update("phone")} required icon={Phone} />
+                <Field label="Phone" id="phone" type="tel" placeholder="+1 (647) 555-0100" value={form.phone} onChange={update("phone")} required icon={Phone} />
               </div>
             </div>
 
             {/* Business */}
             <div className="px-6 py-6 border-b border-border">
-              <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">Business</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="Business Name" id="businessName" placeholder="Smith Electric Inc." value={form.businessName} onChange={update("businessName")} required icon={Building2} />
                 <div className="flex flex-col gap-1.5">
@@ -259,17 +404,17 @@ function CheckoutContent() {
                 {status === "redirecting" ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Redirecting...
+                    Redirecting to Stripe...
                   </>
                 ) : (
                   <>
                     <Lock className="w-4 h-4" />
-                    Pay {selected.totalLabel} Today
+                    Pay {selected.label} Securely
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </>
                 )}
               </button>
-              <div className="flex items-center justify-center gap-4 mt-4">
+              <div className="flex items-center justify-center gap-5 mt-4">
                 <div className="flex items-center gap-1.5 text-text-muted">
                   <Lock className="w-3 h-3" />
                   <span className="text-[11px]">SSL Encrypted</span>
@@ -287,56 +432,64 @@ function CheckoutContent() {
           </motion.form>
         </div>
 
-        {/* RIGHT — Summary */}
+        {/* RIGHT — Order Summary */}
         <motion.div
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
           className="space-y-4"
         >
-          <div className="bg-[#111] rounded-2xl overflow-hidden text-white sticky top-24">
-            <div className="px-6 py-5 border-b border-white/10">
-              <p className="text-[10px] font-bold text-accent-primary uppercase tracking-widest mb-1">Order Summary</p>
-              <p className="text-[16px] font-bold">Social Media Management</p>
-              <p className="text-sm text-white/40 mt-0.5">{selected.name}</p>
-            </div>
-
-            <div className="px-6 py-5 border-b border-white/10">
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-sm text-white/50">Charged today</span>
-                <span className="text-[20px] font-extrabold text-accent-primary">{selected.totalLabel}</span>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${productType}-${form.plan}`}
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-[#111] rounded-2xl overflow-hidden text-white sticky top-24"
+            >
+              <div className="px-6 py-5 border-b border-white/10">
+                <p className="text-[10px] font-bold text-accent-primary uppercase tracking-widest mb-1">Order Summary</p>
+                <p className="text-[16px] font-bold">
+                  {productType === "growth-system" ? "90-Day Growth System" : "Social Media Management"}
+                </p>
+                <p className="text-sm text-white/40 mt-0.5">{selected.name}</p>
               </div>
-              <p className="text-[11px] text-white/30 mb-2">{selected.billing}</p>
-              {selected.savings && (
-                <p className="text-[12px] text-green-400 font-medium">{selected.savings} vs monthly rate</p>
-              )}
-              {selected.cancellation && (
-                <p className="text-[11px] text-white/30 mt-2">{selected.cancellation}</p>
-              )}
-            </div>
 
-            <div className="px-6 py-5">
-              <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-3">Included</p>
-              <ul className="space-y-2">
-                {selected.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-2.5">
-                    <Check className="w-3.5 h-3.5 text-accent-primary flex-shrink-0" />
-                    <span className="text-[13px] text-white/60">{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+              <div className="px-6 py-5 border-b border-white/10">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm text-white/50">Amount due</span>
+                  <span className="text-[20px] font-extrabold text-accent-primary">{selected.label}</span>
+                </div>
+                <p className="text-[11px] text-white/30 mb-2">{selected.billing}</p>
+                {selected.savings && (
+                  <p className="text-[12px] text-green-400 font-medium">{selected.savings} vs monthly rate</p>
+                )}
+                {productType === "growth-system" && (
+                  <p className="text-[11px] text-white/30 mt-2">Total system cost: $4,500 CAD (3 × $1,500)</p>
+                )}
+              </div>
+
+              <div className="px-6 py-5">
+                <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-3">Included</p>
+                <ul className="space-y-2">
+                  {selected.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-2.5">
+                      <Check className="w-3.5 h-3.5 text-accent-primary flex-shrink-0" />
+                      <span className="text-[13px] text-white/60">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           <div className="bg-white border border-border rounded-2xl p-5 text-center">
-            <p className="text-[13px] text-text-secondary mb-3">Have questions before paying?</p>
+            <p className="text-[13px] text-text-secondary mb-3">Need a different service or custom quote?</p>
             <Link
               href="/contact"
               className="block text-sm font-semibold text-accent-primary border border-accent-primary/30 rounded-xl py-2.5 hover:bg-accent-primary hover:text-white transition-all duration-200"
             >
-              Talk to Us First
+              Contact Us First →
             </Link>
           </div>
         </motion.div>
-
       </div>
     </div>
   );
@@ -345,14 +498,14 @@ function CheckoutContent() {
 export default function CheckoutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background-secondary">
-
       <div className="bg-[#111] pt-[68px]">
         <div className="max-w-[1100px] mx-auto px-6 py-10">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-            <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-2">Social Media Management</p>
+            <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-2">Secure Checkout</p>
             <h1 className="text-[28px] md:text-[32px] font-extrabold text-white leading-tight">
               Complete Your Order
             </h1>
+            <p className="text-white/40 text-sm mt-1">Choose your service and plan below — all payments processed securely via Stripe.</p>
           </motion.div>
         </div>
       </div>

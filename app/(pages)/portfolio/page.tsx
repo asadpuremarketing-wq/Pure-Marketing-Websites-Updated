@@ -52,14 +52,7 @@ const WEB_DEV_CLIENTS = [
     accent: "#F0EBF5",
   },
   {
-    id: 7, name: "Greypro Concrete Designs", category: "Contractors",
-    description: "Concrete Design Company", location: "Hamilton, Ontario",
-    href: "https://greypro.ca/",
-    screenshot: "/screenshots/greypro.webp",
-    accent: "#E8EDF5",
-  },
-  {
-    id: 8, name: "Quick Car Repair", category: "Automotive",
+    id: 7, name: "Quick Car Repair", category: "Automotive",
     description: "Auto Mechanic Shop", location: "Hamilton, Ontario",
     href: "https://www.quickcarrepair.ca/",
     screenshot: "/screenshots/quick-car-repair.webp",
@@ -88,8 +81,7 @@ const WEB_DEV_CLIENTS = [
   },
 ];
 
-// Remove duplicate - Greypro appeared twice above, keeping unique entries
-const UNIQUE_WEB_CLIENTS = WEB_DEV_CLIENTS.filter((c, i, arr) => arr.findIndex(x => x.href === c.href) === i);
+const UNIQUE_WEB_CLIENTS = WEB_DEV_CLIENTS;
 
 const SOCIAL_MEDIA_CLIENTS = [
   {

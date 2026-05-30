@@ -51,7 +51,7 @@ export const metadata: Metadata = {
       "Hamilton-based digital marketing agency helping local service businesses get more leads with Google Ads, Meta Ads, and conversion-focused web design.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Pure Marketing - Digital Marketing Agency Hamilton Ontario",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
     description:
       "Hamilton-based digital marketing agency helping local service businesses get more leads.",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image"],
   },
   alternates: {
     canonical: BASE,
@@ -79,8 +79,8 @@ const LOCAL_BUSINESS_SCHEMA = {
   "@id": `${BASE}/#organization`,
   name: "Pure Marketing",
   url: BASE,
-  logo: `${BASE}/logo.png`,
-  image: `${BASE}/og-image.jpg`,
+  logo: `${BASE}/favicon.svg`,
+  image: `${BASE}/opengraph-image`,
   description:
     "Pure Marketing is a Hamilton, Ontario digital marketing agency specializing in Google Ads, Meta Ads, lead generation, and web design for local service businesses across Canada.",
   telephone: "+16479512786",
@@ -113,9 +113,10 @@ const LOCAL_BUSINESS_SCHEMA = {
     },
   ],
   sameAs: [
-    "https://www.instagram.com/puremarketing",
-    "https://www.facebook.com/puremarketing",
-    "https://www.linkedin.com/company/puremarketing",
+    "https://www.instagram.com/puremarketing0",
+    "https://www.facebook.com/profile.php?id=61576684511407",
+    "https://www.linkedin.com/company/pure-marketing0/",
+    "https://maps.app.goo.gl/a1Rx6gwFfTPTayaN9",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
