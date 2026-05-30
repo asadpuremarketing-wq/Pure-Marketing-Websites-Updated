@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import IndustryPageTemplate from "@/components/templates/IndustryPageTemplate";
+import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/templates/IndustryFullPageTemplate";
 
 const BASE = "https://puremarketing.ca";
 
@@ -38,66 +38,123 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/locksmiths`,
 };
 
+const config: IndustryFullConfig = {
+  industry: "Locksmiths",
+  badge: "90-Day Locksmith Growth System",
+  headline: "More Emergency Calls.",
+  headlineAccent: "24/7. Around the Clock.",
+  subheadline:
+    "Websites, Google, Local Ads, Automation & SEO — one always-on system that puts your locksmith business at the top of Google when someone needs you most.",
+  heroCheckmarks: [
+    "More Emergency Lockout Calls",
+    "Top Google & Maps Rankings",
+    "24/7 Automated Lead Recovery",
+  ],
+  dashboard: {
+    url: "citylocksmith.ca",
+    headline: "Locked Out?",
+    headlineAccent: "We're On Our Way.",
+    tagline: "Emergency locksmith service. Residential, automotive & commercial.",
+    cta: "Call a Locksmith Now →",
+    sources: [
+      { label: "Google", val: "164" },
+      { label: "LSA", val: "112" },
+      { label: "Maps", val: "58" },
+      { label: "Website", val: "29" },
+    ],
+  },
+  heroMetrics: [
+    { label: "Daily Calls", val: "300%", chg: "+300%" },
+    { label: "Avg Response", val: "< 3min", chg: "instant" },
+    { label: "Rating", val: "5.0★", chg: "+0.8★" },
+  ],
+  bandStats: [
+    { value: "300%+", label: "Avg lead increase" },
+    { value: "7", label: "Days to launch" },
+    { value: "24/7", label: "Lead generation" },
+    { value: "5★", label: "Avg Google rating" },
+  ],
+  problemHeadline: "Why Locksmiths Lose Emergency Calls Every Day",
+  problemSubtext:
+    "A locked-out customer is searching right now. If your business isn't the first result they see, you've already lost that job.",
+  painPoints: [
+    {
+      icon: "Zap",
+      title: "Emergencies Won't Wait",
+      desc: "Someone locked out of their car or home calls the first locksmith they find. If you're not showing at the top of Google in that moment, the call — and the revenue — goes elsewhere.",
+    },
+    {
+      icon: "MapPin",
+      title: "Losing the Local Map Pack",
+      desc: "The top 3 results on Google Maps get 90% of all emergency locksmith calls. If you're not in that pack, you're invisible to the most valuable customers in your area.",
+    },
+    {
+      icon: "MessageSquare",
+      title: "Missed Calls = Lost Revenue",
+      desc: "A locksmith who doesn't answer immediately loses the job. Without missed-call text-back automation, every unanswered emergency call is money left on the table.",
+    },
+  ],
+  videoLabel: "How We Grow Locksmith Businesses",
+  videoTitle: "Watch How We Put Locksmiths at the Top of Google — 24/7",
+  videoDesc:
+    "A 2-minute breakdown of the emergency advertising and local SEO system that generates around-the-clock lockout calls for locksmiths across Canada.",
+  videoBullets: [
+    "Why most locksmiths miss emergency calls that should be theirs",
+    "How Google Local Service Ads put you first for every lockout search near you",
+    "Why missed-call text-back automation is the single highest-ROI tool for locksmiths",
+    "What to expect in your first 7 days — the fastest launch in our entire system",
+  ],
+  growthSteps: [
+    { num: "01", icon: "Globe",      title: "Locksmith Website",          desc: "Fast, mobile-first site with prominent click-to-call, service area pages, and emergency messaging that converts panic into calls." },
+    { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Optimized GBP with 24/7 availability, service areas, and photos to rank in the top 3 for lockout searches near you." },
+    { num: "03", icon: "Star",       title: "Reviews & Trust Signals",    desc: "Automated post-job review requests that build a 5-star reputation — the #1 trust factor for emergency service calls." },
+    { num: "04", icon: "BarChart2",  title: "Call Tracking & Analytics",  desc: "Every call source tracked so we know exactly which keywords and ads bring real lockout jobs." },
+    { num: "05", icon: "Video",      title: "Monthly Content",            desc: "Security tips, lock brand content, and local awareness posts that keep your business visible between emergencies." },
+    { num: "06", icon: "TrendingUp", title: "Google Ads & LSA",           desc: "Emergency search ads and pay-per-lead Local Service Ads that put you first when someone is locked out right now." },
+    { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram awareness campaigns targeting homeowners and vehicle owners in your service radius." },
+    { num: "08", icon: "Zap",        title: "Missed-Call Text Recovery",  desc: "Instant automated texts fire when a panicked caller hangs up — recovering high-value emergency leads before they call someone else." },
+    { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Neighbourhood and service-type pages that rank for residential, automotive, and commercial locksmith searches organically." },
+  ],
+  resultsHeadline: "Hear It From Our Locksmith Clients",
+  results: [
+    {
+      metric: "3x",
+      label: "More Emergency Calls",
+      client: "Rapid Lock & Key",
+      detail: "Tripled daily emergency calls within the first 30 days. Phone rings around the clock.",
+    },
+    {
+      metric: "Top 3",
+      label: "Google Maps Ranking",
+      client: "City Locksmith",
+      detail: "Ranked in the top 3 on Google Maps for every locksmith search in their service area.",
+    },
+    {
+      metric: "100%",
+      label: "Call Recovery Rate",
+      client: "Pro Lock Solutions",
+      detail: "Missed-call text-back automation now recovers every unanswered emergency call automatically.",
+    },
+  ],
+  videoReviews: [
+    { name: "Tony M.",  company: "City Locksmith",     result: "3x More Daily Calls",  dur: "1:39" },
+    { name: "Dave R.",  company: "Rapid Lock & Key",   result: "Top 3 Google Maps",    dur: "2:02" },
+    { name: "Kim S.",   company: "Pro Lock Solutions", result: "24/7 Lead Recovery",   dur: "1:51" },
+  ],
+  ctaHeadline: "Every Missed Call Is\nRevenue You're Losing.",
+  ctaSubtext:
+    "Let's build your locksmith growth system so every emergency search in your area finds your business first — day or night.",
+};
+
 export default function LocksmithsPage() {
   return (
     <>
-      <Script id="service-schema-locksmiths" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
-      <IndustryPageTemplate
-        config={{
-          industry: "Locksmiths",
-          badge: "Marketing for Locksmiths",
-          headline: "More Emergency Lockout Calls.",
-          headlineAccent: "Around the Clock.",
-          subheadline:
-            "Lockouts, rekeying, commercial lock installation, safe opening - we put your locksmith business at the top of Google the moment someone needs you.",
-          heroStats: [
-            { value: "24/7", label: "Lead flow" },
-            { value: "300%+", label: "Avg lead increase" },
-            { value: "7", label: "Days to go live" },
-            { value: "5★", label: "Google rating" },
-          ],
-          heroWins: [
-            { client: "Rapid Lock & Key", result: "3x more emergency calls in 30 days" },
-            { client: "City Locksmith", result: "Top 3 Google Maps ranking" },
-            { client: "Pro Lock Solutions", result: "Fully booked residential jobs" },
-          ],
-          bandStats: [
-            { value: "300%+", label: "Avg lead increase" },
-            { value: "7", label: "Days to launch" },
-            { value: "24/7", label: "Lead generation" },
-            { value: "5★", label: "Avg Google rating" },
-          ],
-          services: [
-            {
-              icon: "Globe",
-              name: "Locksmith Website",
-              description:
-                "Fast, mobile-first website with click-to-call buttons, service area pages, and emergency messaging that converts panicked visitors into customers.",
-              result: "2x more calls",
-            },
-            {
-              icon: "TrendingUp",
-              name: "Emergency Google Ads",
-              description:
-                "Google Local Service Ads and Search Ads that put you at the top when someone searches 'locksmith near me' or 'locked out of car'. Instant visibility.",
-              result: "3x more calls",
-            },
-            {
-              icon: "MapPin",
-              name: "Google Maps Domination",
-              description:
-                "Fully optimized Google Business Profile so you rank in the top 3 on Maps for every locksmith search in your service area.",
-              result: "Top 3 rankings",
-            },
-          ],
-          resultQuote:
-            "I went from 2-3 calls a day to 8-10. Pure Marketing put me at the top of Google and the phone stopped ringing.",
-          resultClient: "Tony M.",
-          resultCompany: "Owner, City Locksmith",
-          resultStat: "300%+",
-          resultStatLabel: "More leads",
-        }}
+      <Script
+        id="service-schema-locksmiths"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
       />
+      <IndustryFullPageTemplate config={config} />
     </>
   );
 }

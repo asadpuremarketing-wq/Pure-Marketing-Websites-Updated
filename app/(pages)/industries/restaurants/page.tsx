@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import IndustryPageTemplate from "@/components/templates/IndustryPageTemplate";
+import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/templates/IndustryFullPageTemplate";
 
 const BASE = "https://puremarketing.ca";
 
@@ -37,66 +37,104 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/restaurants`,
 };
 
+const config: IndustryFullConfig = {
+  industry: "Restaurants",
+  badge: "90-Day Restaurant Growth System",
+  headline: "More Covers. More Orders.",
+  headlineAccent: "A Full Restaurant Every Night.",
+  subheadline:
+    "Food content, Google, Social Media, Ads, Automation & Reviews — one system that fills your restaurant week after week with loyal, hungry customers.",
+  heroCheckmarks: ["More Walk-Ins & Reservations", "Stronger Local Reputation", "Consistent Revenue Every Week"],
+  dashboard: {
+    url: "casagranderestaurant.ca",
+    headline: "Authentic Flavours.",
+    headlineAccent: "Unforgettable Experience.",
+    tagline: "Dine in, take out & catering. Reserve your table today.",
+    cta: "Reserve a Table →",
+    sources: [
+      { label: "Google", val: "96" },
+      { label: "Instagram", val: "74" },
+      { label: "Facebook", val: "48" },
+      { label: "Maps", val: "31" },
+    ],
+  },
+  heroMetrics: [
+    { label: "Reservations", val: "+89%", chg: "+89%" },
+    { label: "Foot Traffic", val: "+62%", chg: "+62%" },
+    { label: "Revenue", val: "$68K", chg: "+6mo" },
+  ],
+  bandStats: [
+    { value: "89%", label: "More reservations" },
+    { value: "62%", label: "More foot traffic" },
+    { value: "$68K", label: "Revenue 6 months" },
+    { value: "30", label: "Days to results" },
+  ],
+  problemHeadline: "Why Great Restaurants Struggle to Fill Seats Consistently",
+  problemSubtext:
+    "Incredible food keeps people coming back. But without a marketing system, new customers never find you in the first place.",
+  painPoints: [
+    {
+      icon: "RefreshCw",
+      title: "Inconsistent Covers Week to Week",
+      desc: "Some nights are slammed, others are half-empty. Without a consistent marketing system, you can't predict or control how many covers you're doing.",
+    },
+    {
+      icon: "MapPin",
+      title: "Invisible to Local Diners",
+      desc: "Hungry customers search Google and Instagram before they decide where to eat. Without strong presence on both, you're losing tables to restaurants with worse food.",
+    },
+    {
+      icon: "Star",
+      title: "Reviews Going Unanswered",
+      desc: "A bad review left unanswered, or 50 5-star reviews never requested — both cost you tables. Most restaurants have no system for managing their reputation online.",
+    },
+  ],
+  videoLabel: "How We Grow Restaurant Revenue",
+  videoTitle: "Watch How We Help Restaurants Fill Seats and Build Loyal Regulars",
+  videoDesc:
+    "A 2-minute breakdown of the content, ads, and reputation system that drives consistent walk-ins, reservations, and repeat customers for restaurants across Canada.",
+  videoBullets: [
+    "Why most restaurants lose new customers to competitors with better online presence",
+    "The role of food content and social media in driving walk-ins and reservations",
+    "How Google Ads and Meta ads bring diners who've never heard of you to your door",
+    "What to expect in your first 30 days — and how reviews compound over time",
+  ],
+  growthSteps: [
+    { num: "01", icon: "Globe",      title: "Restaurant Website",         desc: "Menu showcase, online reservation integration, and location pages built to convert hungry visitors into seated guests." },
+    { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Fully optimized GBP with menu links, photos, and review strategy to rank for 'restaurants near me' searches." },
+    { num: "03", icon: "Star",       title: "Review Management",          desc: "Respond to every review, collect new 5-star ratings, and build the social proof that fills tables on slow nights." },
+    { num: "04", icon: "BarChart2",  title: "Reservation Tracking",       desc: "Track where every reservation and walk-in comes from — so ad spend goes to the channels that fill seats." },
+    { num: "05", icon: "Video",      title: "Food & Brand Content",       desc: "Mouth-watering food photography, chef stories, and daily social posts that build a loyal following and drive walk-ins." },
+    { num: "06", icon: "TrendingUp", title: "Google Ads",                 desc: "Search campaigns for cuisine-specific and 'near me' queries — capturing diners who are ready to book right now." },
+    { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Instagram and Facebook ads with high-quality food visuals targeting food lovers in your neighbourhood." },
+    { num: "08", icon: "Zap",        title: "Promotions & Automation",    desc: "Automated specials, event announcements, and loyalty follow-ups that keep past diners coming back regularly." },
+    { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Cuisine and neighbourhood pages that drive consistent organic traffic from food-related searches in your city." },
+  ],
+  resultsHeadline: "Hear It From Our Restaurant Clients",
+  results: [
+    { metric: "89%", label: "More Reservations",    client: "Casa Grande Restaurant", detail: "From inconsistent covers to fully booked weekends every week within 30 days." },
+    { metric: "$68K", label: "Revenue in 6 Months", client: "Urban Kitchen",          detail: "62% more foot traffic and $68K in tracked additional revenue in 6 months." },
+    { metric: "100%", label: "Weekend Occupancy",   client: "Moussas Shawarma",       detail: "Fully booked every Friday and Saturday — with a waitlist on busy nights." },
+  ],
+  videoReviews: [
+    { name: "Maria S.", company: "Casa Grande Restaurant", result: "89%+ More Reservations", dur: "1:41" },
+    { name: "Alex K.",  company: "Urban Kitchen",          result: "Fully Booked Weekends",  dur: "2:05" },
+    { name: "Ahmed M.", company: "Moussas Shawarma",       result: "Top Local Rankings",     dur: "1:52" },
+  ],
+  ctaHeadline: "Empty Tables Cost You\nMoney Every Night.",
+  ctaSubtext:
+    "Let's build your restaurant growth system and make sure hungry customers in your area find you first — before they book somewhere else.",
+};
+
 export default function RestaurantsPage() {
   return (
     <>
-      <Script id="service-schema-restaurants" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }} />
-      <IndustryPageTemplate
-        config={{
-          industry: "Restaurants",
-          badge: "Marketing for Restaurants",
-          headline: "More Covers. More Orders.",
-          headlineAccent: "More Revenue.",
-          subheadline:
-            "From social media content to Google Ads and reservation systems - we build the marketing engine that fills your restaurant week after week.",
-          heroStats: [
-            { value: "89%", label: "More reservations" },
-            { value: "62%", label: "More foot traffic" },
-            { value: "30", label: "Days to results" },
-            { value: "$68K", label: "Revenue 6 months" },
-          ],
-          heroWins: [
-            { client: "Casa Grande Restaurant", result: "89% more reservations, $68K in 6 months" },
-            { client: "Urban Kitchen", result: "62% more traffic, $52K in 6 months" },
-            { client: "Moussas Shawarma", result: "Fully booked weekends" },
-          ],
-          bandStats: [
-            { value: "89%", label: "More reservations" },
-            { value: "62%", label: "More foot traffic" },
-            { value: "$68K", label: "Revenue 6 months" },
-            { value: "30", label: "Days to results" },
-          ],
-          services: [
-            {
-              icon: "Video",
-              name: "Food & Brand Content",
-              description:
-                "Mouth-watering food photography, chef story videos, and daily social content that builds a hungry following and drives walk-ins.",
-              result: "5x engagement",
-            },
-            {
-              icon: "TrendingUp",
-              name: "Meta & Google Ads",
-              description:
-                "Instagram and Facebook ads targeting food lovers in your neighbourhood. Google Ads for 'restaurants near me' and cuisine-specific searches.",
-              result: "3x more bookings",
-            },
-            {
-              icon: "Star",
-              name: "Review Management",
-              description:
-                "Grow your Google and Yelp ratings, respond to every review, and build the social proof that fills seats on slow nights.",
-              result: "4.8★ avg rating",
-            },
-          ],
-          resultQuote:
-            "Our weekends are fully booked every week now. The content they create makes people want to visit before they even read the menu.",
-          resultClient: "Maria S.",
-          resultCompany: "Owner, Casa Grande Restaurant",
-          resultStat: "89%",
-          resultStatLabel: "More reservations",
-        }}
+      <Script
+        id="service-schema-restaurants"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
       />
+      <IndustryFullPageTemplate config={config} />
     </>
   );
 }

@@ -157,6 +157,16 @@ const REVIEWS = [
 
 const VISIBLE = 3;
 
+/* ─── Helper ────────────────────────────────────────────────── */
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true as const },
+  transition: { duration: 0.55, delay },
+});
+
+/* ─── Page ──────────────────────────────────────────────────── */
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -187,7 +197,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      
+
       <PageHero
         label="Portfolio"
         title="Real Work. Real Results."
@@ -197,23 +207,43 @@ export default function PortfolioPage() {
         fadeToColor="#111111"
       />
 
-      {/* SECTION 2 - PORTFOLIO FILTER AND GRID */}
-      <section className="bg-[#111] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-[38px] font-bold text-white text-center leading-tight mb-8">
-            Our Recent Work
-          </motion.h2>
+      {/* ── PORTFOLIO GRID ── */}
+      <section className="bg-[#080808] py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-accent-primary/8 rounded-full blur-[100px] pointer-events-none" />
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex flex-wrap justify-center gap-3 mb-16">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+          {/* Header */}
+          <div className="flex flex-col items-center text-center mb-14">
+            <motion.div {...fadeUp(0)} className="mb-4">
+              <span className="text-xs font-bold uppercase tracking-widest text-accent-primary border border-accent-primary/30 rounded-full px-4 py-1.5">
+                Our Work
+              </span>
+            </motion.div>
+            <motion.h2
+              {...fadeUp(0.1)}
+              className="text-[32px] md:text-[46px] font-black text-white leading-tight mb-4"
+            >
+              Real Work. Real Results.
+            </motion.h2>
+            <motion.p {...fadeUp(0.2)} className="text-[17px] text-[#666] max-w-[540px]">
+              Every project built to convert, designed to last, and optimized for growth.
+            </motion.p>
+          </div>
+
+          {/* Filter pills */}
+          <motion.div
+            {...fadeUp(0.25)}
+            className="flex flex-wrap justify-center gap-3 mb-14"
+          >
             {WEB_FILTERS.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`rounded-full px-5 py-2 text-sm transition-colors duration-300 border ${
+                className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 border ${
                   activeFilter === filter
-                    ? 'bg-accent-primary border-accent-primary text-white'
-                    : 'bg-white/5 border-white/10 text-white/60 hover:border-accent-primary hover:text-white'
+                    ? "bg-accent-primary border-accent-primary text-white"
+                    : "bg-white/[0.06] border-white/10 text-white/60 hover:border-accent-primary/50 hover:text-white"
                 }`}
               >
                 {filter}
@@ -221,7 +251,8 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Project cards */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item) => (
               <motion.div
                 layout
@@ -230,19 +261,24 @@ export default function PortfolioPage() {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.4 }}
                 key={item.id}
-                className="bg-background-card border border-border rounded-2xl overflow-hidden group shadow-sm hover:border-accent-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                className="bg-white/[0.04] border border-white/10 rounded-2xl overflow-hidden group hover:border-accent-primary/40 hover:shadow-2xl hover:shadow-accent-primary/10 hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                {/* Screenshot area */}
+                {/* Screenshot */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden" style={{ backgroundColor: item.accent }}>
                   {item.screenshot ? (
-                    <Image src={item.screenshot} alt={item.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                    <Image
+                      src={item.screenshot}
+                      alt={item.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center gap-2 opacity-50">
-                      <div className="w-8 h-8 rounded border-2 border-current text-text-muted" />
-                      <span className="text-xs text-text-muted">Screenshot coming soon</span>
+                      <div className="w-8 h-8 rounded border-2 border-current text-white/30" />
+                      <span className="text-xs text-white/30">Screenshot coming soon</span>
                     </div>
                   )}
-                  {/* Hover overlay */}
                   <a
                     href={item.href}
                     target="_blank"
@@ -258,18 +294,18 @@ export default function PortfolioPage() {
                 {/* Card body */}
                 <div className="p-5 flex flex-col flex-grow">
                   <div className="flex items-start justify-between gap-3 mb-1">
-                    <h3 className="font-bold text-[16px] text-text-primary leading-tight">{item.name}</h3>
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-accent-primary bg-accent-primary/10 rounded-full px-2.5 py-0.5 whitespace-nowrap flex-shrink-0 mt-0.5">
+                    <h3 className="font-bold text-[16px] text-white leading-tight">{item.name}</h3>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-primary bg-accent-primary/10 rounded-full px-2.5 py-0.5 whitespace-nowrap flex-shrink-0 mt-0.5">
                       {item.category}
                     </span>
                   </div>
-                  <p className="text-sm text-text-secondary">{item.description}</p>
-                  <p className="text-xs text-text-muted mt-1 mb-4">{item.location}</p>
+                  <p className="text-sm text-[#666]">{item.description}</p>
+                  <p className="text-xs text-[#444] mt-1 mb-4">{item.location}</p>
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-accent-primary transition-colors duration-200 truncate"
+                    className="mt-auto inline-flex items-center gap-1.5 text-xs text-accent-primary hover:underline transition-colors duration-200 truncate"
                   >
                     {item.href.replace(/https?:\/\/(www\.)?/, "")}
                     <ExternalLink className="w-3 h-3 flex-shrink-0" />
@@ -281,26 +317,29 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* SECTION 3 - SOCIAL MEDIA MANAGEMENT */}
-      <section className="bg-[#111] py-24 relative overflow-hidden">
-        {/* Background dot grid */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_50%,_rgba(240,100,40,0.06),_transparent)]" />
+      {/* ── SOCIAL MEDIA ── */}
+      <section className="bg-[#0d0d0d] py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_50%,_rgba(240,100,40,0.05),_transparent)]" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div>
-              <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">
+              <motion.p
+                {...fadeUp(0)}
+                className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3"
+              >
                 Social Media Management
               </motion.p>
-              <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }} className="text-[28px] md:text-[42px] font-bold text-white tracking-tight leading-tight">
+              <motion.h2
+                {...fadeUp(0.1)}
+                className="text-[28px] md:text-[42px] font-black text-white tracking-tight leading-tight"
+              >
                 Brands We Manage Online
               </motion.h2>
             </div>
-            {/* Platform pills */}
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="flex flex-wrap gap-3">
+            <motion.div {...fadeUp(0.2)} className="flex flex-wrap gap-3">
               <span className="flex items-center gap-2 bg-white/5 border border-white/10 text-white/70 text-xs font-medium rounded-full px-4 py-2">
                 <Camera className="w-3.5 h-3.5 text-accent-primary" /> Instagram
               </span>
@@ -313,18 +352,14 @@ export default function PortfolioPage() {
             </motion.div>
           </div>
 
-          {/* Client screenshot grid */}
+          {/* Client grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SOCIAL_MEDIA_CLIENTS.map((client, ci) => (
               <motion.div
                 key={ci}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: ci * 0.07 }}
+                {...fadeUp(ci * 0.07)}
                 className="group relative bg-white/[0.03] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-accent-primary/40 transition-all duration-300"
               >
-                {/* Screenshot */}
                 <div className="relative aspect-square w-full overflow-hidden bg-white/5">
                   {client.screenshot ? (
                     <Image
@@ -339,7 +374,6 @@ export default function PortfolioPage() {
                       <span className="text-4xl font-bold text-accent-primary/30">{client.initial}</span>
                     </div>
                   )}
-                  {/* Instagram hover overlay */}
                   <a
                     href={client.instagram}
                     target="_blank"
@@ -351,8 +385,6 @@ export default function PortfolioPage() {
                     </span>
                   </a>
                 </div>
-
-                {/* Info row */}
                 <div className="px-4 py-3 flex items-center justify-between gap-3">
                   <div className="min-w-0">
                     <p className="font-semibold text-[14px] text-white leading-tight truncate">{client.name}</p>
@@ -366,30 +398,35 @@ export default function PortfolioPage() {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* SECTION 4 - REVIEWS CAROUSEL */}
-      <section id="reviews" className="bg-background-secondary py-20">
+      {/* ── REVIEWS CAROUSEL ── */}
+      <section id="reviews" className="bg-white py-24">
         <div className="max-w-[1200px] mx-auto px-6">
 
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">
+              <motion.p
+                {...fadeUp(0)}
+                className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3"
+              >
                 Client Reviews
               </motion.p>
-              <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }} className="text-[28px] md:text-[38px] font-bold text-text-primary tracking-tight leading-tight">
+              <motion.h2
+                {...fadeUp(0.1)}
+                className="text-[28px] md:text-[38px] font-black text-[#0d0d0d] tracking-tight leading-tight"
+              >
                 What Our Clients Say
               </motion.h2>
             </div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }} className="flex items-center gap-3">
+            <motion.div {...fadeUp(0.2)} className="flex items-center gap-3">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-accent-primary" fill="currentColor" />)}
               </div>
-              <span className="text-text-primary font-bold text-xl">5.0</span>
-              <span className="text-text-muted text-sm">on Google</span>
+              <span className="text-[#0d0d0d] font-black text-xl">5.0</span>
+              <span className="text-[#666] text-sm">on Google</span>
             </motion.div>
           </div>
 
@@ -406,25 +443,28 @@ export default function PortfolioPage() {
                 className="grid grid-cols-1 md:grid-cols-3 gap-6"
               >
                 {visible.map((review, i) => (
-                  <div key={i} className="bg-background-card border border-border rounded-2xl p-6 flex flex-col h-full hover:border-accent-primary/40 hover:shadow-lg transition-all duration-300">
+                  <div
+                    key={i}
+                    className="bg-white border border-[#ebebeb] rounded-2xl p-6 flex flex-col h-full hover:border-accent-primary/20 hover:shadow-lg transition-all duration-300"
+                  >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-accent-primary/15">
                           <Image src={review.photo} alt={review.name} width={40} height={40} className="w-full h-full object-cover" />
                         </div>
                         <div>
-                          <p className="text-text-primary font-medium text-sm leading-tight">{review.name}</p>
-                          {review.badge && <p className="text-text-muted text-xs">{review.badge}</p>}
+                          <p className="text-[#0d0d0d] font-semibold text-sm leading-tight">{review.name}</p>
+                          {review.badge && <p className="text-[#888] text-xs">{review.badge}</p>}
                         </div>
                       </div>
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, idx) => <Star key={idx} className="w-3.5 h-3.5 text-accent-primary" fill="currentColor" />)}
                       </div>
                     </div>
-                    <p className="text-text-secondary text-sm leading-relaxed flex-grow mb-4">{review.text}</p>
-                    <div className="flex items-center gap-2 text-xs text-text-muted mt-auto pt-4 border-t border-border">
+                    <p className="text-[#555] text-sm leading-relaxed flex-grow mb-4">{review.text}</p>
+                    <div className="flex items-center gap-2 text-xs text-[#888] mt-auto pt-4 border-t border-[#ebebeb]">
                       <span>Google</span>
-                      <span className="w-1 h-1 rounded-full bg-text-muted/50" />
+                      <span className="w-1 h-1 rounded-full bg-[#ccc]" />
                       <span>{review.time}</span>
                     </div>
                   </div>
@@ -435,54 +475,83 @@ export default function PortfolioPage() {
 
           {/* Controls */}
           <div className="flex items-center justify-between mt-8">
-            {/* Dot indicators */}
             <div className="flex gap-2">
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
                   key={i}
                   onClick={() => { setDirection(i > page ? 1 : -1); setPage(i); }}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === page ? "w-6 bg-accent-primary" : "w-2 bg-border hover:bg-accent-primary/40"}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === page ? "w-6 bg-accent-primary" : "w-2 bg-[#ebebeb] hover:bg-accent-primary/40"}`}
                 />
               ))}
             </div>
-
-            {/* Prev / Next */}
             <div className="flex gap-2">
-              <button onClick={prev} className="w-10 h-10 rounded-full border border-border bg-background-card flex items-center justify-center text-text-muted hover:border-accent-primary hover:text-accent-primary transition-colors">
+              <button
+                onClick={prev}
+                className="w-10 h-10 rounded-full border border-[#ebebeb] bg-white flex items-center justify-center text-[#666] hover:border-accent-primary hover:text-accent-primary transition-colors"
+              >
                 <ChevronLeft className="w-4 h-4" />
               </button>
-              <button onClick={next} className="w-10 h-10 rounded-full border border-border bg-background-card flex items-center justify-center text-text-muted hover:border-accent-primary hover:text-accent-primary transition-colors">
+              <button
+                onClick={next}
+                className="w-10 h-10 rounded-full border border-[#ebebeb] bg-white flex items-center justify-center text-[#666] hover:border-accent-primary hover:text-accent-primary transition-colors"
+              >
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.3 }} className="mt-10 text-center">
-            <a href="https://g.page/r/review" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-border text-text-secondary rounded-lg px-6 py-3 text-sm font-medium hover:border-accent-primary hover:text-accent-primary transition-colors duration-200">
+          <motion.div
+            {...fadeUp(0.3)}
+            className="mt-10 text-center"
+          >
+            <a
+              href="https://g.page/r/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-[#ebebeb] text-[#666] rounded-lg px-6 py-3 text-sm font-medium hover:border-accent-primary hover:text-accent-primary transition-colors duration-200"
+            >
               Leave Us a Review on Google
               <ExternalLink className="w-4 h-4" />
             </a>
           </motion.div>
-
         </div>
       </section>
 
-      {/* SECTION 7 - CALL TO ACTION */}
-      <section className="bg-background-primary py-20">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-[36px] font-bold text-text-primary leading-tight mb-4">
-            Ready To See What We Can Do For Your Business?
+      {/* ── CTA SECTION ── */}
+      <section className="bg-[#080808] py-24 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent-primary/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
+          <motion.h2
+            {...fadeUp(0)}
+            className="text-[36px] md:text-[50px] font-black text-white leading-tight mb-4 max-w-[700px]"
+          >
+            Ready To See What We Can Do?
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="text-[17px] text-text-secondary max-w-[540px] mb-8">
+          <motion.p
+            {...fadeUp(0.1)}
+            className="text-[17px] text-[#666] max-w-[500px] mb-10"
+          >
             Every business on this page started exactly where you are. Let us show you a strategy tailored specifically for your industry and goals.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-            <Link href="/contact" className="btn-primary text-lg px-10 py-4">Book a Free Consultation</Link>
+          <motion.div {...fadeUp(0.2)} className="flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              href="/contact"
+              className="bg-accent-primary text-white font-bold text-[16px] px-10 py-4 rounded-xl hover:bg-accent-primary/90 transition-colors"
+            >
+              Get a Free Strategy Call
+            </Link>
+            <Link
+              href="/contact"
+              className="border border-white/20 text-white font-medium text-[15px] px-8 py-4 rounded-xl hover:bg-white hover:text-[#0d0d0d] transition-all"
+            >
+              Book a Free Consultation
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 8 - CTA BANNER */}
       <CTABanner />
 
     </div>

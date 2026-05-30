@@ -159,20 +159,20 @@ export default function Navbar() {
               onMouseLeave={() => setIsIndustriesOpen(false)}
               onBlur={handleDropdownBlur}
             >
-              <Link
-                href="/industries"
+              <button
+                onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
                 onFocus={() => setIsIndustriesOpen(true)}
                 onKeyDown={(e) => {
                   if (e.key === "ArrowDown") { e.preventDefault(); setIsIndustriesOpen(true); }
                   if (e.key === "Escape") setIsIndustriesOpen(false);
                 }}
-                className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${hoverColor} py-2 ${
+                className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${hoverColor} py-2 cursor-pointer ${
                   pathname?.startsWith("/industries") ? "text-accent-primary" : textColor
                 }`}
               >
                 Industries
                 <ChevronDown className="w-4 h-4" aria-hidden="true" />
-              </Link>
+              </button>
               <AnimatePresence>
                 {isIndustriesOpen && (
                   <motion.div
