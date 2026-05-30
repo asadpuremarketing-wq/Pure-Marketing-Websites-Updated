@@ -82,54 +82,23 @@ const SOCIAL_PLANS = [
 
 const GROWTH_PLANS = [
   {
-    key: "growth-installment-1",
-    name: "Installment 1 of 3",
+    key: "growth-system",
+    name: "90-Day Growth System",
     price: 1500,
-    label: "$1,500 CAD",
-    billing: "Due at project start",
+    label: "$1,500 CAD/mo",
+    billing: "Billed monthly · 3 payments · Auto-cancels after 3 months",
     cancellation: null,
-    savings: null,
+    savings: "Total: $4,500 CAD",
     badge: null,
     features: [
-      "Project kickoff & strategy",
-      "Website development begins",
-      "Google Business Profile setup",
-      "Tracking & analytics setup",
-      "Brand onboarding session",
-    ],
-  },
-  {
-    key: "growth-installment-2",
-    name: "Installment 2 of 3",
-    price: 1500,
-    label: "$1,500 CAD",
-    billing: "Due after foundation is completed",
-    cancellation: null,
-    savings: null,
-    badge: null,
-    features: [
-      "Website goes live",
-      "Review system activated",
-      "Monthly content begins",
-      "Follow-up automation setup",
-      "Google & Meta Ads launched",
-    ],
-  },
-  {
-    key: "growth-installment-3",
-    name: "Installment 3 of 3",
-    price: 1500,
-    label: "$1,500 CAD",
-    billing: "Due during advertising & scaling phase",
-    cancellation: null,
-    savings: null,
-    badge: null,
-    features: [
-      "Retargeting campaigns live",
-      "SEO & geo growth setup",
-      "Full system optimization",
-      "Performance reporting",
-      "Ongoing lead generation",
+      "High-converting website",
+      "Google & Meta Ads setup",
+      "SEO & geo growth foundation",
+      "Reputation & review system",
+      "Monthly content creation",
+      "Follow-up automation & CRM",
+      "Retargeting campaigns",
+      "Payment info saved — charged automatically each month",
     ],
   },
 ];
@@ -179,7 +148,7 @@ function CheckoutContent() {
   const [form, setForm] = useState<FormState>({
     firstName: "", lastName: "", email: "", phone: "",
     businessName: "", industry: "", message: "",
-    plan: productType === "growth-system" ? "growth-installment-1" : "1-month",
+    plan: productType === "growth-system" ? "growth-system" : "1-month",
   });
   const [status, setStatus] = useState<"idle" | "redirecting" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -191,7 +160,7 @@ function CheckoutContent() {
     setProductType(type);
     setForm((prev) => ({
       ...prev,
-      plan: type === "growth-system" ? "growth-installment-1" : "1-month",
+      plan: type === "growth-system" ? "growth-system" : "1-month",
     }));
   };
 
@@ -276,52 +245,85 @@ function CheckoutContent() {
           {/* ── Step 2: Choose plan ── */}
           <div>
             <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">
-              Step 2 — {productType === "growth-system" ? "Select Your Installment" : "Select a Plan"}
+              Step 2 — {productType === "growth-system" ? "Payment Overview" : "Select a Plan"}
             </p>
             <AnimatePresence mode="wait">
-              <motion.div
-                key={productType}
-                initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.25 }}
-                className="grid grid-cols-1 sm:grid-cols-3 gap-3"
-              >
-                {plans.map((plan) => {
-                  const isSelected = form.plan === plan.key;
-                  return (
-                    <button
-                      key={plan.key}
-                      type="button"
-                      onClick={() => update("plan")(plan.key)}
-                      className={`relative text-left rounded-2xl border-2 p-5 transition-all duration-200 focus:outline-none ${
-                        isSelected
-                          ? "border-accent-primary bg-white shadow-md"
-                          : "border-border bg-background-card hover:border-accent-primary/30"
-                      }`}
-                    >
-                      {plan.badge && (
-                        <span className="absolute -top-2.5 left-4 bg-accent-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full">
-                          {plan.badge}
-                        </span>
-                      )}
-                      <div className="flex items-center justify-between mb-3 mt-1">
-                        <p className="font-bold text-[14px] text-text-primary">{plan.name}</p>
-                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? "border-accent-primary bg-accent-primary" : "border-border"}`}>
-                          {isSelected && <Check className="w-2.5 h-2.5 text-white" />}
+              {productType === "growth-system" ? (
+                /* Growth System — single fixed plan, shown as info card */
+                <motion.div
+                  key="growth-info"
+                  initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.25 }}
+                  className="rounded-2xl border-2 border-accent-primary bg-white shadow-md p-6"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div>
+                      <p className="font-black text-[18px] text-text-primary">90-Day Growth System</p>
+                      <p className="text-[13px] text-text-secondary mt-0.5">$1,500 CAD/month × 3 months — auto-cancels after final payment</p>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <p className="text-[28px] font-extrabold text-accent-primary leading-none">$1,500</p>
+                      <p className="text-[11px] text-text-muted">CAD / month</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-700 text-[11px] font-semibold px-3 py-1 rounded-md">
+                      <Check className="w-3 h-3" /> Total: $4,500 CAD
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-md">
+                      <Shield className="w-3 h-3" /> Payment info saved — charged automatically
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200 text-orange-700 text-[11px] font-semibold px-3 py-1 rounded-md">
+                      <Lock className="w-3 h-3" /> Subscription ends after 3 payments
+                    </span>
+                  </div>
+                </motion.div>
+              ) : (
+                /* Social Media — plan selector */
+                <motion.div
+                  key={productType}
+                  initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.25 }}
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-3"
+                >
+                  {plans.map((plan) => {
+                    const isSelected = form.plan === plan.key;
+                    return (
+                      <button
+                        key={plan.key}
+                        type="button"
+                        onClick={() => update("plan")(plan.key)}
+                        className={`relative text-left rounded-2xl border-2 p-5 transition-all duration-200 focus:outline-none ${
+                          isSelected
+                            ? "border-accent-primary bg-white shadow-md"
+                            : "border-border bg-background-card hover:border-accent-primary/30"
+                        }`}
+                      >
+                        {plan.badge && (
+                          <span className="absolute -top-2.5 left-4 bg-accent-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full">
+                            {plan.badge}
+                          </span>
+                        )}
+                        <div className="flex items-center justify-between mb-3 mt-1">
+                          <p className="font-bold text-[14px] text-text-primary">{plan.name}</p>
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? "border-accent-primary bg-accent-primary" : "border-border"}`}>
+                            {isSelected && <Check className="w-2.5 h-2.5 text-white" />}
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-baseline gap-1 mb-1">
-                        <span className="text-[22px] font-extrabold text-text-primary">{plan.label}</span>
-                      </div>
-                      <p className="text-[11px] text-text-muted mb-2">{plan.billing}</p>
-                      {plan.savings && (
-                        <span className="inline-block bg-green-50 border border-green-200 text-green-700 text-[11px] font-semibold px-2 py-0.5 rounded-md">
-                          {plan.savings}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </motion.div>
+                        <div className="flex items-baseline gap-1 mb-1">
+                          <span className="text-[22px] font-extrabold text-text-primary">{plan.label}</span>
+                        </div>
+                        <p className="text-[11px] text-text-muted mb-2">{plan.billing}</p>
+                        {plan.savings && (
+                          <span className="inline-block bg-green-50 border border-green-200 text-green-700 text-[11px] font-semibold px-2 py-0.5 rounded-md">
+                            {plan.savings}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
 
@@ -462,7 +464,7 @@ function CheckoutContent() {
                   <p className="text-[12px] text-green-400 font-medium">{selected.savings} vs monthly rate</p>
                 )}
                 {productType === "growth-system" && (
-                  <p className="text-[11px] text-white/30 mt-2">Total system cost: $4,500 CAD (3 × $1,500)</p>
+                  <p className="text-[11px] text-white/30 mt-2">3 monthly payments of $1,500 · Subscription ends automatically</p>
                 )}
               </div>
 

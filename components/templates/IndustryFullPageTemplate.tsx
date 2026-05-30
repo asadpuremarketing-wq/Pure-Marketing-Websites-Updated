@@ -687,8 +687,8 @@ export default function IndustryFullPageTemplate({ config }: { config: IndustryF
                       </div>
                     ))}
                   </div>
-                  <Link href="/contact" className="group inline-flex items-center justify-center gap-2 bg-accent-primary hover:bg-[#d9531e] text-white font-bold text-[15px] rounded-xl px-6 py-4 transition-all duration-300 w-full shadow-xl shadow-accent-primary/20">
-                    Get Started — Book a Free Call
+                  <Link href="/checkout?product=growth-system" className="group inline-flex items-center justify-center gap-2 bg-accent-primary hover:bg-[#d9531e] text-white font-bold text-[15px] rounded-xl px-6 py-4 transition-all duration-300 w-full shadow-xl shadow-accent-primary/20">
+                    Get Started — Pay Online
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>
                 </div>
