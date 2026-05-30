@@ -33,6 +33,8 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
@@ -251,19 +253,19 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-b border-border overflow-hidden shadow-lg"
           >
-            <div className="px-6 py-5 flex flex-col space-y-4">
+            <div className="flex flex-col divide-y divide-border">
+              {/* Main links */}
               {[
                 { label: "Home", href: "/" },
                 { label: "About", href: "/about" },
                 { label: "Portfolio", href: "/portfolio" },
                 { label: "Blog", href: "/blog" },
-                { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <Link
                   key={href}
                   href={href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-base font-medium transition-colors ${
+                  className={`px-6 py-4 text-[15px] font-medium transition-colors ${
                     pathname === href ? "text-accent-primary" : "text-text-primary"
                   }`}
                 >
@@ -271,51 +273,97 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <div className="flex flex-col space-y-2 border-t border-border pt-3">
-                <Link
-                  href="/services"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-xs font-semibold uppercase tracking-widest ${pathname === "/services" ? "text-accent-primary" : "text-text-muted"}`}
+              {/* Services accordion */}
+              <div>
+                <button
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-medium text-text-primary"
                 >
-                  Services
+                  <span className={pathname?.startsWith("/services") ? "text-accent-primary" : ""}>Services</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-text-muted transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden bg-[#fafafa]"
+                    >
+                      <Link
+                        href="/services"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center gap-2 px-8 py-3 text-sm font-semibold text-accent-primary border-b border-border"
+                      >
+                        View All Services →
+                      </Link>
+                      {SERVICES_NAV.map((service) => (
+                        <Link
+                          key={service.name}
+                          href={service.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`block px-8 py-3 text-sm border-b border-border last:border-0 transition-colors ${
+                            pathname === service.href ? "text-accent-primary font-semibold" : "text-text-secondary"
+                          }`}
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Industries accordion */}
+              <div>
+                <button
+                  onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-medium text-text-primary"
+                >
+                  <span className={pathname?.startsWith("/industries") ? "text-accent-primary" : ""}>Industries</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-text-muted transition-transform duration-200 ${mobileIndustriesOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileIndustriesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden bg-[#fafafa]"
+                    >
+                      {INDUSTRIES.map((industry) => (
+                        <Link
+                          key={industry.name}
+                          href={industry.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`block px-8 py-3 text-sm border-b border-border last:border-0 transition-colors ${
+                            pathname === industry.href ? "text-accent-primary font-semibold" : "text-text-secondary"
+                          }`}
+                        >
+                          {industry.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* CTA */}
+              <div className="px-6 py-5">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="btn-primary text-center block w-full"
+                >
+                  Get a Free Audit
                 </Link>
-                {SERVICES_NAV.map((service) => (
-                  <Link
-                    key={service.name}
-                    href={service.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm pl-2 transition-colors ${
-                      pathname === service.href ? "text-accent-primary" : "text-text-secondary"
-                    }`}
-                  >
-                    {service.name}
-                  </Link>
-                ))}
               </div>
-
-              <div className="flex flex-col space-y-2 border-t border-border pt-3">
-                <span className="text-xs font-semibold text-text-muted uppercase tracking-widest">Industries</span>
-                {INDUSTRIES.map((industry) => (
-                  <Link
-                    key={industry.name}
-                    href={industry.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm pl-2 transition-colors ${
-                      pathname === industry.href ? "text-accent-primary" : "text-text-secondary"
-                    }`}
-                  >
-                    {industry.name}
-                  </Link>
-                ))}
-              </div>
-
-              <Link
-                href="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary text-center mt-2"
-              >
-                Get a Free Audit
-              </Link>
             </div>
           </motion.div>
         )}
