@@ -5,10 +5,10 @@ import Hero from "@/components/sections/Hero";
 import IntroVideo from "@/components/sections/IntroVideo";
 import StatsSection from "@/components/sections/StatsSection";
 import Services from "@/components/sections/Services";
+import HowItWorks from "@/components/sections/HowItWorks";
 import CTABanner from "@/components/sections/CTABanner";
 
 const VideoTestimonials = dynamic(() => import("@/components/sections/VideoTestimonials"));
-const CaseStudies = dynamic(() => import("@/components/sections/CaseStudies"));
 const ClientsCarousel = dynamic(() => import("@/components/sections/ClientsCarousel"));
 const Reviews = dynamic(() => import("@/components/sections/Reviews"));
 
@@ -68,8 +68,8 @@ export default function Home() {
       <IntroVideo />
       <StatsSection />
       <Services />
+      <HowItWorks />
       <VideoTestimonials />
-      <CaseStudies />
       <ClientsCarousel />
       <Reviews />
       <CTABanner />

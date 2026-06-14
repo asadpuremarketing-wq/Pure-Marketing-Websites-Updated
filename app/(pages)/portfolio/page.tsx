@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ExternalLink, Camera, Globe, Video, ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import CTABanner from "@/components/sections/CTABanner";
 import PageHero from "@/components/ui/PageHero";
@@ -81,56 +80,31 @@ const WEB_DEV_CLIENTS = [
   },
 ];
 
-const UNIQUE_WEB_CLIENTS = WEB_DEV_CLIENTS;
 
 const SOCIAL_MEDIA_CLIENTS = [
+  {
+    name: "Kukus Chicken",
+    location: "Burlington, ON",
+    initial: "K",
+    category: "Restaurant",
+    instagram: "https://www.instagram.com/kukus.chicken/",
+    screenshot: "/screenshots/social/kukus-chicken.png",
+  },
   {
     name: "Gravity Contractors Ltd",
     location: "Hamilton, ON",
     initial: "G",
     category: "Construction",
     instagram: "https://www.instagram.com/gravitycontractorsltd/",
-    screenshot: "/screenshots/social/gravity-contractors.webp",
+    screenshot: "/screenshots/social/gravity-contractors.png",
   },
   {
-    name: "Weather Guard Coatings",
-    location: "London, ON",
-    initial: "W",
-    category: "Painting",
-    instagram: "https://www.instagram.com/weatherguardcoatings/",
-    screenshot: "/screenshots/social/weather-guard.webp",
-  },
-  {
-    name: "Bowld Up",
-    location: "St. Catharines, ON",
-    initial: "B",
-    category: "Restaurant",
-    instagram: "https://www.instagram.com/bowldup/",
-    screenshot: "/screenshots/social/bowld-up.webp",
-  },
-  {
-    name: "Kukus Chicken",
-    location: "Burlington, ON",
-    initial: "K",
-    category: "Restaurant",
-    instagram: "https://www.instagram.com/kukuschicken/",
-    screenshot: "/screenshots/social/kukus-chicken.webp",
-  },
-  {
-    name: "Moussas Shawarma",
-    location: "North York, ON",
-    initial: "M",
-    category: "Restaurant",
-    instagram: "https://www.instagram.com/moussasshawarma/",
-    screenshot: "/screenshots/social/moussas-shawarma.webp",
-  },
-  {
-    name: "Rocket AMG",
-    location: "Hamilton, ON",
-    initial: "R",
-    category: "Real Estate",
-    instagram: "https://www.instagram.com/rocketamg/",
-    screenshot: "/screenshots/social/rocket-amg.webp",
+    name: "Icey Bubbles",
+    location: "Ontario",
+    initial: "I",
+    category: "Bubble Tea",
+    instagram: "https://www.instagram.com/iceybubbless/",
+    screenshot: "/screenshots/social/icey-bubbles.png",
   },
 ];
 
@@ -162,6 +136,8 @@ const fadeUp = (delay = 0) => ({
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [webIndex, setWebIndex] = useState(0);
+  const [webDir, setWebDir] = useState(1);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
   const totalPages = Math.ceil(REVIEWS.length / VISIBLE);
@@ -184,8 +160,33 @@ export default function PortfolioPage() {
   const visible = REVIEWS.slice(page * VISIBLE, page * VISIBLE + VISIBLE);
 
   const filteredItems = activeFilter === "All"
-    ? UNIQUE_WEB_CLIENTS
-    : UNIQUE_WEB_CLIENTS.filter(item => item.category === activeFilter);
+    ? WEB_DEV_CLIENTS
+    : WEB_DEV_CLIENTS.filter(item => item.category === activeFilter);
+
+  const webNext = () => {
+    setWebDir(1);
+    setWebIndex(i => (i + 1) % filteredItems.length);
+  };
+
+  const webPrev = () => {
+    setWebDir(-1);
+    setWebIndex(i => (i - 1 + filteredItems.length) % filteredItems.length);
+  };
+
+  const handleFilter = (filter: string) => {
+    setActiveFilter(filter);
+    setWebIndex(0);
+    setWebDir(1);
+  };
+
+  useEffect(() => {
+    if (filteredItems.length <= 1) return;
+    const id = setInterval(() => {
+      setWebDir(1);
+      setWebIndex(i => (i + 1) % filteredItems.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [filteredItems.length]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -202,7 +203,7 @@ export default function PortfolioPage() {
       {/* ── PORTFOLIO GRID ── */}
       <section className="bg-[#080808] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-accent-primary/8 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-accent-primary/[0.08] rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6">
           {/* Header */}
@@ -216,7 +217,7 @@ export default function PortfolioPage() {
               {...fadeUp(0.1)}
               className="text-[32px] md:text-[46px] font-black text-white leading-tight mb-4"
             >
-              Real Work. Real Results.
+              Web Development Projects
             </motion.h2>
             <motion.p {...fadeUp(0.2)} className="text-[17px] text-[#666] max-w-[540px]">
               Every project built to convert, designed to last, and optimized for growth.
@@ -231,7 +232,7 @@ export default function PortfolioPage() {
             {WEB_FILTERS.map((filter) => (
               <button
                 key={filter}
-                onClick={() => setActiveFilter(filter)}
+                onClick={() => handleFilter(filter)}
                 className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 border ${
                   activeFilter === filter
                     ? "bg-accent-primary border-accent-primary text-white"
@@ -243,69 +244,116 @@ export default function PortfolioPage() {
             ))}
           </motion.div>
 
-          {/* Project cards */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
+          {/* 3-up carousel */}
+          <div className="relative overflow-hidden">
+            <AnimatePresence mode="wait" custom={webDir}>
               <motion.div
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.4 }}
-                key={item.id}
-                className="bg-white/[0.04] border border-white/10 rounded-2xl overflow-hidden group hover:border-accent-primary/40 hover:shadow-2xl hover:shadow-accent-primary/10 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                key={webIndex}
+                custom={webDir}
+                variants={{
+                  enter: (d: number) => ({ opacity: 0, x: d > 0 ? 80 : -80 }),
+                  center: { opacity: 1, x: 0 },
+                  exit:  (d: number) => ({ opacity: 0, x: d > 0 ? -80 : 80 }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeInOut" }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                {/* Screenshot */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden" style={{ backgroundColor: item.accent }}>
-                  {item.screenshot ? (
-                    <Image
-                      src={item.screenshot}
-                      alt={item.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 opacity-50">
-                      <div className="w-8 h-8 rounded border-2 border-current text-white/30" />
-                      <span className="text-xs text-white/30">Screenshot coming soon</span>
-                    </div>
-                  )}
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                  >
-                    <span className="inline-flex items-center gap-2 bg-accent-primary text-white text-sm font-semibold rounded-lg px-5 py-2.5">
-                      Visit Website <ExternalLink className="w-4 h-4" />
-                    </span>
-                  </a>
-                </div>
+                {Array.from({ length: Math.min(3, filteredItems.length) }).map((_, offset) => {
+                  const item = filteredItems[(webIndex + offset) % filteredItems.length];
+                  return (
+                    <div
+                      key={item.id}
+                      className="bg-white/[0.04] border border-white/[0.08] rounded-2xl overflow-hidden group hover:border-accent-primary/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent-primary/10 transition-all duration-300 flex flex-col"
+                    >
+                      {/* Screenshot */}
+                      <div
+                        className="relative aspect-[16/9] overflow-hidden flex-shrink-0"
+                        style={{ backgroundColor: item.accent }}
+                      >
+                        {item.screenshot && (
+                          <Image
+                            src={item.screenshot}
+                            alt={item.name}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          />
+                        )}
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                        >
+                          <span className="inline-flex items-center gap-2 bg-accent-primary text-white text-sm font-semibold rounded-lg px-5 py-2.5">
+                            Visit Website <ExternalLink className="w-4 h-4" />
+                          </span>
+                        </a>
+                      </div>
 
-                {/* Card body */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <div className="flex items-start justify-between gap-3 mb-1">
-                    <h3 className="font-bold text-[16px] text-white leading-tight">{item.name}</h3>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-primary bg-accent-primary/10 rounded-full px-2.5 py-0.5 whitespace-nowrap flex-shrink-0 mt-0.5">
-                      {item.category}
-                    </span>
-                  </div>
-                  <p className="text-sm text-[#666]">{item.description}</p>
-                  <p className="text-xs text-[#444] mt-1 mb-4">{item.location}</p>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 text-xs text-accent-primary hover:underline transition-colors duration-200 truncate"
-                  >
-                    {item.href.replace(/https?:\/\/(www\.)?/, "")}
-                    <ExternalLink className="w-3 h-3 flex-shrink-0" />
-                  </a>
-                </div>
+                      {/* Card info */}
+                      <div className="p-5 flex flex-col flex-grow">
+                        <div className="flex items-start justify-between gap-3 mb-2">
+                          <h3 className="font-black text-[15px] text-white leading-tight">{item.name}</h3>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-accent-primary bg-accent-primary/10 border border-accent-primary/15 rounded-full px-2.5 py-0.5 whitespace-nowrap flex-shrink-0 mt-0.5">
+                            {item.category}
+                          </span>
+                        </div>
+                        <p className="text-sm text-[#666] mb-1">{item.description}</p>
+                        <p className="text-xs text-[#444] mb-4">{item.location}</p>
+                        <div className="mt-auto pt-4 border-t border-white/[0.06]">
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs text-accent-primary hover:gap-2.5 transition-all duration-200 font-semibold truncate max-w-full"
+                          >
+                            {item.href.replace(/https?:\/\/(www\.)?/, "")}
+                            <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </motion.div>
-            ))}
-          </motion.div>
+            </AnimatePresence>
+
+            {/* Controls */}
+            <div className="flex items-center justify-between mt-8">
+              <div className="flex items-center gap-2">
+                {filteredItems.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { setWebDir(i > webIndex ? 1 : -1); setWebIndex(i); }}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === webIndex ? "w-6 bg-accent-primary" : "w-1.5 bg-white/20 hover:bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[#555] text-sm tabular-nums">
+                  {webIndex + 1} / {filteredItems.length}
+                </span>
+                <button
+                  onClick={webPrev}
+                  className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center text-white/50 hover:border-accent-primary hover:text-accent-primary transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={webNext}
+                  className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.04] flex items-center justify-center text-white/50 hover:border-accent-primary hover:text-accent-primary transition-colors"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -382,10 +430,9 @@ export default function PortfolioPage() {
                     <p className="font-semibold text-[14px] text-white leading-tight truncate">{client.name}</p>
                     <p className="text-[11px] text-white/40 mt-0.5">{client.category} · {client.location}</p>
                   </div>
-                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[10px] text-white/30 font-medium">Active</span>
-                  </div>
+                  <span className="text-[10px] font-semibold text-accent-primary bg-accent-primary/10 border border-accent-primary/20 rounded-full px-2.5 py-0.5">
+                    Active
+                  </span>
                 </div>
               </motion.div>
             ))}
@@ -497,7 +544,7 @@ export default function PortfolioPage() {
             className="mt-10 text-center"
           >
             <a
-              href="https://g.page/r/review"
+              href="https://maps.app.goo.gl/6Y7t4iDXYYc4SR2B9"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-[#ebebeb] text-[#666] rounded-lg px-6 py-3 text-sm font-medium hover:border-accent-primary hover:text-accent-primary transition-colors duration-200"
@@ -505,41 +552,6 @@ export default function PortfolioPage() {
               Leave Us a Review on Google
               <ExternalLink className="w-4 h-4" />
             </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── CTA SECTION ── */}
-      <section className="bg-[#080808] py-24 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-accent-primary/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 flex flex-col items-center text-center">
-          <motion.h2
-            {...fadeUp(0)}
-            className="text-[36px] md:text-[50px] font-black text-white leading-tight mb-4 max-w-[700px]"
-          >
-            Ready To See What We Can Do?
-          </motion.h2>
-          <motion.p
-            {...fadeUp(0.1)}
-            className="text-[17px] text-[#666] max-w-[500px] mb-10"
-          >
-            Every business on this page started exactly where you are. Let us show you a strategy tailored specifically for your industry and goals.
-          </motion.p>
-          <motion.div {...fadeUp(0.2)} className="flex flex-col sm:flex-row items-center gap-4">
-            <Link
-              href="/contact"
-              className="bg-accent-primary text-white font-bold text-[16px] px-10 py-4 rounded-xl hover:bg-accent-primary/90 transition-colors"
-            >
-              Get a Free Strategy Call
-            </Link>
-            <Link
-              href="/contact"
-              className="border border-white/20 text-white font-medium text-[15px] px-8 py-4 rounded-xl hover:bg-white hover:text-[#0d0d0d] transition-all"
-            >
-              Book a Free Consultation
-            </Link>
           </motion.div>
         </div>
       </section>

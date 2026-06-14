@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/checkout/", "/checkout/success/"],
       },
     ],
     sitemap: "https://puremarketing.ca/sitemap.xml",

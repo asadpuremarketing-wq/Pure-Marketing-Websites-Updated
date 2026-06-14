@@ -16,6 +16,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/terms-of-service`,    priority: 0.3,  changeFrequency: "yearly"  as const },
   ];
 
+  const servicePages = [
+    "web-development",
+    "lead-generation",
+    "video-production",
+    "social-media-management",
+    "google-meta-ads",
+  ].map((slug) => ({
+    url: `${BASE}/services/${slug}`,
+    priority: 0.85,
+    changeFrequency: "monthly" as const,
+    lastModified: now,
+  }));
+
   const industryPages = [
     "electricians",
     "plumbers",
@@ -34,6 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages.map((p) => ({ ...p, lastModified: now })),
+    ...servicePages,
     ...industryPages,
   ];
 }

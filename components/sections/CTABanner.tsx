@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 const TRUST_PILLS = ["No contracts", "Results guaranteed", "Local business specialists"];
 
@@ -61,15 +61,14 @@ export default function CTABanner() {
 
           {/* Headline */}
           <h2 className="font-black text-[36px] md:text-[52px] text-white leading-[1.05] tracking-tight mb-5 max-w-[820px]">
-            Let Us Build You a Marketing System{" "}
-            <span className="text-[#F06428]">That Works While You Work</span>
+            Ready to Get More Leads?{" "}
+            <span className="text-[#F06428]">Let&apos;s Talk.</span>
           </h2>
 
           {/* Subtext */}
-          <p className="text-[17px] text-[#666] max-w-[540px] mb-10 leading-relaxed">
-            Book a free 30-minute strategy call. We will review your current
-            marketing, identify the gaps, and show you exactly what we would do
-            to grow your business.
+          <p className="text-[17px] text-[#666] max-w-[520px] mb-10 leading-relaxed">
+            Book a free 30-minute strategy call. We&apos;ll review your current
+            marketing, find the gaps, and show you exactly how we&apos;d grow your business. No fluff, no pressure.
           </p>
 
           {/* CTA buttons */}
@@ -78,15 +77,16 @@ export default function CTABanner() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-[#F06428] text-white rounded-xl px-8 py-4 font-bold text-[15px] hover:bg-[#D9531E] transition-colors duration-300 shadow-xl shadow-[#F06428]/30 w-full sm:w-auto justify-center"
             >
-              Book a Free Strategy Call
+              Get My Free Marketing Plan
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/portfolio"
+            <a
+              href="tel:+16479512786"
               className="inline-flex items-center gap-2 border border-white/20 text-white rounded-xl px-8 py-4 font-bold text-[15px] hover:border-white/45 hover:bg-white/5 transition-all duration-300 w-full sm:w-auto justify-center"
             >
-              View Our Portfolio
-            </Link>
+              <Phone className="w-4 h-4 text-[#F06428]" />
+              Call Us: +1 647-951-2786
+            </a>
           </div>
 
           {/* Trust pills */}

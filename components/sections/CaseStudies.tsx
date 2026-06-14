@@ -67,7 +67,7 @@ export default function CaseStudies() {
             {...fadeUp(0.1)}
             className="text-[32px] md:text-[44px] font-black text-white leading-tight"
           >
-            Results That Speak for Themselves
+            Real Clients. Real Results.
           </motion.h2>
           <motion.p
             {...fadeUp(0.2)}

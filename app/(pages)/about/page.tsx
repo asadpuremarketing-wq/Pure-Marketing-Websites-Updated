@@ -2,16 +2,13 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import {
   MapPin,
-  Star,
   CheckCircle2,
   Users,
   TrendingUp,
   Award,
   Clock,
-  Quote,
 } from "lucide-react";
 
 /* ─── Social icon SVGs ─────────────────────────────────────── */
@@ -54,54 +51,18 @@ const TEAM = [
     role: "Owner & Marketing Strategist",
     bio: "Asad built Pure Marketing from the ground up after seeing too many great local businesses get ignored by generic agencies. He leads strategy, client relationships, and campaign direction.",
     image: "/team/asad.png",
-    linkedin: "https://www.linkedin.com/company/pure-marketing0/",
-    instagram: "https://www.instagram.com/puremarketing0",
-    facebook: "https://www.facebook.com/profile.php?id=61576684511407",
   },
   {
     name: "Ali Saif",
     role: "Software Engineer",
-    bio: "Ali architects the digital foundations — from blazing-fast websites to custom marketing tech. He ensures every client's online presence is built to perform and scale.",
+    bio: "Ali architects the digital foundations. From blazing-fast websites to custom marketing tech, he ensures every client's online presence is built to perform and scale.",
     image: "/team/ali.png",
-    linkedin: "https://www.linkedin.com/company/pure-marketing0/",
-    instagram: "https://www.instagram.com/puremarketing0",
-    facebook: "https://www.facebook.com/profile.php?id=61576684511407",
   },
   {
     name: "Muhammad Amir",
     role: "Content Creator",
     bio: "Amir brings brands to life through compelling video, photo, and written content. He specializes in telling authentic local business stories that connect and convert.",
     image: "/team/amir.png",
-    linkedin: "https://www.linkedin.com/company/pure-marketing0/",
-    instagram: "https://www.instagram.com/puremarketing0",
-    facebook: "https://www.facebook.com/profile.php?id=61576684511407",
-  },
-];
-
-const TESTIMONIALS = [
-  {
-    photo: "https://randomuser.me/api/portraits/men/32.jpg",
-    quote: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence.",
-    author: "Dennis Aboagye",
-    badge: "",
-    time: "a month ago",
-    rating: 5,
-  },
-  {
-    photo: "https://randomuser.me/api/portraits/women/44.jpg",
-    quote: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%.",
-    author: "Unnati Oza",
-    badge: "Local Guide",
-    time: "a month ago",
-    rating: 5,
-  },
-  {
-    photo: "https://randomuser.me/api/portraits/men/88.jpg",
-    quote: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will highly recommend him.",
-    author: "Negril 25",
-    badge: "",
-    time: "9 months ago",
-    rating: 5,
   },
 ];
 
@@ -155,7 +116,7 @@ export default function About() {
         label="About Us"
         title="A Marketing Agency Built"
         titleAccent="for Local Businesses"
-        subtitle="We started this agency because we saw too many great local businesses being ignored by generic marketing agencies. We fix that — from Hamilton to across North America."
+        subtitle="We started this agency because we saw too many great local businesses being ignored by generic marketing agencies. We fix that. From Hamilton to across North America."
         breadcrumbs={[{ label: "About" }]}
         fadeToColor="#111111"
       />
@@ -232,7 +193,7 @@ export default function About() {
               </p>
 
               {/* Dark pull-quote card */}
-              <div className="bg-[#0d0d0d] border border-white/10 rounded-2xl p-6 border-l-4 border-l-accent-primary">
+              <div className="bg-[#0d0d0d] border border-white/10 border-l-4 border-l-accent-primary rounded-2xl p-6">
                 <p className="text-[17px] text-white italic leading-snug">
                   &ldquo;We manage marketing for businesses across Canada and the US, helping them generate consistent leads month over month.&rdquo;
                 </p>
@@ -297,19 +258,6 @@ export default function About() {
                   <p className="text-sm text-[#666] mt-3 leading-relaxed flex-grow">
                     {member.bio}
                   </p>
-
-                  {/* Social links */}
-                  <div className="flex items-center gap-4 mt-6 pt-4 border-t border-[#e8e8e8] w-full justify-center">
-                    <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-[#aaa] hover:text-accent-primary transition-colors">
-                      <LinkedinIcon className="w-5 h-5" />
-                    </Link>
-                    <Link href={member.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#aaa] hover:text-accent-primary transition-colors">
-                      <InstagramIcon className="w-5 h-5" />
-                    </Link>
-                    <Link href={member.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#aaa] hover:text-accent-primary transition-colors">
-                      <FacebookIcon className="w-5 h-5" />
-                    </Link>
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -317,64 +265,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── 4. TESTIMONIALS ── #0d0d0d bg */}
-      <section className="bg-[#0d0d0d] py-24 relative overflow-hidden">
-        {/* Ambient glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent-primary/5 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-[1240px] mx-auto px-6 relative z-10">
-          <div className="flex flex-col items-center text-center mb-14">
-            <motion.div {...fadeUp(0)} className="mb-3">
-              <SectionLabel>Client Stories</SectionLabel>
-            </motion.div>
-            <motion.h2
-              {...fadeUp(0.1)}
-              className="text-[30px] md:text-[40px] font-black text-white leading-tight"
-            >
-              What Our Clients Say
-            </motion.h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.12)}
-                className="bg-white/[0.03] border border-white/10 rounded-2xl p-7 flex flex-col hover:border-accent-primary/30 transition-all duration-300"
-              >
-                {/* Large decorative quote icon */}
-                <Quote className="w-10 h-10 text-accent-primary/20 mb-4 flex-shrink-0" />
-
-                {/* Stars */}
-                <div className="flex gap-1 mb-5">
-                  {Array.from({ length: t.rating }).map((_, s) => (
-                    <Star key={s} className="w-4 h-4 text-accent-primary fill-accent-primary" />
-                  ))}
-                </div>
-
-                <p className="text-[15px] text-[#aaa] leading-relaxed flex-grow">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-
-                <div className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 bg-accent-primary/15">
-                    <Image src={t.photo} alt={t.author} width={36} height={36} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-grow">
-                    <p className="font-semibold text-white text-sm">{t.author}</p>
-                    {t.badge && (
-                      <span className="text-xs text-accent-primary font-medium">{t.badge} · </span>
-                    )}
-                    <span className="text-xs text-[#555]">Google Review</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. FOLLOW US ── white bg */}
+      {/* ── 4. FOLLOW US ── white bg */}
       <section className="bg-white py-20">
         <div className="max-w-[900px] mx-auto px-6">
           <motion.div {...fadeUp(0)} className="text-center mb-10">
