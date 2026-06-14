@@ -5,7 +5,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, TrendingUp, Video, Share2, BarChart2,
-  Check, ArrowRight, Phone, ChevronDown, ChevronLeft, ChevronRight,
+  Check, ArrowRight, Phone, ChevronDown,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -244,85 +244,31 @@ function VideoPortfolioSection() {
   );
 }
 
-function FeaturesCarousel({ features }: { features: { title: string; desc: string }[] }) {
-  const [active, setActive] = useState(0);
-  const [dir, setDir] = useState(1);
-
-  const goTo = (idx: number) => {
-    setDir(idx >= active ? 1 : -1);
-    setActive(idx);
-  };
-  const prev = () => goTo(active === 0 ? features.length - 1 : active - 1);
-  const next = () => goTo(active === features.length - 1 ? 0 : active + 1);
-
+function FeaturesGrid({ features }: { features: { title: string; desc: string }[] }) {
   return (
-    <div>
-      <div className="relative overflow-hidden min-h-[200px] md:min-h-[220px]">
-        <AnimatePresence mode="wait" custom={dir}>
-          <motion.div
-            key={active}
-            custom={dir}
-            variants={{
-              enter: (d: number) => ({ x: d * 48, opacity: 0 }),
-              center: { x: 0, opacity: 1 },
-              exit: (d: number) => ({ x: -d * 48, opacity: 0 }),
-            }}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="flex gap-8 md:gap-14 items-start py-8 px-1"
-          >
-            <span
-              className="text-[56px] md:text-[80px] font-black text-accent-primary flex-shrink-0"
-              style={{ lineHeight: 1 }}
-            >
-              {String(active + 1).padStart(2, "0")}
-            </span>
-            <div className="pt-1.5">
-              <h3 className="font-black text-[22px] md:text-[28px] text-[#0d0d0d] mb-3 leading-snug">
-                {features[active].title}
-              </h3>
-              <p className="text-[#666] text-[16px] md:text-[17px] leading-relaxed">
-                {features[active].desc}
-              </p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      <div className="flex items-center justify-between pt-6 border-t border-[#f0f0f0]">
-        <div className="flex gap-2 items-center">
-          {features.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`rounded-full transition-all duration-200 ${
-                i === active
-                  ? "w-6 h-2 bg-accent-primary"
-                  : "w-2 h-2 bg-[#ddd] hover:bg-accent-primary/50"
-              }`}
-              aria-label={`Go to feature ${i + 1}`}
-            />
-          ))}
-        </div>
-        <div className="flex gap-2">
-          <button
-            onClick={prev}
-            className="w-10 h-10 rounded-full border border-[#e8e8e8] flex items-center justify-center text-[#999] hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={next}
-            className="w-10 h-10 rounded-full border border-[#e8e8e8] flex items-center justify-center text-[#999] hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
-            aria-label="Next"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+      {features.map((feature, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: Math.floor(i / 2) * 0.1 }}
+          className={[
+            "flex gap-6 py-8",
+            i < features.length - 2 ? "border-b border-[#f0f0f0]" : "",
+            i % 2 === 0 ? "md:pr-14 md:border-r md:border-r-[#f0f0f0]" : "md:pl-14",
+          ].join(" ")}
+        >
+          <span className="text-[13px] font-black text-accent-primary tabular-nums flex-shrink-0 mt-1 w-6 leading-none">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <div>
+            <h3 className="font-black text-[16px] text-[#0d0d0d] mb-2 leading-snug">{feature.title}</h3>
+            <p className="text-sm text-[#666] leading-relaxed">{feature.desc}</p>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 }
@@ -603,7 +549,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         title={service.title}
         titleAccent=""
         subtitle={service.headline}
-        breadcrumbs={[{ label: "Services", href: "/services" }, { label: service.title }]}
+        breadcrumbs={[{ label: "Services" }, { label: service.title }]}
         fadeToColor="#111111"
       />
 
@@ -615,11 +561,11 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <p className="text-[18px] md:text-[20px] text-white/70 leading-relaxed mb-8">{service.description}</p>
-              <div className="grid grid-cols-3 gap-4 py-6 mb-8 border-y border-white/[0.08]">
+              <div className="grid grid-cols-3 gap-5 py-7 mb-8 border-y border-white/[0.08]">
                 {service.outcomes.map((o, i) => (
                   <div key={i}>
-                    <span className="text-[26px] md:text-[32px] font-black text-white leading-none block">{o.value}</span>
-                    <span className="text-white/40 text-[11px] mt-1 leading-tight block">{o.label}</span>
+                    <span className="text-[28px] md:text-[36px] font-black text-white leading-none block">{o.value}</span>
+                    <span className="text-white/40 text-[11px] mt-1.5 leading-tight block">{o.label}</span>
                   </div>
                 ))}
               </div>
@@ -633,15 +579,36 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               {service.slug === "web-development" ? (
-                <div className="grid grid-cols-2 gap-3">
-                  {WEB_CLIENTS.slice(0, 4).map((client, i) => (
-                    <a key={i} href={client.href} target="_blank" rel="noopener noreferrer" className="group relative aspect-video rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300" style={{ backgroundColor: client.accent }}>
-                      <Image src={client.screenshot} alt={client.name} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                        <span className="text-white text-xs font-semibold truncate">{client.name}</span>
+                <div>
+                  <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/[0.08]">
+                    <div className="bg-[#1c1c1c] px-4 py-3 flex items-center gap-3">
+                      <div className="flex gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
                       </div>
-                    </a>
-                  ))}
+                      <div className="flex-1 bg-white/[0.07] rounded-md px-3 py-1.5 text-white/30 text-xs font-mono truncate">
+                        gravitycontractors.ca
+                      </div>
+                    </div>
+                    <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: WEB_CLIENTS[1].accent }}>
+                      <Image
+                        src={WEB_CLIENTS[1].screenshot}
+                        alt={WEB_CLIENTS[1].name}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 mt-4 flex-wrap">
+                    {WEB_CLIENTS.slice(0, 5).map((c, i) => (
+                      <a key={i} href={c.href} target="_blank" rel="noopener noreferrer" className="text-[11px] text-white/40 hover:text-white/70 border border-white/[0.10] hover:border-white/25 rounded-full px-3 py-1 transition-all duration-200">
+                        {c.name.split(" ").slice(0, 2).join(" ")}
+                      </a>
+                    ))}
+                    <span className="text-[11px] text-white/25">+5 more</span>
+                  </div>
                 </div>
               ) : service.slug === "social-media-management" ? (
                 <div className="grid grid-cols-2 gap-3">
@@ -670,134 +637,173 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* WHAT'S INCLUDED */}
-      <section className="bg-[#f7f7f7] py-20">
+      <section className="bg-white py-20">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-10 border-b border-[#f0f0f0]">
             <div>
               <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">Everything Included</p>
               <h2 className="text-[30px] md:text-[40px] font-black text-[#0d0d0d] leading-tight">What You Get</h2>
             </div>
-            <p className="text-[#888] text-[15px] max-w-[340px] leading-relaxed">Use the arrows to explore all {service.features.length} deliverables. All included, no extras.</p>
+            <p className="text-[#888] text-[15px] max-w-[340px] leading-relaxed">All {service.features.length} deliverables included from day one. No extras, no surprises.</p>
           </motion.div>
-
-          <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 md:p-12 shadow-sm">
-            <FeaturesCarousel features={service.features} />
-          </div>
+          <FeaturesGrid features={service.features} />
         </div>
       </section>
 
       {/* VIDEO PORTFOLIO */}
       {service.slug === "video-production" && <VideoPortfolioSection />}
 
-      {/* PORTFOLIO */}
-      {(service.slug === "web-development" || service.slug === "social-media-management") && (
+      {/* PORTFOLIO - Web Development */}
+      {service.slug === "web-development" && (
+        <section className="bg-[#f7f7f7] py-20">
+          <div className="max-w-[1200px] mx-auto px-6">
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-end justify-between gap-6 mb-8">
+              <div>
+                <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">Our Work</p>
+                <h2 className="text-[30px] md:text-[40px] font-black text-[#0d0d0d] leading-tight">Websites We&apos;ve Built</h2>
+              </div>
+              <Link href="/portfolio" className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[#999] hover:text-accent-primary transition-colors">
+                View all work <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            {/* Featured project */}
+            <motion.a
+              href={WEB_CLIENTS[1].href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="group flex flex-col lg:flex-row bg-white border border-[#e8e8e8] rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-4"
+            >
+              <div className="relative lg:w-[60%] aspect-video lg:aspect-auto overflow-hidden" style={{ backgroundColor: WEB_CLIENTS[1].accent }}>
+                <Image
+                  src={WEB_CLIENTS[1].screenshot}
+                  alt={WEB_CLIENTS[1].name}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="lg:w-[40%] p-8 lg:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-[#f0f0f0]">
+                <div>
+                  <span className="inline-block text-[10px] font-black uppercase tracking-widest text-accent-primary bg-accent-primary/10 border border-accent-primary/20 rounded-full px-3 py-1 mb-5">
+                    Featured Project
+                  </span>
+                  <h3 className="font-black text-[22px] lg:text-[26px] text-[#0d0d0d] leading-tight mb-2">{WEB_CLIENTS[1].name}</h3>
+                  <p className="text-[#666] text-[15px]">{WEB_CLIENTS[1].description}</p>
+                  <p className="text-[#bbb] text-xs mt-1">{WEB_CLIENTS[1].location}</p>
+                  <blockquote className="mt-6 text-[14px] text-[#555] italic leading-relaxed border-l-2 border-accent-primary/30 pl-4">
+                    &ldquo;They built our website in under 3 weeks. We had more online leads in the first month than in the entire year before.&rdquo;
+                  </blockquote>
+                </div>
+                <div className="mt-8 flex items-center gap-2 text-sm font-bold text-accent-primary group-hover:gap-3 transition-all duration-200">
+                  Visit Live Site <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </motion.a>
+
+            {/* Grid of 4 more */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[WEB_CLIENTS[0], WEB_CLIENTS[2], WEB_CLIENTS[3], WEB_CLIENTS[4]].map((client, i) => (
+                <motion.a
+                  key={i}
+                  href={client.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="group bg-white border border-[#e8e8e8] rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <div className="relative aspect-video overflow-hidden" style={{ backgroundColor: client.accent }}>
+                    <Image
+                      src={client.screenshot}
+                      alt={client.name}
+                      fill
+                      sizes="25vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-3 border-t border-[#f0f0f0]">
+                    <p className="font-bold text-[13px] text-[#0d0d0d] leading-tight truncate">{client.name}</p>
+                    <p className="text-[11px] text-[#999] mt-0.5 truncate">{client.description}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+          </div>
+        </section>
+      )}
+
+      {/* PORTFOLIO - Social Media */}
+      {service.slug === "social-media-management" && (
         <section className="bg-background-primary py-20">
           <div className="max-w-[1200px] mx-auto px-6">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex items-end justify-between gap-6 mb-12">
               <div>
                 <p className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">Real Work</p>
-                <h2 className="text-[32px] md:text-[40px] font-bold text-text-primary leading-tight">
-                  {service.slug === "web-development" ? "Websites We've Built" : "Brands We Manage"}
-                </h2>
+                <h2 className="text-[32px] md:text-[40px] font-bold text-text-primary leading-tight">Brands We Manage</h2>
               </div>
               <Link href="/portfolio" className="hidden md:inline-flex items-center gap-2 text-sm text-text-muted hover:text-accent-primary transition-colors">
                 View full portfolio <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
 
-            {service.slug === "web-development" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {WEB_CLIENTS.slice(0, 6).map((client, i) => (
-                  <motion.a
-                    key={i}
-                    href={client.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="group bg-background-card border border-border rounded-2xl overflow-hidden hover:border-accent-primary/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
-                  >
-                    <div className="relative aspect-video w-full overflow-hidden" style={{ backgroundColor: client.accent }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SOCIAL_CLIENTS.map((client, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.07 }}
+                  className="bg-background-card border border-border rounded-2xl overflow-hidden hover:border-accent-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"
+                >
+                  <div className="relative aspect-square w-full overflow-hidden bg-background-secondary">
+                    {client.screenshot ? (
                       <Image
                         src={client.screenshot}
-                        alt={client.name}
+                        alt={`${client.name} Instagram`}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span className="bg-accent-primary text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
-                          Visit Website <ArrowRight className="w-3.5 h-3.5" />
-                        </span>
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-4xl font-bold text-text-muted/30">{client.initial}</span>
                       </div>
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-bold text-[15px] text-text-primary">{client.name}</h3>
-                      <p className="text-sm text-text-secondary">{client.description}</p>
-                      <p className="text-xs text-text-muted mt-1">{client.location}</p>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-            )}
-
-            {service.slug === "social-media-management" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {SOCIAL_CLIENTS.map((client, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.07 }}
-                    className="bg-background-card border border-border rounded-2xl overflow-hidden hover:border-accent-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col"
-                  >
-                    {/* Screenshot */}
-                    <div className="relative aspect-square w-full overflow-hidden bg-background-secondary">
-                      {client.screenshot ? (
-                        <Image
-                          src={client.screenshot}
-                          alt={`${client.name} Instagram`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-4xl font-bold text-text-muted/30">{client.initial}</span>
-                        </div>
-                      )}
-                      {/* Instagram overlay on hover */}
-                      <a
-                        href={client.instagram}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <span className="bg-white text-text-primary text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-2">
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                          View on Instagram
-                        </span>
-                      </a>
-                    </div>
-
-                    {/* Info row */}
-                    <div className="p-4 flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold text-[14px] text-text-primary leading-tight">{client.name}</p>
-                        <p className="text-xs text-text-muted mt-0.5">{client.category} · {client.location}</p>
-                      </div>
-                      <span className="text-[10px] font-semibold text-accent-primary bg-accent-primary/10 border border-accent-primary/20 rounded-full px-2.5 py-0.5 shrink-0">
-                        Active
+                    )}
+                    <a
+                      href={client.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span className="bg-white text-text-primary text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-2">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        View on Instagram
                       </span>
+                    </a>
+                  </div>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="font-semibold text-[14px] text-text-primary leading-tight">{client.name}</p>
+                      <p className="text-xs text-text-muted mt-0.5">{client.category} · {client.location}</p>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
+                    <span className="text-[10px] font-semibold text-accent-primary bg-accent-primary/10 border border-accent-primary/20 rounded-full px-2.5 py-0.5 shrink-0">
+                      Active
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
             <div className="mt-8 text-center md:hidden">
               <Link href="/portfolio" className="text-sm text-text-muted hover:text-accent-primary transition-colors">
@@ -992,8 +998,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <p className="text-[#999] text-sm">Still have questions?</p>
             <div className="flex items-center gap-6">
               <Link href="/contact" className="text-sm font-semibold text-accent-primary hover:underline">Book a free call</Link>
-              <Link href="/services" className="text-sm text-[#999] hover:text-accent-primary transition-colors flex items-center gap-1">
-                All services <ArrowRight className="w-3.5 h-3.5" />
+              <Link href="/contact" className="text-sm text-[#999] hover:text-accent-primary transition-colors flex items-center gap-1">
+                Get in touch <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </motion.div>

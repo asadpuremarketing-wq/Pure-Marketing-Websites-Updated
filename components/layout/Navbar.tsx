@@ -107,15 +107,15 @@ export default function Navbar() {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <Link
-                href="/services"
-                className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${hoverColor} py-2 ${
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 ${hoverColor} py-2 cursor-pointer ${
                   pathname?.startsWith("/services") ? "text-accent-primary" : textColor
                 }`}
               >
                 Services
                 <ChevronDown className="w-4 h-4" aria-hidden="true" />
-              </Link>
+              </button>
               <AnimatePresence>
                 {isServicesOpen && (
                   <div className="absolute top-full left-0 w-56 pt-1">
@@ -128,14 +128,6 @@ export default function Navbar() {
                       transition={{ duration: 0.15 }}
                       className="bg-white border border-border rounded-xl shadow-xl py-2"
                     >
-                      <Link
-                        href="/services"
-                        role="menuitem"
-                        onClick={() => setIsServicesOpen(false)}
-                        className="block px-4 py-2 text-xs font-semibold text-text-muted uppercase tracking-widest border-b border-border mb-1"
-                      >
-                        All Services
-                      </Link>
                       {SERVICES_NAV.map((service) => (
                         <Link
                           key={service.name}
@@ -298,13 +290,6 @@ export default function Navbar() {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden bg-[#fafafa]"
                     >
-                      <Link
-                        href="/services"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center gap-2 px-8 py-3 text-sm font-semibold text-accent-primary border-b border-border"
-                      >
-                        View All Services →
-                      </Link>
                       {SERVICES_NAV.map((service) => (
                         <Link
                           key={service.name}

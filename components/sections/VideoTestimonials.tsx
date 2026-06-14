@@ -12,7 +12,6 @@ const VIDEO_TESTIMONIALS = [
     business: "Locksmith, Hamilton",
     result: "Went from 0 Calls to 50 Calls in just a month",
     videoId: "fCHwZNf4mLY",
-    thumbnail: "/thumbnails/dennis-aboagye.jpg", // custom thumbnail — drop image here to use it
   },
   {
     name: "Gravity Contractors",
@@ -29,7 +28,7 @@ const VIDEO_TESTIMONIALS = [
 ];
 
 // YouTube thumbnail sizes from best to worst quality
-const YT_SIZES = ["maxresdefault", "sddefault", "hqdefault", "mqdefault"];
+const YT_SIZES = ["hqdefault", "mqdefault"];
 
 function VideoCard({
   video,
