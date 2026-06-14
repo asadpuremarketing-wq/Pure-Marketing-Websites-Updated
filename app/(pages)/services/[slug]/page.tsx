@@ -88,7 +88,7 @@ const SOCIAL_CLIENTS = [
     initial: "G",
     category: "Construction",
     instagram: "https://www.instagram.com/gravitycontractorsltd/",
-    screenshot: "/screenshots/social/gravity-contractors.webp",
+    screenshot: "/screenshots/social/gravity-contractors.png",
   },
   {
     name: "Weather Guard Coatings",
@@ -96,7 +96,7 @@ const SOCIAL_CLIENTS = [
     initial: "W",
     category: "Painting",
     instagram: "https://www.instagram.com/weatherguardcoatings/",
-    screenshot: "/screenshots/social/weatherguard.webp",
+    screenshot: "",
   },
   {
     name: "Bowld Up",
@@ -104,7 +104,7 @@ const SOCIAL_CLIENTS = [
     initial: "B",
     category: "Restaurant",
     instagram: "https://www.instagram.com/bowldup/",
-    screenshot: "/screenshots/social/bowldup.webp",
+    screenshot: "",
   },
   {
     name: "Kukus Chicken",
@@ -112,7 +112,7 @@ const SOCIAL_CLIENTS = [
     initial: "K",
     category: "Restaurant",
     instagram: "https://www.instagram.com/kukuschicken/",
-    screenshot: "/screenshots/social/kukus.webp",
+    screenshot: "/screenshots/social/kukus-chicken.png",
   },
   {
     name: "Moussas Shawarma",
@@ -120,7 +120,7 @@ const SOCIAL_CLIENTS = [
     initial: "M",
     category: "Restaurant",
     instagram: "https://www.instagram.com/moussasshawarma/",
-    screenshot: "/screenshots/social/moussas.webp",
+    screenshot: "",
   },
   {
     name: "Rocket AMG",
@@ -128,7 +128,7 @@ const SOCIAL_CLIENTS = [
     initial: "R",
     category: "Automotive",
     instagram: "https://www.instagram.com/rocketamg/",
-    screenshot: "/screenshots/social/rocket-amg.webp",
+    screenshot: "",
   },
 ];
 
@@ -290,8 +290,6 @@ const SERVICES = [
       "Most local business websites are digital brochures — pretty but passive. We build websites engineered around one goal: turning visitors into leads. Every page, every button, every form is built to make your phone ring.",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=85",
     result: "Avg. 3× more contact form submissions vs. DIY sites",
-    price: "From $2,500",
-    turnaround: "2–3 weeks",
     features: [
       { title: "Custom Responsive Design", desc: "Built from scratch to match your brand — not a template. Looks perfect on every screen size." },
       { title: "Lead Capture Optimization", desc: "Strategically placed CTAs, contact forms, and click-to-call buttons that convert visitors at every stage." },
@@ -328,8 +326,6 @@ const SERVICES = [
       "Referrals are great — until they dry up. We build a complete, done-for-you lead generation system using Google Ads, Meta Ads, and Local Service Ads so your phone rings consistently every single week.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
     result: "Clients average 40–80 qualified leads per month",
-    price: "From $1,500/mo",
-    turnaround: "Live in 7–10 days",
     features: [
       { title: "Google Local Service Ads", desc: "The highest-intent leads available. You only pay when a qualified customer calls you directly." },
       { title: "Google Search Ads", desc: "Capture people actively searching for your service right now, in your exact service area." },
@@ -366,8 +362,6 @@ const SERVICES = [
       "People buy from businesses they trust, and nothing builds trust faster than video. We produce professional video content for local businesses — from 15-second social clips to cinematic brand stories — that drives real engagement and leads.",
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=85",
     result: "Video content gets 4× more reach than static posts",
-    price: "From $800/project",
-    turnaround: "7–14 days",
     features: [
       { title: "Professional Video Shoots", desc: "We come to your location with professional gear. Multiple angles, multiple formats, one efficient shoot day." },
       { title: "Concept Development", desc: "We plan every shot list and script in advance. No wasted time on the day of the shoot." },
@@ -404,8 +398,6 @@ const SERVICES = [
       "Inconsistent posting kills your credibility. We fully manage your social media — creating content, posting daily, engaging with your audience, and growing your following — so you can focus on running your business.",
     image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=85",
     result: "Average 2× follower growth in the first 90 days",
-    price: "From $600/mo",
-    turnaround: "Start in 5 days",
     features: [
       { title: "Daily Content Creation", desc: "Original posts, graphics, and captions written and designed specifically for your brand and audience." },
       { title: "Multi-Platform Posting", desc: "Instagram, Facebook, TikTok, LinkedIn — we manage whichever platforms your customers use." },
@@ -442,8 +434,6 @@ const SERVICES = [
       "Wasted ad spend is the most common complaint we hear from new clients. We build and manage Google and Meta ad campaigns where every dollar is tied to a measurable outcome — leads, calls, bookings, or revenue.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85",
     result: "Average 5–8× return on ad spend for local clients",
-    price: "From $750/mo",
-    turnaround: "Live in 5–7 days",
     features: [
       { title: "Campaign Strategy and Setup", desc: "Full campaign architecture designed around your specific business goals and service area." },
       { title: "Keyword Research", desc: "We find high-intent, commercially relevant keywords and eliminate wasteful broad terms." },
@@ -501,7 +491,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <p className="text-[17px] text-white/60 leading-relaxed mb-8">{service.description}</p>
 
               <div className="bg-accent-primary/10 border border-accent-primary/20 rounded-xl px-5 py-4 mb-8 inline-flex items-center gap-3">
-                <span className="text-accent-primary text-lg font-bold">→</span>
+                <ArrowRight className="w-4 h-4 text-accent-primary flex-shrink-0" />
                 <p className="text-sm font-semibold text-white">{service.result}</p>
               </div>
 
@@ -601,7 +591,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
             {service.slug === "web-development" && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {WEB_CLIENTS.map((client, i) => (
+                {WEB_CLIENTS.slice(0, 6).map((client, i) => (
                   <motion.a
                     key={i}
                     href={client.href}
@@ -684,10 +674,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                         <p className="font-semibold text-[14px] text-text-primary leading-tight">{client.name}</p>
                         <p className="text-xs text-text-muted mt-0.5">{client.category} · {client.location}</p>
                       </div>
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-[11px] text-text-muted font-medium">Active</span>
-                      </div>
+                      <span className="text-[10px] font-semibold text-accent-primary bg-accent-primary/10 border border-accent-primary/20 rounded-full px-2.5 py-0.5 shrink-0">
+                        Active
+                      </span>
                     </div>
                   </motion.div>
                 ))}
@@ -846,7 +835,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="relative bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-accent-primary/40 transition-all duration-300"
               >
-                <span className="text-[40px] font-bold text-accent-primary/20 leading-none block mb-4">{step.step}</span>
+                <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center mb-4 flex-shrink-0">
+                  <span className="text-white text-[11px] font-black">{parseInt(step.step)}</span>
+                </div>
                 <h3 className="font-semibold text-white text-[16px] mb-2">{step.title}</h3>
                 <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
                 {i < service.process.length - 1 && (
@@ -883,7 +874,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* OTHER SERVICES */}
-      <section className="bg-background-secondary py-20">
+      <section className="bg-background-primary py-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
             <p className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-2">Our Services</p>
@@ -943,24 +934,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <Link href="/services" className="text-sm text-text-muted hover:text-accent-primary transition-colors">
               ← View all services
             </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* BOTTOM CTA */}
-      <section className="bg-background-primary py-20">
-        <div className="max-w-[700px] mx-auto px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-text-primary leading-tight mb-4">
-              Ready to get started with {service.title}?
-            </h2>
-            <p className="text-text-secondary mb-8">Book a free 30-minute strategy call. No pitch, no pressure — just an honest conversation about what will work for your business.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary">Book Free Strategy Call</Link>
-              <a href="tel:+16479512786" className="flex items-center justify-center gap-2 border border-border rounded-lg px-5 py-3 text-sm font-medium text-text-secondary hover:border-accent-primary hover:text-accent-primary transition-colors">
-                <Phone className="w-4 h-4" /> +1 647-951-2786
-              </a>
-            </div>
           </motion.div>
         </div>
       </section>
