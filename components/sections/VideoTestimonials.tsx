@@ -12,6 +12,7 @@ const VIDEO_TESTIMONIALS = [
     business: "Locksmith, Hamilton",
     result: "Went from 0 Calls to 50 Calls in just a month",
     videoId: "fCHwZNf4mLY",
+    thumbnail: "/thumbnails/dennis-aboagye.jpg", // custom thumbnail — drop image here to use it
   },
   {
     name: "Gravity Contractors",
@@ -27,14 +28,42 @@ const VIDEO_TESTIMONIALS = [
   },
 ];
 
+// YouTube thumbnail sizes from best to worst quality
+const YT_SIZES = ["maxresdefault", "sddefault", "hqdefault", "mqdefault"];
+
 function VideoCard({
   video,
   index,
+  isPlaying,
+  onPlay,
 }: {
   video: (typeof VIDEO_TESTIMONIALS)[0];
   index: number;
+  isPlaying: boolean;
+  onPlay: () => void;
 }) {
-  const [playing, setPlaying] = useState(false);
+  const [sizeIndex, setSizeIndex] = useState(0);
+  const [usePlaceholder, setUsePlaceholder] = useState(false);
+
+  // Use custom thumbnail if provided, otherwise try YouTube sizes in order
+  const imgSrc =
+    "thumbnail" in video && video.thumbnail
+      ? video.thumbnail
+      : `https://img.youtube.com/vi/${video.videoId}/${YT_SIZES[sizeIndex]}.jpg`;
+
+  const handleImgError = () => {
+    if ("thumbnail" in video && video.thumbnail) {
+      // Custom thumbnail failed — fall through to YouTube
+      setUsePlaceholder(true);
+      return;
+    }
+    const next = sizeIndex + 1;
+    if (next < YT_SIZES.length) {
+      setSizeIndex(next);
+    } else {
+      setUsePlaceholder(true);
+    }
+  };
 
   return (
     <motion.div
@@ -46,7 +75,7 @@ function VideoCard({
     >
       {/* Video area */}
       <div className="relative aspect-video bg-[#111] overflow-hidden">
-        {playing ? (
+        {isPlaying ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1&rel=0&playsinline=1`}
             title={`${video.name} testimonial`}
@@ -56,20 +85,37 @@ function VideoCard({
           />
         ) : (
           <button
-            onClick={() => setPlaying(true)}
+            onClick={onPlay}
             className="absolute inset-0 w-full h-full group focus:outline-none"
             aria-label={`Play ${video.name} testimonial video`}
           >
-            {/* Thumbnail */}
-            <Image
-              src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
-              alt={`${video.name} thumbnail`}
-              fill
-              className="object-cover"
-              unoptimized
-            />
-            {/* Gradient overlay */}
+            {/* Thumbnail or branded placeholder */}
+            {usePlaceholder ? (
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1107] to-[#0d0d0d] flex items-center justify-center">
+                <div className="text-center px-4">
+                  <div className="w-14 h-14 rounded-full bg-accent-primary/20 border border-accent-primary/30 flex items-center justify-center mx-auto mb-3">
+                    <span className="text-accent-primary text-xl font-black">
+                      {video.name.charAt(0)}
+                    </span>
+                  </div>
+                  <p className="text-white font-bold text-sm">{video.name}</p>
+                  <p className="text-white/50 text-xs mt-1">{video.business}</p>
+                </div>
+              </div>
+            ) : (
+              <Image
+                src={imgSrc}
+                alt={`${video.name} thumbnail`}
+                fill
+                className="object-cover"
+                unoptimized
+                onError={handleImgError}
+              />
+            )}
+
+            {/* Overlay */}
             <div className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors duration-200" />
+
             {/* Play button */}
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
@@ -104,6 +150,8 @@ function VideoCard({
 }
 
 export default function VideoTestimonials() {
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
   return (
     <section className="bg-background-secondary py-20">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -133,7 +181,13 @@ export default function VideoTestimonials() {
         {/* 3 Video Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {VIDEO_TESTIMONIALS.map((video, i) => (
-            <VideoCard key={video.videoId} video={video} index={i} />
+            <VideoCard
+              key={video.videoId}
+              video={video}
+              index={i}
+              isPlaying={playingId === video.videoId}
+              onPlay={() => setPlayingId(video.videoId)}
+            />
           ))}
         </div>
 
