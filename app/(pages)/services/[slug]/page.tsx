@@ -595,8 +595,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = SERVICES.find(s => s.slug === params.slug);
   if (!service) notFound();
 
-  const related = SERVICES.filter(s => service.relatedSlugs.includes(s.slug));
-
   return (
     <div className="flex flex-col min-h-screen">
 
@@ -616,7 +614,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <p className="text-[18px] md:text-[20px] text-white/70 leading-relaxed mb-10">{service.description}</p>
+              <p className="text-[18px] md:text-[20px] text-white/70 leading-relaxed mb-8">{service.description}</p>
+              <div className="grid grid-cols-3 gap-4 py-6 mb-8 border-y border-white/[0.08]">
+                {service.outcomes.map((o, i) => (
+                  <div key={i}>
+                    <span className="text-[26px] md:text-[32px] font-black text-white leading-none block">{o.value}</span>
+                    <span className="text-white/40 text-[11px] mt-1 leading-tight block">{o.label}</span>
+                  </div>
+                ))}
+              </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className="btn-primary">Book a Free Strategy Call</Link>
                 <a href="tel:+16479512786" className="flex items-center justify-center gap-2 border border-white/20 rounded-lg px-5 py-3 text-sm font-medium text-white/60 hover:border-accent-primary hover:text-accent-primary transition-colors">
@@ -663,53 +669,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* OUTCOMES STRIP */}
-      <section className="bg-accent-primary py-8">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-3 divide-x divide-white/20">
-            {service.outcomes.map((o, i) => (
-              <div key={i} className="flex flex-col items-center text-center px-4 py-2">
-                <span className="text-[30px] md:text-[40px] font-black text-white leading-none">{o.value}</span>
-                <span className="text-white/70 text-[13px] mt-1.5 leading-tight max-w-[140px]">{o.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* WHAT'S INCLUDED */}
-      <section className="bg-white py-24">
+      <section className="bg-[#f7f7f7] py-20">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-10 border-b border-[#f0f0f0]">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div>
               <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">Everything Included</p>
               <h2 className="text-[30px] md:text-[40px] font-black text-[#0d0d0d] leading-tight">What You Get</h2>
             </div>
-            <p className="text-[#888] text-[15px] max-w-[340px] leading-relaxed">Tap through all {service.features.length} deliverables included from day one. No hidden extras.</p>
+            <p className="text-[#888] text-[15px] max-w-[340px] leading-relaxed">Use the arrows to explore all {service.features.length} deliverables. All included, no extras.</p>
           </motion.div>
 
-          <FeaturesCarousel features={service.features} />
-        </div>
-      </section>
-
-      {/* CLIENT QUOTE */}
-      <section className="bg-[#0d0d0d] py-16 relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(240,100,40,0.06), transparent)" }}
-        />
-        <div className="relative z-10 max-w-[780px] mx-auto px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }}>
-            <span className="text-[64px] font-black text-accent-primary block mb-2" style={{ lineHeight: 1 }}>&ldquo;</span>
-            <p className="text-[20px] md:text-[24px] text-white font-semibold leading-snug mb-8">
-              {service.quote.text}
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <div className="h-px w-10 bg-white/20" />
-              <span className="text-[#555] text-sm">{service.quote.author}</span>
-              <div className="h-px w-10 bg-white/20" />
-            </div>
-          </motion.div>
+          <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 md:p-12 shadow-sm">
+            <FeaturesCarousel features={service.features} />
+          </div>
         </div>
       </section>
 
@@ -960,16 +933,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       )}
 
       {/* PROCESS */}
-      <section className="bg-[#111] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6">
+      <section className="bg-white py-20">
+        <div className="max-w-[1200px] mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <p className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">How It Works</p>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-white leading-tight">Our Process</h2>
+            <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">How It Works</p>
+            <h2 className="text-[32px] md:text-[40px] font-black text-[#0d0d0d] leading-tight">Our Process</h2>
           </motion.div>
 
           <div className="relative">
-            <div className="hidden lg:block absolute top-[40px] left-[calc(12.5%+4px)] right-[calc(12.5%+4px)] h-px border-t-2 border-dashed border-accent-primary/20 z-0 pointer-events-none" />
+            <div className="hidden lg:block absolute top-[40px] left-[calc(12.5%+4px)] right-[calc(12.5%+4px)] h-px border-t-2 border-dashed border-accent-primary/30 z-0 pointer-events-none" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {service.process.map((step, i) => (
                 <motion.div
@@ -978,13 +950,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative z-10 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-accent-primary/40 transition-all duration-300"
+                  className="relative z-10 bg-white border border-[#e8e8e8] rounded-2xl p-6 hover:border-accent-primary/40 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center mb-5 flex-shrink-0 shadow-lg shadow-accent-primary/30">
+                  <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center mb-5 flex-shrink-0 shadow-md shadow-accent-primary/25">
                     <span className="text-white text-[11px] font-black">{parseInt(step.step)}</span>
                   </div>
-                  <h3 className="font-bold text-white text-[16px] mb-2">{step.title}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
+                  <h3 className="font-bold text-[#0d0d0d] text-[16px] mb-2">{step.title}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{step.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -994,54 +966,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       <VideoTestimonials />
 
-      {/* OTHER SERVICES */}
-      <section className="bg-[#f7f7f7] py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-2">You Might Also Need</p>
-            <h2 className="text-[28px] font-black text-[#0d0d0d]">Related Services</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {related.map((rel, i) => {
-              const RelIcon = rel.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                >
-                  <Link
-                    href={`/services/${rel.slug}`}
-                    className="group flex items-center gap-5 bg-white border border-[#e8e8e8] rounded-2xl p-6 hover:border-accent-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-                  >
-                    <div className={`w-14 h-14 rounded-xl ${rel.iconBg} flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
-                      <RelIcon className={`w-7 h-7 ${rel.iconColor}`} />
-                    </div>
-                    <div className="flex-grow min-w-0">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-[#bbb] mb-1">{rel.tag}</p>
-                      <h3 className="font-black text-[16px] text-[#0d0d0d] leading-tight mb-0.5">{rel.title}</h3>
-                      <p className="text-xs text-[#999] truncate">{rel.result}</p>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-[#ccc] group-hover:text-accent-primary group-hover:translate-x-0.5 transition-all duration-300 flex-shrink-0" />
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-8 text-center">
-            <Link href="/services" className="text-sm text-[#999] hover:text-accent-primary transition-colors">
-              View all services
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* FAQs */}
-      <section className="bg-background-secondary py-20">
+      <section className="bg-white py-20">
         <div className="max-w-[700px] mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">FAQ</p>
@@ -1061,6 +987,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </motion.div>
             ))}
           </div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-10 pt-8 border-t border-[#f0f0f0] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-[#999] text-sm">Still have questions?</p>
+            <div className="flex items-center gap-6">
+              <Link href="/contact" className="text-sm font-semibold text-accent-primary hover:underline">Book a free call</Link>
+              <Link href="/services" className="text-sm text-[#999] hover:text-accent-primary transition-colors flex items-center gap-1">
+                All services <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
