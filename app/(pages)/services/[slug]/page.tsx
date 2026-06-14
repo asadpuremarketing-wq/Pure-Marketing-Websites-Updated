@@ -5,12 +5,13 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, TrendingUp, Video, Share2, BarChart2,
-  Check, ArrowRight, Phone, ChevronDown,
+  Check, ArrowRight, Phone, ChevronDown, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
 import CTABanner from "@/components/sections/CTABanner";
+import VideoTestimonials from "@/components/sections/VideoTestimonials";
 
 /* ── Portfolio data ─────────────────────────────────────────── */
 const WEB_CLIENTS = [
@@ -243,10 +244,97 @@ function VideoPortfolioSection() {
   );
 }
 
+function FeaturesCarousel({ features }: { features: { title: string; desc: string }[] }) {
+  const [active, setActive] = useState(0);
+  const [dir, setDir] = useState(1);
+
+  const goTo = (idx: number) => {
+    setDir(idx >= active ? 1 : -1);
+    setActive(idx);
+  };
+  const prev = () => goTo(active === 0 ? features.length - 1 : active - 1);
+  const next = () => goTo(active === features.length - 1 ? 0 : active + 1);
+
+  return (
+    <div>
+      <div className="relative overflow-hidden min-h-[200px] md:min-h-[220px]">
+        <AnimatePresence mode="wait" custom={dir}>
+          <motion.div
+            key={active}
+            custom={dir}
+            variants={{
+              enter: (d: number) => ({ x: d * 48, opacity: 0 }),
+              center: { x: 0, opacity: 1 },
+              exit: (d: number) => ({ x: -d * 48, opacity: 0 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="flex gap-8 md:gap-14 items-start py-8 px-1"
+          >
+            <span
+              className="text-[56px] md:text-[80px] font-black text-accent-primary flex-shrink-0"
+              style={{ lineHeight: 1 }}
+            >
+              {String(active + 1).padStart(2, "0")}
+            </span>
+            <div className="pt-1.5">
+              <h3 className="font-black text-[22px] md:text-[28px] text-[#0d0d0d] mb-3 leading-snug">
+                {features[active].title}
+              </h3>
+              <p className="text-[#666] text-[16px] md:text-[17px] leading-relaxed">
+                {features[active].desc}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="flex items-center justify-between pt-6 border-t border-[#f0f0f0]">
+        <div className="flex gap-2 items-center">
+          {features.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`rounded-full transition-all duration-200 ${
+                i === active
+                  ? "w-6 h-2 bg-accent-primary"
+                  : "w-2 h-2 bg-[#ddd] hover:bg-accent-primary/50"
+              }`}
+              aria-label={`Go to feature ${i + 1}`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button
+            onClick={prev}
+            className="w-10 h-10 rounded-full border border-[#e8e8e8] flex items-center justify-center text-[#999] hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={next}
+            className="w-10 h-10 rounded-full border border-[#e8e8e8] flex items-center justify-center text-[#999] hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function AccordionItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="bg-background-card border border-border rounded-xl mb-3 overflow-hidden">
+    <div className={`rounded-xl mb-3 overflow-hidden transition-all duration-200 ${
+      isOpen
+        ? "bg-background-card border border-accent-primary/30 border-l-[3px] border-l-accent-primary"
+        : "bg-background-card border border-border"
+    }`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none group"
@@ -290,6 +378,15 @@ const SERVICES = [
       "Most local business websites are digital brochures — pretty but passive. We build websites engineered around one goal: turning visitors into leads. Every page, every button, every form is built to make your phone ring.",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=85",
     result: "Avg. 3× more contact form submissions vs. DIY sites",
+    outcomes: [
+      { value: "3×", label: "More contact form submissions" },
+      { value: "2–3 wks", label: "Strategy call to live site" },
+      { value: "30 days", label: "Post-launch support included" },
+    ],
+    quote: {
+      text: "They built our website in under 3 weeks. We had more online leads in the first month than in the entire year before.",
+      author: "Gravity Contractors, Hamilton ON",
+    },
     features: [
       { title: "Custom Responsive Design", desc: "Built from scratch to match your brand — not a template. Looks perfect on every screen size." },
       { title: "Lead Capture Optimization", desc: "Strategically placed CTAs, contact forms, and click-to-call buttons that convert visitors at every stage." },
@@ -326,6 +423,15 @@ const SERVICES = [
       "Referrals are great — until they dry up. We build a complete, done-for-you lead generation system using Google Ads, Meta Ads, and Local Service Ads so your phone rings consistently every single week.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
     result: "Clients average 40–80 qualified leads per month",
+    outcomes: [
+      { value: "40–80", label: "Qualified leads per month" },
+      { value: "7–10 days", label: "Campaigns live in" },
+      { value: "$0", label: "Long-term contracts required" },
+    ],
+    quote: {
+      text: "We went from 3–4 referrals a month to 60+ leads a month in under 90 days. Complete game changer for our business.",
+      author: "Local Trades Client, Hamilton ON",
+    },
     features: [
       { title: "Google Local Service Ads", desc: "The highest-intent leads available. You only pay when a qualified customer calls you directly." },
       { title: "Google Search Ads", desc: "Capture people actively searching for your service right now, in your exact service area." },
@@ -362,6 +468,15 @@ const SERVICES = [
       "People buy from businesses they trust, and nothing builds trust faster than video. We produce professional video content for local businesses — from 15-second social clips to cinematic brand stories — that drives real engagement and leads.",
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=85",
     result: "Video content gets 4× more reach than static posts",
+    outcomes: [
+      { value: "4×", label: "More reach than static posts" },
+      { value: "8–12", label: "Videos per shoot day" },
+      { value: "7 days", label: "Delivery turnaround" },
+    ],
+    quote: {
+      text: "The video they shot for us had over 20,000 views in the first week. Best marketing decision we have made.",
+      author: "Restaurant Client, Burlington ON",
+    },
     features: [
       { title: "Professional Video Shoots", desc: "We come to your location with professional gear. Multiple angles, multiple formats, one efficient shoot day." },
       { title: "Concept Development", desc: "We plan every shot list and script in advance. No wasted time on the day of the shoot." },
@@ -398,6 +513,15 @@ const SERVICES = [
       "Inconsistent posting kills your credibility. We fully manage your social media — creating content, posting daily, engaging with your audience, and growing your following — so you can focus on running your business.",
     image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=85",
     result: "Average 2× follower growth in the first 90 days",
+    outcomes: [
+      { value: "2×", label: "Follower growth in 90 days" },
+      { value: "Daily", label: "Content posted for you" },
+      { value: "5 days", label: "Onboarding and go-live" },
+    ],
+    quote: {
+      text: "I used to spend hours worrying about what to post. Now I never think about it. The content they create is better than anything I was doing myself.",
+      author: "Kukus Chicken, Burlington ON",
+    },
     features: [
       { title: "Daily Content Creation", desc: "Original posts, graphics, and captions written and designed specifically for your brand and audience." },
       { title: "Multi-Platform Posting", desc: "Instagram, Facebook, TikTok, LinkedIn — we manage whichever platforms your customers use." },
@@ -434,6 +558,15 @@ const SERVICES = [
       "Wasted ad spend is the most common complaint we hear from new clients. We build and manage Google and Meta ad campaigns where every dollar is tied to a measurable outcome — leads, calls, bookings, or revenue.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85",
     result: "Average 5–8× return on ad spend for local clients",
+    outcomes: [
+      { value: "5–8×", label: "Average return on ad spend" },
+      { value: "5–7 days", label: "Campaigns live in" },
+      { value: "Weekly", label: "Campaign optimizations" },
+    ],
+    quote: {
+      text: "We had wasted thousands on ads before finding Pure Marketing. They turned it around in the first month. We are now booked 3 weeks out.",
+      author: "Home Services Client, GTA",
+    },
     features: [
       { title: "Campaign Strategy and Setup", desc: "Full campaign architecture designed around your specific business goals and service area." },
       { title: "Keyword Research", desc: "We find high-intent, commercially relevant keywords and eliminate wasteful broad terms." },
@@ -462,7 +595,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = SERVICES.find(s => s.slug === params.slug);
   if (!service) notFound();
 
-  const Icon = service.icon;
   const related = SERVICES.filter(s => service.relatedSlugs.includes(s.slug));
 
   return (
@@ -484,17 +616,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 bg-accent-primary/10 border border-accent-primary/20 rounded-full px-4 py-2 mb-6">
-                <Icon className="w-4 h-4 text-accent-primary" />
-                <span className="text-accent-primary text-xs font-semibold uppercase tracking-wider">{service.tag}</span>
-              </div>
-              <p className="text-[17px] text-white/60 leading-relaxed mb-8">{service.description}</p>
-
-              <div className="bg-accent-primary/10 border border-accent-primary/20 rounded-xl px-5 py-4 mb-8 inline-flex items-center gap-3">
-                <ArrowRight className="w-4 h-4 text-accent-primary flex-shrink-0" />
-                <p className="text-sm font-semibold text-white">{service.result}</p>
-              </div>
-
+              <p className="text-[18px] md:text-[20px] text-white/70 leading-relaxed mb-10">{service.description}</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className="btn-primary">Book a Free Strategy Call</Link>
                 <a href="tel:+16479512786" className="flex items-center justify-center gap-2 border border-white/20 rounded-lg px-5 py-3 text-sm font-medium text-white/60 hover:border-accent-primary hover:text-accent-primary transition-colors">
@@ -541,32 +663,53 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* WHAT'S INCLUDED */}
-      <section className="bg-background-secondary py-20">
+      {/* OUTCOMES STRIP */}
+      <section className="bg-accent-primary py-8">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-            <p className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">Everything Included</p>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-text-primary leading-tight">What You Get</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.features.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="bg-background-card border border-border rounded-2xl p-6 hover:border-accent-primary/40 hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-8 h-8 rounded-lg bg-accent-primary/10 flex items-center justify-center mb-4">
-                  <Check className="w-4 h-4 text-accent-primary" />
-                </div>
-                <h3 className="font-semibold text-[16px] text-text-primary mb-2">{feature.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{feature.desc}</p>
-              </motion.div>
+          <div className="grid grid-cols-3 divide-x divide-white/20">
+            {service.outcomes.map((o, i) => (
+              <div key={i} className="flex flex-col items-center text-center px-4 py-2">
+                <span className="text-[30px] md:text-[40px] font-black text-white leading-none">{o.value}</span>
+                <span className="text-white/70 text-[13px] mt-1.5 leading-tight max-w-[140px]">{o.label}</span>
+              </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INCLUDED */}
+      <section className="bg-white py-24">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-10 border-b border-[#f0f0f0]">
+            <div>
+              <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">Everything Included</p>
+              <h2 className="text-[30px] md:text-[40px] font-black text-[#0d0d0d] leading-tight">What You Get</h2>
+            </div>
+            <p className="text-[#888] text-[15px] max-w-[340px] leading-relaxed">Tap through all {service.features.length} deliverables included from day one. No hidden extras.</p>
+          </motion.div>
+
+          <FeaturesCarousel features={service.features} />
+        </div>
+      </section>
+
+      {/* CLIENT QUOTE */}
+      <section className="bg-[#0d0d0d] py-16 relative overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(240,100,40,0.06), transparent)" }}
+        />
+        <div className="relative z-10 max-w-[780px] mx-auto px-6 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }}>
+            <span className="text-[64px] font-black text-accent-primary block mb-2" style={{ lineHeight: 1 }}>&ldquo;</span>
+            <p className="text-[20px] md:text-[24px] text-white font-semibold leading-snug mb-8">
+              {service.quote.text}
+            </p>
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-10 bg-white/20" />
+              <span className="text-[#555] text-sm">{service.quote.author}</span>
+              <div className="h-px w-10 bg-white/20" />
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -825,27 +968,75 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <h2 className="text-[32px] md:text-[40px] font-bold text-white leading-tight">Our Process</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {service.process.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-accent-primary/40 transition-all duration-300"
-              >
-                <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center mb-4 flex-shrink-0">
-                  <span className="text-white text-[11px] font-black">{parseInt(step.step)}</span>
-                </div>
-                <h3 className="font-semibold text-white text-[16px] mb-2">{step.title}</h3>
-                <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
-                {i < service.process.length - 1 && (
-                  <ArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 text-accent-primary/30 z-10" />
-                )}
-              </motion.div>
-            ))}
+          <div className="relative">
+            <div className="hidden lg:block absolute top-[40px] left-[calc(12.5%+4px)] right-[calc(12.5%+4px)] h-px border-t-2 border-dashed border-accent-primary/20 z-0 pointer-events-none" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {service.process.map((step, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="relative z-10 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 hover:bg-white/[0.06] hover:border-accent-primary/40 transition-all duration-300"
+                >
+                  <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center mb-5 flex-shrink-0 shadow-lg shadow-accent-primary/30">
+                    <span className="text-white text-[11px] font-black">{parseInt(step.step)}</span>
+                  </div>
+                  <h3 className="font-bold text-white text-[16px] mb-2">{step.title}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      <VideoTestimonials />
+
+      {/* OTHER SERVICES */}
+      <section className="bg-[#f7f7f7] py-20">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-2">You Might Also Need</p>
+            <h2 className="text-[28px] font-black text-[#0d0d0d]">Related Services</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {related.map((rel, i) => {
+              const RelIcon = rel.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                >
+                  <Link
+                    href={`/services/${rel.slug}`}
+                    className="group flex items-center gap-5 bg-white border border-[#e8e8e8] rounded-2xl p-6 hover:border-accent-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    <div className={`w-14 h-14 rounded-xl ${rel.iconBg} flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                      <RelIcon className={`w-7 h-7 ${rel.iconColor}`} />
+                    </div>
+                    <div className="flex-grow min-w-0">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-[#bbb] mb-1">{rel.tag}</p>
+                      <h3 className="font-black text-[16px] text-[#0d0d0d] leading-tight mb-0.5">{rel.title}</h3>
+                      <p className="text-xs text-[#999] truncate">{rel.result}</p>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-[#ccc] group-hover:text-accent-primary group-hover:translate-x-0.5 transition-all duration-300 flex-shrink-0" />
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-8 text-center">
+            <Link href="/services" className="text-sm text-[#999] hover:text-accent-primary transition-colors">
+              View all services
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -853,8 +1044,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="bg-background-secondary py-20">
         <div className="max-w-[700px] mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <p className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3">FAQ</p>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-text-primary leading-tight">Frequently Asked Questions</h2>
+            <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">FAQ</p>
+            <h2 className="text-[30px] md:text-[38px] font-black text-[#0d0d0d] leading-tight">Common Questions</h2>
           </motion.div>
 
           <div>
@@ -870,71 +1061,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* OTHER SERVICES */}
-      <section className="bg-background-primary py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
-            <p className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-2">Our Services</p>
-            <h2 className="text-[28px] font-bold text-text-primary">Related Services</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {related.map((rel, i) => {
-              const RelIcon = rel.icon;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative"
-                >
-                  {rel.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-accent-primary text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap shadow-md">
-                      Most Popular
-                    </div>
-                  )}
-                  <Link
-                    href={`/services/${rel.slug}`}
-                    className={`group bg-white rounded-2xl overflow-hidden flex flex-col h-full transition-all duration-300 shadow-[0_2px_16px_rgba(0,0,0,0.08)] hover:-translate-y-1 border-2 ${
-                      rel.popular
-                        ? "border-accent-primary shadow-[0_4px_24px_rgba(240,100,40,0.15)]"
-                        : "border-transparent hover:border-accent-primary/40"
-                    }`}
-                  >
-                    <div className={`relative h-36 w-full bg-gradient-to-br ${rel.gradient} flex items-center justify-center`}>
-                      <div className={`w-16 h-16 rounded-2xl ${rel.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                        <RelIcon className={`w-8 h-8 ${rel.iconColor}`} />
-                      </div>
-                    </div>
-                    <div className="p-6 flex flex-col flex-grow border-t border-border">
-                      <p className="text-[11px] font-semibold uppercase tracking-widest text-text-muted mb-2">{rel.tag}</p>
-                      <h3 className="text-[19px] font-bold text-text-primary leading-tight mb-3">{rel.title}</h3>
-                      <p className="text-[13px] text-text-secondary leading-relaxed flex-grow mb-5">{rel.result}</p>
-                      <div className={`flex items-center gap-2 rounded-lg px-4 py-2.5 transition-all duration-300 ${
-                        rel.popular
-                          ? "bg-accent-primary text-white group-hover:bg-accent-hover"
-                          : "bg-accent-primary/5 text-accent-primary border border-accent-primary/20 group-hover:bg-accent-primary group-hover:text-white group-hover:border-accent-primary"
-                      }`}>
-                        <span className="text-sm font-semibold flex-1">Learn More</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-8 text-center">
-            <Link href="/services" className="text-sm text-text-muted hover:text-accent-primary transition-colors">
-              ← View all services
-            </Link>
-          </motion.div>
         </div>
       </section>
 
