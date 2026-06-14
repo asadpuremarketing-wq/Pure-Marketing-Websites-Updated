@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Check } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const CHECKPOINTS = [
@@ -11,6 +13,8 @@ const CHECKPOINTS = [
   "We report weekly and keep optimizing",
 ];
 
+const VIDEO_ID = "dCJCZmdhcNM";
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
@@ -19,6 +23,8 @@ const fadeUp = (delay = 0) => ({
 });
 
 export default function IntroVideo() {
+  const [playing, setPlaying] = useState(false);
+
   return (
     <section className="bg-white py-24">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -32,30 +38,44 @@ export default function IntroVideo() {
             transition={{ duration: 0.6 }}
             className="flex flex-col"
           >
-            {/* Dark video container */}
-            <div className="relative bg-[#0d0d0d] aspect-video rounded-2xl border border-black/10 shadow-2xl overflow-hidden cursor-pointer group">
-              {/* Play button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 12 }}
-                  className="w-20 h-20 bg-accent-primary rounded-full flex items-center justify-center shadow-2xl shadow-accent-primary/40"
+            {/* Video player */}
+            <div className="relative aspect-video rounded-2xl border border-black/10 shadow-2xl overflow-hidden">
+              {playing ? (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
+                  title="How We Help Local Businesses Generate More Leads"
+                  allow="autoplay; fullscreen; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              ) : (
+                <button
+                  onClick={() => setPlaying(true)}
+                  className="absolute inset-0 w-full h-full group focus:outline-none"
+                  aria-label="Play video"
                 >
-                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
-                </motion.div>
-              </div>
-
-              {/* Subtle dot pattern */}
-              <div
-                className="absolute inset-0 opacity-[0.06] pointer-events-none"
-                style={{
-                  backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)",
-                  backgroundSize: "24px 24px",
-                }}
-              />
-
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                  {/* Thumbnail */}
+                  <Image
+                    src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
+                    alt="How We Help Local Businesses Generate More Leads"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-200" />
+                  {/* Play button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 12 }}
+                      className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl"
+                    >
+                      <Play className="w-8 h-8 text-accent-primary ml-1" fill="currentColor" />
+                    </motion.div>
+                  </div>
+                </button>
+              )}
             </div>
 
             {/* Bottom bar */}

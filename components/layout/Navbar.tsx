@@ -118,37 +118,39 @@ export default function Navbar() {
               </Link>
               <AnimatePresence>
                 {isServicesOpen && (
-                  <motion.div
-                    role="menu"
-                    aria-label="Service pages"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-56 bg-white border border-border rounded-xl shadow-xl py-2 mt-1"
-                  >
-                    <Link
-                      href="/services"
-                      role="menuitem"
-                      onClick={() => setIsServicesOpen(false)}
-                      className="block px-4 py-2 text-xs font-semibold text-text-muted uppercase tracking-widest border-b border-border mb-1"
+                  <div className="absolute top-full left-0 w-56 pt-1">
+                    <motion.div
+                      role="menu"
+                      aria-label="Service pages"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="bg-white border border-border rounded-xl shadow-xl py-2"
                     >
-                      All Services
-                    </Link>
-                    {SERVICES_NAV.map((service) => (
                       <Link
-                        key={service.name}
-                        href={service.href}
+                        href="/services"
                         role="menuitem"
                         onClick={() => setIsServicesOpen(false)}
-                        className={`block px-4 py-2.5 text-sm transition-colors hover:bg-background-secondary hover:text-accent-primary ${
-                          pathname === service.href ? "text-accent-primary font-semibold" : "text-text-primary"
-                        }`}
+                        className="block px-4 py-2 text-xs font-semibold text-text-muted uppercase tracking-widest border-b border-border mb-1"
                       >
-                        {service.name}
+                        All Services
                       </Link>
-                    ))}
-                  </motion.div>
+                      {SERVICES_NAV.map((service) => (
+                        <Link
+                          key={service.name}
+                          href={service.href}
+                          role="menuitem"
+                          onClick={() => setIsServicesOpen(false)}
+                          className={`block px-4 py-2.5 text-sm transition-colors hover:bg-background-secondary hover:text-accent-primary ${
+                            pathname === service.href ? "text-accent-primary font-semibold" : "text-text-primary"
+                          }`}
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  </div>
                 )}
               </AnimatePresence>
             </div>
@@ -177,32 +179,34 @@ export default function Navbar() {
               </button>
               <AnimatePresence>
                 {isIndustriesOpen && (
-                  <motion.div
-                    role="menu"
-                    aria-label="Industry pages"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 w-48 bg-white border border-border rounded-xl shadow-xl py-2 mt-1"
-                    onKeyDown={(e) => {
-                      if (e.key === "Escape") { setIsIndustriesOpen(false); }
-                    }}
-                  >
-                    {INDUSTRIES.map((industry) => (
-                      <Link
-                        key={industry.name}
-                        href={industry.href}
-                        role="menuitem"
-                        onClick={() => setIsIndustriesOpen(false)}
-                        className={`block px-4 py-2.5 text-sm transition-colors hover:bg-background-secondary hover:text-accent-primary ${
-                          pathname === industry.href ? "text-accent-primary font-semibold" : "text-text-primary"
-                        }`}
-                      >
-                        {industry.name}
-                      </Link>
-                    ))}
-                  </motion.div>
+                  <div className="absolute top-full left-0 w-48 pt-1">
+                    <motion.div
+                      role="menu"
+                      aria-label="Industry pages"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="bg-white border border-border rounded-xl shadow-xl py-2"
+                      onKeyDown={(e) => {
+                        if (e.key === "Escape") { setIsIndustriesOpen(false); }
+                      }}
+                    >
+                      {INDUSTRIES.map((industry) => (
+                        <Link
+                          key={industry.name}
+                          href={industry.href}
+                          role="menuitem"
+                          onClick={() => setIsIndustriesOpen(false)}
+                          className={`block px-4 py-2.5 text-sm transition-colors hover:bg-background-secondary hover:text-accent-primary ${
+                            pathname === industry.href ? "text-accent-primary font-semibold" : "text-text-primary"
+                          }`}
+                        >
+                          {industry.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  </div>
                 )}
               </AnimatePresence>
             </div>

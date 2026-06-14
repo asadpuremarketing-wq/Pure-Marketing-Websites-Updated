@@ -24,6 +24,7 @@ import {
   Play,
 } from "lucide-react";
 import AutoCarousel from "@/components/ui/AutoCarousel";
+import VideoTestimonials from "@/components/sections/VideoTestimonials";
 
 /* ── fade-up helper ───────────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -280,31 +281,14 @@ export default function GeneralContractorsContent() {
       <section className="bg-white py-24">
         <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          <motion.div {...fadeUp(0)} className="relative group cursor-pointer">
-            {/* shadow glow */}
-            <div className="absolute -inset-3 rounded-3xl bg-accent-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-            <div className="relative rounded-2xl overflow-hidden aspect-video bg-[#0d0d0d] border border-black/10 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1107] via-[#0d0d0d] to-[#000]" />
-              <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(#F06428 1px,transparent 1px)", backgroundSize: "24px 24px" }} />
-              {/* play button */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="w-20 h-20 rounded-full bg-accent-primary flex items-center justify-center shadow-2xl shadow-accent-primary/50"
-                >
-                  <Play className="w-7 h-7 text-white ml-1" fill="currentColor" />
-                </motion.div>
-                <span className="text-white/40 text-[13px] font-medium">Watch 2-min overview</span>
-              </div>
-              {/* bottom bar */}
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
-                  <span className="text-white/70 text-[12px]">How We Grow Contractor Businesses</span>
-                </div>
-              </div>
-            </div>
+          <motion.div {...fadeUp(0)} className="relative rounded-2xl overflow-hidden aspect-video border border-black/10 shadow-2xl">
+            <iframe
+              src="https://www.youtube.com/embed/dCJCZmdhcNM"
+              title="How We Help Local Businesses Generate More Leads"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
           </motion.div>
 
           <motion.div {...fadeUp(0.12)} className="flex flex-col gap-6">
@@ -460,6 +444,11 @@ export default function GeneralContractorsContent() {
 
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════
+          VIDEO TESTIMONIALS
+      ══════════════════════════════════════════════════════ */}
+      <VideoTestimonials />
 
       {/* ══════════════════════════════════════════════════════
           WHAT'S INCLUDED (DELIVERABLES)

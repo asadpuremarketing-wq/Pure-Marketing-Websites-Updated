@@ -27,7 +27,7 @@ export default function Hero() {
 
       {/* Parallax background layer */}
       <motion.div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{ y: mounted ? backgroundY : "0%" }}
       >
         {/* Base gradient */}
