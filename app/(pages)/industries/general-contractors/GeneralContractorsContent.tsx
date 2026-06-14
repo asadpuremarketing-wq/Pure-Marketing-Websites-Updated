@@ -21,7 +21,6 @@ import {
   BarChart3,
   Zap,
   ChevronRight,
-  Play,
 } from "lucide-react";
 import AutoCarousel from "@/components/ui/AutoCarousel";
 import VideoTestimonials from "@/components/sections/VideoTestimonials";
