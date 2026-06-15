@@ -48,36 +48,32 @@ const VIDEO_INDUSTRIES: { label: string; description: string; videos: VideoItem[
     label: "Restaurants",
     description: "Menu highlights, behind-the-scenes, and atmosphere videos that bring customers through the door.",
     videos: [
-      { id: "jNQXAC9IVRw", title: "Menu Highlight Reel", client: "Kukus Chicken", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=711&fit=crop" },
-      { id: "dQw4w9WgXcQ", title: "Behind the Kitchen", client: "Moussas Shawarma", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=711&fit=crop" },
-      { id: "9bZkp7q19f0", title: "Grand Opening Promo", client: "Local Restaurant", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=711&fit=crop" },
-      { id: "kJQP7kiw5Fk", title: "Chef's Special", client: "Local Restaurant", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=711&fit=crop" },
-      { id: "JGwWNGJdvx8", title: "Weekend Brunch Reel", client: "Local Café", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&h=711&fit=crop" },
-      { id: "RgKAFK5djSk", title: "Catering Showcase", platform: "youtube", client: "Catering Co.", thumbnail: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=711&fit=crop" },
+      { id: "M0pv-XnR_mQ", title: "Daily Special", client: "Restaurant Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/M0pv-XnR_mQ/hqdefault.jpg" },
+      { id: "AzdQaMGmfr8", title: "Menu Highlight Reel", client: "Restaurant Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/AzdQaMGmfr8/hqdefault.jpg" },
+      { id: "EU8egW9cH24", title: "Behind the Kitchen", client: "Restaurant Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/EU8egW9cH24/hqdefault.jpg" },
+      { id: "u_ostY3YI9A", title: "Food Showcase", client: "Restaurant Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/u_ostY3YI9A/hqdefault.jpg" },
+      { id: "ivzoQrtKHbQ", title: "Chef's Special", client: "Restaurant Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/ivzoQrtKHbQ/hqdefault.jpg" },
+      { id: "M4aLwAAIrrc", title: "Atmosphere Reel", client: "Restaurant Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/M4aLwAAIrrc/hqdefault.jpg" },
     ],
   },
   {
     label: "Skilled Trades",
     description: "Project transformations, team intros, and trust-building content that wins more jobs.",
     videos: [
-      { id: "jNQXAC9IVRw", title: "Before & After Reveal", client: "Gravity Contractors", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=711&fit=crop" },
-      { id: "dQw4w9WgXcQ", title: "Painting Project Tour", client: "Weather Guard Coatings", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&h=711&fit=crop" },
-      { id: "9bZkp7q19f0", title: "Electrical Panel Upgrade", client: "Local Electrician", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=711&fit=crop" },
-      { id: "kJQP7kiw5Fk", title: "Bathroom Renovation", client: "Local Contractor", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=711&fit=crop" },
-      { id: "JGwWNGJdvx8", title: "Roofing Time-Lapse", client: "Local Roofer", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=400&h=711&fit=crop" },
-      { id: "RgKAFK5djSk", title: "Team Introduction", client: "Trades Company", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=711&fit=crop" },
+      { id: "376WiZf6K-Y", title: "Project Showcase", client: "Gravity Contractors", platform: "youtube", thumbnail: "https://img.youtube.com/vi/376WiZf6K-Y/hqdefault.jpg" },
+      { id: "73a1YRv6Jxg", title: "Work in Progress", client: "Gravity Contractors", platform: "youtube", thumbnail: "https://img.youtube.com/vi/73a1YRv6Jxg/hqdefault.jpg" },
+      { id: "M9geiti29e8", title: "Team in Action", client: "Gravity Contractors", platform: "youtube", thumbnail: "https://img.youtube.com/vi/M9geiti29e8/hqdefault.jpg" },
+      { id: "HLdEx2YL3ZY", title: "Before & After", client: "Gravity Contractors", platform: "youtube", thumbnail: "https://img.youtube.com/vi/HLdEx2YL3ZY/hqdefault.jpg" },
     ],
   },
   {
     label: "Real Estate",
     description: "Property tours, agent brand videos, and neighbourhood highlights that close more deals.",
     videos: [
-      { id: "jNQXAC9IVRw", title: "Luxury Home Tour", client: "Real Estate Agent", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=711&fit=crop" },
-      { id: "dQw4w9WgXcQ", title: "Agent Brand Story", client: "Local Realtor", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=711&fit=crop" },
-      { id: "9bZkp7q19f0", title: "Condo Walkthrough", client: "Real Estate Agent", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=711&fit=crop" },
-      { id: "kJQP7kiw5Fk", title: "Neighbourhood Highlight", client: "Local Realtor", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=711&fit=crop" },
-      { id: "JGwWNGJdvx8", title: "New Listing Reveal", client: "Real Estate Team", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=711&fit=crop" },
-      { id: "RgKAFK5djSk", title: "Client Testimonial", client: "Happy Homeowner", platform: "youtube", thumbnail: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=711&fit=crop" },
+      { id: "bJb4WXrcPQI", title: "Property Tour", client: "Real Estate Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/bJb4WXrcPQI/hqdefault.jpg" },
+      { id: "nph1aES_o7g", title: "Home Showcase", client: "Real Estate Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/nph1aES_o7g/hqdefault.jpg" },
+      { id: "IWtmfdnQQ6Y", title: "Listing Highlight", client: "Real Estate Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/IWtmfdnQQ6Y/hqdefault.jpg" },
+      { id: "1zMVRTq8C3U", title: "Neighbourhood Reel", client: "Real Estate Client", platform: "youtube", thumbnail: "https://img.youtube.com/vi/1zMVRTq8C3U/hqdefault.jpg" },
     ],
   },
 ];
@@ -175,7 +171,11 @@ function VideoPortfolioSection() {
               <span className="text-[13px] text-text-muted shrink-0">{industry.videos.slice(0, 6).length} videos</span>
             </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className={`grid gap-4 grid-cols-2 ${
+              industry.videos.length <= 4
+                ? "sm:grid-cols-2 md:grid-cols-4"
+                : "sm:grid-cols-3 lg:grid-cols-6"
+            }`}>
               {industry.videos.slice(0, 6).map((v, i) => (
                 <VideoCard key={i} v={v} onPlay={setActiveVideo} />
               ))}

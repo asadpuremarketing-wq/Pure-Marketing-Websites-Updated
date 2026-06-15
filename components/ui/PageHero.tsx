@@ -27,7 +27,7 @@ export default function PageHero({
   fadeToColor = "#ffffff",
 }: PageHeroProps) {
   return (
-    <section className="relative bg-[#080808] min-h-[320px] md:min-h-[380px] pt-32 pb-20 overflow-hidden flex flex-col justify-center">
+    <section className="relative bg-[#080808] pt-32 pb-10 overflow-hidden flex flex-col justify-center">
 
       {/* Large ambient orange glow — top right */}
       <div

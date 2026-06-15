@@ -66,10 +66,10 @@ export default function Home() {
       <Script id="website-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }} />
       <Hero />
       <IntroVideo />
-      <StatsSection />
       <Services />
       <HowItWorks />
       <VideoTestimonials />
+      <StatsSection />
       <ClientsCarousel />
       <Reviews />
       <CTABanner />
