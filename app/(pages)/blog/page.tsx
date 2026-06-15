@@ -4,25 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
-
-const BLOG_POSTS = [
-  {
-    id: 1,
-    category: "Restaurant Marketing",
-    title: "How GTA Restaurants Can Fill More Tables Using Digital Marketing in 2024",
-    excerpt: "The restaurant industry in Greater Toronto is one of the most competitive markets in Canada. Here's the exact digital marketing playbook we use to help local restaurants stand out, get found, and fill seats consistently.",
-    author: "Asad Saif",
-    date: "April 22, 2024",
-    readTime: "11 min read",
-    slug: "gta-restaurant-marketing-guide",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-    color: "#FEF3E2"
-  }
-];
-
+import { ALL_POSTS } from "@/lib/blog-posts";
 
 export default function BlogPage() {
-  const post = BLOG_POSTS[0];
+  const featured = ALL_POSTS[0];
+  const remaining = ALL_POSTS.slice(1);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -31,7 +17,7 @@ export default function BlogPage() {
         label="Blog"
         title="Marketing Insights for"
         titleAccent="Local Businesses"
-        subtitle="Strategies, tips, and case studies to help you grow your business."
+        subtitle="Strategies and case studies to help you grow your business."
         breadcrumbs={[{ label: "Blog" }]}
         fadeToColor="#111111"
       />
@@ -50,8 +36,8 @@ export default function BlogPage() {
               className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border border-white/10"
             >
               <Image
-                src={post.image}
-                alt={post.title}
+                src={featured.image}
+                alt={featured.imageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -67,17 +53,17 @@ export default function BlogPage() {
             >
               <div className="absolute left-0 top-0 w-[2px] h-full bg-accent-primary" />
 
-              <span className="text-accent-primary uppercase text-xs tracking-wider font-semibold mb-3 block">{post.category}</span>
-              <h2 className="text-[28px] md:text-[32px] font-bold text-white leading-tight mb-4">{post.title}</h2>
-              <p className="text-[16px] text-white/60 leading-relaxed mb-6 max-w-[500px]">{post.excerpt}</p>
+              <span className="text-accent-primary uppercase text-xs tracking-wider font-semibold mb-3 block">{featured.category}</span>
+              <h2 className="text-[28px] md:text-[32px] font-bold text-white leading-tight mb-4">{featured.title}</h2>
+              <p className="text-[16px] text-white/60 leading-relaxed mb-6 max-w-[500px]">{featured.excerpt}</p>
 
               <div className="flex gap-6 text-sm text-white/40 mb-8">
-                <span>By {post.author}</span>
-                <span>{post.date}</span>
-                <span>{post.readTime}</span>
+                <span>By {featured.author}</span>
+                <span>{featured.date}</span>
+                <span>{featured.readTime}</span>
               </div>
 
-              <Link href={`/blog/${post.slug}`} className="btn-primary self-start">Read Full Article</Link>
+              <Link href={`/blog/${featured.slug}`} className="btn-primary self-start">Read Full Article</Link>
             </motion.div>
 
           </div>
@@ -93,12 +79,12 @@ export default function BlogPage() {
             viewport={{ once: true }}
             className="text-[38px] font-bold text-text-primary text-center leading-tight mb-12"
           >
-            Latest Articles
+            All Articles
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_POSTS.map((p) => (
-              <Link href={`/blog/${p.slug}`} key={p.id} className="group flex flex-col h-full">
+            {remaining.map((p) => (
+              <Link href={`/blog/${p.slug}`} key={p.slug} className="group flex flex-col h-full">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -109,7 +95,7 @@ export default function BlogPage() {
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={p.image}
-                      alt={p.title}
+                      alt={p.imageAlt}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
