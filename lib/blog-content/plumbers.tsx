@@ -76,7 +76,7 @@ export default function PlumbersContent() {
         <li><strong>Missed-call automation</strong> that texts every unanswered call within 30 seconds, keeping your lead from calling the next plumber</li>
       </ul>
       <p className="text-[17px] leading-relaxed">
-        If you want to see where your business stands against this checklist and what it would take to get your first qualified calls within 7-14 days, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will audit your current visibility and show you exactly where the calls are going.
+        If you want to see where your business stands against this checklist and what it would take to get your first qualified calls within 7-14 days, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will audit your current visibility and show you exactly where the calls are going. You can also see our full <Link href="/industries/plumbers" className="text-accent-primary underline font-medium">plumber marketing services</Link> and how our <Link href="/services/google-meta-ads" className="text-accent-primary underline font-medium">Google Ads management</Link> works.
       </p>
     </>
   );

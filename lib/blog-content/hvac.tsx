@@ -73,7 +73,7 @@ export default function HvacContent() {
         The off-season campaigns are not about driving emergency calls — they are about capturing homeowners who are thinking about replacing an older unit, looking for an annual service plan, or want a quote before their furnace or AC fails completely. These jobs are larger and less price-sensitive than emergency repairs.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want to see a specific campaign calendar built for your HVAC business and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will build out the month-by-month plan and show you what year-round revenue looks like for a business your size.
+        If you want to see a specific campaign calendar built for your HVAC business and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will build out the month-by-month plan and show you what year-round revenue looks like for a business your size. See our full <Link href="/industries/hvac" className="text-accent-primary underline font-medium">HVAC marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.
       </p>
     </>
   );

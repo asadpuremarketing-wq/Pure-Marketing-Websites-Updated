@@ -69,7 +69,7 @@ export default function LocksmithsContent() {
         Emergency lockouts are high-margin but unpredictable. Rekeying, commercial lock installations, master key systems, and access control upgrades are planned services with higher average job values and repeat business potential. A separate Google Ads campaign targeting these non-emergency searches (&ldquo;lock rekey [city],&rdquo; &ldquo;commercial locksmith [city],&rdquo; &ldquo;access control installation Ontario&rdquo;) adds predictable revenue alongside emergency call volume.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want to see exactly where your locksmith business stands in local search and what it would take to reach the top three in your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will pull your current ranking data and show you the specific steps.
+        If you want to see exactly where your locksmith business stands in local search and what it would take to reach the top three in your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will pull your current ranking data and show you the specific steps. See our full <Link href="/industries/locksmiths" className="text-accent-primary underline font-medium">locksmith marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.
       </p>
     </>
   );

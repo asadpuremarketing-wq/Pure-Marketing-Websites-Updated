@@ -190,6 +190,19 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-background-primary text-text-primary min-h-screen flex flex-col`}
       >
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-00Y9QWYSJJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-00Y9QWYSJJ');
+          `}
+        </Script>
         <Script
           id="local-business-schema"
           type="application/ld+json"

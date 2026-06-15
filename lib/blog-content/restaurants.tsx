@@ -73,7 +73,7 @@ export default function RestaurantsContent() {
         </table>
       </div>
       <p className="text-[17px] leading-relaxed mt-4">
-        For a restaurant averaging $45 per cover, 20 additional weekly covers represent over $180,000 in annual incremental revenue. If you want to see what this system looks like specifically for your restaurant, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>.
+        For a restaurant averaging $45 per cover, 20 additional weekly covers represent over $180,000 in annual incremental revenue. If you want to see what this system looks like specifically for your restaurant, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. See our full <Link href="/industries/restaurants" className="text-accent-primary underline font-medium">restaurant marketing services</Link> and how our <Link href="/services/social-media-management" className="text-accent-primary underline font-medium">social media management</Link> works for food businesses.
       </p>
     </>
   );

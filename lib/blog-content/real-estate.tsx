@@ -66,7 +66,7 @@ export default function RealEstateContent() {
         We build these neighbourhood pages for agent clients as part of their website, targeting 3-5 specific geographic areas where they want to build dominant market share. Combined with the video strategy, this creates two lead sources: paid (video + ads) for immediate pipeline, and organic (neighbourhood SEO) for long-term cost-efficient growth.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want to see what a video and digital marketing system looks like for your real estate business, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will review your current presence and show you exactly where the listing opportunities are.
+        If you want to see what a video and digital marketing system looks like for your real estate business, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will review your current presence and show you exactly where the listing opportunities are. See our full <Link href="/industries/real-estate" className="text-accent-primary underline font-medium">real estate marketing services</Link> and how our <Link href="/services/video-production" className="text-accent-primary underline font-medium">video production service</Link> works.
       </p>
     </>
   );

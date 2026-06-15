@@ -81,7 +81,7 @@ export default function LandscapersContent() {
         The system: after every completed project, send a follow-up text or email two weeks later with a maintenance package offer. Include what is covered (spring cleanup, 6 lawn cuts, fall cleanup, weeding), the price, and an easy way to say yes. 20-30% of new project customers will take this offer. Over 3 seasons, this builds an annuity-style revenue base that is entirely separate from new customer acquisition.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want to build a landscaping marketing system that fills spring before April arrives and generates commercial contracts year-round, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will build a plan specific to your service area and target market.
+        If you want to build a landscaping marketing system that fills spring before April arrives and generates commercial contracts year-round, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will build a plan specific to your service area and target market. See our <Link href="/services/social-media-management" className="text-accent-primary underline font-medium">social media management</Link> and <Link href="/services/google-meta-ads" className="text-accent-primary underline font-medium">Google and Meta Ads</Link> services.
       </p>
     </>
   );

@@ -80,7 +80,7 @@ export default function ElectriciansContent() {
       </p>
 
       <p className="text-[17px] leading-relaxed mt-8">
-        The combination of LSA, an optimized GBP, a conversion-focused website, and follow-up automation is what creates a consistent, predictable flow of qualified electrical jobs. If you want to see what this system looks like specifically for your market and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link> and we will walk through the numbers with you.
+        The combination of LSA, an optimized GBP, a conversion-focused website, and follow-up automation is what creates a consistent, predictable flow of qualified electrical jobs. If you want to see what this system looks like specifically for your market and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link> and we will walk through the numbers with you. See our full <Link href="/industries/electricians" className="text-accent-primary underline font-medium">electrician marketing services</Link> or learn more about how our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link> works.
       </p>
     </>
   );

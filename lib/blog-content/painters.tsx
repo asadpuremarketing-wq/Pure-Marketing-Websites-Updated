@@ -67,7 +67,7 @@ export default function PaintersContent() {
         A separate campaign targeting commercial painting searches (&ldquo;office painting contractor,&rdquo; &ldquo;commercial painter [city],&rdquo; &ldquo;strata painting company&rdquo;) with a landing page specifically addressing commercial clients (pricing by square footage, project timelines, portfolio of commercial work) adds a revenue stream that fills the residential off-season gaps.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want a marketing system that keeps your painting business booked before the spring rush hits and extends your revenue into the slow months, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will show you exactly what a painter marketing system looks like for your market.
+        If you want a marketing system that keeps your painting business booked before the spring rush hits and extends your revenue into the slow months, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will show you exactly what a painter marketing system looks like for your market. See our full <Link href="/industries/painters" className="text-accent-primary underline font-medium">painting company marketing services</Link> and how <Link href="/services/social-media-management" className="text-accent-primary underline font-medium">social media management</Link> works for trade businesses.
       </p>
     </>
   );

@@ -86,7 +86,7 @@ export default function GeneralContractorsContent() {
         A realistic outcome for a general contractor starting from little or no online presence: 6-10 qualified estimate requests per month by the end of Month 3, with 2-4 converting to signed projects depending on average project value and your close rate. For contractors with average job values of $20,000-$50,000, this produces $40,000-$200,000 in new project revenue from the first 90 days of the system.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        Our complete 90-day contractor growth system covers all 10 components described above. If you want to see what this looks like specifically for your market and project types, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>.
+        Our complete 90-day contractor growth system covers all 10 components described above. If you want to see what this looks like specifically for your market and project types, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. See our full <Link href="/industries/general-contractors" className="text-accent-primary underline font-medium">general contractor marketing services</Link> and how our <Link href="/services/google-meta-ads" className="text-accent-primary underline font-medium">Google and Meta Ads management</Link> works.
       </p>
     </>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Script from "next/script";
 import {
   MapPin,
   CheckCircle2,
@@ -10,6 +11,27 @@ import {
   Award,
   Clock,
 } from "lucide-react";
+
+const BASE = "https://puremarketing.ca";
+
+const ABOUT_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${BASE}/about`,
+  name: "About Pure Marketing",
+  url: `${BASE}/about`,
+  description: "Pure Marketing is a Hamilton, Ontario digital marketing agency founded by Asad Saif. Specializing in lead generation, Google Ads, Meta Ads, web design, social media management, and video production for local service businesses.",
+  mainEntity: { "@id": `${BASE}/#organization` },
+};
+
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "About", item: `${BASE}/about` },
+  ],
+};
 
 /* ─── Social icon SVGs ─────────────────────────────────────── */
 const InstagramIcon = ({ className }: { className?: string }) => (
@@ -110,6 +132,8 @@ const fadeUp = (delay = 0) => ({
 export default function About() {
   return (
     <div className="flex flex-col min-h-screen">
+      <Script id="about-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_SCHEMA) }} />
+      <Script id="breadcrumb-about" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
 
       {/* HERO */}
       <PageHero
