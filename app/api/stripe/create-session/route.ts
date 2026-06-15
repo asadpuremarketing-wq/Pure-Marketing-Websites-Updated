@@ -10,7 +10,7 @@ const SOCIAL_PLANS: Record<string, {
   "1-month": {
     name: "Social Media Management — Monthly",
     description: "Full social media management. Instagram, Facebook, daily content, community engagement, monthly analytics. Cancel anytime.",
-    amountCents: 149900,
+    amountCents: 150000,
     cancellationNote: "Cancel anytime. No cancellation fee.",
   },
   "3-month": {

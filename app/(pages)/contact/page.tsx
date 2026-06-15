@@ -31,7 +31,7 @@ const FacebookIcon = ({ className }: { className?: string }) => (
 const FAQS = [
   {
     q: "What is the cost to get started?",
-    a: "Costs vary depending on what you need. Website alone starts at $2,500. Lead generation starts at $1,500/month. We offer a free audit to discuss your specific needs and provide an accurate quote."
+    a: "Costs vary depending on what you need. Lead generation starts at $1,499/month. Video production starts at $699. We offer a free audit to discuss your specific needs and provide an accurate quote."
   },
   {
     q: "How quickly can you get me leads?",

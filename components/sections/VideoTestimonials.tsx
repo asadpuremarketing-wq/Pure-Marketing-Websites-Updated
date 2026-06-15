@@ -6,7 +6,15 @@ import { Play, Star } from "lucide-react";
 import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-const VIDEO_TESTIMONIALS = [
+interface Testimonial {
+  name: string;
+  business: string;
+  result: string;
+  videoId: string;
+  thumbnail?: string;
+}
+
+const VIDEO_TESTIMONIALS: Testimonial[] = [
   {
     name: "Dennis Aboagye",
     business: "Locksmith, Hamilton",

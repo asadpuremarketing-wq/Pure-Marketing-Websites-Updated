@@ -153,11 +153,11 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.75 }}
             >
               <span>
-                Websites from <span className="text-[#888]">$2,500</span>
+                Lead gen from <span className="text-[#888]">$1,499/mo</span>
               </span>
               <span className="hidden sm:block w-px h-3 bg-[#2a2a2a]" />
               <span>
-                Lead gen from <span className="text-[#888]">$1,500/mo</span>
+                Video production from <span className="text-[#888]">$699</span>
               </span>
               <span className="hidden sm:block w-px h-3 bg-[#2a2a2a]" />
               <span>Free strategy call included</span>

@@ -5,7 +5,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, TrendingUp, Video, Share2, BarChart2,
-  Check, ArrowRight, Phone, ChevronDown,
+  Check, ArrowRight, Phone, ChevronDown, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -84,6 +84,14 @@ const VIDEO_INDUSTRIES: { label: string; description: string; videos: VideoItem[
 
 const SOCIAL_CLIENTS = [
   {
+    name: "Kukus Chicken",
+    location: "Burlington, ON",
+    initial: "K",
+    category: "Restaurant",
+    instagram: "https://www.instagram.com/kukus.chicken/",
+    screenshot: "/screenshots/social/kukus-chicken.png",
+  },
+  {
     name: "Gravity Contractors Ltd",
     location: "Hamilton, ON",
     initial: "G",
@@ -92,44 +100,12 @@ const SOCIAL_CLIENTS = [
     screenshot: "/screenshots/social/gravity-contractors.png",
   },
   {
-    name: "Weather Guard Coatings",
-    location: "London, ON",
-    initial: "W",
-    category: "Painting",
-    instagram: "https://www.instagram.com/weatherguardcoatings/",
-    screenshot: "",
-  },
-  {
-    name: "Bowld Up",
-    location: "St. Catharines, ON",
-    initial: "B",
-    category: "Restaurant",
-    instagram: "https://www.instagram.com/bowldup/",
-    screenshot: "",
-  },
-  {
-    name: "Kukus Chicken",
-    location: "Burlington, ON",
-    initial: "K",
-    category: "Restaurant",
-    instagram: "https://www.instagram.com/kukuschicken/",
-    screenshot: "/screenshots/social/kukus-chicken.png",
-  },
-  {
-    name: "Moussas Shawarma",
-    location: "North York, ON",
-    initial: "M",
-    category: "Restaurant",
-    instagram: "https://www.instagram.com/moussasshawarma/",
-    screenshot: "",
-  },
-  {
-    name: "Rocket AMG",
-    location: "Hamilton, ON",
-    initial: "R",
-    category: "Automotive",
-    instagram: "https://www.instagram.com/rocketamg/",
-    screenshot: "",
+    name: "Icey Bubbles",
+    location: "Ontario",
+    initial: "I",
+    category: "Bubble Tea",
+    instagram: "https://www.instagram.com/iceybubbless/",
+    screenshot: "/screenshots/social/icey-bubbles.png",
   },
 ];
 
@@ -244,31 +220,85 @@ function VideoPortfolioSection() {
   );
 }
 
-function FeaturesGrid({ features }: { features: { title: string; desc: string }[] }) {
+function FeaturesCarousel({ features }: { features: { title: string; desc: string }[] }) {
+  const [active, setActive] = useState(0);
+  const [dir, setDir] = useState(1);
+
+  const goTo = (idx: number) => {
+    setDir(idx >= active ? 1 : -1);
+    setActive(idx);
+  };
+  const prev = () => goTo(active === 0 ? features.length - 1 : active - 1);
+  const next = () => goTo(active === features.length - 1 ? 0 : active + 1);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-      {features.map((feature, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: Math.floor(i / 2) * 0.1 }}
-          className={[
-            "flex gap-6 py-8",
-            i < features.length - 2 ? "border-b border-[#f0f0f0]" : "",
-            i % 2 === 0 ? "md:pr-14 md:border-r md:border-r-[#f0f0f0]" : "md:pl-14",
-          ].join(" ")}
-        >
-          <span className="text-[13px] font-black text-accent-primary tabular-nums flex-shrink-0 mt-1 w-6 leading-none">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <div>
-            <h3 className="font-black text-[16px] text-[#0d0d0d] mb-2 leading-snug">{feature.title}</h3>
-            <p className="text-sm text-[#666] leading-relaxed">{feature.desc}</p>
-          </div>
-        </motion.div>
-      ))}
+    <div>
+      <div className="relative overflow-hidden min-h-[200px] md:min-h-[220px]">
+        <AnimatePresence mode="wait" custom={dir}>
+          <motion.div
+            key={active}
+            custom={dir}
+            variants={{
+              enter: (d: number) => ({ x: d * 48, opacity: 0 }),
+              center: { x: 0, opacity: 1 },
+              exit: (d: number) => ({ x: -d * 48, opacity: 0 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="flex gap-8 md:gap-14 items-start py-8 px-1"
+          >
+            <span
+              className="text-[56px] md:text-[80px] font-black text-accent-primary flex-shrink-0"
+              style={{ lineHeight: 1 }}
+            >
+              {String(active + 1).padStart(2, "0")}
+            </span>
+            <div className="pt-1.5">
+              <h3 className="font-black text-[22px] md:text-[28px] text-[#0d0d0d] mb-3 leading-snug">
+                {features[active].title}
+              </h3>
+              <p className="text-[#666] text-[16px] md:text-[17px] leading-relaxed">
+                {features[active].desc}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="flex items-center justify-between pt-6 border-t border-[#f0f0f0]">
+        <div className="flex gap-2 items-center">
+          {features.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`rounded-full transition-all duration-200 ${
+                i === active
+                  ? "w-6 h-2 bg-accent-primary"
+                  : "w-2 h-2 bg-[#ddd] hover:bg-accent-primary/50"
+              }`}
+              aria-label={`Go to feature ${i + 1}`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button
+            onClick={prev}
+            className="w-10 h-10 rounded-full border border-[#e8e8e8] flex items-center justify-center text-[#999] hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={next}
+            className="w-10 h-10 rounded-full border border-[#e8e8e8] flex items-center justify-center text-[#999] hover:border-accent-primary hover:text-accent-primary transition-all duration-200"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -394,7 +424,7 @@ const SERVICES = [
     ],
     faqs: [
       { q: "How fast will I see leads?", a: "Most clients see their first leads within 2–3 weeks. Significant volume typically builds over 30–60 days as campaigns optimize." },
-      { q: "What is the minimum ad budget?", a: "We recommend a minimum of $500–$1,000/month in ad spend on top of our management fee to see meaningful results." },
+      { q: "What is the minimum ad budget?", a: "Our management fee is $1,499/month. We recommend a minimum of $500–$1,500/month in ad spend on top of that to see meaningful results." },
       { q: "Do I need a good website first?", a: "Yes — we will not run traffic to a site that will not convert. If your site needs work, we will tell you upfront." },
       { q: "Is there a contract?", a: "No long-term contracts. Month-to-month. We earn your business every single month." },
     ],
@@ -528,7 +558,7 @@ const SERVICES = [
       { step: "04", title: "Optimize Monthly", desc: "Monthly optimization pass. Winning ads scaled, losing ads paused, new tests launched." },
     ],
     faqs: [
-      { q: "What ad budget do I need?", a: "We recommend a minimum of $500–$1,500/month in ad spend depending on your market and goals, separate from our management fee." },
+      { q: "What ad budget do I need?", a: "Our management fee is $500/month. On top of that, we recommend a minimum of $500–$1,500/month in ad spend depending on your market and goals." },
       { q: "Google Ads or Meta Ads — which is better?", a: "Depends on your industry. Google captures high-intent searches. Meta builds awareness and retargets. Most clients benefit from both." },
       { q: "Do you manage the ad account or do I?", a: "We manage everything inside your own ad account, which you own. You always have full access and visibility." },
       { q: "What results can I realistically expect?", a: "In competitive local markets, a well-managed campaign typically generates leads at $20–$60 each depending on industry." },
@@ -611,17 +641,22 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                   </div>
                 </div>
               ) : service.slug === "social-media-management" ? (
-                <div className="grid grid-cols-2 gap-3">
-                  {SOCIAL_CLIENTS.slice(0, 4).map((client, i) => (
-                    <div key={i} className="bg-white/[0.04] border border-white/10 rounded-xl p-4 flex items-center gap-3 hover:border-accent-primary/40 transition-colors">
-                      <div className="w-10 h-10 rounded-lg bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
-                        <span className="text-accent-primary font-bold">{client.initial}</span>
+                <div className="flex flex-col gap-3">
+                  {SOCIAL_CLIENTS.map((client, i) => (
+                    <a key={i} href={client.instagram} target="_blank" rel="noopener noreferrer" className="group bg-white/[0.04] border border-white/10 rounded-xl p-4 flex items-center gap-4 hover:border-accent-primary/40 hover:bg-white/[0.07] transition-all duration-200">
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-accent-primary/10">
+                        {client.screenshot ? (
+                          <Image src={client.screenshot} alt={client.name} fill sizes="48px" className="object-cover object-top" />
+                        ) : (
+                          <span className="absolute inset-0 flex items-center justify-center text-accent-primary font-bold">{client.initial}</span>
+                        )}
                       </div>
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <p className="font-semibold text-sm text-white truncate">{client.name}</p>
-                        <p className="text-xs text-white/40">{client.location}</p>
+                        <p className="text-xs text-white/40">{client.category} · {client.location}</p>
                       </div>
-                    </div>
+                      <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-accent-primary transition-colors flex-shrink-0" />
+                    </a>
                   ))}
                 </div>
               ) : (
@@ -637,21 +672,132 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* WHAT'S INCLUDED */}
-      <section className="bg-white py-20">
+      <section className="bg-[#f7f7f7] py-20">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-10 border-b border-[#f0f0f0]">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div>
               <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3">Everything Included</p>
               <h2 className="text-[30px] md:text-[40px] font-black text-[#0d0d0d] leading-tight">What You Get</h2>
             </div>
             <p className="text-[#888] text-[15px] max-w-[340px] leading-relaxed">All {service.features.length} deliverables included from day one. No extras, no surprises.</p>
           </motion.div>
-          <FeaturesGrid features={service.features} />
+          <div className="bg-white border border-[#e8e8e8] rounded-2xl p-8 md:p-12 shadow-sm">
+            <FeaturesCarousel features={service.features} />
+          </div>
         </div>
       </section>
 
       {/* VIDEO PORTFOLIO */}
       {service.slug === "video-production" && <VideoPortfolioSection />}
+
+      {/* VIDEO PRODUCTION PACKAGES */}
+      {service.slug === "video-production" && (
+        <section className="bg-[#111] py-24 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+          <div className="relative z-10 max-w-[1100px] mx-auto px-6">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+              <span className="text-xs font-semibold uppercase tracking-widest text-accent-primary border border-accent-primary/30 rounded-full px-4 py-1.5 mb-4 inline-block">Pricing</span>
+              <h2 className="text-[32px] md:text-[42px] font-bold text-white leading-tight mt-4">Video Production Packages</h2>
+              <p className="text-white/50 text-[16px] mt-3">One-time packages. No retainer required.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+              {[
+                {
+                  name: "Basic",
+                  price: "$699",
+                  badge: null,
+                  features: [
+                    "3 short-form videos (Reels / TikTok)",
+                    "Half-day shoot (up to 2 hours)",
+                    "Basic colour correction",
+                    "Captions and subtitles",
+                    "All social formats included",
+                    "2 revision rounds",
+                  ],
+                  popular: false,
+                },
+                {
+                  name: "Standard",
+                  price: "$999",
+                  badge: "Most Popular",
+                  features: [
+                    "8 short-form videos",
+                    "Full shoot day (up to 4 hours)",
+                    "Colour grading and sound design",
+                    "Licensed music included",
+                    "All social and ad formats",
+                    "Shot list and concept planning",
+                    "3 revision rounds",
+                  ],
+                  popular: true,
+                },
+                {
+                  name: "Premium",
+                  price: "$1,299",
+                  badge: "Best Value",
+                  features: [
+                    "12-15 short-form videos",
+                    "1 brand story video (long-form)",
+                    "Full shoot day",
+                    "Motion graphics and premium editing",
+                    "Script and concept development",
+                    "Licensed music and sound design",
+                    "All formats, delivered in 7 days",
+                    "Unlimited revisions",
+                  ],
+                  popular: false,
+                },
+              ].map((pkg, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="relative"
+                >
+                  {pkg.badge && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-accent-primary text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap shadow-md">
+                      {pkg.badge}
+                    </div>
+                  )}
+                  <div className={`rounded-2xl p-8 flex flex-col h-full border ${
+                    pkg.popular
+                      ? "bg-white/[0.07] border-accent-primary shadow-[0_4px_32px_rgba(240,100,40,0.15)]"
+                      : "bg-white/[0.03] border-white/10"
+                  }`}>
+                    <p className="text-white/50 text-sm font-medium mb-1">{pkg.name}</p>
+                    <div className="mb-6">
+                      <span className="text-[42px] font-bold text-white leading-none">{pkg.price}</span>
+                    </div>
+
+                    <ul className="space-y-3 mb-8 flex-grow">
+                      {pkg.features.map((f, j) => (
+                        <li key={j} className="flex items-start gap-2.5">
+                          <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-white/60">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href="/contact"
+                      className={`w-full py-3 rounded-xl text-center text-sm font-semibold transition-all duration-300 ${
+                        pkg.popular
+                          ? "bg-accent-primary text-white hover:bg-accent-hover"
+                          : "border border-white/20 text-white hover:border-accent-primary hover:text-accent-primary"
+                      }`}
+                    >
+                      Book a Shoot
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* PORTFOLIO - Web Development */}
       {service.slug === "web-development" && (

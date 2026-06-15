@@ -30,8 +30,8 @@ const SOCIAL_PLANS = [
   {
     key: "1-month",
     name: "Monthly",
-    price: 1499,
-    label: "$1,499/mo",
+    price: 1500,
+    label: "$1,500/mo",
     billing: "Billed monthly · Cancel anytime",
     cancellation: null,
     savings: null,
