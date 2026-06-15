@@ -10,7 +10,9 @@ const BookCallModal = dynamic(() => import("@/components/ui/BookCallModal"), { s
 
 const DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const PREVIEW_TIMES = ["9:00 AM", "10:30 AM", "2:00 PM", "3:30 PM"];
+
+// 4 representative preview times shown in the card
+const PREVIEW_TIMES = ["8:00 AM", "10:00 AM", "2:00 PM", "6:00 PM"];
 
 function getNextFiveWeekdays() {
   const result: Date[] = [];
@@ -28,7 +30,18 @@ const VIDEO_ID = "dCJCZmdhcNM";
 export default function IntroVideo() {
   const [playing, setPlaying] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [selectedPreviewDate, setSelectedPreviewDate] = useState<Date | undefined>(undefined);
   const dates = getNextFiveWeekdays();
+
+  function openWithDate(d: Date) {
+    setSelectedPreviewDate(d);
+    setBookingOpen(true);
+  }
+
+  function openDefault() {
+    setSelectedPreviewDate(undefined);
+    setBookingOpen(true);
+  }
 
   return (
     <>
@@ -106,23 +119,24 @@ export default function IntroVideo() {
                 </div>
                 <div>
                   <p className="text-white text-[15px] font-bold leading-tight">Book a Free Strategy Call</p>
-                  <p className="text-white/30 text-[11px]">30 min · Google Meet · Mon–Fri</p>
+                  <p className="text-white/30 text-[11px]">30 min · Google Meet · Mon–Fri, 8am–8pm EST</p>
                 </div>
               </div>
 
               <div className="px-7 pt-6 pb-7">
-                {/* Date strip */}
+                {/* Date strip — clickable */}
                 <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
-                  <Calendar className="w-3 h-3" /> Available this week
+                  <Calendar className="w-3 h-3" /> Click a date to book
                 </p>
                 <div className="grid grid-cols-5 gap-2 mb-6">
                   {dates.map((d, i) => (
-                    <div
+                    <button
                       key={i}
-                      className={`flex flex-col items-center py-3 rounded-2xl border ${
+                      onClick={() => openWithDate(d)}
+                      className={`flex flex-col items-center py-3 rounded-2xl border transition-all duration-200 cursor-pointer ${
                         i === 0
-                          ? "bg-[#F06428] border-[#F06428]"
-                          : "border-white/[0.07] bg-white/[0.02]"
+                          ? "bg-[#F06428] border-[#F06428] hover:bg-[#D9531E]"
+                          : "border-white/[0.07] bg-white/[0.02] hover:border-[#F06428]/60 hover:bg-white/[0.05]"
                       }`}
                     >
                       <span className={`text-[9px] font-bold uppercase tracking-wider ${i === 0 ? "text-white/75" : "text-white/20"}`}>
@@ -134,31 +148,32 @@ export default function IntroVideo() {
                       <span className={`text-[9px] mt-0.5 ${i === 0 ? "text-white/65" : "text-white/20"}`}>
                         {MONTHS_SHORT[d.getMonth()]}
                       </span>
-                    </div>
+                    </button>
                   ))}
                 </div>
 
-                {/* Time previews */}
+                {/* Time previews — clicking opens the full modal */}
                 <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
-                  <Clock className="w-3 h-3" /> Available times · EST
+                  <Clock className="w-3 h-3" /> Available times · Toronto (EST)
                 </p>
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {PREVIEW_TIMES.map((t, i) => (
-                    <div
+                    <button
                       key={i}
-                      className={`py-2.5 rounded-xl border text-[13px] font-medium text-center ${
+                      onClick={openDefault}
+                      className={`py-2.5 rounded-xl border text-[13px] font-medium text-center transition-all duration-150 cursor-pointer ${
                         i === 0
-                          ? "border-[#F06428]/40 text-[#F06428]"
-                          : "border-white/[0.07] text-white/30"
+                          ? "border-[#F06428]/40 text-[#F06428] hover:bg-[#F06428]/10"
+                          : "border-white/[0.07] text-white/30 hover:border-[#F06428]/40 hover:text-white/60"
                       }`}
                     >
                       {t}
-                    </div>
+                    </button>
                   ))}
                 </div>
 
                 <button
-                  onClick={() => setBookingOpen(true)}
+                  onClick={openDefault}
                   className="w-full bg-[#F06428] hover:bg-[#D9531E] text-white rounded-xl py-4 font-bold text-[15px] transition-colors flex items-center justify-center gap-2 shadow-lg shadow-[#F06428]/20"
                 >
                   Pick Your Time
@@ -174,7 +189,11 @@ export default function IntroVideo() {
         </div>
       </section>
 
-      <BookCallModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
+      <BookCallModal
+        isOpen={bookingOpen}
+        onClose={() => { setBookingOpen(false); setSelectedPreviewDate(undefined); }}
+        defaultDate={selectedPreviewDate}
+      />
     </>
   );
 }

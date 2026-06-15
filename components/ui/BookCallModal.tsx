@@ -1,17 +1,21 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Calendar, Check, Loader2 } from "lucide-react";
 
 const DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+// 8:00 AM – 7:30 PM Toronto (Eastern) time — 24 slots
 const TIME_SLOTS = [
+  "8:00 AM", "8:30 AM",
   "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM",
   "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM",
   "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM",
   "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM",
+  "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM",
+  "7:00 PM", "7:30 PM",
 ];
 
 function getWeekdays(): Date[] {
@@ -25,16 +29,17 @@ function getWeekdays(): Date[] {
   return result;
 }
 
-function fmtDate(d: Date) {
+export function fmtDate(d: Date) {
   return `${DAYS_SHORT[d.getDay()]}, ${MONTHS_SHORT[d.getMonth()]} ${d.getDate()}`;
 }
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  defaultDate?: Date; // when set, modal opens at step 2 with this date pre-selected
 }
 
-export default function BookCallModal({ isOpen, onClose }: Props) {
+export default function BookCallModal({ isOpen, onClose, defaultDate }: Props) {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -47,6 +52,27 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
 
   const dates = getWeekdays();
   const visible = dates.slice(offset, offset + 5);
+
+  // Initialize when modal opens
+  useEffect(() => {
+    if (!isOpen) return;
+    if (defaultDate) {
+      setSelectedDate(defaultDate);
+      setSelectedTime(null);
+      setBookedSlots([]);
+      setError(null);
+      setStep(2);
+      setFetchingSlots(true);
+      fetch(`/api/book-call/slots?date=${encodeURIComponent(fmtDate(defaultDate))}`)
+        .then((r) => r.json())
+        .then((data) => setBookedSlots(data.booked ?? []))
+        .catch(() => setBookedSlots([]))
+        .finally(() => setFetchingSlots(false));
+    } else {
+      setStep(1);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   const close = useCallback(() => {
     onClose();
@@ -98,7 +124,6 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
       });
 
       if (res.status === 409) {
-        // Slot was taken between selection and submission — refresh and go back
         const slotsRes = await fetch(`/api/book-call/slots?date=${encodeURIComponent(selectedDate ? fmtDate(selectedDate) : "")}`);
         const slotsData = await slotsRes.json();
         setBookedSlots(slotsData.booked ?? []);
@@ -218,7 +243,7 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
                           className={`flex flex-col items-center py-3 rounded-2xl border transition-all duration-200 ${
                             sel
                               ? "bg-[#F06428] border-[#F06428] shadow-lg shadow-[#F06428]/20"
-                              : "border-white/[0.07] bg-white/[0.02] hover:border-[#F06428]/40"
+                              : "border-white/[0.07] bg-white/[0.02] hover:border-[#F06428]/40 cursor-pointer"
                           }`}
                         >
                           <span className={`text-[9px] font-bold uppercase tracking-wider ${sel ? "text-white/75" : "text-white/25"}`}>
@@ -271,7 +296,7 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
                     </p>
                   </div>
                   <p className="text-[#F06428] text-[12px] font-semibold mb-4 ml-6">
-                    {selectedDate ? fmtDate(selectedDate) : ""} · All times EST
+                    {selectedDate ? fmtDate(selectedDate) : ""} · All times Toronto (EST)
                   </p>
 
                   {error && (
@@ -280,32 +305,39 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
                     </p>
                   )}
 
-                  <div className="grid grid-cols-2 gap-2 mb-6 max-h-[220px] overflow-y-auto">
-                    {TIME_SLOTS.map((slot) => {
-                      const sel = selectedTime === slot;
-                      const taken = bookedSlots.includes(slot);
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => !taken && setSelectedTime(slot)}
-                          disabled={taken}
-                          className={`py-2.5 rounded-xl border text-[13px] font-medium transition-all duration-150 ${
-                            taken
-                              ? "border-white/[0.04] text-white/15 cursor-not-allowed bg-white/[0.01] line-through"
-                              : sel
-                              ? "bg-[#F06428] border-[#F06428] text-white shadow-md"
-                              : "border-white/[0.07] text-white/50 hover:border-[#F06428]/40 hover:text-white/80 bg-white/[0.02]"
-                          }`}
-                        >
-                          {slot}
-                        </button>
-                      );
-                    })}
-                  </div>
+                  {fetchingSlots ? (
+                    <div className="flex items-center justify-center py-12 gap-2 text-white/30 text-sm">
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Checking availability...
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-3 gap-2 mb-6 max-h-[240px] overflow-y-auto">
+                      {TIME_SLOTS.map((slot) => {
+                        const sel = selectedTime === slot;
+                        const taken = bookedSlots.includes(slot);
+                        return (
+                          <button
+                            key={slot}
+                            onClick={() => !taken && setSelectedTime(slot)}
+                            disabled={taken}
+                            className={`py-2.5 rounded-xl border text-[12px] font-medium transition-all duration-150 ${
+                              taken
+                                ? "border-white/[0.04] text-white/15 cursor-not-allowed bg-white/[0.01] line-through"
+                                : sel
+                                ? "bg-[#F06428] border-[#F06428] text-white shadow-md"
+                                : "border-white/[0.07] text-white/50 hover:border-[#F06428]/40 hover:text-white/80 bg-white/[0.02] cursor-pointer"
+                            }`}
+                          >
+                            {slot}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
 
                   <button
                     onClick={() => { setError(null); if (selectedTime) setStep(3); }}
-                    disabled={!selectedTime}
+                    disabled={!selectedTime || fetchingSlots}
                     className="w-full bg-[#F06428] hover:bg-[#D9531E] text-white rounded-xl py-3.5 font-semibold text-[14px] disabled:opacity-35 disabled:cursor-not-allowed transition-colors"
                   >
                     Continue
@@ -360,9 +392,7 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
                     ))}
                   </div>
 
-                  {error && (
-                    <p className="text-red-400 text-[12px] mb-3">{error}</p>
-                  )}
+                  {error && <p className="text-red-400 text-[12px] mb-3">{error}</p>}
 
                   <button
                     onClick={submit}
@@ -400,9 +430,7 @@ export default function BookCallModal({ isOpen, onClose }: Props) {
                   <p className="text-white/50 text-[14px] mb-1">
                     {selectedDate ? fmtDate(selectedDate) : ""} at {selectedTime} EST
                   </p>
-                  <p className="text-white/30 text-[12px] mb-6">
-                    Confirmation sent to {form.email}
-                  </p>
+                  <p className="text-white/30 text-[12px] mb-6">Confirmation sent to {form.email}</p>
                   <div className="bg-white/[0.03] border border-white/[0.07] rounded-xl p-4 mb-6 text-left space-y-2.5">
                     {[
                       "30-min video call via Google Meet",
