@@ -130,6 +130,33 @@ const config: IndustryFullConfig = {
     "Let's build your painting growth system and make sure homeowners see your before/after work before they call anyone else.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do painting companies get more residential projects?",
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting searches like 'house painter near me' and 'interior painting estimate' combined with before/after video content on Instagram and Facebook. A portfolio website showcasing finished projects builds trust. Pure Marketing clients average 324% more project bookings in the first 90 days." },
+    },
+    {
+      "@type": "Question",
+      name: "What is the best marketing for a painting company?",
+      acceptedAnswer: { "@type": "Answer", text: "Before/after video content performs exceptionally well for painters on Instagram and Facebook, driving estimate requests. Google Ads capture high-intent searches. Together, this combination drives both brand awareness and direct leads. Pure Marketing builds and manages this full system for painting companies." },
+    },
+    {
+      "@type": "Question",
+      name: "How quickly can a painting company get leads from digital marketing?",
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads campaigns go live within 7-10 days and most painting clients see their first qualified estimate requests within 14 days. Social media content builds over 60-90 days as the audience grows. Pure Marketing averages 324% more project bookings in the first 90 days." },
+    },
+    {
+      "@type": "Question",
+      name: "How much does marketing for a painting company cost?",
+      acceptedAnswer: { "@type": "Answer", text: "Painter lead generation with Pure Marketing starts from $1,499/month. Social media management starts from $899/month. Video production for before/after content starts from $699. All services are month-to-month with no long-term contracts required." },
+    },
+  ],
+};
+
 export default function PaintersPage() {
   return (
     <>
@@ -137,6 +164,11 @@ export default function PaintersPage() {
         id="service-schema-painters"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-painters"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

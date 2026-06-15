@@ -146,6 +146,33 @@ const config: IndustryFullConfig = {
     "Let's build your locksmith growth system so every emergency search in your area finds your business first — day or night.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do locksmiths get more emergency lockout calls?",
+      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads are the most effective marketing channel for locksmiths. Emergency lockout searches are extremely high-intent and LSAs appear at the very top of results with a Google Guarantee badge. Pure Marketing puts locksmiths at the top of Google for emergency searches and averages 300%+ lead increases." },
+    },
+    {
+      "@type": "Question",
+      name: "Should locksmiths use Google Local Service Ads?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes, absolutely. LSAs are the ideal marketing tool for locksmiths because you only pay per verified call, you appear above regular Google Ads, and the Google Guarantee builds trust for people in stressful lockout situations. Pure Marketing can have locksmith LSA campaigns live within 7 days." },
+    },
+    {
+      "@type": "Question",
+      name: "How quickly can a locksmith get leads from digital marketing?",
+      acceptedAnswer: { "@type": "Answer", text: "Locksmith clients typically see their first emergency calls within 3-7 days of campaigns launching, because lockout searches happen 24/7 and are extremely high-intent. Pure Marketing also sets up missed-call text automation so no lead is ever lost to voicemail." },
+    },
+    {
+      "@type": "Question",
+      name: "How much does locksmith marketing cost?",
+      acceptedAnswer: { "@type": "Answer", text: "Locksmith lead generation with Pure Marketing starts from $1,499/month. Ad spend (paid to Google) is additional and depends on your service area size. Most locksmith clients see positive ROI within 2-4 weeks due to the high urgency of lockout jobs." },
+    },
+  ],
+};
+
 export default function LocksmithsPage() {
   return (
     <>
@@ -153,6 +180,11 @@ export default function LocksmithsPage() {
         id="service-schema-locksmiths"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-locksmiths"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

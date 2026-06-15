@@ -126,6 +126,33 @@ const config: IndustryFullConfig = {
     "Let's build your plumbing growth system and make sure your business shows up first when homeowners need a plumber right now.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do plumbers get more emergency calls?",
+      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads are the most effective channel for emergency plumbing calls because they appear at the very top of search results and you only pay per verified lead. Combined with Google Ads and an optimized Google Business Profile, Pure Marketing clients average 22+ calls per week and 289% more leads." },
+    },
+    {
+      "@type": "Question",
+      name: "Should plumbers use Google Ads or Local Service Ads?",
+      acceptedAnswer: { "@type": "Answer", text: "Both. Local Service Ads (LSA) are ideal for emergency plumbing because you pay per verified call and appear above regular ads. Google Ads complement LSA by capturing a wider range of plumbing searches. Pure Marketing manages both for maximum coverage and lowest cost per lead." },
+    },
+    {
+      "@type": "Question",
+      name: "How much does plumbing marketing cost?",
+      acceptedAnswer: { "@type": "Answer", text: "Plumbing lead generation with Pure Marketing starts from $1,499/month. Most clients achieve positive ROI within 30-60 days. Ad spend (the budget paid to Google) is separate and varies by market and competition level." },
+    },
+    {
+      "@type": "Question",
+      name: "How quickly can a plumber get leads from digital marketing?",
+      acceptedAnswer: { "@type": "Answer", text: "With Google Ads and Local Service Ads, most plumbing clients start receiving qualified calls within 3-14 days of campaigns launching, because plumbing searches are constant and high-intent. Pure Marketing averages 289% lead increase in the first 90 days." },
+    },
+  ],
+};
+
 export default function PlumbersPage() {
   return (
     <>
@@ -133,6 +160,11 @@ export default function PlumbersPage() {
         id="service-schema-plumbers"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-plumbers"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

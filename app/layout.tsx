@@ -108,10 +108,30 @@ const LOCAL_BUSINESS_SCHEMA = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:00",
+      opens: "08:00",
+      closes: "20:00",
     },
   ],
+  founder: {
+    "@type": "Person",
+    "@id": `${BASE}/#founder`,
+    name: "Asad",
+    jobTitle: "Founder & Digital Marketing Specialist",
+    worksFor: { "@id": `${BASE}/#organization` },
+    url: BASE,
+  },
+  knowsAbout: [
+    "Google Ads",
+    "Meta Ads",
+    "Lead Generation",
+    "Local SEO",
+    "Web Design",
+    "Social Media Marketing",
+    "Video Production",
+    "Digital Marketing for Local Businesses",
+  ],
+  slogan: "Strategy. Systems. Growth.",
+  priceRange: "$$",
   sameAs: [
     "https://www.instagram.com/puremarketing0",
     "https://www.facebook.com/profile.php?id=61576684511407",
@@ -138,6 +158,28 @@ const LOCAL_BUSINESS_SCHEMA = {
   },
 };
 
+const PERSON_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${BASE}/#founder`,
+  name: "Asad",
+  jobTitle: "Founder & Digital Marketing Specialist",
+  worksFor: { "@id": `${BASE}/#organization` },
+  url: BASE,
+  knowsAbout: [
+    "Google Ads",
+    "Meta Ads",
+    "Lead Generation for Local Businesses",
+    "Social Media Marketing",
+    "Web Design",
+    "Video Production",
+    "Local SEO",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/pure-marketing0/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -152,6 +194,11 @@ export default function RootLayout({
           id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
+        />
+        <Script
+          id="person-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
         />
         <Navbar />
         <main className="flex-grow">

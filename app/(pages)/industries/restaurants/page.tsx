@@ -126,6 +126,33 @@ const config: IndustryFullConfig = {
     "Let's build your restaurant growth system and make sure hungry customers in your area find you first — before they book somewhere else.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do restaurants get more customers with digital marketing?",
+      acceptedAnswer: { "@type": "Answer", text: "Social media content showcasing food and atmosphere builds desire and drives reservations. Google Ads target people searching for restaurants in your area. Review management builds trust and improves Google Maps rankings. Pure Marketing clients average 89% more reservations after implementing this combined approach." },
+    },
+    {
+      "@type": "Question",
+      name: "What social media platform is best for restaurants?",
+      acceptedAnswer: { "@type": "Answer", text: "Instagram and TikTok for visual food content — short-form videos of dishes, kitchen prep, and atmosphere perform especially well. Facebook works for local community engagement, event promotion, and reaching older demographics. Pure Marketing creates and manages all content for restaurant clients, including photography and video." },
+    },
+    {
+      "@type": "Question",
+      name: "Should restaurants use Google Ads?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes, especially targeting hungry people nearby searching for specific cuisine or 'restaurants near me'. Combined with Google Business Profile optimization, Google Ads put your restaurant in front of people actively deciding where to eat. Pure Marketing manages restaurant Google Ads from $500/month." },
+    },
+    {
+      "@type": "Question",
+      name: "How much does restaurant marketing cost?",
+      acceptedAnswer: { "@type": "Answer", text: "Restaurant social media management with Pure Marketing starts from $899/month (includes content creation, daily posting, and engagement). Google Ads management starts from $500/month. Most restaurant clients see positive results within 30-60 days. No long-term contracts required." },
+    },
+  ],
+};
+
 export default function RestaurantsPage() {
   return (
     <>
@@ -133,6 +160,11 @@ export default function RestaurantsPage() {
         id="service-schema-restaurants"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-restaurants"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

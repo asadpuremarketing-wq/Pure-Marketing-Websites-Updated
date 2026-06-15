@@ -22,6 +22,25 @@ export const metadata: Metadata = {
   },
 };
 
+const CONTACT_PAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${BASE}/contact#webpage`,
+  url: `${BASE}/contact`,
+  name: "Contact Pure Marketing | Book a Free Strategy Call",
+  description:
+    "Contact Pure Marketing to book a free 30-minute strategy call. Reach us by phone at +1 647-951-2786, email info@puremarketing.ca, or fill out our contact form.",
+  isPartOf: { "@id": `${BASE}/#website` },
+  about: { "@id": `${BASE}/#organization` },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Contact", item: `${BASE}/contact` },
+    ],
+  },
+};
+
 const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -80,6 +99,7 @@ const FAQ_SCHEMA = {
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <Script id="contact-page-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(CONTACT_PAGE_SCHEMA) }} />
       <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
       {children}
     </>

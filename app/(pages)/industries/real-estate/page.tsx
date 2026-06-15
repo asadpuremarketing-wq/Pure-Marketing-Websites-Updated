@@ -126,6 +126,33 @@ const config: IndustryFullConfig = {
     "Let's build your real estate growth system so that every buyer and seller in your market finds you first — not your competition.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do real estate agents get more leads online?",
+      acceptedAnswer: { "@type": "Answer", text: "A combination of professional property tour videos, targeted Facebook and Instagram ads to specific buyer demographics, Google Ads for buyer and seller intent searches, and an agent website optimized for local search. Pure Marketing clients average 4.2x faster property sales and 35% more qualified buyer leads." },
+    },
+    {
+      "@type": "Question",
+      name: "Do real estate agents need video marketing?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Properties with professional video tours sell significantly faster than those without. Video also establishes the agent's personal brand, builds trust with sellers, and performs exceptionally on social media. Pure Marketing produces professional property tour and agent brand videos starting from $699." },
+    },
+    {
+      "@type": "Question",
+      name: "What digital marketing works best for real estate agents?",
+      acceptedAnswer: { "@type": "Answer", text: "Video production for listings, Instagram and Facebook content for brand building, targeted Meta Ads to buyer and seller audiences, Google Ads for specific search intent, and a professional agent website. Pure Marketing manages this full system for real estate agents across Canada." },
+    },
+    {
+      "@type": "Question",
+      name: "How much does real estate marketing cost?",
+      acceptedAnswer: { "@type": "Answer", text: "Real estate video production starts from $699 per property or agent video. Social media management starts from $899/month. Google and Meta Ads management starts from $500/month. Pure Marketing offers custom packages for real estate agents — contact for a free audit." },
+    },
+  ],
+};
+
 export default function RealEstatePage() {
   return (
     <>
@@ -133,6 +160,11 @@ export default function RealEstatePage() {
         id="service-schema-real-estate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-real-estate"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

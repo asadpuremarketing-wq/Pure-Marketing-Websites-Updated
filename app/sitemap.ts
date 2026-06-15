@@ -44,9 +44,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
+  const locationPages = [
+    "toronto",
+    "mississauga",
+    "brampton",
+    "burlington",
+    "oakville",
+  ].map((slug) => ({
+    url: `${BASE}/locations/${slug}`,
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+    lastModified: now,
+  }));
+
   return [
     ...staticPages.map((p) => ({ ...p, lastModified: now })),
     ...servicePages,
     ...industryPages,
+    ...locationPages,
   ];
 }

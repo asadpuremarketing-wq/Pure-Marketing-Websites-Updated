@@ -130,6 +130,33 @@ const config: IndustryFullConfig = {
     "Let's build your HVAC growth system and make sure your business gets calls for AC, furnace, and emergency service all year long.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do HVAC companies get leads year-round?",
+      acceptedAnswer: { "@type": "Answer", text: "Seasonal campaign adjustments are key. Summer targets AC tune-ups, repairs, and replacements. Winter targets furnace installs, emergency heating calls, and maintenance contracts. Pure Marketing manages these seasonal campaign switches to keep HVAC companies consistently busy, averaging 267% lead increase year-round." },
+    },
+    {
+      "@type": "Question",
+      name: "What digital marketing works best for HVAC companies?",
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads and Local Service Ads targeting seasonal keywords deliver the fastest results for HVAC. Local Service Ads are especially effective for emergency heating and cooling calls because you only pay per verified lead. Pure Marketing averages 267% lead increase for HVAC clients in the first 90 days." },
+    },
+    {
+      "@type": "Question",
+      name: "Should HVAC companies use Local Service Ads?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Local Service Ads (LSA) are highly effective for HVAC because emergency heating and cooling searches are extremely high-intent. The Google Guarantee badge on LSA ads also builds trust instantly. Pure Marketing sets up and manages LSA campaigns for HVAC companies across Canada." },
+    },
+    {
+      "@type": "Question",
+      name: "How much does HVAC marketing cost?",
+      acceptedAnswer: { "@type": "Answer", text: "HVAC lead generation with Pure Marketing starts from $1,499/month. Most clients see 5-8x return on marketing investment within 60 days. Ad spend (budget paid to Google) is separate and adjusted based on season and service area." },
+    },
+  ],
+};
+
 export default function HvacPage() {
   return (
     <>
@@ -137,6 +164,11 @@ export default function HvacPage() {
         id="service-schema-hvac"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-hvac"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

@@ -126,6 +126,33 @@ const config: IndustryFullConfig = {
     "Let's build your growth system and put your electrical business in front of every homeowner searching for an electrician near you.",
 };
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do electricians get more leads online?",
+      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads and Google Ads targeting searches like 'electrician near me' are the top channels. Combined with an optimized Google Business Profile and a conversion-focused website, Pure Marketing clients average 18+ qualified calls per week and 312% more leads in 90 days." },
+    },
+    {
+      "@type": "Question",
+      name: "What is the best digital marketing for electricians?",
+      acceptedAnswer: { "@type": "Answer", text: "The highest-ROI approach for electricians is Google Local Service Ads (pay per verified lead) combined with Google Ads for broader coverage. Pure Marketing builds this as part of a 9-step system that also includes reputation management, monthly content, and follow-up automation." },
+    },
+    {
+      "@type": "Question",
+      name: "How quickly can an electrician get leads from Google Ads?",
+      acceptedAnswer: { "@type": "Answer", text: "Most electrician clients see their first leads within 7-14 days of campaign launch. Full results typically come in within 30-60 days as Google optimizes ad delivery and Quality Score improves. Pure Marketing averages 312% lead increase in the first 90 days." },
+    },
+    {
+      "@type": "Question",
+      name: "Do electricians need a website to get more leads?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. A fast, mobile-first website with clear emergency call buttons, service pages, and trust signals is essential. It acts as the foundation for all ad campaigns and improves Google Ad Quality Score, lowering your cost per click and increasing conversions." },
+    },
+  ],
+};
+
 export default function ElectriciansPage() {
   return (
     <>
@@ -133,6 +160,11 @@ export default function ElectriciansPage() {
         id="service-schema-electricians"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
+      />
+      <Script
+        id="faq-schema-electricians"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>
