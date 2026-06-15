@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const BookCallModal = dynamic(() => import("@/components/ui/BookCallModal"), { ssr: false });
 
 const INDUSTRIES = [
   { name: "Electricians", href: "/industries/electricians" },
@@ -35,6 +38,7 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
@@ -224,6 +228,17 @@ export default function Navbar() {
             >
               Contact
             </Link>
+            <button
+              onClick={() => setBookingOpen(true)}
+              className={`inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-lg border transition-all duration-200 ${
+                !isScrolled && isDarkHero
+                  ? "border-white/20 text-white/80 hover:border-white/40 hover:text-white"
+                  : "border-border text-text-secondary hover:border-accent-primary hover:text-accent-primary"
+              }`}
+            >
+              <Calendar className="w-3.5 h-3.5" />
+              Book a Call
+            </button>
             <Link href="/contact" className="btn-primary text-sm">
               Get a Free Audit
             </Link>
@@ -345,7 +360,14 @@ export default function Navbar() {
               </div>
 
               {/* CTA */}
-              <div className="px-6 py-5">
+              <div className="px-6 py-5 space-y-3">
+                <button
+                  onClick={() => { setBookingOpen(true); setIsMobileMenuOpen(false); }}
+                  className="w-full flex items-center justify-center gap-2 border border-border rounded-lg py-3 text-[15px] font-semibold text-text-primary hover:border-accent-primary hover:text-accent-primary transition-colors"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Book a Free Call
+                </button>
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -358,6 +380,8 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <BookCallModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
     </header>
   );
 }
