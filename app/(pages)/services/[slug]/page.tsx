@@ -11,6 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
 import CTABanner from "@/components/sections/CTABanner";
+import ContactSection from "@/components/sections/ContactSection";
 import VideoTestimonials from "@/components/sections/VideoTestimonials";
 
 /* ── Portfolio data ─────────────────────────────────────────── */
@@ -1152,6 +1153,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      <ContactSection />
       <CTABanner />
     </div>
   );

@@ -25,6 +25,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import CTABanner from "@/components/sections/CTABanner";
+import ContactSection from "@/components/sections/ContactSection";
 
 const BASE = "https://puremarketing.ca";
 
@@ -701,7 +702,10 @@ export default function IndustryPageTemplate({ config }: Props) {
         </div>
       </section>
 
-      {/* ── SECTION 8: CTA BANNER ───────────────────────────────── */}
+      {/* ── SECTION 8: CONTACT FORM ─────────────────────────────── */}
+      <ContactSection />
+
+      {/* ── SECTION 9: CTA BANNER ───────────────────────────────── */}
       <CTABanner />
     </div>
   );

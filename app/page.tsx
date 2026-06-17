@@ -6,6 +6,7 @@ import StatsSection from "@/components/sections/StatsSection";
 import Services from "@/components/sections/Services";
 import HowItWorks from "@/components/sections/HowItWorks";
 import CTABanner from "@/components/sections/CTABanner";
+import ContactSection from "@/components/sections/ContactSection";
 
 const VideoTestimonials = dynamic(() => import("@/components/sections/VideoTestimonials"));
 const ClientsCarousel = dynamic(() => import("@/components/sections/ClientsCarousel"));
@@ -174,6 +175,7 @@ export default function Home() {
       <StatsSection />
       <ClientsCarousel />
       <Reviews />
+      <ContactSection />
       <CTABanner />
     </>
   );
