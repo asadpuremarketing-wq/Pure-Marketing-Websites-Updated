@@ -359,31 +359,21 @@ export default function IndustryFullPageTemplate({ config }: { config: IndustryF
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
 
-            {/* LEFT: Context / bullets */}
+            {/* LEFT: Video player */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex flex-col gap-6"
+              className="relative rounded-2xl overflow-hidden aspect-video border border-black/10 shadow-2xl"
             >
-              <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">Free Strategy Call</span>
-              <h2 className="text-[32px] md:text-[44px] font-black text-[#0d0d0d] leading-[1.05] tracking-tight">
-                {config.videoTitle}
-              </h2>
-              <p className="text-[#666] text-[16px] leading-relaxed">
-                {config.videoDesc}
-              </p>
-              <div className="space-y-3">
-                {config.videoBullets.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CheckCircle className="w-3 h-3 text-accent-primary" />
-                    </div>
-                    <span className="text-[#444] text-[14px] leading-relaxed">{item}</span>
-                  </div>
-                ))}
-              </div>
+              <iframe
+                src="https://www.youtube.com/embed/dCJCZmdhcNM"
+                title="How We Help Local Businesses Generate More Leads"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
             </motion.div>
 
             {/* RIGHT: Booking card — identical to homepage */}
