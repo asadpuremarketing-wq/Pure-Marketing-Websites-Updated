@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
 import CTABanner from "@/components/sections/CTABanner";
@@ -145,7 +144,7 @@ const CASE_STUDIES = [
 export default function ResultsPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Script id="results-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAGE_SCHEMA) }} />
+      <script id="results-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PAGE_SCHEMA) }} />
 
       <PageHero
         label="Client Results"

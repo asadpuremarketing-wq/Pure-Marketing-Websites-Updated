@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+﻿import type { Metadata } from "next";
 import GeneralContractorsContent from "./GeneralContractorsContent";
 
 const BASE = "https://puremarketing.ca";
@@ -75,12 +74,12 @@ const FAQ_SCHEMA = {
 export default function GeneralContractorsPage() {
   return (
     <>
-      <Script
+      <script
         id="service-schema-general-contractors"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
       />
-      <Script
+      <script
         id="faq-schema-general-contractors"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}

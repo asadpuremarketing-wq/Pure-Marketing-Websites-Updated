@@ -1,8 +1,7 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Script from "next/script";
 import {
   MapPin,
   CheckCircle2,
@@ -132,8 +131,8 @@ const fadeUp = (delay = 0) => ({
 export default function About() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Script id="about-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_SCHEMA) }} />
-      <Script id="breadcrumb-about" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
+      <script id="about-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_SCHEMA) }} />
+      <script id="breadcrumb-about" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
 
       {/* HERO */}
       <PageHero

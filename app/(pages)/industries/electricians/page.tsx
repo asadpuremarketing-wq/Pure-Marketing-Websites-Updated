@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+﻿import type { Metadata } from "next";
 import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/templates/IndustryFullPageTemplate";
 
 const BASE = "https://puremarketing.ca";
@@ -156,12 +155,12 @@ const FAQ_SCHEMA = {
 export default function ElectriciansPage() {
   return (
     <>
-      <Script
+      <script
         id="service-schema-electricians"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_SCHEMA) }}
       />
-      <Script
+      <script
         id="faq-schema-electricians"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}

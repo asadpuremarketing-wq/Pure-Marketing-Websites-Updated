@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -203,12 +203,12 @@ export default function RootLayout({
             gtag('config', 'G-00Y9QWYSJJ');
           `}
         </Script>
-        <Script
+        <script
           id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
         />
-        <Script
+        <script
           id="person-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}

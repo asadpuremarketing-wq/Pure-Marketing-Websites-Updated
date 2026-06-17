@@ -1,8 +1,7 @@
-import { notFound } from "next/navigation";
+﻿import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import type { Metadata } from "next";
 import CTABanner from "@/components/sections/CTABanner";
 import { ALL_POSTS, getPost } from "@/lib/blog-posts";
@@ -97,9 +96,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Script id={`blog-schema-${post.slug}`} type="application/ld+json">
-        {JSON.stringify(blogSchema)}
-      </Script>
+      <script id={`blog-schema-${post.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
 
       {/* POST HERO */}
       <section className="relative bg-[#111] pt-[100px] pb-14 md:pt-[120px] md:pb-20 overflow-hidden">

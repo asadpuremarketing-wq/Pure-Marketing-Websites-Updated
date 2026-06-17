@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+﻿import type { Metadata } from "next";
 
 const BASE = "https://puremarketing.ca";
 
@@ -246,13 +245,13 @@ export default function ServiceSlugLayout({
   return (
     <>
       {schema && (
-        <Script
+        <script
           id={`service-schema-${params.slug}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       )}
-      <Script
+      <script
         id={`breadcrumb-schema-${params.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

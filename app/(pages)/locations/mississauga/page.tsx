@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+﻿import type { Metadata } from "next";
 import CityPageTemplate, { type CityConfig } from "@/components/templates/CityPageTemplate";
 
 const BASE = "https://puremarketing.ca";
@@ -109,9 +108,9 @@ const config: CityConfig = {
 export default function MississaugaPage() {
   return (
     <>
-      <Script id="city-schema-mississauga" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(CITY_SCHEMA) }} />
-      <Script id="breadcrumb-mississauga" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
-      <Script id="faq-mississauga" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
+      <script id="city-schema-mississauga" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(CITY_SCHEMA) }} />
+      <script id="breadcrumb-mississauga" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }} />
+      <script id="faq-mississauga" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }} />
       <CityPageTemplate config={config} />
     </>
   );

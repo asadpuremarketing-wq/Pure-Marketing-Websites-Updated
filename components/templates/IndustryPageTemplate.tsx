@@ -1,8 +1,7 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Script from "next/script";
 import AutoCarousel from "@/components/ui/AutoCarousel";
 import {
   Globe,
@@ -203,7 +202,7 @@ export default function IndustryPageTemplate({ config }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Script
+      <script
         id={`local-business-schema-${slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
