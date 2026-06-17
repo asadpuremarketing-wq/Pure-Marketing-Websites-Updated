@@ -32,8 +32,27 @@ import {
   Award,
   Clock,
 } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import AutoCarousel from "@/components/ui/AutoCarousel";
 import VideoTestimonials from "@/components/sections/VideoTestimonials";
+
+const BookCallModal = dynamic(() => import("@/components/ui/BookCallModal"), { ssr: false });
+
+const DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const PREVIEW_TIMES = ["8:00 AM", "10:00 AM", "2:00 PM", "6:00 PM"];
+
+function getNextFiveWeekdays() {
+  const result: Date[] = [];
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  while (result.length < 5) {
+    if (d.getDay() !== 0 && d.getDay() !== 6) result.push(new Date(d));
+    d.setDate(d.getDate() + 1);
+  }
+  return result;
+}
 
 /* ── fade-up helper ───────────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -161,6 +180,13 @@ const DEFAULT_PROCESS = [
 
 /* ── component ────────────────────────────────────────────── */
 export default function IndustryFullPageTemplate({ config }: { config: IndustryFullConfig }) {
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [selectedPreviewDate, setSelectedPreviewDate] = useState<Date | undefined>(undefined);
+  const dates = getNextFiveWeekdays();
+
+  function openWithDate(d: Date) { setSelectedPreviewDate(d); setBookingOpen(true); }
+  function openDefault() { setSelectedPreviewDate(undefined); setBookingOpen(true); }
+
   const deliverables = config.deliverables
     ? config.deliverables.map((d) => ({ ...d, icon: d.icon as IconKey }))
     : DEFAULT_DELIVERABLES;
@@ -327,47 +353,127 @@ export default function IndustryFullPageTemplate({ config }: { config: IndustryF
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          VIDEO SECTION
+          BOOKING SECTION
       ══════════════════════════════════════════════════════ */}
       <section className="bg-white py-24">
-        <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
 
-          <motion.div {...fadeUp(0)} className="relative rounded-2xl overflow-hidden aspect-video border border-black/10 shadow-2xl">
-            <iframe
-              src="https://www.youtube.com/embed/dCJCZmdhcNM"
-              title="How We Help Local Businesses Generate More Leads"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
-          </motion.div>
-
-          <motion.div {...fadeUp(0.12)} className="flex flex-col gap-6">
-            <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">See It In Action</span>
-            <h2 className="text-[32px] md:text-[44px] font-black text-[#0d0d0d] leading-[1.05] tracking-tight">
-              {config.videoTitle}
-            </h2>
-            <p className="text-[#666] text-[16px] leading-relaxed">
-              {config.videoDesc}
-            </p>
-            <div className="space-y-3">
-              {config.videoBullets.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-3 h-3 text-accent-primary" />
+            {/* LEFT: Context / bullets */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col gap-6"
+            >
+              <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">Free Strategy Call</span>
+              <h2 className="text-[32px] md:text-[44px] font-black text-[#0d0d0d] leading-[1.05] tracking-tight">
+                {config.videoTitle}
+              </h2>
+              <p className="text-[#666] text-[16px] leading-relaxed">
+                {config.videoDesc}
+              </p>
+              <div className="space-y-3">
+                {config.videoBullets.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="w-3 h-3 text-accent-primary" />
+                    </div>
+                    <span className="text-[#444] text-[14px] leading-relaxed">{item}</span>
                   </div>
-                  <span className="text-[#444] text-[14px] leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-            <Link href="/contact" className="group inline-flex items-center gap-2 bg-[#0d0d0d] hover:bg-accent-primary text-white font-bold text-[14px] rounded-xl px-7 py-4 transition-all duration-300 w-fit shadow-lg mt-2">
-              Book a Free Strategy Call
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </Link>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
+            {/* RIGHT: Booking card — identical to homepage */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#111] border border-white/[0.08] rounded-3xl overflow-hidden shadow-2xl"
+            >
+              {/* Card header */}
+              <div className="px-7 py-5 border-b border-white/[0.07] flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-[#F06428] flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="text-white text-[15px] font-bold leading-tight">Book a Free Strategy Call</p>
+                  <p className="text-white/30 text-[11px]">30 min · Google Meet · Mon–Fri, 8am–8pm EST</p>
+                </div>
+              </div>
+
+              <div className="px-7 pt-6 pb-7">
+                <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
+                  <Clock className="w-3 h-3" /> Click a date to book
+                </p>
+                <div className="grid grid-cols-5 gap-2 mb-6">
+                  {dates.map((d, i) => (
+                    <button
+                      key={i}
+                      onClick={() => openWithDate(d)}
+                      className={`flex flex-col items-center py-3 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                        i === 0
+                          ? "bg-[#F06428] border-[#F06428] hover:bg-[#D9531E]"
+                          : "border-white/[0.07] bg-white/[0.02] hover:border-[#F06428]/60 hover:bg-white/[0.05]"
+                      }`}
+                    >
+                      <span className={`text-[9px] font-bold uppercase tracking-wider ${i === 0 ? "text-white/75" : "text-white/20"}`}>
+                        {DAYS_SHORT[d.getDay()]}
+                      </span>
+                      <span className={`text-[20px] font-black mt-0.5 leading-none ${i === 0 ? "text-white" : "text-white/55"}`}>
+                        {d.getDate()}
+                      </span>
+                      <span className={`text-[9px] mt-0.5 ${i === 0 ? "text-white/65" : "text-white/20"}`}>
+                        {MONTHS_SHORT[d.getMonth()]}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
+                  <Clock className="w-3 h-3" /> Available times · Toronto (EST)
+                </p>
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {PREVIEW_TIMES.map((t, i) => (
+                    <button
+                      key={i}
+                      onClick={openDefault}
+                      className={`py-2.5 rounded-xl border text-[13px] font-medium text-center transition-all duration-150 cursor-pointer ${
+                        i === 0
+                          ? "border-[#F06428]/40 text-[#F06428] hover:bg-[#F06428]/10"
+                          : "border-white/[0.07] text-white/30 hover:border-[#F06428]/40 hover:text-white/60"
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={openDefault}
+                  className="w-full bg-[#F06428] hover:bg-[#D9531E] text-white rounded-xl py-4 font-bold text-[15px] transition-colors flex items-center justify-center gap-2 shadow-lg shadow-[#F06428]/20"
+                >
+                  Pick Your Time
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <p className="text-white/20 text-[11px] text-center mt-3">
+                  Free · No credit card · Cancel any time
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
+
+      <BookCallModal
+        isOpen={bookingOpen}
+        onClose={() => { setBookingOpen(false); setSelectedPreviewDate(undefined); }}
+        defaultDate={selectedPreviewDate}
+      />
 
       {/* ══════════════════════════════════════════════════════
           9-STEP SYSTEM
