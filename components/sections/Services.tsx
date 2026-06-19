@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import {
   Globe, TrendingUp, Video, Share2, BarChart2,
-  ArrowRight, Check, BarChart, Clock, Users,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -55,12 +55,6 @@ const SERVICES = [
   },
 ];
 
-const TRUST_ITEMS = [
-  { icon: Check,   label: "Custom Strategy", desc: "Tailored systems for your business and goals." },
-  { icon: BarChart, label: "Proven Results",  desc: "Data-driven strategies that deliver real ROI." },
-  { icon: Clock,   label: "Done For You",     desc: "We handle it all so you can focus on running your business." },
-  { icon: Users,   label: "Long-Term Growth", desc: "Sustainable growth through systems and consistency." },
-];
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -168,28 +162,7 @@ export default function Services() {
           </Link>
         </motion.div>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-14 border-t border-[#f0f0f0] pt-10"
-        >
-          {TRUST_ITEMS.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div key={i} variants={cardVariant} className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-accent-primary/10 border border-accent-primary/15 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4 text-accent-primary" strokeWidth={2} />
-                </div>
-                <div>
-                  <p className="font-black text-[13px] text-[#0d0d0d] leading-tight mb-0.5">{item.label}</p>
-                  <p className="text-[12px] text-[#666] leading-snug">{item.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+
 
       </div>
     </section>
