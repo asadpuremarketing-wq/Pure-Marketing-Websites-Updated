@@ -167,8 +167,9 @@ export default function RestaurantsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
-      <IndustryFullPageTemplate config={config} />
-      <VideoPortfolio filterLabel="Restaurants" />
+      <IndustryFullPageTemplate config={config}>
+        <VideoPortfolio filterLabel="Restaurants" />
+      </IndustryFullPageTemplate>
     </>
   );
 }

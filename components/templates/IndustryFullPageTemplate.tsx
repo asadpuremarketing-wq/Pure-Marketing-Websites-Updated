@@ -180,7 +180,7 @@ const DEFAULT_PROCESS = [
 ];
 
 /* ── component ────────────────────────────────────────────── */
-export default function IndustryFullPageTemplate({ config }: { config: IndustryFullConfig }) {
+export default function IndustryFullPageTemplate({ config, children }: { config: IndustryFullConfig; children?: React.ReactNode }) {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [selectedPreviewDate, setSelectedPreviewDate] = useState<Date | undefined>(undefined);
   const dates = getNextFiveWeekdays();
@@ -514,6 +514,7 @@ export default function IndustryFullPageTemplate({ config }: { config: IndustryF
         </div>
       </section>
 
+      {children}
 
       {/* ══════════════════════════════════════════════════════
           VIDEO TESTIMONIALS
