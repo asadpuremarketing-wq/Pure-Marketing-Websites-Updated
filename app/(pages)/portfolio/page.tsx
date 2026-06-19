@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, ExternalLink, Camera, Globe, Video, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import CTABanner from "@/components/sections/CTABanner";
+import VideoPortfolio from "@/components/sections/VideoPortfolio";
 import PageHero from "@/components/ui/PageHero";
 
 const WEB_DEV_CLIENTS = [
@@ -555,6 +556,8 @@ export default function PortfolioPage() {
           </motion.div>
         </div>
       </section>
+
+      <VideoPortfolio />
 
       <CTABanner />
 
