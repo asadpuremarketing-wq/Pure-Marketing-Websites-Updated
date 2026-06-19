@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/templates/IndustryFullPageTemplate";
+import VideoPortfolio from "@/components/sections/VideoPortfolio";
 
 const BASE = "https://puremarketing.ca";
 
@@ -166,6 +167,7 @@ export default function RestaurantsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
+      <VideoPortfolio filterLabel="Restaurants" />
     </>
   );
 }

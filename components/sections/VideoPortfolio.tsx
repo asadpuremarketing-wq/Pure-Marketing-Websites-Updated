@@ -32,11 +32,11 @@ function VideoCard({ v, onPlay }: { v: VideoItem; onPlay: (key: string) => void 
   );
 }
 
-export default function VideoPortfolio() {
+export default function VideoPortfolio({ filterLabel }: { filterLabel?: string } = {}) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const close = useCallback(() => setActiveVideo(null), []);
 
-  const industries = VIDEO_INDUSTRIES.filter((ind) => ind.videos.length > 0);
+  const industries = VIDEO_INDUSTRIES.filter((ind) => ind.videos.length > 0 && (!filterLabel || ind.label === filterLabel));
   if (industries.length === 0) return null;
 
   const embedUrl = (key: string) => {
