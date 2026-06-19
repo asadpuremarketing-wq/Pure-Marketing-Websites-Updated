@@ -119,6 +119,7 @@ export interface IndustryFullConfig {
   bandStats: { value: string; label: string }[];
 
   // Problem section
+  hideProblem?: boolean;
   problemHeadline: string;
   problemSubtext: string;
   painPoints: { icon: string; title: string; desc: string }[];
@@ -319,7 +320,7 @@ export default function IndustryFullPageTemplate({ config }: { config: IndustryF
       {/* ══════════════════════════════════════════════════════
           THE PROBLEM
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0d0d0d] py-24 relative overflow-hidden">
+      {!config.hideProblem && <section className="bg-[#0d0d0d] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
         <div className="relative z-10 max-w-[1240px] mx-auto px-6">
           <div className="text-center mb-16">
@@ -350,7 +351,7 @@ export default function IndustryFullPageTemplate({ config }: { config: IndustryF
             })}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ══════════════════════════════════════════════════════
           BOOKING SECTION

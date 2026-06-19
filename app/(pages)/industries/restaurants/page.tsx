@@ -69,6 +69,7 @@ const config: IndustryFullConfig = {
     { value: "$68K", label: "Revenue 6 months" },
     { value: "30", label: "Days to results" },
   ],
+  hideProblem: true,
   problemHeadline: "Why Great Restaurants Struggle to Fill Seats Consistently",
   problemSubtext:
     "Incredible food keeps people coming back. But without a marketing system, new customers never find you in the first place.",
