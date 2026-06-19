@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 
 const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": "MarketingAgency",
+  "@type": ["LocalBusiness", "MarketingAgency"],
   "@id": `${BASE}/#organization`,
   name: "Pure Marketing",
   url: BASE,
