@@ -17,13 +17,32 @@ import {
   TrendingUp,
   Monitor,
   Search,
-  MessageSquare,
-  BarChart3,
   Zap,
   ChevronRight,
 } from "lucide-react";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import AutoCarousel from "@/components/ui/AutoCarousel";
 import VideoTestimonials from "@/components/sections/VideoTestimonials";
+import VideoPortfolio from "@/components/sections/VideoPortfolio";
+
+const BookCallModal = dynamic(() => import("@/components/ui/BookCallModal"), { ssr: false });
+
+const DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const PREVIEW_TIMES = ["8:00 AM", "10:00 AM", "2:00 PM", "6:00 PM"];
+
+function getNextFiveWeekdays() {
+  const result: Date[] = [];
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  while (result.length < 5) {
+    if (d.getDay() !== 0 && d.getDay() !== 6) result.push(new Date(d));
+    d.setDate(d.getDate() + 1);
+  }
+  return result;
+}
+import { Clock } from "lucide-react";
 
 /* ── fade-up helper ───────────────────────────────────────── */
 const fadeUp = (delay = 0) => ({
@@ -41,23 +60,6 @@ const STATS = [
   { value: "$80K+", label: "Average project value" },
 ];
 
-const PAIN_POINTS = [
-  {
-    icon: RefreshCw,
-    title: "Trapped in the Referral Cycle",
-    desc: "Work dries up when referrals slow down. You have no control over when the phone rings or whether next month looks good.",
-  },
-  {
-    icon: BarChart3,
-    title: "Invisible on Google & Maps",
-    desc: "Homeowners searching right now can't find you. Competitors with weaker work are winning bids simply because they show up first.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Leads Fall Through the Cracks",
-    desc: "No system to follow up, no automation, no CRM. Warm leads go cold and jobs that should've been yours go to someone else.",
-  },
-];
 
 const STEPS = [
   { num: "01", icon: Monitor,    title: "Website",        desc: "A high-converting site that turns visitors into estimate requests." },
@@ -106,6 +108,12 @@ const INCLUDED = [
 
 /* ── component ────────────────────────────────────────────── */
 export default function GeneralContractorsContent() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [selectedPreviewDate, setSelectedPreviewDate] = useState<Date | undefined>(undefined);
+  const dates = getNextFiveWeekdays();
+
+  function openWithDate(d: Date) { setSelectedPreviewDate(d); setBookingOpen(true); }
+  function openDefault() { setSelectedPreviewDate(undefined); setBookingOpen(true); }
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
 
@@ -236,87 +244,6 @@ export default function GeneralContractorsContent() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          THE PROBLEM
-      ══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0d0d0d] py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#F06428 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <motion.p {...fadeUp(0)} className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-4">The Problem</motion.p>
-            <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[52px] font-black text-white leading-tight tracking-tight">
-              Why Great Contractors Stay Stuck
-            </motion.h2>
-            <motion.p {...fadeUp(0.14)} className="text-[#555] text-[16px] mt-4 max-w-[480px] mx-auto">
-              Skill wins jobs. But without a system, even the best contractors leave money on the table.
-            </motion.p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {PAIN_POINTS.map(({ icon: Icon, title, desc }, i) => (
-              <motion.div key={title} {...fadeUp(i * 0.1)}
-                className="group relative rounded-2xl border border-white/8 bg-white/[0.03] p-8 hover:border-accent-primary/30 hover:bg-white/[0.05] transition-all duration-400 overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-accent-primary/5 blur-2xl group-hover:bg-accent-primary/10 transition-all duration-500 pointer-events-none" />
-                <div className="w-14 h-14 rounded-2xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-accent-primary" />
-                </div>
-                <h3 className="text-white font-bold text-[20px] mb-3 leading-tight">{title}</h3>
-                <p className="text-[#666] text-[14px] leading-relaxed">{desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          VIDEO SECTION
-      ══════════════════════════════════════════════════════ */}
-      <section className="bg-white py-24">
-        <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-          <motion.div {...fadeUp(0)} className="relative rounded-2xl overflow-hidden aspect-video border border-black/10 shadow-2xl">
-            <iframe
-              src="https://www.youtube.com/embed/dCJCZmdhcNM"
-              title="How We Help Local Businesses Generate More Leads"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
-          </motion.div>
-
-          <motion.div {...fadeUp(0.12)} className="flex flex-col gap-6">
-            <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">See It In Action</span>
-            <h2 className="text-[32px] md:text-[44px] font-black text-[#0d0d0d] leading-[1.05] tracking-tight">
-              Watch How We Turn Contractors Into Market Leaders
-            </h2>
-            <p className="text-[#666] text-[16px] leading-relaxed">
-              A 2-minute breakdown of the exact system we use to generate consistent, high-quality leads for contractors across Canada.
-            </p>
-            <div className="space-y-3">
-              {[
-                "Why most contractors rely on luck — and how to change that",
-                "The 9-step system we build for every client",
-                "Real results from contractors just like you",
-                "What to expect in your first 90 days",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-accent-primary/10 border border-accent-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle className="w-3 h-3 text-accent-primary" />
-                  </div>
-                  <span className="text-[#444] text-[14px] leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-            <Link href="/contact" className="group inline-flex items-center gap-2 bg-[#0d0d0d] hover:bg-accent-primary text-white font-bold text-[14px] rounded-xl px-7 py-4 transition-all duration-300 w-fit shadow-lg mt-2">
-              Book a Free Strategy Call
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </Link>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
           9-STEP SYSTEM
       ══════════════════════════════════════════════════════ */}
       <section className="bg-[#080808] py-24 relative overflow-hidden">
@@ -361,6 +288,8 @@ export default function GeneralContractorsContent() {
         </div>
       </section>
 
+
+      <VideoPortfolio filterLabel="Skilled Trades" />
 
       {/* ══════════════════════════════════════════════════════
           VIDEO TESTIMONIALS
@@ -563,35 +492,114 @@ export default function GeneralContractorsContent() {
       <section className="bg-accent-primary py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: "radial-gradient(#fff 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6 text-center">
-          <motion.p {...fadeUp(0)} className="text-white/70 text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
-            Your Competitors Are Already Marketing
-          </motion.p>
-          <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[56px] font-black text-white leading-tight tracking-tight mb-6">
-            Will Customers Find You<br />Or Them?
-          </motion.h2>
-          <motion.p {...fadeUp(0.14)} className="text-white/75 text-[17px] max-w-[500px] mx-auto mb-10">
-            Let&apos;s build your growth system and put your business in front of the right people — before your competitors do.
-          </motion.p>
-          <motion.div {...fadeUp(0.2)} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="group inline-flex items-center gap-2 bg-white text-accent-primary hover:bg-[#f9f9f9] font-black text-[16px] rounded-xl px-10 py-5 transition-all duration-300 shadow-2xl shadow-black/20">
-              Book Your Free Strategy Call
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-            </Link>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {["bg-white/30","bg-white/25","bg-white/20","bg-white/15"].map((c, i) => (
-                  <div key={i} className={`w-9 h-9 rounded-full border-2 border-accent-primary ${c} flex items-center justify-center text-white text-[11px] font-bold`}>
-                    {["J","M","A","S"][i]}
-                  </div>
-                ))}
-              </div>
-              <p className="text-white/70 text-[13px] text-left leading-tight max-w-[140px]">No obligation. Just real strategies.</p>
+        <div className="relative z-10 max-w-[1240px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+
+            <div>
+              <motion.p {...fadeUp(0)} className="text-white/70 text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
+                Your Competitors Are Already Marketing
+              </motion.p>
+              <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[48px] font-black text-white leading-tight tracking-tight mb-6">
+                Will Customers Find You<br />Or Them?
+              </motion.h2>
+              <motion.p {...fadeUp(0.14)} className="text-white/75 text-[17px] max-w-[500px] mb-8">
+                Let&apos;s build your growth system and put your business in front of the right people — before your competitors do.
+              </motion.p>
+              <motion.div {...fadeUp(0.2)} className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {["bg-white/30","bg-white/25","bg-white/20","bg-white/15"].map((c, i) => (
+                    <div key={i} className={`w-9 h-9 rounded-full border-2 border-accent-primary ${c} flex items-center justify-center text-white text-[11px] font-bold`}>
+                      {["J","M","A","S"][i]}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-white/70 text-[13px] text-left leading-tight max-w-[140px]">No obligation. Just real strategies.</p>
+              </motion.div>
             </div>
-          </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#111] border border-white/[0.08] rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <div className="px-7 py-5 border-b border-white/[0.07] flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-accent-primary" />
+                </div>
+                <div>
+                  <p className="text-white text-[15px] font-bold leading-tight">Book a Free Strategy Call</p>
+                  <p className="text-white/30 text-[11px]">30 min · Google Meet · Mon–Fri, 8am–8pm EST</p>
+                </div>
+              </div>
+              <div className="px-7 pt-6 pb-7">
+                <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
+                  <Clock className="w-3 h-3" /> Click a date to book
+                </p>
+                <div className="grid grid-cols-5 gap-2 mb-6">
+                  {dates.map((d, i) => (
+                    <button
+                      key={i}
+                      onClick={() => openWithDate(d)}
+                      className={`flex flex-col items-center py-3 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                        i === 0
+                          ? "bg-white border-white hover:bg-white/90"
+                          : "border-white/[0.07] bg-white/[0.02] hover:border-white/30 hover:bg-white/[0.05]"
+                      }`}
+                    >
+                      <span className={`text-[9px] font-bold uppercase tracking-wider ${i === 0 ? "text-accent-primary/75" : "text-white/20"}`}>
+                        {DAYS_SHORT[d.getDay()]}
+                      </span>
+                      <span className={`text-[20px] font-black mt-0.5 leading-none ${i === 0 ? "text-accent-primary" : "text-white/55"}`}>
+                        {d.getDate()}
+                      </span>
+                      <span className={`text-[9px] mt-0.5 ${i === 0 ? "text-accent-primary/65" : "text-white/20"}`}>
+                        {MONTHS_SHORT[d.getMonth()]}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+                <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
+                  <Clock className="w-3 h-3" /> Available times · Toronto (EST)
+                </p>
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {PREVIEW_TIMES.map((t, i) => (
+                    <button
+                      key={i}
+                      onClick={openDefault}
+                      className={`py-2.5 rounded-xl border text-[13px] font-medium text-center transition-all duration-150 cursor-pointer ${
+                        i === 0
+                          ? "border-white/40 text-white hover:bg-white/10"
+                          : "border-white/[0.07] text-white/30 hover:border-white/30 hover:text-white/60"
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={openDefault}
+                  className="w-full bg-white hover:bg-white/90 text-accent-primary rounded-xl py-4 font-bold text-[15px] transition-colors flex items-center justify-center gap-2 shadow-lg"
+                >
+                  Pick Your Time
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <p className="text-white/20 text-[11px] text-center mt-3">
+                  Free · No credit card · Cancel any time
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
+      <BookCallModal
+        isOpen={bookingOpen}
+        onClose={() => { setBookingOpen(false); setSelectedPreviewDate(undefined); }}
+        defaultDate={selectedPreviewDate}
+      />
     </div>
   );
 }
