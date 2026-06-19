@@ -288,7 +288,7 @@ export default function Navbar() {
               {/* Services accordion */}
               <div>
                 <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  onClick={() => { setMobileServicesOpen(!mobileServicesOpen); setMobileIndustriesOpen(false); }}
                   className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-medium text-text-primary"
                 >
                   <span className={pathname?.startsWith("/services") ? "text-accent-primary" : ""}>Services</span>
@@ -325,7 +325,7 @@ export default function Navbar() {
               {/* Industries accordion */}
               <div>
                 <button
-                  onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                  onClick={() => { setMobileIndustriesOpen(!mobileIndustriesOpen); setMobileServicesOpen(false); }}
                   className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-medium text-text-primary"
                 >
                   <span className={pathname?.startsWith("/industries") ? "text-accent-primary" : ""}>Industries</span>
