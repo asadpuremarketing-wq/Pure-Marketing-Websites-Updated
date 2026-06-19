@@ -720,34 +720,113 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
       <section className="bg-accent-primary py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: "radial-gradient(#fff 1px,transparent 1px)", backgroundSize: "28px 28px" }} />
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-        <div className="relative z-10 max-w-[1240px] mx-auto px-6 text-center">
-          <motion.p {...fadeUp(0)} className="text-white/70 text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
-            Your Competitors Are Already Marketing
-          </motion.p>
-          <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[56px] font-black text-white leading-tight tracking-tight mb-6">
-            {config.ctaHeadline.split("\n").map((line, i, arr) => (
-              <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
-            ))}
-          </motion.h2>
-          <motion.p {...fadeUp(0.14)} className="text-white/75 text-[17px] max-w-[500px] mx-auto mb-10">
-            {config.ctaSubtext}
-          </motion.p>
-          <motion.div {...fadeUp(0.2)} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="group inline-flex items-center gap-2 bg-white text-accent-primary hover:bg-[#f9f9f9] font-black text-[16px] rounded-xl px-10 py-5 transition-all duration-300 shadow-2xl shadow-black/20">
-              Book Your Free Strategy Call
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-            </Link>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {["bg-white/30","bg-white/25","bg-white/20","bg-white/15"].map((c, i) => (
-                  <div key={i} className={`w-9 h-9 rounded-full border-2 border-accent-primary ${c} flex items-center justify-center text-white text-[11px] font-bold`}>
-                    {["J","M","A","S"][i]}
-                  </div>
+        <div className="relative z-10 max-w-[1240px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
+
+            {/* LEFT: CTA text */}
+            <div>
+              <motion.p {...fadeUp(0)} className="text-white/70 text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
+                Your Competitors Are Already Marketing
+              </motion.p>
+              <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[48px] font-black text-white leading-tight tracking-tight mb-6">
+                {config.ctaHeadline.split("\n").map((line, i, arr) => (
+                  <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
                 ))}
-              </div>
-              <p className="text-white/70 text-[13px] text-left leading-tight max-w-[140px]">No obligation. Just real strategies.</p>
+              </motion.h2>
+              <motion.p {...fadeUp(0.14)} className="text-white/75 text-[17px] max-w-[500px] mb-8">
+                {config.ctaSubtext}
+              </motion.p>
+              <motion.div {...fadeUp(0.2)} className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {["bg-white/30","bg-white/25","bg-white/20","bg-white/15"].map((c, i) => (
+                    <div key={i} className={`w-9 h-9 rounded-full border-2 border-accent-primary ${c} flex items-center justify-center text-white text-[11px] font-bold`}>
+                      {["J","M","A","S"][i]}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-white/70 text-[13px] text-left leading-tight max-w-[140px]">No obligation. Just real strategies.</p>
+              </motion.div>
             </div>
-          </motion.div>
+
+            {/* RIGHT: Booking card */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-[#111] border border-white/[0.08] rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <div className="px-7 py-5 border-b border-white/[0.07] flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-4 h-4 text-accent-primary" />
+                </div>
+                <div>
+                  <p className="text-white text-[15px] font-bold leading-tight">Book a Free Strategy Call</p>
+                  <p className="text-white/30 text-[11px]">30 min · Google Meet · Mon–Fri, 8am–8pm EST</p>
+                </div>
+              </div>
+
+              <div className="px-7 pt-6 pb-7">
+                <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
+                  <Clock className="w-3 h-3" /> Click a date to book
+                </p>
+                <div className="grid grid-cols-5 gap-2 mb-6">
+                  {dates.map((d, i) => (
+                    <button
+                      key={i}
+                      onClick={() => openWithDate(d)}
+                      className={`flex flex-col items-center py-3 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                        i === 0
+                          ? "bg-white border-white hover:bg-white/90"
+                          : "border-white/[0.07] bg-white/[0.02] hover:border-white/30 hover:bg-white/[0.05]"
+                      }`}
+                    >
+                      <span className={`text-[9px] font-bold uppercase tracking-wider ${i === 0 ? "text-accent-primary/75" : "text-white/20"}`}>
+                        {DAYS_SHORT[d.getDay()]}
+                      </span>
+                      <span className={`text-[20px] font-black mt-0.5 leading-none ${i === 0 ? "text-accent-primary" : "text-white/55"}`}>
+                        {d.getDate()}
+                      </span>
+                      <span className={`text-[9px] mt-0.5 ${i === 0 ? "text-accent-primary/65" : "text-white/20"}`}>
+                        {MONTHS_SHORT[d.getMonth()]}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold mb-3 flex items-center gap-1.5">
+                  <Clock className="w-3 h-3" /> Available times · Toronto (EST)
+                </p>
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {PREVIEW_TIMES.map((t, i) => (
+                    <button
+                      key={i}
+                      onClick={openDefault}
+                      className={`py-2.5 rounded-xl border text-[13px] font-medium text-center transition-all duration-150 cursor-pointer ${
+                        i === 0
+                          ? "border-white/40 text-white hover:bg-white/10"
+                          : "border-white/[0.07] text-white/30 hover:border-white/30 hover:text-white/60"
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={openDefault}
+                  className="w-full bg-white hover:bg-white/90 text-accent-primary rounded-xl py-4 font-bold text-[15px] transition-colors flex items-center justify-center gap-2 shadow-lg"
+                >
+                  Pick Your Time
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <p className="text-white/20 text-[11px] text-center mt-3">
+                  Free · No credit card · Cancel any time
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
