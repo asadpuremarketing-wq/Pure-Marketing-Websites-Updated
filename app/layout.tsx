@@ -150,13 +150,6 @@ const LOCAL_BUSINESS_SCHEMA = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Production" } },
     ],
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "27",
-    bestRating: "5",
-    worstRating: "1",
-  },
 };
 
 const PERSON_SCHEMA = {
