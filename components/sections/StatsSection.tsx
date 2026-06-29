@@ -61,7 +61,7 @@ export default function StatsSection() {
               </div>
 
               <div className="text-[#aaa] text-sm font-semibold mb-1">{label}</div>
-              <div className="text-[#555] text-[11px]">{detail}</div>
+              <div className="text-[#999] text-[11px]">{detail}</div>
 
               <div className="mt-4 h-[2px] w-8 rounded-full bg-accent-primary group-hover:w-12 transition-all duration-500" />
             </motion.div>

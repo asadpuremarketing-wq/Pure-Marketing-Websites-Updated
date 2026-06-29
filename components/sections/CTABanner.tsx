@@ -66,7 +66,7 @@ export default function CTABanner() {
           </h2>
 
           {/* Subtext */}
-          <p className="text-[17px] text-[#666] max-w-[520px] mb-10 leading-relaxed">
+          <p className="text-[17px] text-[#999] max-w-[520px] mb-10 leading-relaxed">
             Book a free 30-minute strategy call. We&apos;ll review your current
             marketing, find the gaps, and show you exactly how we&apos;d grow your business. No fluff, no pressure.
           </p>
@@ -90,14 +90,14 @@ export default function CTABanner() {
           </div>
 
           {/* Trust pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-[#555]">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-[#999]">
             {TRUST_PILLS.map((pill, i) => (
               <span key={pill} className="flex items-center gap-3">
                 {i > 0 && (
                   <span className="w-1 h-1 rounded-full bg-[#333] flex-shrink-0" />
                 )}
                 <span
-                  className="border border-white/10 rounded-full px-4 py-1.5 text-[#666] text-xs font-medium"
+                  className="border border-white/10 rounded-full px-4 py-1.5 text-[#999] text-xs font-medium"
                   style={{ background: "rgba(255,255,255,0.03)" }}
                 >
                   {pill}

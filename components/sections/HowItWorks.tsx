@@ -61,7 +61,7 @@ export default function HowItWorks() {
             From Your First Call to{" "}
             <span className="text-accent-primary">Your First Lead</span>
           </motion.h2>
-          <motion.p {...fadeUp(0.2)} className="text-[16px] text-[#666] max-w-[480px] mx-auto mt-4 leading-relaxed">
+          <motion.p {...fadeUp(0.2)} className="text-[16px] text-[#999] max-w-[480px] mx-auto mt-4 leading-relaxed">
             No long onboarding. No waiting months to see results. Here is exactly what happens when you work with us.
           </motion.p>
         </div>
@@ -86,7 +86,7 @@ export default function HowItWorks() {
                   <span className="w-6 h-6 rounded-full bg-accent-primary text-white text-[10px] font-black flex items-center justify-center flex-shrink-0">
                     {i + 1}
                   </span>
-                  <span className="text-[10px] font-bold text-[#555] uppercase tracking-widest">
+                  <span className="text-[10px] font-bold text-[#999] uppercase tracking-widest">
                     Step {step.num}
                   </span>
                 </div>
@@ -99,14 +99,14 @@ export default function HowItWorks() {
                 <h3 className="text-[15px] font-black text-white leading-snug mb-2.5">
                   {step.title}
                 </h3>
-                <p className="text-sm text-[#666] leading-relaxed">
+                <p className="text-sm text-[#999] leading-relaxed">
                   {step.desc}
                 </p>
 
                 {/* Desktop connector */}
                 {i < STEPS.length - 1 && (
                   <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -right-3 z-20 w-6 h-6 rounded-full bg-[#111] border border-white/10 items-center justify-center">
-                    <svg className="w-3 h-3 text-[#555]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 text-[#999]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                       <path d="M9 18l6-6-6-6" />
                     </svg>
                   </div>
@@ -123,7 +123,7 @@ export default function HowItWorks() {
           >
             Start With a Free Strategy Call
           </Link>
-          <p className="text-[#555] text-xs mt-4">No contracts. No pressure. Results within 30 days.</p>
+          <p className="text-[#999] text-xs mt-4">No contracts. No pressure. Results within 30 days.</p>
         </motion.div>
 
       </div>

@@ -87,7 +87,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Quick Links</h4>
+            <p className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Quick Links</p>
             <ul className="space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.name}>
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Column 3: Contact Info */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Contact Us</h4>
+            <p className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Contact Us</p>
             <ul className="space-y-4 text-[#9E9892] text-sm">
               <li>
                 <a href="tel:+16479512786" className="flex items-center gap-2 hover:text-white transition-colors">
