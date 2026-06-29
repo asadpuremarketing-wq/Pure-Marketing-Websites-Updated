@@ -181,6 +181,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
+      </head>
       <body
         className={`${inter.variable} font-sans antialiased bg-background-primary text-text-primary min-h-screen flex flex-col`}
       >

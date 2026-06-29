@@ -86,29 +86,19 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* H1 */}
-            <motion.h1
-              className="text-[44px] md:text-[64px] leading-[1.05] font-black text-white tracking-tight"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.15 }}
-            >
+            {/* H1 — no motion animation to avoid delaying LCP */}
+            <h1 className="text-[44px] md:text-[64px] leading-[1.05] font-black text-white tracking-tight">
               Grow Your Business<br />
               With Marketing That{" "}
               <span className="text-[#F06428]">Actually Works</span>
-            </motion.h1>
+            </h1>
 
             {/* Subtext */}
-            <motion.p
-              className="text-[17px] text-[#aaa] max-w-[500px] leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
+            <p className="text-[17px] text-[#aaa] max-w-[500px] leading-relaxed">
               We help electricians, plumbers, HVAC companies, restaurants, and
               real estate agents get more leads, more bookings, and more revenue
               through proven digital marketing systems.
-            </motion.p>
+            </p>
 
             {/* CTAs */}
             <motion.div
