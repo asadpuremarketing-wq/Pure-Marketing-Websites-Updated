@@ -190,10 +190,11 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="text-sm text-[#333] font-medium block mb-2">Type of Business</label>
+                    <label htmlFor="contact-industry" className="text-sm text-[#333] font-medium block mb-2">Type of Business</label>
                     <select
                       required
                       name="industry"
+                      id="contact-industry"
                       defaultValue=""
                       className="w-full bg-white border border-[#ddd] rounded-xl px-4 py-3.5 text-base text-[#080808] focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/20 transition-all appearance-none"
                     >

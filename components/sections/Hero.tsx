@@ -94,7 +94,7 @@ export default function Hero() {
             </h1>
 
             {/* Subtext */}
-            <p className="text-[17px] text-[#aaa] max-w-[500px] leading-relaxed">
+            <p className="text-[17px] text-[#b3b3b3] max-w-[500px] leading-relaxed">
               We help electricians, plumbers, HVAC companies, restaurants, and
               real estate agents get more leads, more bookings, and more revenue
               through proven digital marketing systems.
@@ -125,7 +125,7 @@ export default function Hero() {
 
             {/* Trust line */}
             <motion.p
-              className="text-sm text-[#555] pt-1"
+              className="text-sm text-[#888] pt-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -137,7 +137,7 @@ export default function Hero() {
 
             {/* Pricing hints */}
             <motion.div
-              className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-[#555] pt-0.5"
+              className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-[#888] pt-0.5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.75 }}
@@ -182,7 +182,7 @@ export default function Hero() {
                 {STATS.map(({ value, label }) => (
                   <div key={label} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
                     <span className="text-white font-black text-[22px] leading-none block">{value}</span>
-                    <span className="text-[#555] text-[10px] mt-1 uppercase tracking-wider block">{label}</span>
+                    <span className="text-[#888] text-[10px] mt-1 uppercase tracking-wider block">{label}</span>
                   </div>
                 ))}
               </div>
@@ -194,7 +194,7 @@ export default function Hero() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[#666] text-[12px]">Strategy. Systems. Growth.</p>
+                <p className="text-[#999] text-[12px]">Strategy. Systems. Growth.</p>
                 <div className="flex gap-0.5 ml-auto">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="w-3 h-3 text-[#F06428] fill-[#F06428]" />
