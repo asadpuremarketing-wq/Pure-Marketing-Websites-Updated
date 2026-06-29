@@ -85,7 +85,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-7">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center space-x-7">
             {[
               { label: "Home", href: "/" },
               { label: "About", href: "/about" },
@@ -265,7 +265,7 @@ export default function Navbar() {
             className="md:hidden bg-white border-b border-border shadow-lg overflow-y-auto"
             style={{ maxHeight: "calc(100vh - 68px)" }}
           >
-            <div className="flex flex-col divide-y divide-border">
+            <nav aria-label="Mobile navigation" className="flex flex-col divide-y divide-border">
               {/* Main links */}
               {[
                 { label: "Home", href: "/" },
@@ -376,7 +376,7 @@ export default function Navbar() {
                   Get a Free Audit
                 </Link>
               </div>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
