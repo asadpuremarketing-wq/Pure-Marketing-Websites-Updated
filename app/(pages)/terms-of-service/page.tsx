@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Pure Marketing",
-  description: "Pure Marketing's Terms of Service — the rules and guidelines for using our website and services.",
+  description: "Pure Marketing's Terms of Service: the rules and guidelines for using our website and services.",
   robots: { index: true, follow: true },
 };
 

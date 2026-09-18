@@ -98,7 +98,7 @@ const GROWTH_PLANS = [
       "Monthly content creation",
       "Follow-up automation & CRM",
       "Retargeting campaigns",
-      "Payment info saved — charged automatically each month",
+      "Payment info saved, charged automatically each month",
     ],
   },
 ];
@@ -203,7 +203,7 @@ function CheckoutContent() {
 
       {/* ── Step 1: Choose service ── */}
       <div className="mb-10">
-        <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">Step 1 — Select a Service</p>
+        <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">Step 1: Select a Service</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {PRODUCT_TYPES.map(({ key, icon: Icon, title, desc }) => {
             const isSelected = productType === key;
@@ -245,7 +245,7 @@ function CheckoutContent() {
           {/* ── Step 2: Choose plan ── */}
           <div>
             <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest mb-4">
-              Step 2 — {productType === "growth-system" ? "Payment Overview" : "Select a Plan"}
+              Step 2: {productType === "growth-system" ? "Payment Overview" : "Select a Plan"}
             </p>
             <AnimatePresence mode="wait">
               {productType === "growth-system" ? (
@@ -259,7 +259,7 @@ function CheckoutContent() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
                     <div>
                       <p className="font-black text-[18px] text-text-primary">90-Day Growth System</p>
-                      <p className="text-[13px] text-text-secondary mt-0.5">$1,500 CAD/month × 3 months — auto-cancels after final payment</p>
+                      <p className="text-[13px] text-text-secondary mt-0.5">$1,500 CAD/month × 3 months, auto-cancels after final payment</p>
                     </div>
                     <div className="text-right flex-shrink-0">
                       <p className="text-[28px] font-extrabold text-accent-primary leading-none">$1,500</p>
@@ -271,7 +271,7 @@ function CheckoutContent() {
                       <Check className="w-3 h-3" /> Total: $4,500 CAD
                     </span>
                     <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-md">
-                      <Shield className="w-3 h-3" /> Payment info saved — charged automatically
+                      <Shield className="w-3 h-3" /> Payment info saved, charged automatically
                     </span>
                     <span className="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200 text-orange-700 text-[11px] font-semibold px-3 py-1 rounded-md">
                       <Lock className="w-3 h-3" /> Subscription ends after 3 payments
@@ -334,7 +334,7 @@ function CheckoutContent() {
             className="bg-white border border-border rounded-2xl overflow-hidden"
           >
             <div className="px-6 py-5 border-b border-border bg-background-secondary">
-              <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest">Step 3 — Your Details</p>
+              <p className="text-[13px] font-semibold text-text-muted uppercase tracking-widest">Step 3: Your Details</p>
             </div>
 
             {/* Contact */}
@@ -507,7 +507,7 @@ export default function CheckoutPage() {
             <h1 className="text-[28px] md:text-[32px] font-extrabold text-white leading-tight">
               Complete Your Order
             </h1>
-            <p className="text-white/40 text-sm mt-1">Choose your service and plan below — all payments processed securely via Stripe.</p>
+            <p className="text-white/40 text-sm mt-1">Choose your service and plan below, all payments processed securely via Stripe.</p>
           </motion.div>
         </div>
       </div>

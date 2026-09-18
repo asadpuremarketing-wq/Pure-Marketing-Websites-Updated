@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "More Listings. More Buyers.",
   headlineAccent: "Build a Brand That Attracts Both.",
   subheadline:
-    "Agent websites, property videos, Google, Meta Ads, Automation & SEO — one system that builds your personal brand and generates a steady pipeline of buyers and sellers.",
+    "Agent websites, property videos, Google, Meta Ads, Automation & SEO: one system that builds your personal brand and generates a steady pipeline of buyers and sellers.",
   heroCheckmarks: ["More Seller Listings", "Consistent Buyer Leads", "A Personal Brand That Attracts Referrals"],
   dashboard: {
     url: "rogersinghamilton.ca",
@@ -70,7 +70,7 @@ const config: IndustryFullConfig = {
   ],
   problemHeadline: "Why Real Estate Agents Can't Build Consistent Pipelines",
   problemSubtext:
-    "Great agents close deals — but without a personal brand and lead system, you're dependent on whoever calls next instead of building something predictable.",
+    "Great agents close deals, but without a personal brand and lead system, you're dependent on whoever calls next instead of building something predictable.",
   painPoints: [
     {
       icon: "RefreshCw",
@@ -80,7 +80,7 @@ const config: IndustryFullConfig = {
     {
       icon: "MapPin",
       title: "No Personal Brand Online",
-      desc: "Buyers and sellers research agents before reaching out. Without a strong website, social presence, and reviews, you lose to agents who market better — not agents who close better.",
+      desc: "Buyers and sellers research agents before reaching out. Without a strong website, social presence, and reviews, you lose to agents who market better, not agents who close better.",
     },
     {
       icon: "MessageSquare",
@@ -96,14 +96,14 @@ const config: IndustryFullConfig = {
     "Why buyers and sellers choose agents based on online presence before anything else",
     "The role of property videos and agent content in winning more listings",
     "How Google and Meta ads build your brand while generating immediate buyer leads",
-    "What to expect in your first 90 days — and how your pipeline grows month over month",
+    "What to expect in your first 90 days, and how your pipeline grows month over month",
   ],
   growthSteps: [
     { num: "01", icon: "Globe",      title: "Agent Website & Brand",      desc: "Personal agent website with listing showcase, lead capture forms, and neighbourhood pages that work for you 24/7." },
     { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Optimized GBP with agent bio, testimonials, and listing areas to capture buyers and sellers searching locally." },
     { num: "03", icon: "Star",       title: "Reputation & Referrals",     desc: "Systematic review requests from past clients that build the credibility needed to win listings over competing agents." },
     { num: "04", icon: "BarChart2",  title: "Lead & Pipeline Tracking",   desc: "Full CRM setup and lead source tracking so you know which marketing channel is filling your pipeline." },
-    { num: "05", icon: "Video",      title: "Property & Brand Content",   desc: "Cinematic listing videos, agent brand reels, and neighbourhood tours — the content that sells properties faster." },
+    { num: "05", icon: "Video",      title: "Property & Brand Content",   desc: "Cinematic listing videos, agent brand reels, and neighbourhood tours: the content that sells properties faster." },
     { num: "06", icon: "TrendingUp", title: "Google Ads",                 desc: "Search campaigns targeting active buyers and sellers in your market, capturing intent at the right moment." },
     { num: "07", icon: "Share2",     title: "Meta Ads & Retargeting",     desc: "Instagram and Facebook campaigns that showcase listings, build your personal brand, and retarget warm buyers." },
     { num: "08", icon: "Zap",        title: "Lead Nurture Automation",    desc: "Automated email sequences and follow-ups that keep buyers and sellers engaged until they're ready to transact." },
@@ -122,7 +122,7 @@ const config: IndustryFullConfig = {
   ],
   ctaHeadline: "Your Buyers & Sellers Are\nSearching Right Now.",
   ctaSubtext:
-    "Let's build your real estate growth system so that every buyer and seller in your market finds you first — not your competition.",
+    "Let's build your real estate growth system so that every buyer and seller in your market finds you first, not your competition.",
 };
 
 const FAQ_SCHEMA = {
@@ -147,7 +147,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does real estate marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Real estate video production starts from $699 per property or agent video. Social media management starts from $899/month. Google and Meta Ads management starts from $500/month. Pure Marketing offers custom packages for real estate agents — contact for a free audit." },
+      acceptedAnswer: { "@type": "Answer", text: "Real estate video production starts from $699 per property or agent video. Social media management starts from $899/month. Google and Meta Ads management starts from $500/month. Pure Marketing offers custom packages for real estate agents, contact for a free audit." },
     },
   ],
 };

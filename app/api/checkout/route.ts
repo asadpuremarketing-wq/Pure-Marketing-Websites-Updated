@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
   }
 
   const fullName = `${firstName} ${lastName}`;
-  const planInfo = PLAN_LABELS[plan] ?? { name: plan, price: "—", total: "—" };
+  const planInfo = PLAN_LABELS[plan] ?? { name: plan, price: "N/A", total: "N/A" };
 
   try {
     await Promise.all([
@@ -34,14 +34,14 @@ export async function POST(req: NextRequest) {
       resend.emails.send({
         from: "Pure Marketing Website <noreply@puremarketing.ca>",
         to: "info@puremarketing.ca",
-        subject: `🛒 New Order: ${fullName} — Social Media ${planInfo.name}`,
+        subject: `🛒 New Order: ${fullName}, Social Media ${planInfo.name}`,
         html: internalEmail({ fullName, email, phone, businessName, industry, message, planInfo }),
       }),
       // Confirmation email to the client
       resend.emails.send({
         from: "Pure Marketing <noreply@puremarketing.ca>",
         to: email,
-        subject: "Your Order with Pure Marketing — We'll Be in Touch Soon!",
+        subject: "Your Order with Pure Marketing: We'll Be in Touch Soon!",
         html: clientConfirmationEmail({ firstName, planInfo }),
       }),
     ]);
@@ -175,7 +175,7 @@ function clientConfirmationEmail({
 
         <!-- Confirmation band -->
         <tr><td style="background:#d8612a;padding:16px;text-align:center;">
-          <p style="margin:0;color:#ffffff;font-size:14px;font-weight:600;">&#10003;&nbsp; Order Received — We&apos;ll Be In Touch Within 1 Business Day</p>
+          <p style="margin:0;color:#ffffff;font-size:14px;font-weight:600;">&#10003;&nbsp; Order Received: We&apos;ll Be In Touch Within 1 Business Day</p>
         </td></tr>
 
         <!-- Body -->

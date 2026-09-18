@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "More Emergency Calls.",
   headlineAccent: "More Booked Jobs. Every Week.",
   subheadline:
-    "Websites, Google, Content, Ads, Automation & SEO — one system that keeps plumbers fully booked with qualified work year-round.",
+    "Websites, Google, Content, Ads, Automation & SEO: one system that keeps plumbers fully booked with qualified work year-round.",
   heroCheckmarks: ["More Emergency Calls", "Consistent High-Value Jobs", "Never Slow in Off-Season"],
   dashboard: {
     url: "bluewaveplumbing.ca",
@@ -70,12 +70,12 @@ const config: IndustryFullConfig = {
   ],
   problemHeadline: "Why Plumbers Can't Break Out of Referral Dependency",
   problemSubtext:
-    "Skilled plumbers lose jobs every day — not because of their work, but because they can't be found when it matters most.",
+    "Skilled plumbers lose jobs every day, not because of their work, but because they can't be found when it matters most.",
   painPoints: [
     {
       icon: "RefreshCw",
       title: "Unpredictable Lead Flow",
-      desc: "Referrals arrive when they want — not when you need them. There's no way to turn up the volume when your schedule goes quiet.",
+      desc: "Referrals arrive when they want, not when you need them. There's no way to turn up the volume when your schedule goes quiet.",
     },
     {
       icon: "MapPin",
@@ -101,11 +101,11 @@ const config: IndustryFullConfig = {
   growthSteps: [
     { num: "01", icon: "Globe",      title: "Plumbing Website",        desc: "Conversion-first site with emergency call buttons, financing info, and trust badges that turn panic into booked jobs." },
     { num: "02", icon: "MapPin",     title: "Google Business Profile", desc: "Optimized GBP with service areas, photos, and Q&A so you dominate local Maps results 24/7." },
-    { num: "03", icon: "Star",       title: "Reviews & Social Proof",  desc: "Systematic review collection after every job — building the 5-star credibility that wins bids over lower quotes." },
+    { num: "03", icon: "Star",       title: "Reviews & Social Proof",  desc: "Systematic review collection after every job, building the 5-star credibility that wins bids over lower quotes." },
     { num: "04", icon: "BarChart2",  title: "Call & Lead Tracking",    desc: "Know exactly which keywords and ads bring real calls, so budget goes where it converts best." },
     { num: "05", icon: "Video",      title: "Monthly Content",         desc: "Before/after photos, job site clips, and educational posts that keep your brand top-of-mind in your city." },
     { num: "06", icon: "TrendingUp", title: "Google Ads & LSA",        desc: "Emergency search ads and pay-per-lead Local Service Ads so you're the first call when a pipe bursts." },
-    { num: "07", icon: "Share2",     title: "Meta Ads",                desc: "Facebook & Instagram ads targeting homeowners with older homes — the most likely to need plumbing work." },
+    { num: "07", icon: "Share2",     title: "Meta Ads",                desc: "Facebook & Instagram ads targeting homeowners with older homes: the most likely to need plumbing work." },
     { num: "08", icon: "Zap",        title: "Missed-Call Text Back",   desc: "Automated texts fire the second someone calls and hangs up, so every warm lead is recovered instantly." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",  desc: "City-specific service pages and citation building that compound into free organic leads every month." },
   ],

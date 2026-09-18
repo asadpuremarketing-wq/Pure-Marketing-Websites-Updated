@@ -220,7 +220,7 @@ export default function BookCallModal({ isOpen, onClose, defaultDate }: Props) {
                       <ChevronLeft className="w-3.5 h-3.5 text-white/50" />
                     </button>
                     <span className="text-white/25 text-[11px]">
-                      {MONTHS_SHORT[dates[offset]?.getMonth()]} {dates[offset]?.getDate()} —{" "}
+                      {MONTHS_SHORT[dates[offset]?.getMonth()]} {dates[offset]?.getDate()} to{" "}
                       {MONTHS_SHORT[dates[Math.min(offset + 4, dates.length - 1)]?.getMonth()]}{" "}
                       {dates[Math.min(offset + 4, dates.length - 1)]?.getDate()}
                     </span>

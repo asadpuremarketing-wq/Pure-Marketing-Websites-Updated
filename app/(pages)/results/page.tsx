@@ -22,7 +22,7 @@ const PAGE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": `${BASE}/results`,
-  name: "Client Results — Pure Marketing",
+  name: "Client Results: Pure Marketing",
   url: `${BASE}/results`,
   description: "Real results from Pure Marketing clients across multiple industries including electricians, plumbers, HVAC companies, painters, restaurants, locksmiths, and general contractors.",
   breadcrumb: {
@@ -84,11 +84,11 @@ const CASE_STUDIES = [
     href: "/industries/painters",
     blogHref: "/blog/painting-company-marketing",
     icon: "🎨",
-    headline: "8 Weeks Booked Out — In February",
+    headline: "8 Weeks Booked Out, In February",
     before: "Slow winter months, relying on spring rush and referrals",
     after: "8 weeks booked in advance during the historically slowest month",
     channels: ["Before/after Instagram Reels", "Meta Ads targeting homeowners", "Google Ads for estimate requests"],
-    quote: "ProPaint Hamilton had never tried video marketing. Within 6 weeks of their first reel strategy, they were 8 weeks booked out — in February.",
+    quote: "ProPaint Hamilton had never tried video marketing. Within 6 weeks of their first reel strategy, they were 8 weeks booked out, in February.",
     timeframe: "6 weeks",
   },
   {
@@ -240,7 +240,7 @@ export default function ResultsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-12">
             {[
               { step: "1", title: "Audit Your Current Presence", body: "We find exactly where you are losing leads right now and what it would take to capture them." },
-              { step: "2", title: "Build the Right System", body: "Google Ads, Meta Ads, GBP optimization, and a conversion-focused website — the pieces that apply to your industry." },
+              { step: "2", title: "Build the Right System", body: "Google Ads, Meta Ads, GBP optimization, and a conversion-focused website: the pieces that apply to your industry." },
               { step: "3", title: "Optimize Monthly for More", body: "Every month we review performance data and make specific adjustments to lower your cost per lead and increase volume." },
             ].map((item) => (
               <div key={item.step} className="bg-background-card border border-border rounded-2xl p-6">

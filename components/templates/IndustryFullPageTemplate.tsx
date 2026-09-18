@@ -478,7 +478,7 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
               The 9-Step Growth System
             </motion.h2>
             <motion.p {...fadeUp(0.14)} className="text-[#555] text-[16px] mt-4 max-w-[540px] mx-auto">
-              Every component is designed to work together — like one compounding machine that gets stronger every month.
+              Every component is designed to work together, like one compounding machine that gets stronger every month.
             </motion.p>
           </div>
 
@@ -535,7 +535,7 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
                 <span className="text-accent-primary">Everything Included.</span>
               </h2>
               <p className="text-[#666] text-[16px] leading-relaxed max-w-[440px]">
-                No picking and choosing. No add-ons. Every component of the growth system is built and managed for you — from day one.
+                No picking and choosing. No add-ons. Every component of the growth system is built and managed for you, from day one.
               </p>
               <div className="grid grid-cols-2 gap-3 pt-2">
                 {DEFAULT_INCLUDED.map((item) => (
@@ -616,100 +616,6 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
               Start With a Free Audit
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          INVESTMENT
-      ══════════════════════════════════════════════════════ */}
-      <section className="bg-white py-24">
-        <div className="max-w-[1240px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <motion.p {...fadeUp(0)} className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-4">Investment</motion.p>
-            <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[52px] font-black text-[#0d0d0d] leading-tight tracking-tight">
-              Simple, Transparent Pricing
-            </motion.h2>
-            <motion.p {...fadeUp(0.14)} className="text-[#777] text-[16px] mt-4 max-w-[480px] mx-auto">
-              One flat investment. No retainer surprises. No hidden fees. Ad spend is separate and managed in your accounts.
-            </motion.p>
-          </div>
-
-          <motion.div {...fadeUp(0.1)} className="max-w-[900px] mx-auto">
-            <div className="rounded-3xl border-2 border-[#0d0d0d] overflow-hidden shadow-2xl">
-
-              {/* header bar */}
-              <div className="bg-[#0d0d0d] px-10 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <p className="text-[#666] text-[12px] uppercase tracking-widest font-semibold mb-1">Total Investment</p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-[64px] font-black text-white leading-none">$4,500</span>
-                    <span className="text-[#666] text-[18px] mb-2">CAD</span>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center"><CheckCircle className="w-3 h-3 text-emerald-400" /></div>
-                    <span className="text-[#888] text-[13px]">No ongoing retainer required</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center"><CheckCircle className="w-3 h-3 text-emerald-400" /></div>
-                    <span className="text-[#888] text-[13px]">Split into 3 easy installments</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center"><CheckCircle className="w-3 h-3 text-emerald-400" /></div>
-                    <span className="text-[#888] text-[13px]">You own all assets &amp; accounts</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* body */}
-              <div className="bg-white p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-
-                {/* payment structure */}
-                <div>
-                  <h3 className="text-[#0d0d0d] font-bold text-[18px] mb-6">Payment Structure</h3>
-                  <div className="space-y-4">
-                    {[
-                      { n: "1", label: "Installment 1 — $1,500 CAD", desc: "Due at project start" },
-                      { n: "2", label: "Installment 2 — $1,500 CAD", desc: "Due after foundation systems are completed" },
-                      { n: "3", label: "Installment 3 — $1,500 CAD", desc: "Due during advertising and scaling phase" },
-                    ].map(({ n, label, desc }) => (
-                      <div key={n} className="flex items-start gap-4 p-4 rounded-xl bg-[#f9f9f9] border border-[#ebebeb]">
-                        <div className="w-9 h-9 rounded-full bg-accent-primary flex items-center justify-center text-white font-black text-[14px] flex-shrink-0">
-                          {n}
-                        </div>
-                        <div>
-                          <p className="text-[#0d0d0d] font-bold text-[14px]">{label}</p>
-                          <p className="text-[#888] text-[12px] mt-0.5">{desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-[#aaa] text-[12px] mt-4 leading-relaxed">
-                    * Ad budgets for Google, Local Service Ads &amp; Meta are separate and determined by your goals &amp; market.
-                  </p>
-                </div>
-
-                {/* what's included */}
-                <div>
-                  <h3 className="text-[#0d0d0d] font-bold text-[18px] mb-6">What&apos;s Included</h3>
-                  <div className="space-y-2.5 mb-7">
-                    {DEFAULT_INCLUDED.map((item) => (
-                      <div key={item} className="flex items-center gap-3">
-                        <CheckCircle className="w-4 h-4 text-accent-primary flex-shrink-0" />
-                        <span className="text-[#333] text-[14px]">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Link href="/checkout?product=growth-system" className="group inline-flex items-center justify-center gap-2 bg-accent-primary hover:bg-[#d9531e] text-white font-bold text-[15px] rounded-xl px-6 py-4 transition-all duration-300 w-full shadow-xl shadow-accent-primary/20">
-                    Get Started — Pay Online
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                  </Link>
-                </div>
-
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>

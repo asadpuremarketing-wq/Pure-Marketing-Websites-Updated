@@ -59,12 +59,12 @@ export async function POST(req: NextRequest) {
     const fullName = `${firstName} ${lastName}`;
     const amountPaid = session.amount_total
       ? `$${(session.amount_total / 100).toLocaleString("en-CA", { minimumFractionDigits: 2 })} CAD`
-      : "—";
+      : "N/A";
 
     const PLAN_LABELS: Record<string, string> = {
-      "1-month": "Social Media Management — Month-to-Month ($1,499/mo)",
-      "3-month": "Social Media Management — 3-Month Plan ($1,199/mo)",
-      "6-month": "Social Media Management — 6-Month Plan ($899/mo)",
+      "1-month": "Social Media Management: Month-to-Month ($1,499/mo)",
+      "3-month": "Social Media Management: 3-Month Plan ($1,199/mo)",
+      "6-month": "Social Media Management: 6-Month Plan ($899/mo)",
       "growth-system": "90-Day Growth System ($1,500/mo × 3 months)",
     };
     const planLabel = PLAN_LABELS[plan] ?? plan;
@@ -78,14 +78,14 @@ export async function POST(req: NextRequest) {
         transporter.sendMail({
           from: `"Pure Marketing Website" <${process.env.SMTP_USER}>`,
           to: "info@puremarketing.ca",
-          subject: `💳 Payment Received: ${fullName} — ${planLabel}`,
+          subject: `💳 Payment Received: ${fullName}, ${planLabel}`,
           html: internalEmail({ fullName, email, phone, businessName, industry, message, planLabel, amountPaid }),
         }),
         /* Confirmation to the client */
         transporter.sendMail({
           from: `"Pure Marketing" <${process.env.SMTP_USER}>`,
           to: email,
-          subject: "Payment Confirmed — Welcome to Pure Marketing! 🎉",
+          subject: "Payment Confirmed: Welcome to Pure Marketing! 🎉",
           html: clientEmail({ firstName, planLabel, amountPaid, isGrowth }),
         }),
       ]);
@@ -117,7 +117,7 @@ function internalEmail({
 
         <tr><td style="background:#16a34a;border-radius:12px 12px 0 0;padding:28px 36px;">
           <h1 style="margin:0;color:#fff;font-size:20px;font-weight:700;">Pure Marketing</h1>
-          <p style="margin:4px 0 0;color:rgba(255,255,255,0.85);font-size:13px;">💳 Payment Confirmed — New Client!</p>
+          <p style="margin:4px 0 0;color:rgba(255,255,255,0.85);font-size:13px;">💳 Payment Confirmed: New Client!</p>
         </td></tr>
 
         <tr><td style="background:#15803d;padding:13px 36px;text-align:center;">
@@ -188,7 +188,7 @@ function clientEmail({
     { num: "1", title: "Onboarding call scheduled", desc: "Our team will reach out within 1 business day to schedule your kickoff call." },
     { num: "2", title: "Brand intake & strategy", desc: "We learn your brand voice, goals, target audience, and content preferences." },
     { num: "3", title: "Content calendar approved", desc: "You'll review and approve your first month of content before we go live." },
-    { num: "4", title: "We go live!", desc: "Daily posting begins — sit back and watch your audience grow." },
+    { num: "4", title: "We go live!", desc: "Daily posting begins, sit back and watch your audience grow." },
   ];
 
   return `
@@ -206,13 +206,13 @@ function clientEmail({
         </td></tr>
 
         <tr><td style="background:#d8612a;padding:15px;text-align:center;">
-          <p style="margin:0;color:#fff;font-size:14px;font-weight:600;">🎉 Payment Confirmed — Welcome to Pure Marketing!</p>
+          <p style="margin:0;color:#fff;font-size:14px;font-weight:600;">🎉 Payment Confirmed: Welcome to Pure Marketing!</p>
         </td></tr>
 
         <tr><td style="background:#fff;padding:40px 36px;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;">
           <h2 style="margin:0 0 12px;color:#1a1a1a;font-size:22px;font-weight:700;">Hi ${firstName},</h2>
           <p style="margin:0 0 20px;color:#444;font-size:15px;line-height:1.7;">
-            Your payment has been received and confirmed! Welcome to <strong>Pure Marketing</strong> — we're thrilled to have you on board.
+            Your payment has been received and confirmed! Welcome to <strong>Pure Marketing</strong>, we're thrilled to have you on board.
           </p>
 
           <div style="background:#fff8f5;border:1px solid #f8d5c5;border-radius:10px;padding:20px 24px;margin-bottom:24px;">

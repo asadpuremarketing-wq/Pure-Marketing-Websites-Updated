@@ -5,7 +5,7 @@ export default function HvacContent() {
   return (
     <>
       <p className="text-[17px] leading-relaxed">
-        HVAC is one of the most seasonal service businesses in Canada. AC season runs June through August. Furnace season runs November through February. Spring and fall? Many HVAC companies watch their phones go quiet for weeks at a time. The slow season feels inevitable — but it is not. It is a marketing calendar problem, and it is fixable.
+        HVAC is one of the most seasonal service businesses in Canada. AC season runs June through August. Furnace season runs November through February. Spring and fall? Many HVAC companies watch their phones go quiet for weeks at a time. The slow season feels inevitable, but it is not. It is a marketing calendar problem, and it is fixable.
       </p>
       <p className="text-[17px] leading-relaxed">
         Here is the campaign structure we use to keep our HVAC clients consistently busy through every month of the year, including the ones most HVAC companies write off entirely.
@@ -16,7 +16,7 @@ export default function HvacContent() {
         Most HVAC companies run ads during busy season and turn them off when demand drops. This creates a cycle: busy season floods you with more calls than you can handle, slow season leaves your technicians sitting idle. The problem compounds because when slow season ends and you turn ads back on, Google needs 3-4 weeks to re-optimize your campaigns. You have missed the first wave of the next busy season while paying for the restart period.
       </p>
       <p>
-        The companies breaking out of this cycle run campaigns year-round but shift what they are advertising by month. Instead of turning off marketing in the slow months, they shift their message to the services that are relevant right now — and in HVAC, there is always something relevant.
+        The companies breaking out of this cycle run campaigns year-round but shift what they are advertising by month. Instead of turning off marketing in the slow months, they shift their message to the services that are relevant right now, and in HVAC, there is always something relevant.
       </p>
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">2. The Month-by-Month Campaign Calendar</h2>
@@ -70,7 +70,7 @@ export default function HvacContent() {
         Here is the competitive advantage most HVAC companies miss: when your competitors turn off their ads in April and October, ad costs drop significantly because there are fewer bidders. This is exactly when you should be increasing your spend, not reducing it. Your cost per lead goes down 30-40% in slow months while your competitors are dark, and you are reaching homeowners who are planning ahead rather than responding in an emergency.
       </p>
       <p>
-        The off-season campaigns are not about driving emergency calls — they are about capturing homeowners who are thinking about replacing an older unit, looking for an annual service plan, or want a quote before their furnace or AC fails completely. These jobs are larger and less price-sensitive than emergency repairs.
+        The off-season campaigns are not about driving emergency calls: they are about capturing homeowners who are thinking about replacing an older unit, looking for an annual service plan, or want a quote before their furnace or AC fails completely. These jobs are larger and less price-sensitive than emergency repairs.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
         If you want to see a specific campaign calendar built for your HVAC business and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will build out the month-by-month plan and show you what year-round revenue looks like for a business your size. See our full <Link href="/industries/hvac" className="text-accent-primary underline font-medium">HVAC marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.

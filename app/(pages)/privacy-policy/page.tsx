@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Pure Marketing",
-  description: "Pure Marketing's Privacy Policy — how we collect, use, and protect your personal information.",
+  description: "Pure Marketing's Privacy Policy: how we collect, use, and protect your personal information.",
   robots: { index: true, follow: true },
 };
 
@@ -38,10 +38,10 @@ export default function PrivacyPolicyPage() {
             <ul>
               <li><strong>Contact form submissions:</strong> Name, email address, phone number, business type, and message content.</li>
               <li><strong>Email communications:</strong> Any information you include when emailing us.</li>
-              <li><strong>Analytics data:</strong> Pages visited, time spent on site, device type, browser, and general location (country/city level) — collected anonymously via Google Analytics.</li>
+              <li><strong>Analytics data:</strong> Pages visited, time spent on site, device type, browser, and general location (country/city level), collected anonymously via Google Analytics.</li>
               <li><strong>Cookies:</strong> Session data and preferences stored in your browser to improve your experience.</li>
             </ul>
-            <p>We do <strong>not</strong> collect payment information directly — all payments are processed securely through Stripe.</p>
+            <p>We do <strong>not</strong> collect payment information directly: all payments are processed securely through Stripe.</p>
           </Section>
 
           <Section title="3. How We Use Your Information">
@@ -68,11 +68,11 @@ export default function PrivacyPolicyPage() {
           <Section title="5. Third-Party Services">
             <p>We use the following third-party services that may collect data:</p>
             <ul>
-              <li><strong>Google Analytics</strong> — website traffic analysis</li>
-              <li><strong>Google Ads / Google Local Service Ads</strong> — advertising</li>
-              <li><strong>Meta (Facebook & Instagram) Ads</strong> — advertising</li>
-              <li><strong>Stripe</strong> — payment processing</li>
-              <li><strong>Vercel</strong> — website hosting</li>
+              <li><strong>Google Analytics</strong>: website traffic analysis</li>
+              <li><strong>Google Ads / Google Local Service Ads</strong>: advertising</li>
+              <li><strong>Meta (Facebook & Instagram) Ads</strong>: advertising</li>
+              <li><strong>Stripe</strong>: payment processing</li>
+              <li><strong>Vercel</strong>: website hosting</li>
             </ul>
             <p>Each of these services has their own privacy policies, which we encourage you to review.</p>
           </Section>

@@ -43,7 +43,7 @@ const config: IndustryFullConfig = {
   headline: "More Covers. More Orders.",
   headlineAccent: "A Full Restaurant Every Night.",
   subheadline:
-    "Food content, Google, Social Media, Ads, Automation & Reviews — one system that fills your restaurant week after week with loyal, hungry customers.",
+    "Food content, Google, Social Media, Ads, Automation & Reviews: one system that fills your restaurant week after week with loyal, hungry customers.",
   heroCheckmarks: ["More Walk-Ins & Reservations", "Stronger Local Reputation", "Consistent Revenue Every Week"],
   dashboard: {
     url: "casagranderestaurant.ca",
@@ -87,7 +87,7 @@ const config: IndustryFullConfig = {
     {
       icon: "Star",
       title: "Reviews Going Unanswered",
-      desc: "A bad review left unanswered, or 50 5-star reviews never requested — both cost you tables. Most restaurants have no system for managing their reputation online.",
+      desc: "A bad review left unanswered, or 50 5-star reviews never requested, both cost you tables. Most restaurants have no system for managing their reputation online.",
     },
   ],
   videoLabel: "How We Grow Restaurant Revenue",
@@ -98,15 +98,15 @@ const config: IndustryFullConfig = {
     "Why most restaurants lose new customers to competitors with better online presence",
     "The role of food content and social media in driving walk-ins and reservations",
     "How Google Ads and Meta ads bring diners who've never heard of you to your door",
-    "What to expect in your first 30 days — and how reviews compound over time",
+    "What to expect in your first 30 days, and how reviews compound over time",
   ],
   growthSteps: [
     { num: "01", icon: "Globe",      title: "Restaurant Website",         desc: "Menu showcase, online reservation integration, and location pages built to convert hungry visitors into seated guests." },
     { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Fully optimized GBP with menu links, photos, and review strategy to rank for 'restaurants near me' searches." },
     { num: "03", icon: "Star",       title: "Review Management",          desc: "Respond to every review, collect new 5-star ratings, and build the social proof that fills tables on slow nights." },
-    { num: "04", icon: "BarChart2",  title: "Reservation Tracking",       desc: "Track where every reservation and walk-in comes from — so ad spend goes to the channels that fill seats." },
+    { num: "04", icon: "BarChart2",  title: "Reservation Tracking",       desc: "Track where every reservation and walk-in comes from, so ad spend goes to the channels that fill seats." },
     { num: "05", icon: "Video",      title: "Food & Brand Content",       desc: "Mouth-watering food photography, chef stories, and daily social posts that build a loyal following and drive walk-ins." },
-    { num: "06", icon: "TrendingUp", title: "Google Ads",                 desc: "Search campaigns for cuisine-specific and 'near me' queries — capturing diners who are ready to book right now." },
+    { num: "06", icon: "TrendingUp", title: "Google Ads",                 desc: "Search campaigns for cuisine-specific and 'near me' queries, capturing diners who are ready to book right now." },
     { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Instagram and Facebook ads with high-quality food visuals targeting food lovers in your neighbourhood." },
     { num: "08", icon: "Zap",        title: "Promotions & Automation",    desc: "Automated specials, event announcements, and loyalty follow-ups that keep past diners coming back regularly." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Cuisine and neighbourhood pages that drive consistent organic traffic from food-related searches in your city." },
@@ -115,7 +115,7 @@ const config: IndustryFullConfig = {
   results: [
     { metric: "89%", label: "More Reservations",    client: "Casa Grande Restaurant", detail: "From inconsistent covers to fully booked weekends every week within 30 days." },
     { metric: "$68K", label: "Revenue in 6 Months", client: "Urban Kitchen",          detail: "62% more foot traffic and $68K in tracked additional revenue in 6 months." },
-    { metric: "100%", label: "Weekend Occupancy",   client: "Moussas Shawarma",       detail: "Fully booked every Friday and Saturday — with a waitlist on busy nights." },
+    { metric: "100%", label: "Weekend Occupancy",   client: "Moussas Shawarma",       detail: "Fully booked every Friday and Saturday, with a waitlist on busy nights." },
   ],
   videoReviews: [
     { name: "Maria S.", company: "Casa Grande Restaurant", result: "89%+ More Reservations", dur: "1:41" },
@@ -124,7 +124,7 @@ const config: IndustryFullConfig = {
   ],
   ctaHeadline: "Empty Tables Cost You\nMoney Every Night.",
   ctaSubtext:
-    "Let's build your restaurant growth system and make sure hungry customers in your area find you first — before they book somewhere else.",
+    "Let's build your restaurant growth system and make sure hungry customers in your area find you first, before they book somewhere else.",
 };
 
 const FAQ_SCHEMA = {
@@ -139,7 +139,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "What social media platform is best for restaurants?",
-      acceptedAnswer: { "@type": "Answer", text: "Instagram and TikTok for visual food content — short-form videos of dishes, kitchen prep, and atmosphere perform especially well. Facebook works for local community engagement, event promotion, and reaching older demographics. Pure Marketing creates and manages all content for restaurant clients, including photography and video." },
+      acceptedAnswer: { "@type": "Answer", text: "Instagram and TikTok for visual food content: short-form videos of dishes, kitchen prep, and atmosphere perform especially well. Facebook works for local community engagement, event promotion, and reaching older demographics. Pure Marketing creates and manages all content for restaurant clients, including photography and video." },
     },
     {
       "@type": "Question",

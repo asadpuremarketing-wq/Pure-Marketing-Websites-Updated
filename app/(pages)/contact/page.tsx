@@ -241,7 +241,7 @@ export default function ContactPage() {
                     {formStatus === "submitting"
                       ? "Sending..."
                       : formStatus === "error"
-                      ? "Something went wrong — try again"
+                      ? "Something went wrong, try again"
                       : "Send Message"}
                   </button>
 

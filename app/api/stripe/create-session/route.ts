@@ -8,19 +8,19 @@ const SOCIAL_PLANS: Record<string, {
   cancellationNote: string;
 }> = {
   "1-month": {
-    name: "Social Media Management — Monthly",
+    name: "Social Media Management: Monthly",
     description: "Full social media management. Instagram, Facebook, daily content, community engagement, monthly analytics. Cancel anytime.",
     amountCents: 150000,
     cancellationNote: "Cancel anytime. No cancellation fee.",
   },
   "3-month": {
-    name: "Social Media Management — 3 Month Plan",
+    name: "Social Media Management: 3 Month Plan",
     description: "Everything in Monthly plus TikTok, LinkedIn, bi-weekly check-ins, competitor analysis, Story and Reel creation. Billed monthly for 3 months. 25% cancellation fee if cancelled early.",
     amountCents: 119900,
     cancellationNote: "Billed monthly for 3 months. 25% cancellation fee applies if cancelled before 3 months.",
   },
   "6-month": {
-    name: "Social Media Management — 6 Month Plan",
+    name: "Social Media Management: 6 Month Plan",
     description: "Everything in 3 Month plus all platforms, weekly strategy calls, 2 Reels per month, priority support. Billed monthly for 6 months. 25% cancellation fee if cancelled early.",
     amountCents: 89900,
     cancellationNote: "Billed monthly for 6 months. 25% cancellation fee applies if cancelled before 6 months.",

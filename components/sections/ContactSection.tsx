@@ -153,7 +153,7 @@ export default function ContactSection() {
                   {formStatus === "submitting"
                     ? "Sending..."
                     : formStatus === "error"
-                    ? "Something went wrong — try again"
+                    ? "Something went wrong, try again"
                     : "Send Message"}
                 </button>
 

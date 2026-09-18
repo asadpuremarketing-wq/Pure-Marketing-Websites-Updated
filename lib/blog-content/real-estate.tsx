@@ -13,10 +13,10 @@ export default function RealEstateContent() {
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">1. Why Video Has Become Non-Negotiable for Ontario Agents</h2>
       <p>
-        Properties with professional video sell faster. Properties without video sit longer. This is now documented across every major market in Canada, and Ontario is no exception. The reason is simple: buyers make decisions emotionally, and video creates emotional connection in a way that photos cannot. A still image of a living room shows a room. A video of a living room shows light changing through windows, the flow between rooms, the feeling of scale — all the things a buyer experiences when they walk through in person.
+        Properties with professional video sell faster. Properties without video sit longer. This is now documented across every major market in Canada, and Ontario is no exception. The reason is simple: buyers make decisions emotionally, and video creates emotional connection in a way that photos cannot. A still image of a living room shows a room. A video of a living room shows light changing through windows, the flow between rooms, the feeling of scale, all the things a buyer experiences when they walk through in person.
       </p>
       <p>
-        But the bigger opportunity is not listing videos for buyers. It is agent brand videos that win listings from sellers. When a homeowner is deciding between three agents to list their property, the agent with a polished 2-minute video on their website — explaining their process, their results, their market expertise — closes the listing presentation before walking through the door. Sellers have already decided they trust them.
+        But the bigger opportunity is not listing videos for buyers. It is agent brand videos that win listings from sellers. When a homeowner is deciding between three agents to list their property, the agent with a polished 2-minute video on their website, explaining their process, their results, their market expertise, closes the listing presentation before walking through the door. Sellers have already decided they trust them.
       </p>
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">2. The 3 Videos Every Agent Needs</h2>
@@ -37,7 +37,7 @@ export default function RealEstateContent() {
       </div>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;Sarah Mitchell Real Estate added property tour videos to every listing. Average days on market dropped from 28 days to 6. She now uses video as a listing differentiator — and wins almost every presentation she attends.&rdquo;
+        &ldquo;Sarah Mitchell Real Estate added property tour videos to every listing. Average days on market dropped from 28 days to 6. She now uses video as a listing differentiator, and wins almost every presentation she attends.&rdquo;
       </blockquote>
 
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden my-10 border border-border shadow">
@@ -52,7 +52,7 @@ export default function RealEstateContent() {
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">3. How to Turn Listing Videos Into Seller Leads</h2>
       <p>
-        The mechanism is straightforward: you produce a property tour video, promote it on Instagram and Facebook targeting homeowners in the same neighbourhood, and the sellers watching the video think &ldquo;I should sell my house and that agent should do it.&rdquo; You are reaching the exact demographic — homeowners in a specific area who are watching real estate content — with proof of your quality at the exact moment they are thinking about the market.
+        The mechanism is straightforward: you produce a property tour video, promote it on Instagram and Facebook targeting homeowners in the same neighbourhood, and the sellers watching the video think &ldquo;I should sell my house and that agent should do it.&rdquo; You are reaching the exact demographic, homeowners in a specific area who are watching real estate content, with proof of your quality at the exact moment they are thinking about the market.
       </p>
       <p>
         The campaign structure: boost each listing video as a Facebook/Instagram ad targeting homeowners aged 40-65 within a 5km radius of the property. Budget $10-25 per listing for 7 days. This generates local brand awareness at near-zero cost, positions you as the active agent in that neighbourhood, and captures inbound DMs and calls from homeowners who want to know what their home is worth.
@@ -60,7 +60,7 @@ export default function RealEstateContent() {
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">4. Neighbourhood Pages for Organic Seller Leads</h2>
       <p>
-        Beyond video, the highest-converting long-term lead source for agents is organic search from neighbourhood-specific pages. A seller typing &ldquo;how much is my house worth in [neighbourhood]&rdquo; or &ldquo;real estate agent [neighbourhood]&rdquo; is a very high-intent lead. An agent with a dedicated page for that neighbourhood — with market statistics, recent sales, a valuation tool, and their own sales history there — captures these searches consistently without ad spend.
+        Beyond video, the highest-converting long-term lead source for agents is organic search from neighbourhood-specific pages. A seller typing &ldquo;how much is my house worth in [neighbourhood]&rdquo; or &ldquo;real estate agent [neighbourhood]&rdquo; is a very high-intent lead. An agent with a dedicated page for that neighbourhood, with market statistics, recent sales, a valuation tool, and their own sales history there, captures these searches consistently without ad spend.
       </p>
       <p>
         We build these neighbourhood pages for agent clients as part of their website, targeting 3-5 specific geographic areas where they want to build dominant market share. Combined with the video strategy, this creates two lead sources: paid (video + ads) for immediate pipeline, and organic (neighbourhood SEO) for long-term cost-efficient growth.

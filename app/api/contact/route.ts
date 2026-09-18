@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
       transporter.sendMail({
         from: `"Pure Marketing Website" <${process.env.SMTP_USER}>`,
         to: "info@puremarketing.ca",
-        subject: `New Lead: ${name} — ${industry}`,
+        subject: `New Lead: ${name}, ${industry}`,
         html: notificationEmail({ name, email, phone, industry, message, strategyCall }),
       }),
 
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       transporter.sendMail({
         from: `"Pure Marketing" <${process.env.SMTP_USER}>`,
         to: email,
-        subject: "We received your message — Pure Marketing",
+        subject: "We received your message: Pure Marketing",
         html: confirmationEmail({ name }),
       }),
     ]);
@@ -84,7 +84,7 @@ function notificationEmail({
       ${row("Email",    `<a href="mailto:${email}" style="color:#F06428;">${email}</a>`)}
       ${row("Phone",    `<a href="tel:${phone}" style="color:#F06428;">${phone}</a>`)}
       ${row("Industry", industry)}
-      ${row("Strategy Call", strategyCall ? "✅ Yes — interested" : "No")}
+      ${row("Strategy Call", strategyCall ? "✅ Yes, interested" : "No")}
     </table>
 
     <div style="background:#f9f9f9;border-left:4px solid #F06428;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:28px;">
@@ -137,7 +137,7 @@ function confirmationEmail({ name }: { name: string }) {
 
   <!-- Confirmation band -->
   <tr><td style="background:#d8521e;padding:14px;text-align:center;">
-    <p style="margin:0;color:#fff;font-size:14px;font-weight:600;">✓ &nbsp;Message Received — We'll be in touch shortly</p>
+    <p style="margin:0;color:#fff;font-size:14px;font-weight:600;">✓ &nbsp;Message Received: We'll be in touch shortly</p>
   </td></tr>
 
   <!-- Body -->

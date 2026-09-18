@@ -140,7 +140,7 @@ const DEFAULT_PAIN_POINTS: PainPoint[] = [
   {
     icon: "TrendingUp",
     title: "No Consistent Lead Flow",
-    desc: "Most businesses rely on word-of-mouth and referrals — unpredictable, seasonal, and impossible to scale.",
+    desc: "Most businesses rely on word-of-mouth and referrals: unpredictable, seasonal, and impossible to scale.",
   },
   {
     icon: "Globe",
@@ -326,7 +326,7 @@ export default function IndustryPageTemplate({ config }: Props) {
                       <CheckCircle className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
                       <div>
                         <span className="text-sm font-bold text-white">{client}</span>
-                        <span className="text-sm text-[#777]"> — {result}</span>
+                        <span className="text-sm text-[#777]">: {result}</span>
                       </div>
                     </div>
                   ))}
@@ -488,7 +488,7 @@ export default function IndustryPageTemplate({ config }: Props) {
               The 9-Step {industry} Growth System
             </motion.h2>
             <motion.p {...fadeUp(0.14)} className="text-[#555] text-[15px] mt-4 max-w-[520px] mx-auto">
-              Every component works together — one compounding system that brings in more leads every single month.
+              Every component works together, one compounding system that brings in more leads every single month.
             </motion.p>
           </div>
 
@@ -549,12 +549,12 @@ export default function IndustryPageTemplate({ config }: Props) {
               {
                 step: "01",
                 title: "Free Audit",
-                desc: "We review your current marketing, website, and Google presence. No cost, no obligation — just a clear picture of where you stand and where the opportunities are.",
+                desc: "We review your current marketing, website, and Google presence. No cost, no obligation, just a clear picture of where you stand and where the opportunities are.",
               },
               {
                 step: "02",
                 title: "Build & Launch",
-                desc: "We build your campaigns, ads, and content — everything optimized for your industry and city. From first draft to live in as little as 7 days.",
+                desc: "We build your campaigns, ads, and content: everything optimized for your industry and city. From first draft to live in as little as 7 days.",
               },
               {
                 step: "03",

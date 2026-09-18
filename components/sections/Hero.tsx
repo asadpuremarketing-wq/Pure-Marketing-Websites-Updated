@@ -135,23 +135,6 @@ export default function Hero() {
               across Canada · No contracts · Results guaranteed
             </motion.p>
 
-            {/* Pricing hints */}
-            <motion.div
-              className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-[#888] pt-0.5"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.75 }}
-            >
-              <span>
-                Lead gen from <span className="text-[#888]">$1,499/mo</span>
-              </span>
-              <span className="hidden sm:block w-px h-3 bg-[#2a2a2a]" />
-              <span>
-                Video production from <span className="text-[#888]">$699</span>
-              </span>
-              <span className="hidden sm:block w-px h-3 bg-[#2a2a2a]" />
-              <span>Free strategy call included</span>
-            </motion.div>
           </div>
 
           {/* ── RIGHT COLUMN — team photo ── */}

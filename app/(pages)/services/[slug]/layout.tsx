@@ -169,7 +169,7 @@ const SERVICE_META: Record<string, { title: string; description: string; keyword
   "social-media-management": {
     title: "Social Media Management for Local Businesses | Pure Marketing",
     description:
-      "Full social media management — daily content creation, posting, engagement, and growth strategy on Instagram, Facebook, and TikTok. Starting from $899/mo.",
+      "Full social media management: daily content creation, posting, engagement, and growth strategy on Instagram, Facebook, and TikTok. Starting from $899/mo.",
     keywords: [
       "social media management Hamilton",
       "Instagram management local business Ontario",

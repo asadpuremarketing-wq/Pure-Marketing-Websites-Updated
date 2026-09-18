@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "Stay Busy Year-Round.",
   headlineAccent: "AC, Furnace & Emergency Calls.",
   subheadline:
-    "Websites, Google, Content, Ads, Automation & SEO — one seasonal system that keeps HVAC companies fully booked through every season.",
+    "Websites, Google, Content, Ads, Automation & SEO: one seasonal system that keeps HVAC companies fully booked through every season.",
   heroCheckmarks: [
     "Summer AC Tune-Ups & Installs",
     "Winter Furnace & Heating Jobs",
@@ -74,7 +74,7 @@ const config: IndustryFullConfig = {
   ],
   problemHeadline: "Why HVAC Companies Struggle to Stay Busy Off-Season",
   problemSubtext:
-    "Skilled HVAC techs lose thousands in slow months — not from lack of ability, but from lack of a system that generates leads year-round.",
+    "Skilled HVAC techs lose thousands in slow months, not from lack of ability, but from lack of a system that generates leads year-round.",
   painPoints: [
     {
       icon: "RefreshCw",
@@ -84,7 +84,7 @@ const config: IndustryFullConfig = {
     {
       icon: "MapPin",
       title: "Losing Local Searches",
-      desc: "Homeowners searching 'HVAC near me' or 'furnace repair' right now are booking competitors who have better Google presence — not better work.",
+      desc: "Homeowners searching 'HVAC near me' or 'furnace repair' right now are booking competitors who have better Google presence, not better work.",
     },
     {
       icon: "BarChart3",
@@ -97,7 +97,7 @@ const config: IndustryFullConfig = {
   videoDesc:
     "A 2-minute breakdown of the seasonal marketing system that generates AC tune-ups in summer, furnace installs in fall, and emergency calls all winter long.",
   videoBullets: [
-    "Why most HVAC companies only win in peak season — and how to change that",
+    "Why most HVAC companies only win in peak season, and how to change that",
     "The 9-step system that generates leads year-round, not just in summer and winter",
     "How we use Google Ads seasonal budgeting to maximize ROI every month",
     "What to expect in your first 90 days with the full system running",
@@ -108,7 +108,7 @@ const config: IndustryFullConfig = {
     { num: "03", icon: "Star",       title: "Reviews & Trust Building",   desc: "Post-service review requests that build your 5-star rating and win more installs over competitors." },
     { num: "04", icon: "BarChart2",  title: "Seasonal Tracking Setup",    desc: "Campaign dashboards that show cost-per-lead by season so we scale spend when ROI is highest." },
     { num: "05", icon: "Video",      title: "Monthly Content",            desc: "Seasonal tips, install showcases, and branded content that keep your HVAC brand visible year-round." },
-    { num: "06", icon: "TrendingUp", title: "Google Ads (Seasonal)",      desc: "Smart seasonal budgeting — spend peaks in summer and winter, pulled back in shoulder months for max ROI." },
+    { num: "06", icon: "TrendingUp", title: "Google Ads (Seasonal)",      desc: "Smart seasonal budgeting: spend peaks in summer and winter, pulled back in shoulder months for max ROI." },
     { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram ads promoting maintenance plans, AC tune-ups, and financing offers to local homeowners." },
     { num: "08", icon: "Zap",        title: "Follow-Up Automation",       desc: "Automated service reminders, maintenance plan upsells, and instant lead responses running 24/7." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "City and service-type pages that rank for furnace, AC, and heat pump searches organically." },
@@ -117,7 +117,7 @@ const config: IndustryFullConfig = {
   results: [
     { metric: "267%", label: "Lead Increase", client: "Climate Control Pro", detail: "From seasonal peaks only to consistent leads 12 months of the year." },
     { metric: "$36K", label: "Revenue in 90 Days", client: "Comfort Systems HVAC", detail: "19 service calls per month and $36K in tracked revenue within 90 days." },
-    { metric: "12 mo.", label: "Fully Booked", client: "Arctic Air HVAC", detail: "Booked solid every month of the year — including the slow spring season." },
+    { metric: "12 mo.", label: "Fully Booked", client: "Arctic Air HVAC", detail: "Booked solid every month of the year, including the slow spring season." },
   ],
   videoReviews: [
     { name: "James K.", company: "Climate Control Pro", result: "267%+ More Leads", dur: "1:46" },

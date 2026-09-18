@@ -50,13 +50,13 @@ export async function POST(req: NextRequest) {
         from: `"Pure Marketing Website" <${process.env.SMTP_USER}>`,
         to: "info@puremarketing.ca",
         replyTo: email,
-        subject: `New Call Booking: ${name} — ${date} at ${time} EST`,
+        subject: `New Call Booking: ${name}, ${date} at ${time} EST`,
         html: notificationHtml({ name, email, phone, date, time }),
       }),
       transporter.sendMail({
         from: `"Pure Marketing" <${process.env.SMTP_USER}>`,
         to: email,
-        subject: "Your strategy call is confirmed — Pure Marketing",
+        subject: "Your strategy call is confirmed: Pure Marketing",
         html: confirmationHtml({ name, date, time }),
       }),
     ]);

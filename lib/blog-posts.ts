@@ -46,7 +46,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
     category: "Electrician Marketing",
     title: "How Electricians Get More Leads Without Relying on Word of Mouth",
     excerpt:
-      "Most electricians get 80% of their business from referrals. That feels safe — until referrals dry up and the schedule empties. Here's the system we use to put electricians in front of homeowners searching for them right now.",
+      "Most electricians get 80% of their business from referrals. That feels safe, until referrals dry up and the schedule empties. Here's the system we use to put electricians in front of homeowners searching for them right now.",
     author: "Asad Saif",
     date: "January 14, 2025",
     readTime: "7 min read",
@@ -69,7 +69,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
     category: "Plumber Marketing",
     title: "Why Your Plumbing Business Is Missing Emergency Calls (And How to Fix It)",
     excerpt:
-      "Every day, dozens of homeowners in your service area search for an emergency plumber and call someone else. Not because that company is better — because they show up on Google and you don't. Here's how to fix it.",
+      "Every day, dozens of homeowners in your service area search for an emergency plumber and call someone else. Not because that company is better, but because they show up on Google and you don't. Here's how to fix it.",
     author: "Asad Saif",
     date: "February 3, 2025",
     readTime: "7 min read",
@@ -92,7 +92,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
     category: "HVAC Marketing",
     title: "How HVAC Companies Stay Fully Booked Through Every Season",
     excerpt:
-      "Most HVAC companies are overwhelmed in summer and bored in spring. The slow season isn't inevitable — it's a marketing problem. Here's the campaign strategy that keeps our HVAC clients busy every month of the year.",
+      "Most HVAC companies are overwhelmed in summer and bored in spring. The slow season isn't inevitable: it's a marketing problem. Here's the campaign strategy that keeps our HVAC clients busy every month of the year.",
     author: "Asad Saif",
     date: "February 18, 2025",
     readTime: "8 min read",
@@ -115,7 +115,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
     category: "Painter Marketing",
     title: "How Painting Companies Book 3 Months in Advance Without Cold Calling",
     excerpt:
-      "Painting is highly visual, highly seasonal, and extremely competitive for online ads. But the companies winning aren't bidding harder — they're using before/after video content to pre-sell homeowners before a competitor even gets a callback.",
+      "Painting is highly visual, highly seasonal, and extremely competitive for online ads. But the companies winning aren't bidding harder, they're using before/after video content to pre-sell homeowners before a competitor even gets a callback.",
     author: "Asad Saif",
     date: "March 4, 2025",
     readTime: "7 min read",
@@ -207,7 +207,7 @@ export const ALL_POSTS: BlogPostMeta[] = [
     category: "Landscaper Marketing",
     title: "How Landscaping Companies Get Consistent Contracts (Not Just One-Time Jobs)",
     excerpt:
-      "One-time lawn cuts pay the bills. Seasonal maintenance contracts build a business. The difference is marketing — specifically, how you position your services online to attract homeowners looking for an ongoing landscaping partner.",
+      "One-time lawn cuts pay the bills. Seasonal maintenance contracts build a business. The difference is marketing: specifically, how you position your services online to attract homeowners looking for an ongoing landscaping partner.",
     author: "Asad Saif",
     date: "May 12, 2025",
     readTime: "7 min read",

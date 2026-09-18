@@ -22,7 +22,7 @@ export default function RestaurantsContent() {
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">2. The Review Strategy That Actually Works</h2>
       <p>
-        GTA diners are among the most review-conscious consumers in the country. A restaurant with 200 reviews averaging 4.4 stars will almost always beat one with 30 reviews at 4.8 — because volume signals legitimacy. The review system that works: train front-of-house staff to ask right after a compliment, place a QR code on the check presenter linking directly to your Google review page, and send an automated follow-up text to online order customers 1 hour after delivery. Respond to every review, positive and negative, within 48 hours.
+        GTA diners are among the most review-conscious consumers in the country. A restaurant with 200 reviews averaging 4.4 stars will almost always beat one with 30 reviews at 4.8, because volume signals legitimacy. The review system that works: train front-of-house staff to ask right after a compliment, place a QR code on the check presenter linking directly to your Google review page, and send an automated follow-up text to online order customers 1 hour after delivery. Respond to every review, positive and negative, within 48 hours.
       </p>
 
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden my-10 border border-border shadow">
@@ -37,7 +37,7 @@ export default function RestaurantsContent() {
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">3. Social Media: What Actually Drives Reservations</h2>
       <p>
-        Instagram and TikTok are the primary discovery channels for food in Toronto. Short-form video — specifically Reels and TikToks — still has a massive organic reach advantage over still images. The content that converts: 15-second dish reveals and close-up plating clips, behind-the-scenes kitchen content, special announcements with urgency (&ldquo;Friday brunch this weekend — only 12 tables left&rdquo;), and user-generated content reposts.
+        Instagram and TikTok are the primary discovery channels for food in Toronto. Short-form video, specifically Reels and TikToks, still has a massive organic reach advantage over still images. The content that converts: 15-second dish reveals and close-up plating clips, behind-the-scenes kitchen content, special announcements with urgency (&ldquo;Friday brunch this weekend, only 12 tables left&rdquo;), and user-generated content reposts.
       </p>
       <p>
         Use hyper-local hashtags alongside dish tags: #mississaugaeats, #bramptonrestaurants, #etobicokefood, #gtafoodie. Tag your location on every post. Instagram&apos;s location-based explore feed is a significant organic discovery channel for local food content.

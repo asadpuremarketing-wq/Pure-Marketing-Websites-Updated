@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "Stop Waiting for Referrals.",
   headlineAccent: "Get Qualified Calls Every Week.",
   subheadline:
-    "Websites, Google, Content, Ads, Automation & SEO — unified into one predictable lead generation machine built exclusively for electricians.",
+    "Websites, Google, Content, Ads, Automation & SEO: unified into one predictable lead generation machine built exclusively for electricians.",
   heroCheckmarks: ["More Service Calls", "Higher-Value Panels & Installs", "Fully Booked Schedule"],
   dashboard: {
     url: "sparkelectrical.ca",
@@ -95,14 +95,14 @@ const config: IndustryFullConfig = {
   videoBullets: [
     "Why most electricians lose leads to competitors with worse reviews",
     "The 9-step system we build to put you at the top of Google",
-    "How we generate emergency calls 24/7 — not just during business hours",
+    "How we generate emergency calls 24/7, not just during business hours",
     "What to expect in your first 90 days with us",
   ],
   growthSteps: [
     { num: "01", icon: "Globe",      title: "Electrician Website",            desc: "Fast, mobile-first site with emergency call buttons, service pages, and trust signals built to convert visitors into calls." },
     { num: "02", icon: "MapPin",     title: "Google Business Profile",        desc: "Fully optimized GBP so you appear in the top 3 on Maps for every electrical search in your area." },
     { num: "03", icon: "Star",       title: "Reviews & Reputation",           desc: "Automated review requests after every job to build a 5-star reputation that wins more residential bids." },
-    { num: "04", icon: "BarChart2",  title: "Lead Tracking Setup",            desc: "Full visibility into every call and form — so we know exactly which campaigns bring real jobs." },
+    { num: "04", icon: "BarChart2",  title: "Lead Tracking Setup",            desc: "Full visibility into every call and form, so we know exactly which campaigns bring real jobs." },
     { num: "05", icon: "Video",      title: "Monthly Content",                desc: "Job site photos, panel upgrade reels, and branded posts that build authority in your local market." },
     { num: "06", icon: "TrendingUp", title: "Google Ads & Local Service Ads", desc: "Search ads and pay-per-lead LSA campaigns targeting homeowners searching for electricians right now." },
     { num: "07", icon: "Share2",     title: "Meta Ads",                       desc: "Facebook & Instagram ads that build brand awareness and generate estimate requests in your service area." },

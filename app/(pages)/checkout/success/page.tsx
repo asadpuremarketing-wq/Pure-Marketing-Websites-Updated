@@ -16,7 +16,7 @@ const NEXT_STEPS = [
   { icon: Phone,        title: "We call you within 1 business day", desc: "Our team reaches out to schedule your onboarding call at a time that works for you." },
   { icon: MessageSquare, title: "Brand intake & strategy session",   desc: "We learn your brand voice, target audience, and content goals." },
   { icon: Calendar,     title: "Content calendar sent for approval", desc: "Review and approve your first month of posts before anything goes live." },
-  { icon: Star,         title: "We go live!",                        desc: "Daily posting begins — sit back and watch your audience grow." },
+  { icon: Star,         title: "We go live!",                        desc: "Daily posting begins, sit back and watch your audience grow." },
 ];
 
 function SuccessContent() {
@@ -58,7 +58,7 @@ function SuccessContent() {
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
                 className="text-white/50 text-[14px]"
               >
-                Welcome to Pure Marketing — you&apos;re officially on board.
+                Welcome to Pure Marketing, you&apos;re officially on board.
               </motion.p>
             </div>
           </div>

@@ -43,7 +43,7 @@ const config: IndustryFullConfig = {
   headline: "More Emergency Calls.",
   headlineAccent: "24/7. Around the Clock.",
   subheadline:
-    "Websites, Google, Local Ads, Automation & SEO — one always-on system that puts your locksmith business at the top of Google when someone needs you most.",
+    "Websites, Google, Local Ads, Automation & SEO: one always-on system that puts your locksmith business at the top of Google when someone needs you most.",
   heroCheckmarks: [
     "More Emergency Lockout Calls",
     "Top Google & Maps Rankings",
@@ -80,7 +80,7 @@ const config: IndustryFullConfig = {
     {
       icon: "Zap",
       title: "Emergencies Won't Wait",
-      desc: "Someone locked out of their car or home calls the first locksmith they find. If you're not showing at the top of Google in that moment, the call — and the revenue — goes elsewhere.",
+      desc: "Someone locked out of their car or home calls the first locksmith they find. If you're not showing at the top of Google in that moment, the call, and the revenue, goes elsewhere.",
     },
     {
       icon: "MapPin",
@@ -94,24 +94,24 @@ const config: IndustryFullConfig = {
     },
   ],
   videoLabel: "How We Grow Locksmith Businesses",
-  videoTitle: "Watch How We Put Locksmiths at the Top of Google — 24/7",
+  videoTitle: "Watch How We Put Locksmiths at the Top of Google, 24/7",
   videoDesc:
     "A 2-minute breakdown of the emergency advertising and local SEO system that generates around-the-clock lockout calls for locksmiths across Canada.",
   videoBullets: [
     "Why most locksmiths miss emergency calls that should be theirs",
     "How Google Local Service Ads put you first for every lockout search near you",
     "Why missed-call text-back automation is the single highest-ROI tool for locksmiths",
-    "What to expect in your first 7 days — the fastest launch in our entire system",
+    "What to expect in your first 7 days: the fastest launch in our entire system",
   ],
   growthSteps: [
     { num: "01", icon: "Globe",      title: "Locksmith Website",          desc: "Fast, mobile-first site with prominent click-to-call, service area pages, and emergency messaging that converts panic into calls." },
     { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Optimized GBP with 24/7 availability, service areas, and photos to rank in the top 3 for lockout searches near you." },
-    { num: "03", icon: "Star",       title: "Reviews & Trust Signals",    desc: "Automated post-job review requests that build a 5-star reputation — the #1 trust factor for emergency service calls." },
+    { num: "03", icon: "Star",       title: "Reviews & Trust Signals",    desc: "Automated post-job review requests that build a 5-star reputation: the #1 trust factor for emergency service calls." },
     { num: "04", icon: "BarChart2",  title: "Call Tracking & Analytics",  desc: "Every call source tracked so we know exactly which keywords and ads bring real lockout jobs." },
     { num: "05", icon: "Video",      title: "Monthly Content",            desc: "Security tips, lock brand content, and local awareness posts that keep your business visible between emergencies." },
     { num: "06", icon: "TrendingUp", title: "Google Ads & LSA",           desc: "Emergency search ads and pay-per-lead Local Service Ads that put you first when someone is locked out right now." },
     { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram awareness campaigns targeting homeowners and vehicle owners in your service radius." },
-    { num: "08", icon: "Zap",        title: "Missed-Call Text Recovery",  desc: "Instant automated texts fire when a panicked caller hangs up — recovering high-value emergency leads before they call someone else." },
+    { num: "08", icon: "Zap",        title: "Missed-Call Text Recovery",  desc: "Instant automated texts fire when a panicked caller hangs up, recovering high-value emergency leads before they call someone else." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Neighbourhood and service-type pages that rank for residential, automotive, and commercial locksmith searches organically." },
   ],
   resultsHeadline: "Hear It From Our Locksmith Clients",
@@ -142,7 +142,7 @@ const config: IndustryFullConfig = {
   ],
   ctaHeadline: "Every Missed Call Is\nRevenue You're Losing.",
   ctaSubtext:
-    "Let's build your locksmith growth system so every emergency search in your area finds your business first — day or night.",
+    "Let's build your locksmith growth system so every emergency search in your area finds your business first, day or night.",
 };
 
 const FAQ_SCHEMA = {

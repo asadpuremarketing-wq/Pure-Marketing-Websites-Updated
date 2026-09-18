@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "Stop Waiting for Word of Mouth.",
   headlineAccent: "Book Projects Consistently.",
   subheadline:
-    "Websites, Google, Before/After Content, Ads & Automation — one system that keeps painting companies booked solid with residential and commercial projects.",
+    "Websites, Google, Before/After Content, Ads & Automation: one system that keeps painting companies booked solid with residential and commercial projects.",
   heroCheckmarks: [
     "More Residential Projects",
     "Higher-Value Commercial Jobs",
@@ -74,7 +74,7 @@ const config: IndustryFullConfig = {
   ],
   problemHeadline: "Why Great Painters Struggle to Stay Fully Booked",
   problemSubtext:
-    "Beautiful work sells itself — but only if people can find you. Without a marketing system, your best projects go unseen.",
+    "Beautiful work sells itself, but only if people can find you. Without a marketing system, your best projects go unseen.",
   painPoints: [
     {
       icon: "RefreshCw",
@@ -89,7 +89,7 @@ const config: IndustryFullConfig = {
     {
       icon: "MessageSquare",
       title: "Quotes Go Cold Without Follow-Up",
-      desc: "A homeowner gets 3 quotes. The painter who follows up fastest wins. Without automation, that job goes to whoever followed up first — not who quoted best.",
+      desc: "A homeowner gets 3 quotes. The painter who follows up fastest wins. Without automation, that job goes to whoever followed up first, not who quoted best.",
     },
   ],
   videoLabel: "How We Grow Painting Companies",
@@ -98,7 +98,7 @@ const config: IndustryFullConfig = {
     "A 2-minute breakdown of the visual content and paid advertising system that drives consistent quote requests for painting companies across Canada.",
   videoBullets: [
     "Why most painters lose jobs to competitors with worse work but better marketing",
-    "The power of before/after content — the highest-converting format for painting companies",
+    "The power of before/after content: the highest-converting format for painting companies",
     "How Google & Meta ads target homeowners actively looking to repaint",
     "What to expect in your first 75 days with the full system running",
   ],
@@ -107,7 +107,7 @@ const config: IndustryFullConfig = {
     { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Optimized GBP with project photos and keyword-rich descriptions to rank for interior, exterior, and cabinet painting searches." },
     { num: "03", icon: "Star",       title: "Reviews & Portfolio",        desc: "Systematic review requests and a curated before/after portfolio that convince homeowners before they even call." },
     { num: "04", icon: "BarChart2",  title: "Quote & Lead Tracking",      desc: "Track every form submission, call, and quote request so we know which channels produce real signed projects." },
-    { num: "05", icon: "Video",      title: "Before/After Content",       desc: "Professional photo and video of your completed jobs — the highest-converting content for painting companies." },
+    { num: "05", icon: "Video",      title: "Before/After Content",       desc: "Professional photo and video of your completed jobs: the highest-converting content for painting companies." },
     { num: "06", icon: "TrendingUp", title: "Google Ads",                 desc: "Search campaigns targeting high-intent queries like 'interior painters near me' and 'exterior house painting quotes'." },
     { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram before/after ads that stop the scroll and drive estimate requests from local homeowners." },
     { num: "08", icon: "Zap",        title: "Instant Quote Follow-Up",    desc: "Automated follow-up sequences after every quote request so leads stay warm until they book." },
@@ -117,7 +117,7 @@ const config: IndustryFullConfig = {
   results: [
     { metric: "324%", label: "Project Increase", client: "Premier Painting Solutions", detail: "From inconsistent referrals to 12+ quote requests per month in 75 days." },
     { metric: "$52K", label: "Revenue in 90 Days", client: "Artisan Painters", detail: "12 projects per month and $52K in tracked revenue within the first quarter." },
-    { metric: "8 wk.", label: "Booked in Advance", client: "ProPaint Hamilton", detail: "Booked 8 weeks out in advance — never a slow week since the system launched." },
+    { metric: "8 wk.", label: "Booked in Advance", client: "ProPaint Hamilton", detail: "Booked 8 weeks out in advance, never a slow week since the system launched." },
   ],
   videoReviews: [
     { name: "David P.", company: "Premier Painting Solutions", result: "324%+ More Projects", dur: "1:42" },

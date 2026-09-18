@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, TrendingUp, Video, Share2, BarChart2,
-  Check, ArrowRight, Phone, ChevronDown, ChevronLeft, ChevronRight,
+  ArrowRight, Phone, ChevronDown, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -189,7 +189,7 @@ const SERVICES = [
     title: "Web Development",
     headline: "A Website That Actually Converts Visitors Into Customers",
     description:
-      "Most local business websites are digital brochures — pretty but passive. We build websites engineered around one goal: turning visitors into leads. Every page, every button, every form is built to make your phone ring.",
+      "Most local business websites are digital brochures: pretty but passive. We build websites engineered around one goal: turning visitors into leads. Every page, every button, every form is built to make your phone ring.",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=85",
     result: "Avg. 3× more contact form submissions vs. DIY sites",
     outcomes: [
@@ -202,7 +202,7 @@ const SERVICES = [
       author: "Gravity Contractors, Hamilton ON",
     },
     features: [
-      { title: "Custom Responsive Design", desc: "Built from scratch to match your brand — not a template. Looks perfect on every screen size." },
+      { title: "Custom Responsive Design", desc: "Built from scratch to match your brand, not a template. Looks perfect on every screen size." },
       { title: "Lead Capture Optimization", desc: "Strategically placed CTAs, contact forms, and click-to-call buttons that convert visitors at every stage." },
       { title: "Mobile-First Development", desc: "Over 70% of local search traffic is mobile. Your site is built for mobile speed and usability first." },
       { title: "SEO Technical Foundation", desc: "Proper heading structure, meta tags, schema markup, and page speed optimization built in from day one." },
@@ -217,7 +217,7 @@ const SERVICES = [
     ],
     faqs: [
       { q: "Do I need to provide content?", a: "We can work with content you have or help you develop it. Copywriting is available as an add-on." },
-      { q: "What if I already have a website?", a: "We can redesign your existing site or rebuild it from scratch — whichever makes more sense for your goals." },
+      { q: "What if I already have a website?", a: "We can redesign your existing site or rebuild it from scratch, whichever makes more sense for your goals." },
       { q: "Do you handle hosting?", a: "Yes. We recommend and set up hosting on your behalf and can manage it ongoing for a small monthly fee." },
       { q: "How long does it take?", a: "Typically 2–3 weeks from design approval to launch, depending on content readiness." },
     ],
@@ -234,7 +234,7 @@ const SERVICES = [
     title: "Lead Generation System",
     headline: "Stop Relying on Referrals. Build a Predictable Lead Machine.",
     description:
-      "Referrals are great — until they dry up. We build a complete, done-for-you lead generation system using Google Ads, Meta Ads, and Local Service Ads so your phone rings consistently every single week.",
+      "Referrals are great, until they dry up. We build a complete, done-for-you lead generation system using Google Ads, Meta Ads, and Local Service Ads so your phone rings consistently every single week.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
     result: "Clients average 40–80 qualified leads per month",
     outcomes: [
@@ -263,7 +263,7 @@ const SERVICES = [
     faqs: [
       { q: "How fast will I see leads?", a: "Most clients see their first leads within 2–3 weeks. Significant volume typically builds over 30–60 days as campaigns optimize." },
       { q: "What is the minimum ad budget?", a: "Our management fee is $1,499/month. We recommend a minimum of $500–$1,500/month in ad spend on top of that to see meaningful results." },
-      { q: "Do I need a good website first?", a: "Yes — we will not run traffic to a site that will not convert. If your site needs work, we will tell you upfront." },
+      { q: "Do I need a good website first?", a: "Yes, we will not run traffic to a site that will not convert. If your site needs work, we will tell you upfront." },
       { q: "Is there a contract?", a: "No long-term contracts. Month-to-month. We earn your business every single month." },
     ],
     relatedSlugs: ["web-development", "google-meta-ads"],
@@ -279,7 +279,7 @@ const SERVICES = [
     title: "Video Production",
     headline: "Professional Video That Makes Your Business Impossible to Ignore",
     description:
-      "People buy from businesses they trust, and nothing builds trust faster than video. We produce professional video content for local businesses — from 15-second social clips to cinematic brand stories — that drives real engagement and leads.",
+      "People buy from businesses they trust, and nothing builds trust faster than video. We produce professional video content for local businesses, from 15-second social clips to cinematic brand stories, that drives real engagement and leads.",
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=85",
     result: "Video content gets 4× more reach than static posts",
     outcomes: [
@@ -295,7 +295,7 @@ const SERVICES = [
       { title: "Professional Video Shoots", desc: "We come to your location with professional gear. Multiple angles, multiple formats, one efficient shoot day." },
       { title: "Concept Development", desc: "We plan every shot list and script in advance. No wasted time on the day of the shoot." },
       { title: "Professional Editing", desc: "Color grading, sound design, motion graphics, and subtitles included in every edit." },
-      { title: "Multi-Format Delivery", desc: "Every video delivered in all required formats — vertical for Reels/TikTok, horizontal for YouTube and ads." },
+      { title: "Multi-Format Delivery", desc: "Every video delivered in all required formats: vertical for Reels/TikTok, horizontal for YouTube and ads." },
       { title: "Licensed Music", desc: "Professional royalty-free music included. No copyright strikes on your social posts." },
       { title: "Unlimited Revisions", desc: "We revise until you are satisfied. No extra charges for revision rounds." },
     ],
@@ -309,7 +309,7 @@ const SERVICES = [
       { q: "What types of video do you produce?", a: "Brand story videos, social media content, before/after project videos, testimonial videos, food and product content, and property tours." },
       { q: "Do you travel outside Hamilton?", a: "Yes. We work throughout the GTA and surrounding areas. Travel fees may apply for distant locations." },
       { q: "How many videos do I get per shoot?", a: "A typical half-day shoot produces 8–12 pieces of social content plus one long-form asset." },
-      { q: "Can you post the content for us?", a: "Yes — combine with our Social Media Management service and we handle everything end to end." },
+      { q: "Can you post the content for us?", a: "Yes, combine with our Social Media Management service and we handle everything end to end." },
     ],
     relatedSlugs: ["social-media-management", "lead-generation"],
   },
@@ -324,7 +324,7 @@ const SERVICES = [
     title: "Social Media Management",
     headline: "Your Brand, Active Online Every Day. Without You Lifting a Finger.",
     description:
-      "Inconsistent posting kills your credibility. We fully manage your social media — creating content, posting daily, engaging with your audience, and growing your following — so you can focus on running your business.",
+      "Inconsistent posting kills your credibility. We fully manage your social media: creating content, posting daily, engaging with your audience, and growing your following, so you can focus on running your business.",
     image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200&q=85",
     result: "Average 2× follower growth in the first 90 days",
     outcomes: [
@@ -338,7 +338,7 @@ const SERVICES = [
     },
     features: [
       { title: "Daily Content Creation", desc: "Original posts, graphics, and captions written and designed specifically for your brand and audience." },
-      { title: "Multi-Platform Posting", desc: "Instagram, Facebook, TikTok, LinkedIn — we manage whichever platforms your customers use." },
+      { title: "Multi-Platform Posting", desc: "Instagram, Facebook, TikTok, LinkedIn: we manage whichever platforms your customers use." },
       { title: "Community Engagement", desc: "We respond to comments and DMs promptly, maintaining your brand voice across every interaction." },
       { title: "Monthly Content Calendar", desc: "A full month of content planned and approved by you before we post anything." },
       { title: "Growth Strategy", desc: "Hashtag research, collaboration outreach, and platform-specific strategies to grow your following." },
@@ -369,7 +369,7 @@ const SERVICES = [
     title: "Google and Meta Ads",
     headline: "Every Dollar You Spend on Ads Should Come Back Multiplied.",
     description:
-      "Wasted ad spend is the most common complaint we hear from new clients. We build and manage Google and Meta ad campaigns where every dollar is tied to a measurable outcome — leads, calls, bookings, or revenue.",
+      "Wasted ad spend is the most common complaint we hear from new clients. We build and manage Google and Meta ad campaigns where every dollar is tied to a measurable outcome: leads, calls, bookings, or revenue.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85",
     result: "Average 5–8× return on ad spend for local clients",
     outcomes: [
@@ -397,7 +397,7 @@ const SERVICES = [
     ],
     faqs: [
       { q: "What ad budget do I need?", a: "Our management fee is $500/month. On top of that, we recommend a minimum of $500–$1,500/month in ad spend depending on your market and goals." },
-      { q: "Google Ads or Meta Ads — which is better?", a: "Depends on your industry. Google captures high-intent searches. Meta builds awareness and retargets. Most clients benefit from both." },
+      { q: "Google Ads or Meta Ads: which is better?", a: "Depends on your industry. Google captures high-intent searches. Meta builds awareness and retargets. Most clients benefit from both." },
       { q: "Do you manage the ad account or do I?", a: "We manage everything inside your own ad account, which you own. You always have full access and visibility." },
       { q: "What results can I realistically expect?", a: "In competitive local markets, a well-managed campaign typically generates leads at $20–$60 each depending on industry." },
     ],
@@ -527,115 +527,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       {/* VIDEO PORTFOLIO */}
       {service.slug === "video-production" && <VideoPortfolio />}
-
-      {/* VIDEO PRODUCTION PACKAGES */}
-      {service.slug === "video-production" && (
-        <section className="bg-[#111] py-24 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-          <div className="relative z-10 max-w-[1100px] mx-auto px-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-              <span className="text-xs font-semibold uppercase tracking-widest text-accent-primary border border-accent-primary/30 rounded-full px-4 py-1.5 mb-4 inline-block">Pricing</span>
-              <h2 className="text-[32px] md:text-[42px] font-bold text-white leading-tight mt-4">Video Production Packages</h2>
-              <p className="text-white/50 text-[16px] mt-3">One-time packages. No retainer required.</p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-              {[
-                {
-                  name: "Basic",
-                  price: "$699",
-                  badge: null,
-                  features: [
-                    "3 short-form videos (Reels / TikTok)",
-                    "Half-day shoot (up to 2 hours)",
-                    "Basic colour correction",
-                    "Captions and subtitles",
-                    "All social formats included",
-                    "2 revision rounds",
-                  ],
-                  popular: false,
-                },
-                {
-                  name: "Standard",
-                  price: "$999",
-                  badge: "Most Popular",
-                  features: [
-                    "8 short-form videos",
-                    "Full shoot day (up to 4 hours)",
-                    "Colour grading and sound design",
-                    "Licensed music included",
-                    "All social and ad formats",
-                    "Shot list and concept planning",
-                    "3 revision rounds",
-                  ],
-                  popular: true,
-                },
-                {
-                  name: "Premium",
-                  price: "$1,299",
-                  badge: "Best Value",
-                  features: [
-                    "12-15 short-form videos",
-                    "1 brand story video (long-form)",
-                    "Full shoot day",
-                    "Motion graphics and premium editing",
-                    "Script and concept development",
-                    "Licensed music and sound design",
-                    "All formats, delivered in 7 days",
-                    "Unlimited revisions",
-                  ],
-                  popular: false,
-                },
-              ].map((pkg, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative"
-                >
-                  {pkg.badge && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-accent-primary text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap shadow-md">
-                      {pkg.badge}
-                    </div>
-                  )}
-                  <div className={`rounded-2xl p-8 flex flex-col h-full border ${
-                    pkg.popular
-                      ? "bg-white/[0.07] border-accent-primary shadow-[0_4px_32px_rgba(240,100,40,0.15)]"
-                      : "bg-white/[0.03] border-white/10"
-                  }`}>
-                    <p className="text-white/50 text-sm font-medium mb-1">{pkg.name}</p>
-                    <div className="mb-6">
-                      <span className="text-[42px] font-bold text-white leading-none">{pkg.price}</span>
-                    </div>
-
-                    <ul className="space-y-3 mb-8 flex-grow">
-                      {pkg.features.map((f, j) => (
-                        <li key={j} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-white/60">{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link
-                      href="/contact"
-                      className={`w-full py-3 rounded-xl text-center text-sm font-semibold transition-all duration-300 ${
-                        pkg.popular
-                          ? "bg-accent-primary text-white hover:bg-accent-hover"
-                          : "border border-white/20 text-white hover:border-accent-primary hover:text-accent-primary"
-                      }`}
-                    >
-                      Book a Shoot
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* PORTFOLIO - Web Development */}
       {service.slug === "web-development" && (
@@ -793,130 +684,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <Link href="/portfolio" className="text-sm text-text-muted hover:text-accent-primary transition-colors">
                 View full portfolio →
               </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* SOCIAL MEDIA PACKAGES */}
-      {service.slug === "social-media-management" && (
-        <section className="bg-[#111] py-24 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-          <div className="relative z-10 max-w-[1100px] mx-auto px-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-              <span className="text-xs font-semibold uppercase tracking-widest text-accent-primary border border-accent-primary/30 rounded-full px-4 py-1.5 mb-4 inline-block">Pricing</span>
-              <h2 className="text-[32px] md:text-[42px] font-bold text-white leading-tight mt-4">Social Media Packages</h2>
-              <p className="text-white/50 text-[16px] mt-3">No lock-in on monthly. Longer commitments save you more.</p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-              {[
-                {
-                  name: "Monthly",
-                  price: "$1,500",
-                  period: "/month",
-                  commitment: "Month-to-month",
-                  badge: null,
-                  cancellation: null,
-                  planKey: "1-month",
-                  features: [
-                    "Full social media management",
-                    "Daily content creation & posting",
-                    "Instagram, Facebook, TikTok",
-                    "Community engagement",
-                    "Monthly analytics report",
-                    "Cancel anytime",
-                  ],
-                  popular: false,
-                },
-                {
-                  name: "3 Months",
-                  price: "$1,199",
-                  period: "/month",
-                  commitment: "3-month commitment",
-                  badge: "Save $900",
-                  cancellation: "25% cancellation fee applies",
-                  planKey: "3-month",
-                  features: [
-                    "Everything in Monthly",
-                    "Priority content turnaround",
-                    "Quarterly strategy review",
-                    "Advanced growth tracking",
-                    "Paid monthly, 3-month term",
-                    "25% fee to cancel early",
-                  ],
-                  popular: true,
-                },
-                {
-                  name: "6 Months",
-                  price: "$899",
-                  period: "/month",
-                  commitment: "6-month commitment",
-                  badge: "Best Value",
-                  cancellation: "25% cancellation fee applies",
-                  planKey: "6-month",
-                  features: [
-                    "Everything in 3-Month",
-                    "Monthly content strategy call",
-                    "Competitor analysis included",
-                    "Influencer outreach support",
-                    "Paid monthly, 6-month term",
-                    "25% fee to cancel early",
-                  ],
-                  popular: false,
-                },
-              ].map((pkg, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative"
-                >
-                  {pkg.badge && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-accent-primary text-white text-[11px] font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap shadow-md">
-                      {pkg.badge}
-                    </div>
-                  )}
-                  <div className={`rounded-2xl p-8 flex flex-col h-full border ${
-                    pkg.popular
-                      ? "bg-white/[0.07] border-accent-primary shadow-[0_4px_32px_rgba(240,100,40,0.15)]"
-                      : "bg-white/[0.03] border-white/10"
-                  }`}>
-                    <p className="text-white/50 text-sm font-medium mb-1">{pkg.name}</p>
-                    <div className="mb-1">
-                      <span className="text-[42px] font-bold text-white leading-none">{pkg.price}</span>
-                      <span className="text-white/40 text-sm ml-1">{pkg.period}</span>
-                    </div>
-                    <p className="text-white/30 text-[12px] mb-6">{pkg.commitment}</p>
-
-                    <ul className="space-y-3 mb-6 flex-grow">
-                      {pkg.features.map((f, j) => (
-                        <li key={j} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
-                          <span className={`text-sm ${f.includes("fee") ? "text-white/30" : "text-white/60"}`}>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {pkg.cancellation && (
-                      <p className="text-[11px] text-white/25 mb-5 border-t border-white/10 pt-4">⚠ {pkg.cancellation}</p>
-                    )}
-
-                    <Link
-                      href={`/checkout?plan=${pkg.planKey}`}
-                      className={`w-full py-3 rounded-xl text-center text-sm font-semibold transition-all duration-300 ${
-                        pkg.popular
-                          ? "bg-accent-primary text-white hover:bg-accent-hover"
-                          : "border border-white/20 text-white hover:border-accent-primary hover:text-accent-primary"
-                      }`}
-                    >
-                      Get Started
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
