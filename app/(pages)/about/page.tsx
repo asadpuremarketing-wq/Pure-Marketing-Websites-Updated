@@ -88,10 +88,10 @@ const TEAM = [
 ];
 
 const TIMELINE = [
-  { year: "2019", event: "Founded in Hamilton, ON with a focus on local trades" },
-  { year: "2021", event: "Expanded to restaurants and real estate verticals" },
-  { year: "2023", event: "Crossed $1M in managed ad spend for clients" },
-  { year: "2025", event: "Serving 150+ businesses across Canada and the US" },
+  { year: "2024", event: "Founded in Hamilton, ON with a focus on local trades" },
+  { year: "2024", event: "Expanded to restaurants and real estate verticals" },
+  { year: "2025", event: "Crossed $1M in managed ad spend for clients" },
+  { year: "2026", event: "Serving 150+ businesses across Canada and the US" },
 ];
 
 const SOCIAL_CHANNELS = [
