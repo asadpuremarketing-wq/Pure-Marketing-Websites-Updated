@@ -57,7 +57,7 @@ const STATS = [
   { value: "250%+", label: "Average lead increase" },
   { value: "90",    label: "Days to full system" },
   { value: "10+",   label: "Qualified leads/month" },
-  { value: "$80K+", label: "Average project value" },
+  { value: "50+",   label: "Projects booked" },
 ];
 
 

@@ -60,13 +60,13 @@ const config: IndustryFullConfig = {
   heroMetrics: [
     { label: "Weekly Calls", val: "289", chg: "+38%" },
     { label: "Jobs Booked", val: "164", chg: "+32%" },
-    { label: "Revenue", val: "$41K", chg: "+44%" },
+    { label: "Revenue", val: "+144%", chg: "+44%" },
   ],
   bandStats: [
     { value: "289%", label: "Avg lead increase" },
     { value: "22+", label: "Calls per week" },
     { value: "14", label: "Days to first lead" },
-    { value: "$41K", label: "Revenue 90 days" },
+    { value: "144%", label: "Revenue growth 90 days" },
   ],
   problemHeadline: "Why Plumbers Can't Break Out of Referral Dependency",
   problemSubtext:
@@ -112,7 +112,7 @@ const config: IndustryFullConfig = {
   resultsHeadline: "Hear It From Our Plumbing Clients",
   results: [
     { metric: "289%", label: "Lead Increase",      client: "Blue Wave Plumbing",    detail: "From word-of-mouth only to 22 qualified calls every week from Google." },
-    { metric: "$41K", label: "Revenue in 90 Days", client: "Reliable Plumbers Inc", detail: "Fully booked schedule and $41K in tracked revenue within 90 days." },
+    { metric: "144%", label: "Revenue Growth in 90 Days", client: "Reliable Plumbers Inc", detail: "Fully booked schedule and 144% more tracked revenue within 90 days." },
     { metric: "6 wk.", label: "Booked in Advance", client: "Hamilton Plumbing Co",  detail: "Booked 6 weeks out in advance within the first quarter of the system." },
   ],
   videoReviews: [
@@ -142,7 +142,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does plumbing marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Plumbing lead generation with Pure Marketing starts from $1,499/month. Most clients achieve positive ROI within 30-60 days. Ad spend (the budget paid to Google) is separate and varies by market and competition level." },
+      acceptedAnswer: { "@type": "Answer", text: "Most clients achieve positive ROI within 30-60 days. Ad spend (the budget paid to Google) is separate and varies by market and competition level. Contact us for a free quote." },
     },
     {
       "@type": "Question",

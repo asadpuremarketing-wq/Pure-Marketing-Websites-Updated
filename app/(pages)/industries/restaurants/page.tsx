@@ -61,12 +61,12 @@ const config: IndustryFullConfig = {
   heroMetrics: [
     { label: "Reservations", val: "+89%", chg: "+89%" },
     { label: "Foot Traffic", val: "+62%", chg: "+62%" },
-    { label: "Revenue", val: "$68K", chg: "+6mo" },
+    { label: "Revenue", val: "+180%", chg: "+6mo" },
   ],
   bandStats: [
     { value: "89%", label: "More reservations" },
     { value: "62%", label: "More foot traffic" },
-    { value: "$68K", label: "Revenue 6 months" },
+    { value: "180%", label: "Revenue growth 6 months" },
     { value: "30", label: "Days to results" },
   ],
   hideProblem: true,
@@ -114,7 +114,7 @@ const config: IndustryFullConfig = {
   resultsHeadline: "Hear It From Our Restaurant Clients",
   results: [
     { metric: "89%", label: "More Reservations",    client: "Casa Grande Restaurant", detail: "From inconsistent covers to fully booked weekends every week within 30 days." },
-    { metric: "$68K", label: "Revenue in 6 Months", client: "Urban Kitchen",          detail: "62% more foot traffic and $68K in tracked additional revenue in 6 months." },
+    { metric: "180%", label: "Revenue Growth in 6 Months", client: "Urban Kitchen",   detail: "62% more foot traffic and 180% more tracked revenue in 6 months." },
     { metric: "100%", label: "Weekend Occupancy",   client: "Moussas Shawarma",       detail: "Fully booked every Friday and Saturday, with a waitlist on busy nights." },
   ],
   videoReviews: [
@@ -144,12 +144,12 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Should restaurants use Google Ads?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes, especially targeting hungry people nearby searching for specific cuisine or 'restaurants near me'. Combined with Google Business Profile optimization, Google Ads put your restaurant in front of people actively deciding where to eat. Pure Marketing manages restaurant Google Ads from $500/month." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes, especially targeting hungry people nearby searching for specific cuisine or 'restaurants near me'. Combined with Google Business Profile optimization, Google Ads put your restaurant in front of people actively deciding where to eat." },
     },
     {
       "@type": "Question",
       name: "How much does restaurant marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Restaurant social media management with Pure Marketing starts from $899/month (includes content creation, daily posting, and engagement). Google Ads management starts from $500/month. Most restaurant clients see positive results within 30-60 days. No long-term contracts required." },
+      acceptedAnswer: { "@type": "Answer", text: "Restaurant social media management with Pure Marketing includes content creation, daily posting, and engagement. Most restaurant clients see positive results within 30-60 days. No long-term contracts required." },
     },
   ],
 };

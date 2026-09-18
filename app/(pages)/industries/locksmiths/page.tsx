@@ -167,7 +167,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does locksmith marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Locksmith lead generation with Pure Marketing starts from $1,499/month. Ad spend (paid to Google) is additional and depends on your service area size. Most locksmith clients see positive ROI within 2-4 weeks due to the high urgency of lockout jobs." },
+      acceptedAnswer: { "@type": "Answer", text: "Ad spend (paid to Google) depends on your service area size. Most locksmith clients see positive ROI within 2-4 weeks due to the high urgency of lockout jobs. Contact us for a free quote." },
     },
   ],
 };

@@ -137,7 +137,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Do real estate agents need video marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Properties with professional video tours sell significantly faster than those without. Video also establishes the agent's personal brand, builds trust with sellers, and performs exceptionally on social media. Pure Marketing produces professional property tour and agent brand videos starting from $699." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Properties with professional video tours sell significantly faster than those without. Video also establishes the agent's personal brand, builds trust with sellers, and performs exceptionally on social media. Pure Marketing produces professional property tour and agent brand videos." },
     },
     {
       "@type": "Question",
@@ -147,7 +147,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does real estate marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Real estate video production starts from $699 per property or agent video. Social media management starts from $899/month. Google and Meta Ads management starts from $500/month. Pure Marketing offers custom packages for real estate agents, contact for a free audit." },
+      acceptedAnswer: { "@type": "Answer", text: "Pure Marketing offers custom packages for real estate agents covering video production, social media management, and Google and Meta Ads management. Contact for a free audit." },
     },
   ],
 };

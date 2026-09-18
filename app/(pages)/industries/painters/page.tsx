@@ -64,13 +64,13 @@ const config: IndustryFullConfig = {
   heroMetrics: [
     { label: "Monthly Projects", val: "324", chg: "+44%" },
     { label: "Quote Requests", val: "189", chg: "+38%" },
-    { label: "Revenue", val: "$52K", chg: "+41%" },
+    { label: "Revenue", val: "+141%", chg: "+41%" },
   ],
   bandStats: [
     { value: "324%", label: "Project increase" },
     { value: "12+", label: "Projects per month" },
     { value: "75", label: "Days to scale" },
-    { value: "$52K", label: "Revenue 90 days" },
+    { value: "141%", label: "Revenue growth 90 days" },
   ],
   problemHeadline: "Why Great Painters Struggle to Stay Fully Booked",
   problemSubtext:
@@ -116,7 +116,7 @@ const config: IndustryFullConfig = {
   resultsHeadline: "Hear It From Our Painting Clients",
   results: [
     { metric: "324%", label: "Project Increase", client: "Premier Painting Solutions", detail: "From inconsistent referrals to 12+ quote requests per month in 75 days." },
-    { metric: "$52K", label: "Revenue in 90 Days", client: "Artisan Painters", detail: "12 projects per month and $52K in tracked revenue within the first quarter." },
+    { metric: "141%", label: "Revenue Growth in 90 Days", client: "Artisan Painters", detail: "12 projects per month and 141% more tracked revenue within the first quarter." },
     { metric: "8 wk.", label: "Booked in Advance", client: "ProPaint Hamilton", detail: "Booked 8 weeks out in advance, never a slow week since the system launched." },
   ],
   videoReviews: [
@@ -151,7 +151,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does marketing for a painting company cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Painter lead generation with Pure Marketing starts from $1,499/month. Social media management starts from $899/month. Video production for before/after content starts from $699. All services are month-to-month with no long-term contracts required." },
+      acceptedAnswer: { "@type": "Answer", text: "Pure Marketing offers painter lead generation, social media management, and video production for before/after content. All services are month-to-month with no long-term contracts required." },
     },
   ],
 };

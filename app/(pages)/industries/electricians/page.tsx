@@ -60,13 +60,13 @@ const config: IndustryFullConfig = {
   heroMetrics: [
     { label: "New Calls", val: "312", chg: "+41%" },
     { label: "Jobs Booked", val: "186", chg: "+34%" },
-    { label: "Revenue", val: "$52K", chg: "+38%" },
+    { label: "Revenue", val: "+152%", chg: "+38%" },
   ],
   bandStats: [
     { value: "312%", label: "Avg lead increase" },
     { value: "18+", label: "Leads per week" },
     { value: "90", label: "Days to scale" },
-    { value: "$34K", label: "Avg revenue 90 days" },
+    { value: "152%", label: "Avg revenue growth 90 days" },
   ],
   problemHeadline: "Why Electricians Stay Stuck on Referrals",
   problemSubtext:
@@ -112,7 +112,7 @@ const config: IndustryFullConfig = {
   resultsHeadline: "Hear It From Our Electrician Clients",
   results: [
     { metric: "312%", label: "Lead Increase",    client: "Bright Spark Electric", detail: "Went from 3 calls/week to 18+. Now fully booked 4 weeks out." },
-    { metric: "$34K", label: "Revenue in 90 Days", client: "Premier Electrical",  detail: "18 jobs/week and $34K in revenue within the first 90 days." },
+    { metric: "152%", label: "Revenue Growth in 90 Days", client: "Premier Electrical", detail: "18 jobs/week and 152% more revenue within the first 90 days." },
     { metric: "4 wk.", label: "Fully Booked",    client: "GTA Electric",          detail: "Booked solid 4 weeks in advance within the first quarter." },
   ],
   videoReviews: [

@@ -64,13 +64,13 @@ const config: IndustryFullConfig = {
   heroMetrics: [
     { label: "Monthly Calls", val: "267", chg: "+35%" },
     { label: "Jobs Booked", val: "148", chg: "+29%" },
-    { label: "Revenue", val: "$36K", chg: "+41%" },
+    { label: "Revenue", val: "+141%", chg: "+41%" },
   ],
   bandStats: [
     { value: "267%", label: "Avg lead increase" },
     { value: "19+", label: "Service calls/month" },
     { value: "4.8★", label: "Avg Google rating" },
-    { value: "$36K", label: "Revenue 90 days" },
+    { value: "141%", label: "Revenue growth 90 days" },
   ],
   problemHeadline: "Why HVAC Companies Struggle to Stay Busy Off-Season",
   problemSubtext:
@@ -116,7 +116,7 @@ const config: IndustryFullConfig = {
   resultsHeadline: "Hear It From Our HVAC Clients",
   results: [
     { metric: "267%", label: "Lead Increase", client: "Climate Control Pro", detail: "From seasonal peaks only to consistent leads 12 months of the year." },
-    { metric: "$36K", label: "Revenue in 90 Days", client: "Comfort Systems HVAC", detail: "19 service calls per month and $36K in tracked revenue within 90 days." },
+    { metric: "141%", label: "Revenue Growth in 90 Days", client: "Comfort Systems HVAC", detail: "19 service calls per month and 141% more tracked revenue within 90 days." },
     { metric: "12 mo.", label: "Fully Booked", client: "Arctic Air HVAC", detail: "Booked solid every month of the year, including the slow spring season." },
   ],
   videoReviews: [
@@ -151,7 +151,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does HVAC marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "HVAC lead generation with Pure Marketing starts from $1,499/month. Most clients see 5-8x return on marketing investment within 60 days. Ad spend (budget paid to Google) is separate and adjusted based on season and service area." },
+      acceptedAnswer: { "@type": "Answer", text: "Most clients see a 5-8x return on marketing investment within 60 days. Ad spend (budget paid to Google) is separate and adjusted based on season and service area. Contact us for a free quote." },
     },
   ],
 };

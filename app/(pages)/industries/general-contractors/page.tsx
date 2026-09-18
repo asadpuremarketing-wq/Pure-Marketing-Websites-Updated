@@ -6,7 +6,7 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "General Contractor Growth System | 90-Day Marketing & Lead Generation - Pure Marketing",
   description:
-    "A complete 90-day marketing and lead generation system for general contractors. 10 proven systems: website, Google Ads, SEO, Meta Ads, follow-up automation and more. $4,500 CAD.",
+    "A complete 90-day marketing and lead generation system for general contractors. 10 proven systems: website, Google Ads, SEO, Meta Ads, follow-up automation and more.",
   keywords: [
     "general contractor marketing Canada",
     "Google Ads for contractors",
@@ -36,12 +36,6 @@ const SERVICE_SCHEMA = {
   description:
     "A complete 10-system 90-day marketing program for general contractors including website development, Google Ads, SEO, Meta Ads, follow-up automation, and retargeting.",
   url: `${BASE}/industries/general-contractors`,
-  offers: {
-    "@type": "Offer",
-    price: "4500",
-    priceCurrency: "CAD",
-    name: "90-Day General Contractor Growth System",
-  },
 };
 
 const FAQ_SCHEMA = {
@@ -66,7 +60,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does marketing for general contractors cost?",
-      acceptedAnswer: { "@type": "Answer", text: "General contractor lead generation with Pure Marketing starts from $1,499/month. The complete 90-Day Contractor Growth System is $4,500 and includes website development, Google Ads, Local SEO, Meta Ads, content creation, and follow-up automation. No long-term contracts." },
+      acceptedAnswer: { "@type": "Answer", text: "The complete 90-Day Contractor Growth System includes website development, Google Ads, Local SEO, Meta Ads, content creation, and follow-up automation. No long-term contracts. Contact us for a free quote." },
     },
   ],
 };
