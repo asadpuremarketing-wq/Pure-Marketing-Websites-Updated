@@ -262,7 +262,7 @@ const SERVICES = [
     ],
     faqs: [
       { q: "How fast will I see leads?", a: "Most clients see their first leads within 2–3 weeks. Significant volume typically builds over 30–60 days as campaigns optimize." },
-      { q: "What is the minimum ad budget?", a: "Our management fee is $1,499/month. We recommend a minimum of $500–$1,500/month in ad spend on top of that to see meaningful results." },
+      { q: "What is the minimum ad budget?", a: "We'll walk you through our management fee and recommended ad spend range on a free strategy call, based on your market and goals." },
       { q: "Do I need a good website first?", a: "Yes, we will not run traffic to a site that will not convert. If your site needs work, we will tell you upfront." },
       { q: "Is there a contract?", a: "No long-term contracts. Month-to-month. We earn your business every single month." },
     ],
@@ -396,10 +396,10 @@ const SERVICES = [
       { step: "04", title: "Optimize Monthly", desc: "Monthly optimization pass. Winning ads scaled, losing ads paused, new tests launched." },
     ],
     faqs: [
-      { q: "What ad budget do I need?", a: "Our management fee is $500/month. On top of that, we recommend a minimum of $500–$1,500/month in ad spend depending on your market and goals." },
+      { q: "What ad budget do I need?", a: "We'll walk you through our management fee and recommended ad spend range on a free strategy call, based on your market and goals." },
       { q: "Google Ads or Meta Ads: which is better?", a: "Depends on your industry. Google captures high-intent searches. Meta builds awareness and retargets. Most clients benefit from both." },
       { q: "Do you manage the ad account or do I?", a: "We manage everything inside your own ad account, which you own. You always have full access and visibility." },
-      { q: "What results can I realistically expect?", a: "In competitive local markets, a well-managed campaign typically generates leads at $20–$60 each depending on industry." },
+      { q: "What results can I realistically expect?", a: "In competitive local markets, a well-managed campaign typically generates cost-effective leads, with exact numbers depending on industry." },
     ],
     relatedSlugs: ["lead-generation", "web-development"],
   },

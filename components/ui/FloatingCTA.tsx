@@ -54,7 +54,7 @@ export default function FloatingCTA() {
           <div className="bg-white border border-border rounded-2xl shadow-2xl p-4 flex flex-col gap-3 w-[240px]">
             <div>
               <p className="font-bold text-text-primary text-sm">Get a Free Marketing Audit</p>
-              <p className="text-xs text-text-muted mt-0.5">No commitment · From $1,500/mo</p>
+              <p className="text-xs text-text-muted mt-0.5">No commitment · Free strategy call</p>
             </div>
             <Link
               href="/contact"

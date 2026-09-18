@@ -17,12 +17,12 @@ export interface CityConfig {
 }
 
 const SERVICES = [
-  { name: "Lead Generation", href: "/services/lead-generation", desc: "40-80 qualified leads/month", from: "from $1,499/mo" },
-  { name: "Google Ads Management", href: "/services/google-meta-ads", desc: "Average 5-8x return on ad spend", from: "from $500/mo" },
-  { name: "Meta Ads Management", href: "/services/google-meta-ads", desc: "Facebook and Instagram ads", from: "from $500/mo" },
-  { name: "Web Design", href: "/services/web-development", desc: "Conversion-optimized websites", from: "Custom quote" },
-  { name: "Social Media Management", href: "/services/social-media-management", desc: "Full content and posting service", from: "from $899/mo" },
-  { name: "Video Production", href: "/services/video-production", desc: "Reels, testimonials, brand videos", from: "from $699" },
+  { name: "Lead Generation", href: "/services/lead-generation", desc: "40-80 qualified leads/month" },
+  { name: "Google Ads Management", href: "/services/google-meta-ads", desc: "Average 5-8x return on ad spend" },
+  { name: "Meta Ads Management", href: "/services/google-meta-ads", desc: "Facebook and Instagram ads" },
+  { name: "Web Design", href: "/services/web-development", desc: "Conversion-optimized websites" },
+  { name: "Social Media Management", href: "/services/social-media-management", desc: "Full content and posting service" },
+  { name: "Video Production", href: "/services/video-production", desc: "Reels, testimonials, brand videos" },
 ];
 
 const INDUSTRIES = [
@@ -123,7 +123,6 @@ export default function CityPageTemplate({ config }: { config: CityConfig }) {
                     <ArrowRight className="w-4 h-4 text-accent-primary opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-0.5" />
                   </div>
                   <p className="text-[14px] text-[#666] leading-relaxed flex-grow">{s.desc}</p>
-                  <p className="text-[12px] font-bold text-accent-primary mt-4">{s.from}</p>
                 </Link>
               </motion.div>
             ))}
