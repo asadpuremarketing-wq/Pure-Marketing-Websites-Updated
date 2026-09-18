@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, RefreshCw, TrendingUp, Award } from "lucide-react";
+import { Users, RefreshCw, TrendingUp } from "lucide-react";
 
 const STATS = [
   { value: "150+", label: "Clients Served",        icon: Users,      detail: "Across Canada" },
   { value: "92%",  label: "Client Retention Rate", icon: RefreshCw,  detail: "Stay with us long-term" },
   { value: "4.2x", label: "Average ROI Increase",  icon: TrendingUp, detail: "Across all campaigns" },
-  { value: "5+",   label: "Years of Experience",   icon: Award,      detail: "Helping local businesses" },
 ];
 
 export default function StatsSection() {
@@ -40,7 +39,7 @@ export default function StatsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {STATS.map(({ value, label, icon: Icon, detail }, i) => (
             <motion.div
               key={label}
