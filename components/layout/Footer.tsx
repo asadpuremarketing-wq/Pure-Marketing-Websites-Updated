@@ -70,7 +70,7 @@ const INDUSTRY_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1714] text-white pt-20 pb-10">
+    <footer className="bg-[#080808] text-white pt-20 pb-10">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Logo, Tagline & Social */}
@@ -78,7 +78,7 @@ export default function Footer() {
             <Link href="/" className="text-2xl font-bold tracking-tight inline-block text-white">
               Pure Marketing
             </Link>
-            <p className="text-[#9E9892] text-sm max-w-xs leading-relaxed">
+            <p className="text-white/50 text-sm max-w-xs leading-relaxed">
               Local lead generation and customer acquisition for Canadian contractors and service businesses.
             </p>
             <div className="flex items-center gap-3 pt-2">
@@ -89,7 +89,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={s.name}
-                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#9E9892] hover:text-white hover:border-white/30 transition-colors"
+                  className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-colors"
                 >
                   {s.svg}
                 </a>
@@ -103,7 +103,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#9E9892] hover:text-white transition-colors text-sm">
+                  <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -117,7 +117,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {INDUSTRY_LINKS.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#9E9892] hover:text-white transition-colors text-sm">
+                  <Link href={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
                     {link.name}
                   </Link>
                 </li>
@@ -128,7 +128,7 @@ export default function Footer() {
           {/* Column 4: Contact Info */}
           <div>
             <p className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Contact Us</p>
-            <ul className="space-y-4 text-[#9E9892] text-sm">
+            <ul className="space-y-4 text-white/50 text-sm">
               <li>
                 <a href="tel:+16479512786" className="flex items-center gap-2 hover:text-white transition-colors">
                   <Phone className="w-4 h-4 text-accent-primary flex-shrink-0" />
@@ -155,7 +155,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#6B6560]/30 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-[#6B6560]">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
           <p>&copy; {new Date().getFullYear()} Pure Marketing. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>

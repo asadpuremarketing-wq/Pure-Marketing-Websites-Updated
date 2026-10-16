@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import { Building2, KeyRound, Paintbrush } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import CTABanner from "@/components/sections/CTABanner";
 
@@ -8,7 +9,7 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Client Results & Case Studies | Pure Marketing",
   description:
-    "See the local service businesses we've worked with and the lead generation work performed for each — real clients, real work, no fabricated metrics.",
+    "See the local service businesses we've worked with and the lead generation work performed for each: real clients, real work, no fabricated metrics.",
   alternates: { canonical: `${BASE}/results` },
   openGraph: {
     url: `${BASE}/results`,
@@ -47,8 +48,8 @@ const CASE_STUDIES = [
   {
     industry: "Construction & Renovation",
     href: "https://www.gravitycontractors.ca/",
-    icon: "🏗️",
-    headline: "Gravity Contractors — Hamilton, ON",
+    icon: Building2,
+    headline: "Gravity Contractors, Hamilton, ON",
     before: "Relied primarily on word-of-mouth referrals with no consistent online presence to capture search demand.",
     after: "A conversion-focused website and ongoing online presence built to support inbound inquiries from their service area.",
     channels: ["Website built for lead capture", "Google Business Profile", "Local visibility"],
@@ -58,8 +59,8 @@ const CASE_STUDIES = [
   {
     industry: "Locksmith & Garage Door Services",
     href: "https://www.purdentlocksmith.ca/",
-    icon: "🔑",
-    headline: "Prudent Locksmith & Garage Services — Hamilton, ON",
+    icon: KeyRound,
+    headline: "Prudent Locksmith & Garage Services, Hamilton, ON",
     before: "Needed a stronger online presence to compete for local locksmith and garage door search traffic.",
     after: "A dedicated website and local presence built around capturing service-area inquiries.",
     channels: ["Website built for lead capture", "Local search visibility"],
@@ -68,8 +69,8 @@ const CASE_STUDIES = [
   {
     industry: "Painting",
     href: "https://www.weatherguardcoating.ca/",
-    icon: "🎨",
-    headline: "Weather Guard Coatings — London, ON",
+    icon: Paintbrush,
+    headline: "Weather Guard Coatings, London, ON",
     before: "Needed a professional web presence to match the quality of their on-site work.",
     after: "A custom website built to present their work and make it easy for prospective customers to reach out.",
     channels: ["Website built for lead capture"],
@@ -101,9 +102,11 @@ export default function ResultsPage() {
                   {/* Left: industry + headline */}
                   <div className="lg:col-span-2 bg-[#111] p-8 flex flex-col justify-between">
                     <div>
-                      <span className="text-3xl mb-4 block">{cs.icon}</span>
+                      <div className="w-12 h-12 rounded-xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center mb-4">
+                        <cs.icon className="w-5 h-5 text-accent-primary" />
+                      </div>
                       <span className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-2 block">{cs.industry}</span>
-                      <h3 className="font-serif text-[24px] md:text-[28px] text-white leading-tight mb-4">{cs.headline}</h3>
+                      <h3 className="font-black text-[24px] md:text-[28px] text-white leading-tight mb-4">{cs.headline}</h3>
                       <p className="text-xs text-white/40 uppercase tracking-wider">{cs.timeframe}</p>
                     </div>
                     <div className="mt-8 flex flex-wrap gap-3">
@@ -152,7 +155,7 @@ export default function ResultsPage() {
       <section className="bg-background-secondary py-20">
         <div className="max-w-[900px] mx-auto px-6 text-center">
           <span className="text-accent-primary text-xs font-semibold uppercase tracking-widest mb-3 block">Our Process</span>
-          <h2 className="font-serif text-[32px] md:text-[40px] text-text-primary leading-tight mb-6">
+          <h2 className="font-black text-[32px] md:text-[40px] text-text-primary leading-tight mb-6">
             Why These Results Happen
           </h2>
           <p className="text-text-secondary text-[17px] leading-relaxed mb-12 max-w-[700px] mx-auto">

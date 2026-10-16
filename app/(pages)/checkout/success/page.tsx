@@ -50,7 +50,7 @@ function SuccessContent() {
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-                className="text-[26px] font-extrabold text-white mb-2"
+                className="text-[26px] font-black text-white mb-2"
               >
                 Payment Confirmed!
               </motion.h1>

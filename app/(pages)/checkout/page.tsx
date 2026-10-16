@@ -504,7 +504,7 @@ export default function CheckoutPage() {
         <div className="max-w-[1100px] mx-auto px-6 py-10">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <p className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-2">Secure Checkout</p>
-            <h1 className="text-[28px] md:text-[32px] font-extrabold text-white leading-tight">
+            <h1 className="text-[28px] md:text-[32px] font-black text-white leading-tight">
               Complete Your Order
             </h1>
             <p className="text-white/40 text-sm mt-1">Choose your service and plan below, all payments processed securely via Stripe.</p>

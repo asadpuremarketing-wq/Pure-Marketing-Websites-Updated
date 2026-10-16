@@ -234,7 +234,7 @@ const SERVICES = [
     title: "Local Lead Generation System",
     headline: "Local Lead Generation That Helps Your Business Get More Work",
     description:
-      "Great service isn't enough if customers can't find you. We build a complete local lead generation system — paid advertising, Google Maps visibility, AI search discoverability, and lead conversion — so your business gets more calls, estimates, and booked jobs.",
+      "Great service isn't enough if customers can't find you. We build a complete local lead generation system: paid advertising, Google Maps visibility, AI search discoverability, and lead conversion, so your business gets more calls, estimates, and booked jobs.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
     result: "A coordinated system built specifically for local service businesses",
     outcomes: [

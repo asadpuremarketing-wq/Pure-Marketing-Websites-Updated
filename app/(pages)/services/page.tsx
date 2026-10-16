@@ -53,7 +53,7 @@ export default function ServicesPage() {
       <section className="bg-white py-20">
         <div className="max-w-[900px] mx-auto px-6 text-center mb-14">
           <motion.p {...fadeUp(0)} className="text-[17px] text-[#555] leading-relaxed">
-            We don&apos;t offer a menu of separate marketing services. We run one system — the Local Lead Generation System —
+            We don&apos;t offer a menu of separate marketing services. We run one system, the Local Lead Generation System,
             that combines four coordinated capabilities to help Canadian local service businesses get found, get called, and get booked.
           </motion.p>
         </div>

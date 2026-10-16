@@ -72,7 +72,7 @@ export default function CustomCursor() {
         animate={{
           scale: isHovering ? 2.5 : 1,
           opacity: isHovering ? 0.8 : 1,
-          backgroundColor: isHovering ? "#FFFFFF" : "#D97757",
+          backgroundColor: isHovering ? "#FFFFFF" : "#F06428",
         }}
         transition={{ duration: 0.2 }}
         className="w-8 h-8 rounded-full flex items-center justify-center"

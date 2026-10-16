@@ -69,7 +69,7 @@ const FAQ_SCHEMA = {
       name: "What is Pure Marketing?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pure Marketing is a Canadian local lead generation and customer acquisition specialist based in Hamilton, Ontario. We help local service businesses — contractors, painters, roofers, electricians, plumbers, HVAC companies, and similar trades — generate more qualified calls, estimates, and job opportunities through one coordinated system.",
+        text: "Pure Marketing is a Canadian local lead generation and customer acquisition specialist based in Hamilton, Ontario. We help local service businesses, contractors, painters, roofers, electricians, plumbers, HVAC companies, and similar trades, generate more qualified calls, estimates, and job opportunities through one coordinated system.",
       },
     },
     {
@@ -77,7 +77,7 @@ const FAQ_SCHEMA = {
       name: "What does Pure Marketing's lead generation system include?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Our system combines paid customer acquisition (Google Search Ads, Google Local Services Ads, and Meta Ads), Google Maps and local search visibility, AI search discoverability, and lead capture and conversion. These are not separate services you buy individually — they're components of one system, with scope tailored to each client.",
+        text: "Our system combines paid customer acquisition (Google Search Ads, Google Local Services Ads, and Meta Ads), Google Maps and local search visibility, AI search discoverability, and lead capture and conversion. These are not separate services you buy individually: they're components of one system, with scope tailored to each client.",
       },
     },
     {

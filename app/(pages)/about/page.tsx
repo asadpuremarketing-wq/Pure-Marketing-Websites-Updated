@@ -177,7 +177,7 @@ export default function About() {
                 We started working with local service businesses and quickly realized that most marketing agencies treat them as an afterthought. Cookie-cutter websites, generic ads, and zero understanding of how contractors and trades actually get work booked.
               </p>
               <p className="text-[17px] text-[#555] leading-relaxed">
-                So we narrowed our focus to one thing: local lead generation and customer acquisition for contractors and local service businesses — painters, roofers, electricians, plumbers, HVAC companies, and similar trades across Canada.
+                So we narrowed our focus to one thing: local lead generation and customer acquisition for contractors and local service businesses, painters, roofers, electricians, plumbers, HVAC companies, and similar trades across Canada.
               </p>
 
               {/* Dark pull-quote card */}
