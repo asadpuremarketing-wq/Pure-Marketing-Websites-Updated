@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "Stop Waiting for Referrals.",
   headlineAccent: "Get Qualified Calls Every Week.",
   subheadline:
-    "Websites, Google, Content, Ads, Automation & SEO: unified into one predictable lead generation machine built exclusively for electricians.",
+    "Paid ads, Google Maps visibility, AI search discoverability, and lead capture: unified into one predictable lead generation system built exclusively for electricians.",
   heroCheckmarks: ["More Service Calls", "Higher-Value Panels & Installs", "Fully Booked Schedule"],
   dashboard: {
     url: "yourelectricalco.ca",
@@ -94,20 +94,15 @@ const config: IndustryFullConfig = {
     "A 2-minute breakdown of the exact system we use to fill electricians' schedules with qualified panel upgrades, renovations, and emergency calls.",
   videoBullets: [
     "Why most electricians lose leads to competitors with worse reviews",
-    "The 9-step system we build to put you at the top of Google",
+    "The one system we build to put you at the top of Google",
     "How we generate emergency calls 24/7, not just during business hours",
     "What to expect in your first 90 days with us",
   ],
   growthSteps: [
-    { num: "01", icon: "Globe",      title: "Electrician Website",            desc: "Fast, mobile-first site with emergency call buttons, service pages, and trust signals built to convert visitors into calls." },
-    { num: "02", icon: "MapPin",     title: "Google Business Profile",        desc: "Fully optimized GBP so you appear in the top 3 on Maps for every electrical search in your area." },
-    { num: "03", icon: "Star",       title: "Reviews & Reputation",           desc: "Automated review requests after every job to build a 5-star reputation that wins more residential bids." },
-    { num: "04", icon: "BarChart2",  title: "Lead Tracking Setup",            desc: "Full visibility into every call and form, so we know exactly which campaigns bring real jobs." },
-    { num: "05", icon: "Video",      title: "Monthly Content",                desc: "Job site photos, panel upgrade reels, and branded posts that build authority in your local market." },
-    { num: "06", icon: "TrendingUp", title: "Google Ads & Local Service Ads", desc: "Search ads and pay-per-lead LSA campaigns targeting homeowners searching for electricians right now." },
-    { num: "07", icon: "Share2",     title: "Meta Ads",                       desc: "Facebook & Instagram ads that build brand awareness and generate estimate requests in your service area." },
-    { num: "08", icon: "Zap",        title: "Follow-Up Automation",           desc: "Instant responses and missed-call texts so every enquiry is captured before they call a competitor." },
-    { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",         desc: "Service-area pages and local citations that drive organic electrician leads month after month." },
+    { num: "01", icon: "Target",     title: "Paid Customer Acquisition",             desc: "Google Search Ads and Local Service Ads targeting homeowners searching for panel upgrades, EV charger installs, and emergency electrical calls right now." },
+    { num: "02", icon: "MapPin",     title: "Google Maps & Local Search Visibility", desc: "Fully optimized Google Business Profile and review strategy so you appear in the top 3 on Maps for every electrical search in your area." },
+    { num: "03", icon: "Search",     title: "AI Search Discoverability",             desc: "Clear service-area pages and structured content so homeowners and AI assistants alike can find and recommend you for panel, wiring, and EV charger work." },
+    { num: "04", icon: "Zap",        title: "Lead Capture & Conversion",             desc: "Fast, mobile-first site with emergency call buttons and instant follow-up, so every enquiry is captured before they call a competitor." },
   ],
   resultsHeadline: "What Electrician Clients Tell Us",
   results: [
@@ -133,7 +128,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "What is the best digital marketing for electricians?",
-      acceptedAnswer: { "@type": "Answer", text: "The highest-ROI approach for electricians is Google Local Service Ads (pay per verified lead) combined with Google Ads for broader coverage. Pure Marketing builds this as part of a 9-step system that also includes reputation management, monthly content, and follow-up automation." },
+      acceptedAnswer: { "@type": "Answer", text: "The highest-ROI approach for electricians is Google Local Service Ads (pay per verified lead) combined with Google Ads for broader coverage. Pure Marketing builds this as part of one coordinated system that also includes Google Maps visibility, AI search discoverability, and lead capture." },
     },
     {
       "@type": "Question",

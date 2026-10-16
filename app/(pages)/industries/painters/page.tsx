@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "Stop Waiting for Word of Mouth.",
   headlineAccent: "Book Projects Consistently.",
   subheadline:
-    "Websites, Google, Before/After Content, Ads & Automation: one system that keeps painting companies booked solid with residential and commercial projects.",
+    "Paid ads, Google Maps visibility, AI search discoverability, and lead capture: one system that keeps painting companies booked solid with residential and commercial projects.",
   heroCheckmarks: [
     "More Residential Projects",
     "Higher-Value Commercial Jobs",
@@ -103,15 +103,10 @@ const config: IndustryFullConfig = {
     "What to expect in your first 75 days with the full system running",
   ],
   growthSteps: [
-    { num: "01", icon: "Globe",      title: "Painter Website",            desc: "Before/after gallery, online quote forms, and service area pages that showcase your work and book consultations automatically." },
-    { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Optimized GBP with project photos and keyword-rich descriptions to rank for interior, exterior, and cabinet painting searches." },
-    { num: "03", icon: "Star",       title: "Reviews & Portfolio",        desc: "Systematic review requests and a curated before/after portfolio that convince homeowners before they even call." },
-    { num: "04", icon: "BarChart2",  title: "Quote & Lead Tracking",      desc: "Track every form submission, call, and quote request so we know which channels produce real signed projects." },
-    { num: "05", icon: "Video",      title: "Before/After Content",       desc: "Professional photo and video of your completed jobs: the highest-converting content for painting companies." },
-    { num: "06", icon: "TrendingUp", title: "Google Ads",                 desc: "Search campaigns targeting high-intent queries like 'interior painters near me' and 'exterior house painting quotes'." },
-    { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram before/after ads that stop the scroll and drive estimate requests from local homeowners." },
-    { num: "08", icon: "Zap",        title: "Instant Quote Follow-Up",    desc: "Automated follow-up sequences after every quote request so leads stay warm until they book." },
-    { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Service-area and paint-type pages that rank organically for exterior, interior, and commercial painting searches." },
+    { num: "01", icon: "Target",     title: "Paid Customer Acquisition",             desc: "Google and Meta campaigns with before/after creative targeting high-intent queries like 'interior painters near me' and 'exterior house painting quotes'." },
+    { num: "02", icon: "MapPin",     title: "Google Maps & Local Search Visibility", desc: "Optimized Google Business Profile with project photos and a curated review strategy so you rank for interior, exterior, and cabinet painting searches." },
+    { num: "03", icon: "Search",     title: "AI Search Discoverability",             desc: "Service-area and paint-type content that makes it easy for homeowners and AI-powered search to find and recommend your work." },
+    { num: "04", icon: "Zap",        title: "Lead Capture & Conversion",             desc: "Online quote forms and instant automated follow-up after every request, so leads stay warm until they book instead of going to whoever responded first." },
   ],
   resultsHeadline: "What Painting Clients Tell Us",
   results: [
@@ -132,7 +127,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do painting companies get more residential projects?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting searches like 'house painter near me' and 'interior painting estimate' combined with before/after visual proof used as ad creative on Instagram and Facebook. A landing page showcasing finished projects builds trust and converts visitors into booked estimates." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting searches like 'house painter near me' and 'interior painting estimate' combined with before/after visual proof used as ad creative on Instagram and Facebook. A landing page showcasing finished projects builds trust and converts visitors into booked estimates, with instant follow-up making sure none of those quote requests go cold." },
     },
     {
       "@type": "Question",

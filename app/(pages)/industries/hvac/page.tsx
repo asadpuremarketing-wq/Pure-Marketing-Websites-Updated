@@ -42,7 +42,7 @@ const config: IndustryFullConfig = {
   headline: "Stay Busy Year-Round.",
   headlineAccent: "AC, Furnace & Emergency Calls.",
   subheadline:
-    "Websites, Google, Content, Ads, Automation & SEO: one seasonal system that keeps HVAC companies fully booked through every season.",
+    "Paid ads, Google Maps visibility, AI search discoverability, and lead capture: one seasonal system that keeps HVAC companies fully booked through every season.",
   heroCheckmarks: [
     "Summer AC Tune-Ups & Installs",
     "Winter Furnace & Heating Jobs",
@@ -98,20 +98,15 @@ const config: IndustryFullConfig = {
     "A 2-minute breakdown of the seasonal marketing system that generates AC tune-ups in summer, furnace installs in fall, and emergency calls all winter long.",
   videoBullets: [
     "Why most HVAC companies only win in peak season, and how to change that",
-    "The 9-step system that generates leads year-round, not just in summer and winter",
+    "The one system that generates leads year-round, not just in summer and winter",
     "How we use Google Ads seasonal budgeting to maximize ROI every month",
     "What to expect in your first 90 days with the full system running",
   ],
   growthSteps: [
-    { num: "01", icon: "Globe",      title: "HVAC Website",               desc: "Seasonal landing pages, financing CTAs, and emergency messaging built to convert on desktop and mobile." },
-    { num: "02", icon: "MapPin",     title: "Google Business Profile",     desc: "GBP optimized for AC tune-up, furnace install, and emergency heating searches in your service area." },
-    { num: "03", icon: "Star",       title: "Reviews & Trust Building",   desc: "Post-service review requests that build your 5-star rating and win more installs over competitors." },
-    { num: "04", icon: "BarChart2",  title: "Seasonal Tracking Setup",    desc: "Campaign dashboards that show cost-per-lead by season so we scale spend when ROI is highest." },
-    { num: "05", icon: "Video",      title: "Monthly Content",            desc: "Seasonal tips, install showcases, and branded content that keep your HVAC brand visible year-round." },
-    { num: "06", icon: "TrendingUp", title: "Google Ads (Seasonal)",      desc: "Smart seasonal budgeting: spend peaks in summer and winter, pulled back in shoulder months for max ROI." },
-    { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram ads promoting maintenance plans, AC tune-ups, and financing offers to local homeowners." },
-    { num: "08", icon: "Zap",        title: "Follow-Up Automation",       desc: "Automated service reminders, maintenance plan upsells, and instant lead responses running 24/7." },
-    { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "City and service-type pages that rank for furnace, AC, and heat pump searches organically." },
+    { num: "01", icon: "Target",     title: "Paid Customer Acquisition",             desc: "Seasonal Google Ads and Local Service Ads that shift spend to AC tune-ups in summer and furnace installs and emergency heating calls in winter." },
+    { num: "02", icon: "MapPin",     title: "Google Maps & Local Search Visibility", desc: "Google Business Profile optimized for AC, furnace, and emergency heating searches, backed by a steady stream of 5-star reviews." },
+    { num: "03", icon: "Search",     title: "AI Search Discoverability",             desc: "City and service-type content that keeps your HVAC brand visible across traditional and AI-powered search in every season, not just peak months." },
+    { num: "04", icon: "Zap",        title: "Lead Capture & Conversion",             desc: "Financing CTAs, emergency messaging, and automated service reminders that turn inquiries into booked installs and tune-ups year-round." },
   ],
   resultsHeadline: "What HVAC Clients Tell Us",
   results: [
@@ -132,7 +127,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do HVAC companies get leads year-round?",
-      acceptedAnswer: { "@type": "Answer", text: "Seasonal campaign adjustments are key. Summer targets AC tune-ups, repairs, and replacements. Winter targets furnace installs, emergency heating calls, and maintenance contracts. Pure Marketing manages these seasonal campaign switches as part of one system to keep HVAC companies consistently busy year-round." },
+      acceptedAnswer: { "@type": "Answer", text: "Seasonal campaign adjustments are key. Summer targets AC tune-ups, repairs, and replacements. Winter targets furnace installs, emergency heating calls, and maintenance contracts. Pure Marketing manages these seasonal campaign switches, Google Maps visibility, and lead capture as part of one system to keep HVAC companies consistently busy year-round." },
     },
     {
       "@type": "Question",

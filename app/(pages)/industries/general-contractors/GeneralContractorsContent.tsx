@@ -6,16 +6,9 @@ import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle,
-  Globe,
   MapPin,
   Star,
-  FileText,
   Target,
-  Share2,
-  Settings,
-  RefreshCw,
-  TrendingUp,
-  Monitor,
   Search,
   Zap,
   ChevronRight,
@@ -62,27 +55,17 @@ const STATS = [
 
 
 const STEPS = [
-  { num: "01", icon: Monitor,    title: "Website",        desc: "A high-converting site that turns visitors into estimate requests." },
-  { num: "02", icon: MapPin,     title: "Google Profile", desc: "Optimized GBP so you dominate local map searches." },
-  { num: "03", icon: Star,       title: "Reviews",        desc: "Automated systems to earn 5-star reviews consistently." },
-  { num: "04", icon: FileText,   title: "Content",        desc: "Monthly content that builds brand authority and trust." },
-  { num: "05", icon: Target,     title: "Google Ads",     desc: "High-intent campaigns targeting homeowners ready to hire." },
-  { num: "06", icon: Share2,     title: "Meta Ads",       desc: "Facebook & Instagram ads that generate awareness and leads." },
-  { num: "07", icon: Settings,   title: "Automation",     desc: "Follow-up sequences so no lead ever goes cold." },
-  { num: "08", icon: RefreshCw,  title: "Retargeting",    desc: "Win back warm prospects who didn't book the first time." },
-  { num: "09", icon: TrendingUp, title: "SEO Growth",     desc: "Long-term organic visibility that compounds over time." },
+  { num: "01", icon: Target, title: "Paid Customer Acquisition",             desc: "Google Search Ads, Local Service Ads, and Facebook/Instagram Ads targeting homeowners and property owners actively planning a renovation or build." },
+  { num: "02", icon: MapPin, title: "Google Maps & Local Search Visibility", desc: "Optimized Google Business Profile and a steady review strategy so you dominate local map searches for general contracting work." },
+  { num: "03", icon: Search, title: "AI Search Discoverability",             desc: "Clear, structured project content so your past work is easy to find and recommend across traditional and AI-powered search." },
+  { num: "04", icon: Zap,    title: "Lead Capture & Conversion",             desc: "A high-converting site and fast follow-up that turn inquiries into booked estimates for residential and commercial projects." },
 ];
 
 const DELIVERABLES = [
-  { icon: Globe,       title: "High-Converting Website",               desc: "Mobile-first, fast, built to convert visitors into booked estimates." },
-  { icon: MapPin,      title: "Google Business Profile",               desc: "Fully optimized to rank in the local map pack." },
-  { icon: Star,        title: "Reputation & Review System",            desc: "Automated review requests after every completed job." },
-  { icon: FileText,    title: "Monthly Content Creation",              desc: "Project showcases, reels, educational posts, and ads." },
-  { icon: Target,      title: "Google Ads + Local Service Ads",        desc: "Pay-per-lead and pay-per-click campaigns fully managed." },
-  { icon: Share2,      title: "Facebook & Instagram Advertising",      desc: "Before/after ads, lead forms, and retargeting audiences." },
-  { icon: Zap,         title: "Follow-Up Automation & CRM",            desc: "Instant responses, missed-call texts, email sequences." },
-  { icon: RefreshCw,   title: "Retargeting Campaigns",                 desc: "Multi-platform retargeting across Google, Meta, and YouTube." },
-  { icon: Search,      title: "SEO & Geo Growth Foundation",           desc: "Local citations, schema markup, and service-area pages." },
+  { icon: Target, title: "Paid Customer Acquisition",             desc: "Google Search Ads, Google Local Services Ads, and Facebook/Instagram Ads that put your business in front of homeowners and property owners planning a project." },
+  { icon: MapPin, title: "Google Maps & Local Search Visibility", desc: "Google Business Profile optimization, local SEO, and review strategy so nearby searchers can find and trust you." },
+  { icon: Search,  title: "AI Search Discoverability",             desc: "Clear, structured, helpful content so your business is easier to find and recommend across traditional and AI-powered search." },
+  { icon: Zap,     title: "Lead Capture & Conversion",             desc: "High-converting forms, click-to-call, and tracking that turn inquiries into booked estimates and jobs." },
 ];
 
 
@@ -95,15 +78,10 @@ const PROCESS = [
 ];
 
 const INCLUDED = [
-  "High-Converting Website",
-  "Google Business Profile Optimization",
-  "Reputation & Review System",
-  "Monthly Content Creation",
-  "Google Ads Setup & Management",
-  "Meta Ads Management",
-  "Follow-Up Automation & CRM",
-  "Retargeting Campaigns",
-  "SEO & Geo Growth Foundation",
+  "Paid Customer Acquisition",
+  "Google Maps & Local Search Visibility",
+  "AI Search Discoverability",
+  "Lead Capture & Conversion",
 ];
 
 /* ── component ────────────────────────────────────────────── */
@@ -143,7 +121,7 @@ export default function GeneralContractorsContent() {
             </motion.h1>
 
             <motion.p {...fadeUp(0.16)} className="text-[17px] text-[#888] leading-relaxed max-w-[480px]">
-              Websites, Google, Content, Ads, Automation &amp; SEO: unified into one predictable lead generation machine built exclusively for general contractors.
+              Paid ads, Google Maps visibility, AI search discoverability, and lead capture: unified into one predictable lead generation system built exclusively for general contractors.
             </motion.p>
 
             <motion.div {...fadeUp(0.22)} className="flex flex-wrap gap-4">
@@ -252,16 +230,16 @@ export default function GeneralContractorsContent() {
           <div className="text-center mb-16">
             <motion.p {...fadeUp(0)} className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-4">The Solution</motion.p>
             <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[52px] font-black text-white leading-tight tracking-tight">
-              The 9-Step Growth System
+              One System. Four Capabilities.
             </motion.h2>
             <motion.p {...fadeUp(0.14)} className="text-[#555] text-[16px] mt-4 max-w-[540px] mx-auto">
-              Every component is designed to work together, like one compounding machine that gets stronger every month.
+              Not four separate services. One coordinated system designed to work together, like one compounding machine that gets stronger every month.
             </motion.p>
           </div>
 
           <AutoCarousel
             dark
-            perPage={3}
+            perPage={2}
             interval={3200}
             items={STEPS.map(({ num, icon: Icon, title, desc }) => (
               <div

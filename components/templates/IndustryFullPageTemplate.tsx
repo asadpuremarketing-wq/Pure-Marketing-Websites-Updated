@@ -148,27 +148,17 @@ export interface IndustryFullConfig {
 
 /* ── defaults ─────────────────────────────────────────────── */
 const DEFAULT_DELIVERABLES: { icon: IconKey; title: string; desc: string }[] = [
-  { icon: "Globe",      title: "High-Converting Website",          desc: "Mobile-first, fast, built to convert visitors into booked leads." },
-  { icon: "MapPin",     title: "Google Business Profile",          desc: "Fully optimized to rank in the local map pack." },
-  { icon: "Star",       title: "Reputation & Review System",       desc: "Automated review requests after every completed job." },
-  { icon: "FileText",   title: "Monthly Content Creation",         desc: "Project showcases, reels, educational posts, and ads." },
-  { icon: "Target",     title: "Google Ads + Local Service Ads",   desc: "Pay-per-lead and pay-per-click campaigns fully managed." },
-  { icon: "Share2",     title: "Facebook & Instagram Advertising", desc: "Before/after ads, lead forms, and retargeting audiences." },
-  { icon: "Zap",        title: "Follow-Up Automation & CRM",       desc: "Instant responses, missed-call texts, email sequences." },
-  { icon: "RefreshCw",  title: "Retargeting Campaigns",            desc: "Multi-platform retargeting across Google, Meta, and YouTube." },
-  { icon: "Search",     title: "SEO & Geo Growth Foundation",      desc: "Local citations, schema markup, and service-area pages." },
+  { icon: "Target",   title: "Paid Customer Acquisition",             desc: "Google Search Ads, Google Local Services Ads, and Facebook/Instagram Ads that put your business in front of local customers actively looking for your service." },
+  { icon: "MapPin",   title: "Google Maps & Local Search Visibility", desc: "Google Business Profile optimization, local SEO, and review strategy so nearby searchers can find and trust you." },
+  { icon: "Search",   title: "AI Search Discoverability",             desc: "Clear, structured, helpful content so your business is easier to find and recommend across traditional and AI-powered search." },
+  { icon: "Zap",       title: "Lead Capture & Conversion",             desc: "High-converting forms, click-to-call, and tracking that turn inquiries into booked estimates and jobs." },
 ];
 
 const DEFAULT_INCLUDED = [
-  "High-Converting Website",
-  "Google Business Profile Optimization",
-  "Reputation & Review System",
-  "Monthly Content Creation",
-  "Google Ads Setup & Management",
-  "Meta Ads Management",
-  "Follow-Up Automation & CRM",
-  "Retargeting Campaigns",
-  "SEO & Geo Growth Foundation",
+  "Paid Customer Acquisition",
+  "Google Maps & Local Search Visibility",
+  "AI Search Discoverability",
+  "Lead Capture & Conversion",
 ];
 
 const DEFAULT_PROCESS = [
@@ -475,16 +465,16 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
           <div className="text-center mb-16">
             <motion.p {...fadeUp(0)} className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-4">The Solution</motion.p>
             <motion.h2 {...fadeUp(0.08)} className="text-[32px] md:text-[52px] font-black text-white leading-tight tracking-tight">
-              The 9-Step Growth System
+              One System. Four Capabilities.
             </motion.h2>
             <motion.p {...fadeUp(0.14)} className="text-[#555] text-[16px] mt-4 max-w-[540px] mx-auto">
-              Every component is designed to work together, like one compounding machine that gets stronger every month.
+              Not four separate services. One coordinated system designed to work together, like one compounding machine that gets stronger every month.
             </motion.p>
           </div>
 
           <AutoCarousel
             dark
-            perPage={3}
+            perPage={2}
             interval={3200}
             items={config.growthSteps.map(({ num, icon, title, desc }) => {
               const Icon = ICON_MAP[icon as IconKey];

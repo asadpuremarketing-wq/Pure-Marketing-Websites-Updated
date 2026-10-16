@@ -43,7 +43,7 @@ const config: IndustryFullConfig = {
   headline: "More Emergency Calls.",
   headlineAccent: "24/7. Around the Clock.",
   subheadline:
-    "Websites, Google, Local Ads, Automation & SEO: one always-on system that puts your locksmith business at the top of Google when someone needs you most.",
+    "Paid ads, Google Maps visibility, AI search discoverability, and lead capture: one always-on system that puts your locksmith business at the top of Google when someone needs you most.",
   heroCheckmarks: [
     "More Emergency Lockout Calls",
     "Top Google & Maps Rankings",
@@ -104,15 +104,10 @@ const config: IndustryFullConfig = {
     "What to expect in your first 7 days: the fastest launch in our entire system",
   ],
   growthSteps: [
-    { num: "01", icon: "Globe",      title: "Locksmith Website",          desc: "Fast, mobile-first site with prominent click-to-call, service area pages, and emergency messaging that converts panic into calls." },
-    { num: "02", icon: "MapPin",     title: "Google Business Profile",    desc: "Optimized GBP with 24/7 availability, service areas, and photos to rank in the top 3 for lockout searches near you." },
-    { num: "03", icon: "Star",       title: "Reviews & Trust Signals",    desc: "Automated post-job review requests that build a 5-star reputation: the #1 trust factor for emergency service calls." },
-    { num: "04", icon: "BarChart2",  title: "Call Tracking & Analytics",  desc: "Every call source tracked so we know exactly which keywords and ads bring real lockout jobs." },
-    { num: "05", icon: "Video",      title: "Monthly Content",            desc: "Security tips, lock brand content, and local awareness posts that keep your business visible between emergencies." },
-    { num: "06", icon: "TrendingUp", title: "Google Ads & LSA",           desc: "Emergency search ads and pay-per-lead Local Service Ads that put you first when someone is locked out right now." },
-    { num: "07", icon: "Share2",     title: "Meta Ads",                   desc: "Facebook & Instagram awareness campaigns targeting homeowners and vehicle owners in your service radius." },
-    { num: "08", icon: "Zap",        title: "Missed-Call Text Recovery",  desc: "Instant automated texts fire when a panicked caller hangs up, recovering high-value emergency leads before they call someone else." },
-    { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Neighbourhood and service-type pages that rank for residential, automotive, and commercial locksmith searches organically." },
+    { num: "01", icon: "Target",     title: "Paid Customer Acquisition",             desc: "Emergency search ads and pay-per-lead Local Service Ads that put you first the moment someone is locked out of their car or home." },
+    { num: "02", icon: "MapPin",     title: "Google Maps & Local Search Visibility", desc: "Optimized Google Business Profile with 24/7 availability and a 5-star review strategy so you rank in the top 3 for lockout searches near you." },
+    { num: "03", icon: "Search",     title: "AI Search Discoverability",             desc: "Neighbourhood and service-type content that keeps you visible across traditional and AI-powered search for residential, automotive, and commercial lockouts." },
+    { num: "04", icon: "Zap",        title: "Lead Capture & Conversion",             desc: "Prominent click-to-call and missed-call text recovery so a panicked caller who hangs up is recovered instantly instead of calling someone else." },
   ],
   resultsHeadline: "What Locksmith Clients Tell Us",
   results: [
