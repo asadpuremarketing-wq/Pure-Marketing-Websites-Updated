@@ -51,16 +51,28 @@ const QUICK_LINKS = [
   { name: "Home", href: "/" },
   { name: "Our System", href: "/services/lead-generation" },
   { name: "Results", href: "/results" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "About Us", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
+];
+
+const INDUSTRY_LINKS = [
+  { name: "Electricians", href: "/industries/electricians" },
+  { name: "Plumbers", href: "/industries/plumbers" },
+  { name: "HVAC", href: "/industries/hvac" },
+  { name: "Painters", href: "/industries/painters" },
+  { name: "Real Estate", href: "/industries/real-estate" },
+  { name: "Restaurants", href: "/industries/restaurants" },
+  { name: "Locksmiths", href: "/industries/locksmiths" },
+  { name: "General Contractors", href: "/industries/general-contractors" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-[#1A1714] text-white pt-20 pb-10">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Logo, Tagline & Social */}
           <div className="space-y-4">
             <Link href="/" className="text-2xl font-bold tracking-tight inline-block text-white">
@@ -99,7 +111,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact Info */}
+          {/* Column 3: Industries */}
+          <div>
+            <p className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Industries</p>
+            <ul className="space-y-3">
+              {INDUSTRY_LINKS.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-[#9E9892] hover:text-white transition-colors text-sm">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Info */}
           <div>
             <p className="text-sm font-semibold text-white uppercase tracking-widest mb-6">Contact Us</p>
             <ul className="space-y-4 text-[#9E9892] text-sm">
