@@ -161,6 +161,17 @@ const DEFAULT_INCLUDED = [
   "Lead Capture & Conversion",
 ];
 
+const OTHER_INDUSTRIES: { name: string; href: string }[] = [
+  { name: "Electricians", href: "/industries/electricians" },
+  { name: "Plumbers", href: "/industries/plumbers" },
+  { name: "HVAC", href: "/industries/hvac" },
+  { name: "Painters", href: "/industries/painters" },
+  { name: "Roofing Companies", href: "/industries/roofing" },
+  { name: "Exterior & Siding Contractors", href: "/industries/exterior-services" },
+  { name: "Locksmiths", href: "/industries/locksmiths" },
+  { name: "General Contractors", href: "/industries/general-contractors" },
+];
+
 const DEFAULT_PROCESS = [
   { num: "01", title: "Free Strategy Audit",  desc: "We review your current presence, competitors, and opportunities. No cost, no obligation." },
   { num: "02", title: "Foundation Build",      desc: "Website, Google profile, tracking, and CRM all configured and launched." },
@@ -607,6 +618,37 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          RELATED INDUSTRIES
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-white py-16 border-t border-[#ebebeb]">
+        <div className="max-w-[1240px] mx-auto px-6">
+          <motion.div {...fadeUp(0)} className="text-center mb-10">
+            <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">Other Industries We Serve</span>
+            <h2 className="text-[24px] md:text-[30px] font-black text-[#0d0d0d] leading-tight mt-3">
+              Local Lead Generation for Other Trades
+            </h2>
+          </motion.div>
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {OTHER_INDUSTRIES.filter((i) => i.name !== config.industry).map((i) => (
+              <Link
+                key={i.href}
+                href={i.href}
+                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#333] border border-[#e0e0e0] rounded-full px-4 py-2 hover:border-accent-primary hover:text-accent-primary transition-colors duration-200"
+              >
+                {i.name}
+                <ChevronRight className="w-3 h-3" />
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center justify-center gap-6 text-[13px] font-semibold">
+            <Link href="/results" className="text-accent-primary hover:underline">See Client Results</Link>
+            <span className="text-[#ccc]">·</span>
+            <Link href="/contact" className="text-accent-primary hover:underline">Contact Us</Link>
+          </div>
         </div>
       </section>
 

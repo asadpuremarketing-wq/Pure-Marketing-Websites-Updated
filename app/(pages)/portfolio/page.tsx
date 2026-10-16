@@ -8,6 +8,26 @@ import CTABanner from "@/components/sections/CTABanner";
 import VideoPortfolio from "@/components/sections/VideoPortfolio";
 import PageHero from "@/components/ui/PageHero";
 
+const BASE = "https://puremarketing.ca";
+
+const PORTFOLIO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${BASE}/portfolio`,
+  name: "Portfolio & Case Studies: Pure Marketing",
+  url: `${BASE}/portfolio`,
+  description:
+    "Lead-capture websites, Google Ads campaigns, and social media work Pure Marketing has built for local service businesses across Canada.",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Portfolio", item: `${BASE}/portfolio` },
+    ],
+  },
+  mainEntity: { "@id": `${BASE}/#organization` },
+};
+
 const WEB_DEV_CLIENTS = [
   {
     id: 1, name: "Weather Guard Coatings", category: "Contractors",
@@ -191,6 +211,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <script id="portfolio-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PORTFOLIO_SCHEMA) }} />
 
       <PageHero
         label="Portfolio"

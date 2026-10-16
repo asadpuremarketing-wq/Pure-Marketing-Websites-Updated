@@ -62,7 +62,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do Brampton businesses get more leads online?",
-      acceptedAnswer: { "@type": "Answer", text: "For Brampton local service businesses, Google Ads and Local Service Ads targeting high-intent local searches produce the fastest results. Combined with Google Business Profile optimization and a conversion-focused website, most Brampton clients start seeing qualified leads within 7-14 days." },
+      acceptedAnswer: { "@type": "Answer", text: "For Brampton local service businesses, Google Ads and Local Service Ads targeting high-intent local searches produce the fastest results, combined with Google Business Profile optimization and a conversion-focused website. Timelines vary by market and competition, so we don't promise a fixed timeline." },
     },
     {
       "@type": "Question",
@@ -92,7 +92,7 @@ const config: CityConfig = {
     },
     {
       q: "How do Brampton businesses get more leads online?",
-      a: "Google Ads and Local Service Ads targeting high-intent local searches produce the fastest results. Combined with Google Business Profile optimization and a conversion-focused website, most Brampton clients start seeing leads within 7-14 days.",
+      a: "Google Ads and Local Service Ads targeting high-intent local searches produce the fastest results, combined with Google Business Profile optimization and a conversion-focused website. Timelines vary by market and competition, so we don't promise a fixed timeline.",
     },
     {
       q: "How much does digital marketing cost for Brampton businesses?",

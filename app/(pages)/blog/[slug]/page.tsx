@@ -94,9 +94,20 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     articleSection: post.category,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${BASE}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <script id={`blog-schema-${post.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
+      <script id={`breadcrumb-schema-${post.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* POST HERO */}
       <section className="relative bg-[#111] pt-[100px] pb-14 md:pt-[120px] md:pb-20 overflow-hidden">

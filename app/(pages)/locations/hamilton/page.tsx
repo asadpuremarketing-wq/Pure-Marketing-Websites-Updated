@@ -109,7 +109,7 @@ const config: CityConfig = {
     },
     {
       q: "How quickly will a Hamilton business see leads from digital marketing?",
-      a: "Most Hamilton clients start seeing qualified leads within 7-14 days of Google Ads and Local Service Ads launching. Full optimization typically takes 30-60 days. ",
+      a: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Google Ads and Local Service Ads can go live within days; full optimization builds over a longer period.",
     },
     {
       q: "What industries does Pure Marketing serve in Hamilton?",

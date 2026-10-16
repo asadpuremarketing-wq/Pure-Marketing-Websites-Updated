@@ -6,12 +6,33 @@ import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
 import { ALL_POSTS } from "@/lib/blog-posts";
 
+const BASE = "https://puremarketing.ca";
+
+const BLOG_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${BASE}/blog`,
+  name: "Marketing Blog: Pure Marketing",
+  url: `${BASE}/blog`,
+  description:
+    "Local lead generation tips, Google Ads strategies, and customer acquisition tactics for local service businesses.",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` },
+    ],
+  },
+  mainEntity: { "@id": `${BASE}/#organization` },
+};
+
 export default function BlogPage() {
   const featured = ALL_POSTS[0];
   const remaining = ALL_POSTS.slice(1);
 
   return (
     <div className="flex flex-col min-h-screen">
+      <script id="blog-collection-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BLOG_SCHEMA) }} />
 
       <PageHero
         label="Blog"

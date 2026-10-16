@@ -73,7 +73,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How quickly can a Toronto business see results from digital marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "Most Toronto clients start seeing qualified leads within 7-14 days of Google Ads and Local Service Ads launching. Full campaign optimization typically takes 30-60 days. " },
+      acceptedAnswer: { "@type": "Answer", text: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Google Ads and Local Service Ads can go live within days; full campaign optimization builds over a longer period." },
     },
   ],
 };
@@ -93,7 +93,7 @@ const config: CityConfig = {
     },
     {
       q: "How do Toronto local businesses get more leads online?",
-      a: "The most effective approach combines Google Ads targeting high-intent local searches, Local Service Ads for emergency services, Google Business Profile optimization for Maps visibility, and a conversion-focused website. Most Toronto clients start seeing leads within 7-14 days.",
+      a: "The most effective approach combines Google Ads targeting high-intent local searches, Local Service Ads for emergency services, Google Business Profile optimization for Maps visibility, and a conversion-focused website. Timelines vary by market and competition, so we don't promise a fixed number of days.",
     },
     {
       q: "How much does digital marketing cost for a Toronto business?",

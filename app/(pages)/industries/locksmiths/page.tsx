@@ -37,6 +37,16 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/locksmiths`,
 };
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Industries", item: `${BASE}/industries` },
+    { "@type": "ListItem", position: 3, name: "Locksmiths", item: `${BASE}/industries/locksmiths` },
+  ],
+};
+
 const config: IndustryFullConfig = {
   industry: "Locksmiths",
   badge: "Local Lead Generation for Locksmiths",
@@ -175,6 +185,11 @@ export default function LocksmithsPage() {
         id="faq-schema-locksmiths"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        id="breadcrumb-schema-locksmiths"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

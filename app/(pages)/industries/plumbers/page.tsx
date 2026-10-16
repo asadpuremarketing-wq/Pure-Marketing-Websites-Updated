@@ -36,6 +36,16 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/plumbers`,
 };
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Industries", item: `${BASE}/industries` },
+    { "@type": "ListItem", position: 3, name: "Plumbers", item: `${BASE}/industries/plumbers` },
+  ],
+};
+
 const config: IndustryFullConfig = {
   industry: "Plumbers",
   badge: "Local Lead Generation for Plumbers",
@@ -155,6 +165,11 @@ export default function PlumbersPage() {
         id="faq-schema-plumbers"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        id="breadcrumb-schema-plumbers"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

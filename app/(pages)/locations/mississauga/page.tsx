@@ -62,7 +62,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do Mississauga local businesses get more leads?",
-      acceptedAnswer: { "@type": "Answer", text: "For Mississauga local service businesses, the most effective lead generation combines Google Ads targeting high-intent local searches, Local Service Ads for emergency services, Google Business Profile optimization, and a conversion-optimized website. Most clients start seeing leads within 7-14 days of launch." },
+      acceptedAnswer: { "@type": "Answer", text: "For Mississauga local service businesses, the most effective lead generation combines Google Ads targeting high-intent local searches, Local Service Ads for emergency services, Google Business Profile optimization, and a conversion-optimized website. Timelines vary by market and competition, so we don't promise a fixed timeline." },
     },
     {
       "@type": "Question",
@@ -92,7 +92,7 @@ const config: CityConfig = {
     },
     {
       q: "How do Mississauga local businesses get more leads?",
-      a: "The most effective approach combines Google Ads targeting local searches, Local Service Ads for emergency services, Google Business Profile optimization, and a conversion-optimized website. Most Mississauga clients start seeing leads within 7-14 days.",
+      a: "The most effective approach combines Google Ads targeting local searches, Local Service Ads for emergency services, Google Business Profile optimization, and a conversion-optimized website. Timelines vary by market and competition, so we don't promise a fixed timeline.",
     },
     {
       q: "How much does digital marketing cost for Mississauga businesses?",

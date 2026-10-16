@@ -61,7 +61,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do Oakville local businesses get more leads?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting high-intent searches like 'electrician Oakville' or 'plumber near me Oakville', combined with Local Service Ads and Google Business Profile optimization, produce the fastest results. Most Oakville clients start seeing qualified leads within 7-14 days of campaigns launching." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting high-intent searches like 'electrician Oakville' or 'plumber near me Oakville', combined with Local Service Ads and Google Business Profile optimization, produce the fastest results. Timelines vary by market and competition, so we don't promise a fixed timeline." },
     },
     {
       "@type": "Question",
@@ -91,7 +91,7 @@ const config: CityConfig = {
     },
     {
       q: "How do Oakville local businesses get more leads?",
-      a: "Google Ads and Local Service Ads targeting local searches produce the fastest results. Combined with Google Business Profile optimization and a conversion-focused website, most Oakville clients start seeing leads within 7-14 days.",
+      a: "Google Ads and Local Service Ads targeting local searches produce the fastest results, combined with Google Business Profile optimization and a conversion-focused website. Timelines vary by market and competition, so we don't promise a fixed timeline.",
     },
     {
       q: "How much does digital marketing cost for Oakville businesses?",

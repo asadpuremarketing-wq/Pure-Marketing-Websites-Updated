@@ -61,7 +61,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do Burlington local businesses get more leads?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads and Local Service Ads are the fastest channels for Burlington local service businesses. Combined with Google Business Profile optimization and a conversion-focused website, most Burlington clients start seeing qualified leads within 7-14 days of campaign launch." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads and Local Service Ads are the fastest channels for Burlington local service businesses, combined with Google Business Profile optimization and a conversion-focused website. Timelines vary by market and competition, so we don't promise a fixed timeline." },
     },
     {
       "@type": "Question",
@@ -91,7 +91,7 @@ const config: CityConfig = {
     },
     {
       q: "How do Burlington local businesses get more leads?",
-      a: "Google Ads and Local Service Ads targeting high-intent local searches produce the fastest results. Combined with Google Business Profile optimization and a conversion-focused website, most Burlington clients start seeing leads within 7-14 days.",
+      a: "Google Ads and Local Service Ads targeting high-intent local searches produce the fastest results, combined with Google Business Profile optimization and a conversion-focused website. Timelines vary by market and competition, so we don't promise a fixed timeline.",
     },
     {
       q: "How much does digital marketing cost for Burlington businesses?",

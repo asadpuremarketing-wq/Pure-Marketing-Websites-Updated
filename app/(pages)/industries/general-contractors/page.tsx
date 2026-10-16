@@ -37,6 +37,16 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/general-contractors`,
 };
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Industries", item: `${BASE}/industries` },
+    { "@type": "ListItem", position: 3, name: "General Contractors", item: `${BASE}/industries/general-contractors` },
+  ],
+};
+
 const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -76,6 +86,11 @@ export default function GeneralContractorsPage() {
         id="faq-schema-general-contractors"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        id="breadcrumb-schema-general-contractors"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <GeneralContractorsContent />
     </>

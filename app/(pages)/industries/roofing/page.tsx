@@ -36,6 +36,16 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/roofing`,
 };
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Industries", item: `${BASE}/industries` },
+    { "@type": "ListItem", position: 3, name: "Roofing Companies", item: `${BASE}/industries/roofing` },
+  ],
+};
+
 const config: IndustryFullConfig = {
   industry: "Roofing Companies",
   badge: "Local Lead Generation for Roofing Companies",
@@ -174,6 +184,11 @@ export default function RoofingPage() {
         id="faq-schema-roofing"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        id="breadcrumb-schema-roofing"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

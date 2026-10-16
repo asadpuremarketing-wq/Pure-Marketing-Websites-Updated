@@ -36,6 +36,16 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/painters`,
 };
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Industries", item: `${BASE}/industries` },
+    { "@type": "ListItem", position: 3, name: "Painters", item: `${BASE}/industries/painters` },
+  ],
+};
+
 const config: IndustryFullConfig = {
   industry: "Painters",
   badge: "Local Lead Generation for Painters",
@@ -159,6 +169,11 @@ export default function PaintersPage() {
         id="faq-schema-painters"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        id="breadcrumb-schema-painters"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>

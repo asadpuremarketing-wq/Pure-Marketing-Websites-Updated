@@ -36,6 +36,16 @@ const SERVICE_SCHEMA = {
   url: `${BASE}/industries/exterior-services`,
 };
 
+const BREADCRUMB_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+    { "@type": "ListItem", position: 2, name: "Industries", item: `${BASE}/industries` },
+    { "@type": "ListItem", position: 3, name: "Exterior & Siding Contractors", item: `${BASE}/industries/exterior-services` },
+  ],
+};
+
 const config: IndustryFullConfig = {
   industry: "Exterior & Siding Contractors",
   badge: "Local Lead Generation for Exterior Contractors",
@@ -174,6 +184,11 @@ export default function ExteriorServicesPage() {
         id="faq-schema-exterior-services"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        id="breadcrumb-schema-exterior-services"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
       <IndustryFullPageTemplate config={config} />
     </>
