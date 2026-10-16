@@ -115,6 +115,8 @@ export default function ContactSection() {
                     <option value="Plumber">Plumber</option>
                     <option value="HVAC">HVAC</option>
                     <option value="Painter">Painter</option>
+                    <option value="Roofing">Roofing</option>
+                    <option value="Exterior & Siding">Exterior & Siding</option>
                     <option value="General Contractor">General Contractor</option>
                     <option value="Locksmith">Locksmith</option>
                     <option value="Other Trade">Other Trade</option>

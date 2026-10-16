@@ -20,6 +20,8 @@ export const INDUSTRIES = [
   { name: "Plumbers", href: "/industries/plumbers" },
   { name: "HVAC", href: "/industries/hvac" },
   { name: "Painters", href: "/industries/painters" },
+  { name: "Roofing", href: "/industries/roofing" },
+  { name: "Exterior & Siding", href: "/industries/exterior-services" },
   { name: "Locksmiths", href: "/industries/locksmiths" },
   { name: "General Contractors", href: "/industries/general-contractors" },
 ];

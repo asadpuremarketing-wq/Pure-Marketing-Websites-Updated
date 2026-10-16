@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "plumbers",
     "hvac",
     "painters",
+    "roofing",
+    "exterior-services",
     "locksmiths",
     "general-contractors",
   ].map((slug) => ({
