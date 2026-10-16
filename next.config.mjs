@@ -38,6 +38,19 @@ const nextConfig = {
         destination: "/contact",
         permanent: true,
       },
+      // Discontinued industries - no longer taking on restaurants or real
+      // estate agents as clients. Redirected rather than left as 404s since
+      // these URLs are already indexed. Underlying page files are untouched.
+      {
+        source: "/industries/restaurants",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/industries/real-estate",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   images: {

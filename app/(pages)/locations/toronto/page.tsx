@@ -6,23 +6,23 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Toronto | Google Ads & Lead Generation - Pure Marketing",
   description:
-    "Pure Marketing is a digital marketing agency serving Toronto businesses. We help local service businesses get more leads with Google Ads, Meta Ads, web design, and lead generation. No contracts.",
+    "Pure Marketing is a local lead generation agency serving Toronto businesses. We help local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and conversion-focused lead generation. No contracts.",
   keywords: [
     "digital marketing agency Toronto",
     "Google Ads Toronto",
     "lead generation Toronto",
     "marketing agency Toronto Ontario",
     "local business marketing Toronto",
-    "Meta Ads agency Toronto",
-    "web design Toronto local business",
-    "social media management Toronto",
+    "local service ads Toronto",
+    "local SEO Toronto",
+    "Google Business Profile Toronto",
   ],
   alternates: { canonical: `${BASE}/locations/toronto` },
   openGraph: {
     url: `${BASE}/locations/toronto`,
     title: "Digital Marketing Agency Toronto | Pure Marketing",
     description:
-      "Pure Marketing helps Toronto local service businesses get more qualified leads with Google Ads, Meta Ads, and conversion-focused web design. No contracts. Book a free strategy call.",
+      "Pure Marketing helps Toronto local service businesses get more qualified leads through paid advertising, local SEO, and conversion-focused lead capture. No contracts. Book a free strategy call.",
   },
 };
 
@@ -35,7 +35,7 @@ const CITY_SCHEMA = {
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   description:
-    "Pure Marketing is a digital marketing agency serving Toronto and the Greater Toronto Area. Specializing in Google Ads, Meta Ads, lead generation, web design, and social media management for local service businesses.",
+    "Pure Marketing is a local lead generation agency serving Toronto and the Greater Toronto Area, helping local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, AI search discoverability, and lead capture & conversion.",
   areaServed: { "@type": "City", name: "Toronto", addressRegion: "ON", addressCountry: "CA" },
   parentOrganization: { "@id": `${BASE}/#organization` },
   sameAs: [`${BASE}/#organization`],
@@ -58,7 +58,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Is Pure Marketing a Toronto digital marketing agency?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing serves Toronto businesses and operates throughout the Greater Toronto Area. We offer Google Ads, Meta Ads, web design, lead generation, social media management, and video production for local service businesses in Toronto and surrounding areas including North York, Scarborough, and Etobicoke." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing serves Toronto businesses and operates throughout the Greater Toronto Area. We run one local lead generation system for local service businesses in Toronto and surrounding areas including North York, Scarborough, and Etobicoke: paid advertising, Google Maps and local SEO visibility, AI search discoverability, and lead capture & conversion." },
     },
     {
       "@type": "Question",
@@ -89,7 +89,7 @@ const config: CityConfig = {
   faq: [
     {
       q: "Is Pure Marketing a Toronto digital marketing agency?",
-      a: "Yes. Pure Marketing serves Toronto businesses throughout the Greater Toronto Area. We offer Google Ads, Meta Ads, web design, lead generation, social media management, and video production for local service businesses in Toronto and surrounding areas.",
+      a: "Yes. Pure Marketing serves Toronto businesses throughout the Greater Toronto Area. We run one local lead generation system for local service businesses in Toronto and surrounding areas: paid advertising, Google Maps and local SEO visibility, AI search discoverability, and lead capture & conversion.",
     },
     {
       q: "How do Toronto local businesses get more leads online?",

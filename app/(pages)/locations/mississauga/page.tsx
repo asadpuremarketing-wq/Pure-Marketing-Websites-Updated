@@ -6,23 +6,23 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Mississauga | Google Ads & Lead Gen - Pure Marketing",
   description:
-    "Pure Marketing helps Mississauga local service businesses get more qualified leads with Google Ads, Meta Ads, and web design. Month-to-month. No contracts. Book a free strategy call.",
+    "Pure Marketing helps Mississauga local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and local lead generation. Month-to-month. No contracts. Book a free strategy call.",
   keywords: [
     "digital marketing agency Mississauga",
     "Google Ads Mississauga",
     "lead generation Mississauga",
     "marketing agency Mississauga Ontario",
     "local business marketing Mississauga",
-    "Meta Ads Mississauga",
-    "web design Mississauga",
-    "social media management Mississauga",
+    "local service ads Mississauga",
+    "local SEO Mississauga",
+    "Google Business Profile Mississauga",
   ],
   alternates: { canonical: `${BASE}/locations/mississauga` },
   openGraph: {
     url: `${BASE}/locations/mississauga`,
     title: "Digital Marketing Agency Mississauga | Pure Marketing",
     description:
-      "Pure Marketing helps Mississauga local service businesses get more qualified leads with Google Ads, Meta Ads, and conversion-focused web design. No contracts.",
+      "Pure Marketing helps Mississauga local service businesses get more qualified leads through paid advertising, local SEO, and conversion-focused lead capture. No contracts.",
   },
 };
 
@@ -35,7 +35,7 @@ const CITY_SCHEMA = {
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   description:
-    "Pure Marketing is a digital marketing agency serving Mississauga and the Greater Toronto Area. Specializing in Google Ads, Meta Ads, lead generation, and web design for local service businesses.",
+    "Pure Marketing is a local lead generation agency serving Mississauga and the Greater Toronto Area, helping local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and lead capture & conversion.",
   areaServed: { "@type": "City", name: "Mississauga", addressRegion: "ON", addressCountry: "CA" },
   parentOrganization: { "@id": `${BASE}/#organization` },
 };
@@ -57,7 +57,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Does Pure Marketing serve Mississauga businesses?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing serves Mississauga businesses throughout the Greater Toronto Area. We help local service businesses in Mississauga get more leads with Google Ads, Meta Ads, web design, social media management, lead generation, and video production. All services are month-to-month." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing serves Mississauga businesses throughout the Greater Toronto Area with one local lead generation system: paid advertising (Google and Meta), Google Maps and local SEO visibility, AI search discoverability, and lead capture & conversion. All services are month-to-month." },
     },
     {
       "@type": "Question",
@@ -88,7 +88,7 @@ const config: CityConfig = {
   faq: [
     {
       q: "Does Pure Marketing serve Mississauga businesses?",
-      a: "Yes. Pure Marketing serves Mississauga businesses throughout the Greater Toronto Area. We help local service businesses get more leads with Google Ads, Meta Ads, web design, social media management, and video production.",
+      a: "Yes. Pure Marketing serves Mississauga businesses throughout the Greater Toronto Area with one local lead generation system: paid advertising, Google Maps and local SEO visibility, and lead capture & conversion.",
     },
     {
       q: "How do Mississauga local businesses get more leads?",

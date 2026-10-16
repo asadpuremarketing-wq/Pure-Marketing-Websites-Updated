@@ -113,17 +113,13 @@ const config: IndustryFullConfig = {
     { num: "08", icon: "Zap",        title: "Instant Quote Follow-Up",    desc: "Automated follow-up sequences after every quote request so leads stay warm until they book." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "Service-area and paint-type pages that rank organically for exterior, interior, and commercial painting searches." },
   ],
-  resultsHeadline: "Hear It From Our Painting Clients",
+  resultsHeadline: "What Painting Clients Tell Us",
   results: [
-    { metric: "324%", label: "Project Increase", client: "Premier Painting Solutions", detail: "From inconsistent referrals to 12+ quote requests per month in 75 days." },
-    { metric: "141%", label: "Revenue Growth in 90 Days", client: "Artisan Painters", detail: "12 projects per month and 141% more tracked revenue within the first quarter." },
-    { metric: "8 wk.", label: "Booked in Advance", client: "ProPaint Hamilton", detail: "Booked 8 weeks out in advance, never a slow week since the system launched." },
+    { metric: "More Quotes", label: "Quote Requests", client: "Painting client, Hamilton area", detail: "From inconsistent referrals to a steady stream of quote requests every month." },
+    { metric: "More Projects", label: "Projects Booked", client: "Painting client, Ontario", detail: "A consistent flow of residential and commercial projects booked directly from the system." },
+    { metric: "Booked Out",   label: "Schedule Fill",    client: "Painting client, GTA",      detail: "Booked weeks out in advance, with no more slow weeks since the system launched." },
   ],
-  videoReviews: [
-    { name: "David P.", company: "Premier Painting Solutions", result: "324%+ More Projects", dur: "1:42" },
-    { name: "Rachel M.", company: "Artisan Painters", result: "Fully Booked in 75 Days", dur: "2:01" },
-    { name: "Tom K.", company: "ProPaint Hamilton", result: "Top Local Rankings", dur: "1:55" },
-  ],
+  videoReviews: [],
   ctaHeadline: "Your Best Work Deserves\nto Be Found.",
   ctaSubtext:
     "Let's build your painting growth system and make sure homeowners see your before/after work before they call anyone else.",
@@ -136,22 +132,22 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do painting companies get more residential projects?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting searches like 'house painter near me' and 'interior painting estimate' combined with before/after video content on Instagram and Facebook. A portfolio website showcasing finished projects builds trust. Pure Marketing clients average 324% more project bookings in the first 90 days." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads targeting searches like 'house painter near me' and 'interior painting estimate' combined with before/after visual proof used as ad creative on Instagram and Facebook. A landing page showcasing finished projects builds trust and converts visitors into booked estimates." },
     },
     {
       "@type": "Question",
       name: "What is the best marketing for a painting company?",
-      acceptedAnswer: { "@type": "Answer", text: "Before/after video content performs exceptionally well for painters on Instagram and Facebook, driving estimate requests. Google Ads capture high-intent searches. Together, this combination drives both brand awareness and direct leads. Pure Marketing builds and manages this full system for painting companies." },
+      acceptedAnswer: { "@type": "Answer", text: "Before/after visual content performs exceptionally well for painters when used as ad creative on Instagram and Facebook, driving estimate requests. Google Ads capture high-intent searches. Together, as one system, this drives both awareness and direct leads." },
     },
     {
       "@type": "Question",
       name: "How quickly can a painting company get leads from digital marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads campaigns go live within 7-10 days and most painting clients see their first qualified estimate requests within 14 days. Social media content builds over 60-90 days as the audience grows. Pure Marketing averages 324% more project bookings in the first 90 days." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads campaigns go live within 7-10 days and most painting clients see their first qualified estimate requests within 14 days. Results continue to build over 60-90 days as the campaigns and local SEO compound." },
     },
     {
       "@type": "Question",
       name: "How much does marketing for a painting company cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Pure Marketing offers painter lead generation, social media management, and video production for before/after content. All services are month-to-month with no long-term contracts required." },
+      acceptedAnswer: { "@type": "Answer", text: "Scope and ad spend depend on your market and goals. We'll walk you through recommendations on a free local growth assessment rather than publishing blanket pricing. All engagements are month-to-month with no long-term contracts required." },
     },
   ],
 };

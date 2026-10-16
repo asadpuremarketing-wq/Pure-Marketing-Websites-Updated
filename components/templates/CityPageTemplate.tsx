@@ -101,7 +101,7 @@ export default function CityPageTemplate({ config }: { config: CityConfig }) {
               Everything a {city} Business Needs to Grow
             </h2>
             <p className="text-[#666] text-[16px] mt-4 max-w-[560px] mx-auto">
-              From paid ads to web design to video, Pure Marketing handles your full digital marketing presence.
+              One system: paid advertising, Google Maps visibility, AI search discoverability, and lead capture & conversion, built to get your phone ringing.
             </p>
           </motion.div>
 

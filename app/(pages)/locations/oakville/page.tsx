@@ -6,15 +6,15 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Oakville | Google Ads & Lead Gen - Pure Marketing",
   description:
-    "Pure Marketing helps Oakville local service businesses get more qualified leads with Google Ads, Meta Ads, and web design. Close to Hamilton. No contracts. Book a free strategy call.",
+    "Pure Marketing helps Oakville local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and local lead generation. Close to Hamilton. No contracts. Book a free strategy call.",
   keywords: [
     "digital marketing agency Oakville",
     "Google Ads Oakville Ontario",
     "lead generation Oakville",
     "marketing agency Oakville Ontario",
     "local business marketing Oakville",
-    "web design Oakville",
-    "social media management Oakville",
+    "local service ads Oakville",
+    "local SEO Oakville",
   ],
   alternates: { canonical: `${BASE}/locations/oakville` },
   openGraph: {
@@ -34,7 +34,7 @@ const CITY_SCHEMA = {
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   description:
-    "Pure Marketing is a digital marketing agency based in Hamilton, serving Oakville and the Halton Region. We help local service businesses get more leads with Google Ads, Meta Ads, and web design.",
+    "Pure Marketing is a local lead generation agency based in Hamilton, serving Oakville and the Halton Region, helping local service businesses get more calls and booked jobs through paid advertising and Google Maps visibility.",
   areaServed: { "@type": "City", name: "Oakville", addressRegion: "ON", addressCountry: "CA" },
   parentOrganization: { "@id": `${BASE}/#organization` },
 };
@@ -56,7 +56,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Does Pure Marketing serve Oakville businesses?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing is based in nearby Hamilton and serves Oakville businesses throughout the Halton Region and Greater Toronto Area. We help local service businesses in Oakville get more leads with Google Ads, Meta Ads, web design, social media management, lead generation, and video production." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing is based in nearby Hamilton and serves Oakville businesses throughout the Halton Region and Greater Toronto Area with one local lead generation system: paid advertising (Google and Meta), Google Maps and local SEO visibility, AI search discoverability, and lead capture & conversion." },
     },
     {
       "@type": "Question",
@@ -87,7 +87,7 @@ const config: CityConfig = {
   faq: [
     {
       q: "Does Pure Marketing serve Oakville businesses?",
-      a: "Yes. Pure Marketing is based in nearby Hamilton and serves Oakville throughout the Halton Region. We offer Google Ads, Meta Ads, web design, lead generation, social media management, and video production.",
+      a: "Yes. Pure Marketing is based in nearby Hamilton and serves Oakville throughout the Halton Region with one local lead generation system: paid advertising, Google Maps and local SEO visibility, and lead capture & conversion.",
     },
     {
       q: "How do Oakville local businesses get more leads?",

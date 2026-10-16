@@ -109,17 +109,13 @@ const config: IndustryFullConfig = {
     { num: "08", icon: "Zap",        title: "Follow-Up Automation",           desc: "Instant responses and missed-call texts so every enquiry is captured before they call a competitor." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",         desc: "Service-area pages and local citations that drive organic electrician leads month after month." },
   ],
-  resultsHeadline: "Hear It From Our Electrician Clients",
+  resultsHeadline: "What Electrician Clients Tell Us",
   results: [
-    { metric: "312%", label: "Lead Increase",    client: "Bright Spark Electric", detail: "Went from 3 calls/week to 18+. Now fully booked 4 weeks out." },
-    { metric: "152%", label: "Revenue Growth in 90 Days", client: "Premier Electrical", detail: "18 jobs/week and 152% more revenue within the first 90 days." },
-    { metric: "4 wk.", label: "Fully Booked",    client: "GTA Electric",          detail: "Booked solid 4 weeks in advance within the first quarter." },
+    { metric: "More Calls",  label: "Weekly Call Volume",  client: "Electrician client, Hamilton area", detail: "Went from a trickle of referral calls to a steady stream of qualified calls every week, now booked out well in advance." },
+    { metric: "More Jobs",   label: "Jobs Booked",         client: "Electrician client, GTA",            detail: "A consistent flow of panel upgrade and install jobs booked directly from the system, month over month." },
+    { metric: "Booked Out",  label: "Schedule Fill",       client: "Electrician client, Ontario",        detail: "Booked solid weeks in advance after the system launched, instead of relying on word-of-mouth." },
   ],
-  videoReviews: [
-    { name: "Mike D.",   company: "Bright Spark Electric", result: "312%+ More Leads",        dur: "1:38" },
-    { name: "Kevin S.",  company: "Premier Electrical",    result: "Fully Booked in 60 Days", dur: "2:02" },
-    { name: "Jason L.",  company: "GTA Electric",          result: "Top Google Rankings",     dur: "1:51" },
-  ],
+  videoReviews: [],
   ctaHeadline: "Your Competitors Are Getting\nYour Customers.",
   ctaSubtext:
     "Let's build your growth system and put your electrical business in front of every homeowner searching for an electrician near you.",
@@ -132,7 +128,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do electricians get more leads online?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads and Google Ads targeting searches like 'electrician near me' are the top channels. Combined with an optimized Google Business Profile and a conversion-focused website, Pure Marketing clients average 18+ qualified calls per week and 312% more leads in 90 days." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads and Google Ads targeting searches like 'electrician near me' are the top channels. Combined with an optimized Google Business Profile and a conversion-focused landing page, this one lead generation system helps electrician clients build a steady weekly flow of qualified calls instead of relying on referrals." },
     },
     {
       "@type": "Question",
@@ -142,7 +138,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How quickly can an electrician get leads from Google Ads?",
-      acceptedAnswer: { "@type": "Answer", text: "Most electrician clients see their first leads within 7-14 days of campaign launch. Full results typically come in within 30-60 days as Google optimizes ad delivery and Quality Score improves. Pure Marketing averages 312% lead increase in the first 90 days." },
+      acceptedAnswer: { "@type": "Answer", text: "Most electrician clients see their first leads within 7-14 days of campaign launch. Full results typically build over 30-90 days as Google optimizes ad delivery and the Quality Score improves." },
     },
     {
       "@type": "Question",

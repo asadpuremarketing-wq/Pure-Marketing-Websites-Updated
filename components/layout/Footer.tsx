@@ -62,8 +62,6 @@ const INDUSTRY_LINKS = [
   { name: "Plumbers", href: "/industries/plumbers" },
   { name: "HVAC", href: "/industries/hvac" },
   { name: "Painters", href: "/industries/painters" },
-  { name: "Real Estate", href: "/industries/real-estate" },
-  { name: "Restaurants", href: "/industries/restaurants" },
   { name: "Locksmiths", href: "/industries/locksmiths" },
   { name: "General Contractors", href: "/industries/general-contractors" },
 ];

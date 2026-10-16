@@ -5,14 +5,13 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Industries We Serve | Pure Marketing Hamilton",
   description:
-    "Pure Marketing specializes in digital marketing for electricians, plumbers, HVAC companies, painters, restaurants, real estate agents, locksmiths, and general contractors in Canada.",
+    "Pure Marketing specializes in local lead generation for electricians, plumbers, HVAC companies, painters, locksmiths, and general contractors in Canada.",
   keywords: [
     "marketing for trades Hamilton",
     "electrician marketing Canada",
     "plumber marketing Ontario",
     "HVAC marketing Hamilton",
     "contractor marketing agency",
-    "restaurant marketing Hamilton",
   ],
   alternates: { canonical: `${BASE}/industries` },
   openGraph: {

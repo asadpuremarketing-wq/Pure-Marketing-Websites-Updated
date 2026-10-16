@@ -113,17 +113,13 @@ const config: IndustryFullConfig = {
     { num: "08", icon: "Zap",        title: "Follow-Up Automation",       desc: "Automated service reminders, maintenance plan upsells, and instant lead responses running 24/7." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",     desc: "City and service-type pages that rank for furnace, AC, and heat pump searches organically." },
   ],
-  resultsHeadline: "Hear It From Our HVAC Clients",
+  resultsHeadline: "What HVAC Clients Tell Us",
   results: [
-    { metric: "267%", label: "Lead Increase", client: "Climate Control Pro", detail: "From seasonal peaks only to consistent leads 12 months of the year." },
-    { metric: "141%", label: "Revenue Growth in 90 Days", client: "Comfort Systems HVAC", detail: "19 service calls per month and 141% more tracked revenue within 90 days." },
-    { metric: "12 mo.", label: "Fully Booked", client: "Arctic Air HVAC", detail: "Booked solid every month of the year, including the slow spring season." },
+    { metric: "Year-Round",  label: "Lead Flow",     client: "HVAC client, Hamilton area", detail: "From seasonal peaks only to a steadier flow of leads across all 12 months of the year." },
+    { metric: "More Calls",  label: "Service Calls",  client: "HVAC client, Ontario",       detail: "A consistent increase in service calls per month after the system launched." },
+    { metric: "Booked Out",  label: "Schedule Fill",  client: "HVAC client, GTA",           detail: "Booked solid through the shoulder seasons that used to be slow." },
   ],
-  videoReviews: [
-    { name: "James K.", company: "Climate Control Pro", result: "267%+ More Leads", dur: "1:46" },
-    { name: "David M.", company: "Comfort Systems HVAC", result: "Year-Round Bookings", dur: "2:03" },
-    { name: "Lisa T.", company: "Arctic Air HVAC", result: "Top Local Rankings", dur: "1:58" },
-  ],
+  videoReviews: [],
   ctaHeadline: "Your Competitors Are Busy\nEvery Season. Are You?",
   ctaSubtext:
     "Let's build your HVAC growth system and make sure your business gets calls for AC, furnace, and emergency service all year long.",
@@ -136,12 +132,12 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do HVAC companies get leads year-round?",
-      acceptedAnswer: { "@type": "Answer", text: "Seasonal campaign adjustments are key. Summer targets AC tune-ups, repairs, and replacements. Winter targets furnace installs, emergency heating calls, and maintenance contracts. Pure Marketing manages these seasonal campaign switches to keep HVAC companies consistently busy, averaging 267% lead increase year-round." },
+      acceptedAnswer: { "@type": "Answer", text: "Seasonal campaign adjustments are key. Summer targets AC tune-ups, repairs, and replacements. Winter targets furnace installs, emergency heating calls, and maintenance contracts. Pure Marketing manages these seasonal campaign switches as part of one system to keep HVAC companies consistently busy year-round." },
     },
     {
       "@type": "Question",
       name: "What digital marketing works best for HVAC companies?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads and Local Service Ads targeting seasonal keywords deliver the fastest results for HVAC. Local Service Ads are especially effective for emergency heating and cooling calls because you only pay per verified lead. Pure Marketing averages 267% lead increase for HVAC clients in the first 90 days." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Ads and Local Service Ads targeting seasonal keywords deliver the fastest results for HVAC. Local Service Ads are especially effective for emergency heating and cooling calls because you only pay per verified lead." },
     },
     {
       "@type": "Question",
@@ -151,7 +147,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does HVAC marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Most clients see a 5-8x return on marketing investment within 60 days. Ad spend (budget paid to Google) is separate and adjusted based on season and service area. Contact us for a free quote." },
+      acceptedAnswer: { "@type": "Answer", text: "Scope and ad spend depend on your market and season. We'll walk you through recommendations on a free local growth assessment rather than publishing blanket pricing." },
     },
   ],
 };

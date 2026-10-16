@@ -73,7 +73,7 @@ const FAQ_SCHEMA = {
       name: "Does Pure Marketing work with businesses outside of local services?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We specialize in local service businesses, restaurants, and real estate. If you are in another industry, we can discuss if we are the right fit.",
+        text: "We specialize in local service businesses and trades, such as contractors, painters, electricians, plumbers, HVAC companies, and locksmiths. If you are in another industry, we can discuss if we are the right fit.",
       },
     },
     {

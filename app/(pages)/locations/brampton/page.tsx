@@ -6,16 +6,16 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Brampton | Google Ads & Lead Gen - Pure Marketing",
   description:
-    "Pure Marketing helps Brampton local service businesses get more qualified leads with Google Ads, Meta Ads, and web design. Month-to-month. No contracts. Book a free strategy call.",
+    "Pure Marketing helps Brampton local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and local lead generation. Month-to-month. No contracts. Book a free strategy call.",
   keywords: [
     "digital marketing agency Brampton",
     "Google Ads Brampton",
     "lead generation Brampton",
     "marketing agency Brampton Ontario",
     "local business marketing Brampton",
-    "Meta Ads Brampton",
-    "web design Brampton",
-    "social media management Brampton",
+    "local service ads Brampton",
+    "local SEO Brampton",
+    "Google Business Profile Brampton",
   ],
   alternates: { canonical: `${BASE}/locations/brampton` },
   openGraph: {
@@ -35,7 +35,7 @@ const CITY_SCHEMA = {
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   description:
-    "Pure Marketing is a digital marketing agency serving Brampton and the Greater Toronto Area. We help local service businesses get more leads with Google Ads, Meta Ads, and web design.",
+    "Pure Marketing is a local lead generation agency serving Brampton and the Greater Toronto Area, helping local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and lead capture & conversion.",
   areaServed: { "@type": "City", name: "Brampton", addressRegion: "ON", addressCountry: "CA" },
   parentOrganization: { "@id": `${BASE}/#organization` },
 };
@@ -57,7 +57,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Does Pure Marketing serve Brampton businesses?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing serves Brampton businesses throughout the Greater Toronto Area. We help local service businesses in Brampton get more leads with Google Ads, Meta Ads, web design, social media management, lead generation, and video production. All services are month-to-month with no long-term contracts." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing serves Brampton businesses throughout the Greater Toronto Area with one local lead generation system: paid advertising (Google and Meta), Google Maps and local SEO visibility, AI search discoverability, and lead capture & conversion. All services are month-to-month with no long-term contracts." },
     },
     {
       "@type": "Question",
@@ -88,7 +88,7 @@ const config: CityConfig = {
   faq: [
     {
       q: "Does Pure Marketing serve Brampton businesses?",
-      a: "Yes. Pure Marketing serves Brampton businesses throughout the Greater Toronto Area. We help local service businesses get more leads with Google Ads, Meta Ads, web design, social media management, and video production.",
+      a: "Yes. Pure Marketing serves Brampton businesses throughout the Greater Toronto Area with one local lead generation system: paid advertising, Google Maps and local SEO visibility, and lead capture & conversion.",
     },
     {
       q: "How do Brampton businesses get more leads online?",

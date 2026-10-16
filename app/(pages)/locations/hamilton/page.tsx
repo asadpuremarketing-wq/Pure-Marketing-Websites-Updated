@@ -6,24 +6,23 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Hamilton | Google Ads & Lead Generation - Pure Marketing",
   description:
-    "Pure Marketing is based in Hamilton, Ontario. We help Hamilton local service businesses get more leads with Google Ads, Meta Ads, web design, and lead generation. No contracts. Book a free strategy call.",
+    "Pure Marketing is based in Hamilton, Ontario. We help Hamilton local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and local lead generation. No contracts. Book a free strategy call.",
   keywords: [
     "digital marketing agency Hamilton",
     "Google Ads Hamilton Ontario",
     "lead generation Hamilton",
     "marketing agency Hamilton Ontario",
     "local business marketing Hamilton",
-    "Meta Ads agency Hamilton",
-    "web design Hamilton local business",
-    "social media management Hamilton",
-    "SEO Hamilton Ontario",
+    "local service ads Hamilton",
+    "local SEO Hamilton Ontario",
+    "Google Business Profile Hamilton",
   ],
   alternates: { canonical: `${BASE}/locations/hamilton` },
   openGraph: {
     url: `${BASE}/locations/hamilton`,
     title: "Digital Marketing Agency Hamilton | Pure Marketing",
     description:
-      "Pure Marketing is Hamilton-based. We help Hamilton local service businesses get more qualified leads with Google Ads, Meta Ads, and conversion-focused web design. No contracts.",
+      "Pure Marketing is Hamilton-based. We help Hamilton local service businesses get more qualified leads through paid acquisition, local SEO, and conversion-focused lead capture. No contracts.",
   },
 };
 
@@ -36,7 +35,7 @@ const CITY_SCHEMA = {
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   description:
-    "Pure Marketing is a Hamilton, Ontario digital marketing agency specializing in Google Ads, Meta Ads, lead generation, web design, and social media management for local service businesses.",
+    "Pure Marketing is a Hamilton, Ontario local lead generation agency, helping local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, AI search discoverability, and lead capture & conversion.",
   areaServed: { "@type": "City", name: "Hamilton", addressRegion: "ON", addressCountry: "CA" },
   parentOrganization: { "@id": `${BASE}/#organization` },
   sameAs: [`${BASE}/#organization`],
@@ -66,10 +65,10 @@ const FAQ_SCHEMA = {
     },
     {
       "@type": "Question",
-      name: "What digital marketing services does Pure Marketing offer in Hamilton?",
+      name: "What does Pure Marketing offer Hamilton businesses?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pure Marketing offers Google Ads management, Meta Ads (Facebook and Instagram), lead generation systems, web design and development, social media management, and video production for Hamilton local service businesses. All services are month-to-month with no long-term contracts.",
+        text: "Pure Marketing runs one local lead generation system for Hamilton service businesses: paid advertising (Google and Meta), Google Maps and local SEO visibility, AI search discoverability, and landing pages and follow-up built to turn clicks into booked jobs. All month-to-month with no long-term contracts.",
       },
     },
     {
@@ -105,8 +104,8 @@ const config: CityConfig = {
       a: "Yes. Pure Marketing is headquartered in Hamilton, Ontario. We serve businesses across all Hamilton neighbourhoods including Ancaster, Dundas, Stoney Creek, Waterdown, and Flamborough. Local, available, and familiar with your market.",
     },
     {
-      q: "What digital marketing services are available in Hamilton?",
-      a: "Google Ads, Meta Ads (Facebook and Instagram), lead generation systems, web design, social media management, and video production for Hamilton local service businesses. All month-to-month, no contracts.",
+      q: "What does Pure Marketing offer Hamilton businesses?",
+      a: "One local lead generation system: paid advertising (Google and Meta), Google Maps and local SEO visibility, AI search discoverability, and lead capture built to turn clicks into booked jobs for Hamilton local service businesses. All month-to-month, no contracts.",
     },
     {
       q: "How quickly will a Hamilton business see leads from digital marketing?",

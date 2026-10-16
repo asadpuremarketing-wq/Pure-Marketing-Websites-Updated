@@ -104,8 +104,8 @@ const GROWTH_PLANS = [
 ];
 
 const INDUSTRIES = [
-  "Electricians", "Plumbers", "HVAC", "Painters", "Restaurants",
-  "Real Estate", "Locksmiths", "General Contractors", "Retail",
+  "Electricians", "Plumbers", "HVAC", "Painters",
+  "Locksmiths", "General Contractors", "Retail",
   "Healthcare", "Fitness", "Law Firm", "Other",
 ];
 

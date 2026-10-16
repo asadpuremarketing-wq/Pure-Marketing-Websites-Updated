@@ -6,15 +6,15 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Digital Marketing Agency Burlington | Google Ads & Lead Gen - Pure Marketing",
   description:
-    "Pure Marketing helps Burlington local service businesses get more qualified leads with Google Ads, Meta Ads, and web design. Close to Hamilton. No contracts. Book a free strategy call.",
+    "Pure Marketing helps Burlington local service businesses get more calls and booked jobs through paid advertising, Google Maps visibility, and local lead generation. Close to Hamilton. No contracts. Book a free strategy call.",
   keywords: [
     "digital marketing agency Burlington",
     "Google Ads Burlington Ontario",
     "lead generation Burlington",
     "marketing agency Burlington Ontario",
     "local business marketing Burlington",
-    "web design Burlington",
-    "social media management Burlington",
+    "local service ads Burlington",
+    "local SEO Burlington",
   ],
   alternates: { canonical: `${BASE}/locations/burlington` },
   openGraph: {
@@ -34,7 +34,7 @@ const CITY_SCHEMA = {
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   description:
-    "Pure Marketing is a digital marketing agency based in Hamilton, serving Burlington and the Golden Horseshoe. We help local service businesses get more leads with Google Ads and web design.",
+    "Pure Marketing is a local lead generation agency based in Hamilton, serving Burlington and the Golden Horseshoe, helping local service businesses get more calls and booked jobs through paid advertising and Google Maps visibility.",
   areaServed: { "@type": "City", name: "Burlington", addressRegion: "ON", addressCountry: "CA" },
   parentOrganization: { "@id": `${BASE}/#organization` },
 };
@@ -56,7 +56,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Does Pure Marketing serve Burlington businesses?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing is based in nearby Hamilton and serves Burlington businesses throughout the Golden Horseshoe. We help local service businesses in Burlington get more leads with Google Ads, Meta Ads, web design, social media management, lead generation, and video production." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Pure Marketing is based in nearby Hamilton and serves Burlington businesses throughout the Golden Horseshoe with one local lead generation system: paid advertising (Google and Meta), Google Maps and local SEO visibility, AI search discoverability, and lead capture & conversion." },
     },
     {
       "@type": "Question",
@@ -87,7 +87,7 @@ const config: CityConfig = {
   faq: [
     {
       q: "Does Pure Marketing serve Burlington businesses?",
-      a: "Yes. Pure Marketing is based in nearby Hamilton and serves Burlington throughout the Golden Horseshoe. We offer Google Ads, Meta Ads, web design, lead generation, social media management, and video production.",
+      a: "Yes. Pure Marketing is based in nearby Hamilton and serves Burlington throughout the Golden Horseshoe with one local lead generation system: paid advertising, Google Maps and local SEO visibility, and lead capture & conversion.",
     },
     {
       q: "How do Burlington local businesses get more leads?",

@@ -109,17 +109,13 @@ const config: IndustryFullConfig = {
     { num: "08", icon: "Zap",        title: "Missed-Call Text Back",   desc: "Automated texts fire the second someone calls and hangs up, so every warm lead is recovered instantly." },
     { num: "09", icon: "Search",     title: "Local SEO & Geo Growth",  desc: "City-specific service pages and citation building that compound into free organic leads every month." },
   ],
-  resultsHeadline: "Hear It From Our Plumbing Clients",
+  resultsHeadline: "What Plumbing Clients Tell Us",
   results: [
-    { metric: "289%", label: "Lead Increase",      client: "Blue Wave Plumbing",    detail: "From word-of-mouth only to 22 qualified calls every week from Google." },
-    { metric: "144%", label: "Revenue Growth in 90 Days", client: "Reliable Plumbers Inc", detail: "Fully booked schedule and 144% more tracked revenue within 90 days." },
-    { metric: "6 wk.", label: "Booked in Advance", client: "Hamilton Plumbing Co",  detail: "Booked 6 weeks out in advance within the first quarter of the system." },
+    { metric: "More Calls",  label: "Weekly Call Volume", client: "Plumbing client, Hamilton area", detail: "Went from word-of-mouth only to a steady stream of qualified calls every week from Google." },
+    { metric: "Booked Out",  label: "Schedule Fill",      client: "Plumbing client, Ontario",       detail: "Booked solid weeks in advance after the system launched, up from an unpredictable schedule." },
+    { metric: "More Jobs",   label: "Jobs Booked",        client: "Plumbing client, GTA",           detail: "A consistent flow of drain, install, and emergency jobs booked directly from the system." },
   ],
-  videoReviews: [
-    { name: "Sarah T.", company: "Blue Wave Plumbing",    result: "289%+ More Leads",        dur: "1:44" },
-    { name: "Mark R.",  company: "Reliable Plumbers Inc", result: "Fully Booked in 90 Days", dur: "2:08" },
-    { name: "Chris P.", company: "Hamilton Plumbing Co",  result: "Top Google Rankings",     dur: "1:55" },
-  ],
+  videoReviews: [],
   ctaHeadline: "Every Search Is a Job\nYou Could Be Winning.",
   ctaSubtext:
     "Let's build your plumbing growth system and make sure your business shows up first when homeowners need a plumber right now.",
@@ -132,7 +128,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do plumbers get more emergency calls?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads are the most effective channel for emergency plumbing calls because they appear at the very top of search results and you only pay per verified lead. Combined with Google Ads and an optimized Google Business Profile, Pure Marketing clients average 22+ calls per week and 289% more leads." },
+      acceptedAnswer: { "@type": "Answer", text: "Google Local Service Ads are the most effective channel for emergency plumbing calls because they appear at the very top of search results and you only pay per verified lead. Combined with Google Ads and an optimized Google Business Profile, this one lead generation system helps plumbing clients build a steady weekly flow of qualified calls." },
     },
     {
       "@type": "Question",
@@ -147,7 +143,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How quickly can a plumber get leads from digital marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "With Google Ads and Local Service Ads, most plumbing clients start receiving qualified calls within 3-14 days of campaigns launching, because plumbing searches are constant and high-intent. Pure Marketing averages 289% lead increase in the first 90 days." },
+      acceptedAnswer: { "@type": "Answer", text: "With Google Ads and Local Service Ads, most plumbing clients start receiving qualified calls within 3-14 days of campaigns launching, because plumbing searches are constant and high-intent." },
     },
   ],
 };
