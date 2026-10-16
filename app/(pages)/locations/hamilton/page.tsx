@@ -77,7 +77,7 @@ const FAQ_SCHEMA = {
       name: "How much does digital marketing cost for a Hamilton business?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pure Marketing Hamilton pricing: lead generation from $1,499/month, Google Ads and Meta Ads management from $500/month, social media management from $899/month, video production from $699. Web design is custom-quoted. All services are month-to-month with no contracts.",
+        text: "Pricing and scope depend on your market and goals. We discuss recommended budget and scope on a free local growth assessment rather than publishing blanket pricing. All engagements are month-to-month with no long-term contracts.",
       },
     },
     {
@@ -110,7 +110,7 @@ const config: CityConfig = {
     },
     {
       q: "How quickly will a Hamilton business see leads from digital marketing?",
-      a: "Most Hamilton clients start seeing qualified leads within 7-14 days of Google Ads and Local Service Ads launching. Full optimization typically takes 30-60 days. We average 40-80 qualified leads per month per client.",
+      a: "Most Hamilton clients start seeing qualified leads within 7-14 days of Google Ads and Local Service Ads launching. Full optimization typically takes 30-60 days. ",
     },
     {
       q: "What industries does Pure Marketing serve in Hamilton?",

@@ -5,10 +5,6 @@ import Image from "next/image";
 import {
   MapPin,
   CheckCircle2,
-  Users,
-  TrendingUp,
-  Award,
-  Clock,
 } from "lucide-react";
 
 const BASE = "https://puremarketing.ca";
@@ -19,7 +15,7 @@ const ABOUT_SCHEMA = {
   "@id": `${BASE}/about`,
   name: "About Pure Marketing",
   url: `${BASE}/about`,
-  description: "Pure Marketing is a Hamilton, Ontario digital marketing agency founded by Asad Saif. Specializing in lead generation, Google Ads, Meta Ads, web design, social media management, and video production for local service businesses.",
+  description: "Pure Marketing is a Hamilton, Ontario local lead generation and customer acquisition specialist founded by Asad Saif, helping Canadian local service businesses get more calls, estimates, and booked jobs.",
   mainEntity: { "@id": `${BASE}/#organization` },
 };
 
@@ -59,13 +55,6 @@ import PageHero from "@/components/ui/PageHero";
 
 /* ─── Data ─────────────────────────────────────────────────── */
 
-const STATS = [
-  { value: "150+", label: "Local Businesses Served", icon: Users },
-  { value: "$2M+", label: "Ad Spend Managed", icon: TrendingUp },
-  { value: "4.9★", label: "Average Client Rating", icon: Award },
-  { value: "5 yrs", label: "In Business", icon: Clock },
-];
-
 const TEAM = [
   {
     name: "Asad Saif",
@@ -89,9 +78,8 @@ const TEAM = [
 
 const TIMELINE = [
   { year: "2024", event: "Founded in Hamilton, ON with a focus on local trades" },
-  { year: "2024", event: "Expanded to restaurants and real estate verticals" },
-  { year: "2025", event: "Crossed $1M in managed ad spend for clients" },
-  { year: "2026", event: "Serving 150+ businesses across Canada and the US" },
+  { year: "2024", event: "Began working with painting, construction, and home service businesses" },
+  { year: "2025", event: "Narrowed our focus to one specialty: local lead generation for service businesses" },
 ];
 
 const SOCIAL_CHANNELS = [
@@ -139,33 +127,10 @@ export default function About() {
         label="About Us"
         title="A Marketing Agency Built"
         titleAccent="for Local Businesses"
-        subtitle="We started this agency because we saw too many great local businesses being ignored by generic marketing agencies. We fix that. From Hamilton to across North America."
+        subtitle="We started this agency because we saw too many great local service businesses losing customers to competitors who simply showed up better online. Today we focus on one thing: helping local service businesses get more qualified customer inquiries."
         breadcrumbs={[{ label: "About" }]}
         fadeToColor="#111111"
       />
-
-      {/* ── 1. STATS BAND ── accent-primary bg, py-5 */}
-      <section className="bg-accent-primary py-5">
-        <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {STATS.map((s, i) => (
-              <div
-                key={i}
-                className={`flex flex-col items-center text-center py-3 ${
-                  i < STATS.length - 1 ? "border-r border-white/20" : ""
-                }`}
-              >
-                <span className="text-[38px] md:text-[44px] font-black text-white leading-none">
-                  {s.value}
-                </span>
-                <span className="text-xs md:text-sm text-white/75 font-medium mt-1">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── 2. OUR STORY ── white bg */}
       <section className="bg-white py-24">
@@ -209,16 +174,16 @@ export default function About() {
             {/* Right: story text + pull-quote + location badge */}
             <motion.div {...fadeUp(0.15)} className="space-y-6">
               <p className="text-[17px] text-[#555] leading-relaxed">
-                We started working with local service businesses and quickly realized that most marketing agencies treat them as an afterthought. Cookie-cutter websites, generic ads, and zero understanding of how these businesses actually operate.
+                We started working with local service businesses and quickly realized that most marketing agencies treat them as an afterthought. Cookie-cutter websites, generic ads, and zero understanding of how contractors and trades actually get work booked.
               </p>
               <p className="text-[17px] text-[#555] leading-relaxed">
-                So we built a specialized agency focused entirely on home service companies, restaurants, and real estate professionals. Every strategy we use is tested and proven in these specific industries.
+                So we narrowed our focus to one thing: local lead generation and customer acquisition for contractors and local service businesses — painters, roofers, electricians, plumbers, HVAC companies, and similar trades across Canada.
               </p>
 
               {/* Dark pull-quote card */}
               <div className="bg-[#0d0d0d] border border-white/10 border-l-4 border-l-accent-primary rounded-2xl p-6">
                 <p className="text-[17px] text-white italic leading-snug">
-                  &ldquo;We manage marketing for businesses across Canada and the US, helping them generate consistent leads month over month.&rdquo;
+                  &ldquo;Great service isn&apos;t enough if customers can&apos;t find you. We help local service businesses show up, get called, and get booked.&rdquo;
                 </p>
               </div>
 

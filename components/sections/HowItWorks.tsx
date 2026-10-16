@@ -8,26 +8,26 @@ const STEPS = [
   {
     num: "01",
     icon: Phone,
-    title: "Book a Free Strategy Call",
-    desc: "Tell us about your business. We audit your market, competitors, and current online presence at no cost.",
+    title: "Analyze Your Business",
+    desc: "We review your current online presence, service area, and competition to find where you're losing customer inquiries.",
   },
   {
     num: "02",
     icon: FileText,
-    title: "We Build Your Custom Plan",
-    desc: "We create a marketing strategy built specifically for your industry, city, and budget. No generic templates.",
+    title: "Build Your Acquisition Strategy",
+    desc: "We build a strategy combining paid advertising, local search visibility, and lead conversion based on your market and goals.",
   },
   {
     num: "03",
     icon: Rocket,
-    title: "We Launch in 7 to 14 Days",
-    desc: "Your campaigns, website, or content go live fast. We move while your competitors are still thinking about it.",
+    title: "Launch & Optimize",
+    desc: "Campaigns and visibility improvements go live, then get refined based on real performance.",
   },
   {
     num: "04",
     icon: TrendingUp,
-    title: "Your Phone Starts Ringing",
-    desc: "Weekly reports and continuous optimization. We keep improving until you're fully booked, then we scale.",
+    title: "Track & Improve",
+    desc: "We track calls and inquiries where data is available and keep improving the system month over month.",
   },
 ];
 
@@ -58,11 +58,11 @@ export default function HowItWorks() {
             How It Works
           </motion.p>
           <motion.h2 {...fadeUp(0.1)} className="text-[32px] md:text-[44px] font-black text-white leading-tight">
-            From Your First Call to{" "}
-            <span className="text-accent-primary">Your First Lead</span>
+            From First Call to{" "}
+            <span className="text-accent-primary">More Local Jobs</span>
           </motion.h2>
           <motion.p {...fadeUp(0.2)} className="text-[16px] text-[#999] max-w-[480px] mx-auto mt-4 leading-relaxed">
-            No long onboarding. No waiting months to see results. Here is exactly what happens when you work with us.
+            Here is exactly what happens when you work with us.
           </motion.p>
         </div>
 
@@ -121,9 +121,9 @@ export default function HowItWorks() {
             href="/contact"
             className="inline-flex items-center gap-2 bg-accent-primary text-white rounded-xl px-8 py-4 font-bold text-[15px] hover:bg-[#D9531E] transition-colors duration-300 shadow-lg shadow-accent-primary/30"
           >
-            Start With a Free Strategy Call
+            Get a Free Local Growth Assessment
           </Link>
-          <p className="text-[#999] text-xs mt-4">No contracts. No pressure. Results within 30 days.</p>
+          <p className="text-[#999] text-xs mt-4">No contracts. No pressure.</p>
         </motion.div>
 
       </div>

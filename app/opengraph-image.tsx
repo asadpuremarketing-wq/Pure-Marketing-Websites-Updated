@@ -102,7 +102,7 @@ export default function Image() {
             display: "flex",
           }}
         >
-          Google Ads · Meta Ads · Web Design · Lead Generation
+          Local Lead Generation for Canadian Service Businesses
         </div>
 
         {/* Bottom strip */}
@@ -115,9 +115,9 @@ export default function Image() {
         >
           {/* Stats pills */}
           {[
-            { val: "150+", label: "Clients" },
-            { val: "4.9★", label: "Rating" },
-            { val: "$2M+", label: "Ad Spend" },
+            { val: "1", label: "Focused System" },
+            { val: "CA", label: "Canada-Wide" },
+            { val: "0", label: "Contracts" },
           ].map(({ val, label }) => (
             <div
               key={label}

@@ -15,19 +15,21 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
   title: {
-    default: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
+    default: "Local Lead Generation for Canadian Service Businesses | Pure Marketing",
     template: "%s | Pure Marketing",
   },
   description:
-    "Pure Marketing is a Hamilton, Ontario digital marketing agency specializing in Google Ads, Meta Ads, web design, and lead generation for local service businesses across Canada.",
+    "Pure Marketing helps Canadian local service businesses generate more qualified customer inquiries, calls, and job opportunities through a complete local lead generation system.",
   keywords: [
-    "marketing agency Hamilton",
-    "digital marketing Hamilton Ontario",
-    "Google Ads Hamilton",
-    "lead generation Hamilton",
-    "web design Hamilton",
-    "SEO agency Hamilton Ontario",
-    "local service business marketing",
+    "local lead generation",
+    "lead generation for contractors",
+    "lead generation for local businesses",
+    "home service lead generation",
+    "contractor marketing",
+    "local customer acquisition",
+    "Google Maps optimization for contractors",
+    "local SEO for service businesses",
+    "Google Ads for contractors",
     "electrician marketing",
     "plumber marketing",
     "HVAC marketing",
@@ -46,23 +48,23 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: BASE,
     siteName: "Pure Marketing",
-    title: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
+    title: "Local Lead Generation for Canadian Service Businesses | Pure Marketing",
     description:
-      "Hamilton-based digital marketing agency helping local service businesses get more leads with Google Ads, Meta Ads, and conversion-focused web design.",
+      "We help Canadian contractors and local service businesses get more calls, estimates, and booked jobs through local lead generation.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Pure Marketing - Digital Marketing Agency Hamilton Ontario",
+        alt: "Pure Marketing - Local Lead Generation for Canadian Service Businesses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pure Marketing | Digital Marketing Agency Hamilton, Ontario",
+    title: "Local Lead Generation for Canadian Service Businesses | Pure Marketing",
     description:
-      "Hamilton-based digital marketing agency helping local service businesses get more leads.",
+      "We help Canadian contractors and local service businesses get more calls, estimates, and booked jobs.",
     images: ["/opengraph-image"],
   },
   alternates: {
@@ -82,7 +84,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   logo: `${BASE}/favicon.svg`,
   image: `${BASE}/opengraph-image`,
   description:
-    "Pure Marketing is a Hamilton, Ontario digital marketing agency specializing in Google Ads, Meta Ads, lead generation, and web design for local service businesses across Canada.",
+    "Pure Marketing is a Hamilton, Ontario based local lead generation and customer acquisition specialist, helping Canadian local service businesses get more calls, estimates, and booked jobs.",
   telephone: "+16479512786",
   email: "info@puremarketing.ca",
   address: {
@@ -121,17 +123,15 @@ const LOCAL_BUSINESS_SCHEMA = {
     url: BASE,
   },
   knowsAbout: [
-    "Google Ads",
-    "Meta Ads",
-    "Lead Generation",
+    "Local Lead Generation",
+    "Local Customer Acquisition",
+    "Google Ads for Contractors",
+    "Google Local Services Ads",
+    "Meta Ads for Home Services",
     "Local SEO",
-    "Web Design",
-    "Social Media Marketing",
-    "Video Production",
-    "Digital Marketing for Local Businesses",
+    "Google Maps Optimization",
+    "AI Search Discoverability",
   ],
-  slogan: "Strategy. Systems. Growth.",
-  priceRange: "$$",
   sameAs: [
     "https://www.instagram.com/puremarketing0",
     "https://www.facebook.com/profile.php?id=61576684511407",
@@ -140,14 +140,9 @@ const LOCAL_BUSINESS_SCHEMA = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Digital Marketing Services",
+    name: "Local Lead Generation System",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Google Ads Management" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Meta Ads Management" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Design & Development" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lead Generation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Local SEO" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Production" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Local Lead Generation & Customer Acquisition" } },
     ],
   },
 };
@@ -161,12 +156,9 @@ const PERSON_SCHEMA = {
   worksFor: { "@id": `${BASE}/#organization` },
   url: BASE,
   knowsAbout: [
-    "Google Ads",
-    "Meta Ads",
-    "Lead Generation for Local Businesses",
-    "Social Media Marketing",
-    "Web Design",
-    "Video Production",
+    "Local Lead Generation",
+    "Google Ads for Contractors",
+    "Local Customer Acquisition",
     "Local SEO",
   ],
   sameAs: [

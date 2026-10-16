@@ -49,9 +49,9 @@ const SOCIAL_LINKS = [
 
 const QUICK_LINKS = [
   { name: "Home", href: "/" },
+  { name: "Our System", href: "/services/lead-generation" },
+  { name: "Results", href: "/results" },
   { name: "About Us", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -67,7 +67,7 @@ export default function Footer() {
               Pure Marketing
             </Link>
             <p className="text-[#9E9892] text-sm max-w-xs leading-relaxed">
-              Helping local businesses across Canada get more leads, more bookings, and more revenue through proven digital marketing.
+              Local lead generation and customer acquisition for Canadian contractors and service businesses.
             </p>
             <div className="flex items-center gap-3 pt-2">
               {SOCIAL_LINKS.map((s) => (
@@ -121,7 +121,7 @@ export default function Footer() {
               </li>
               <li className="pt-3">
                 <Link href="/contact" className="inline-flex items-center gap-2 bg-accent-primary text-white text-sm font-semibold rounded-lg px-5 py-2.5 hover:bg-[#D9531E] transition-colors">
-                  Book a Free Strategy Call
+                  Get a Free Local Growth Assessment
                 </Link>
               </li>
             </ul>

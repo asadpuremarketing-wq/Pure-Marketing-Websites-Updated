@@ -30,20 +30,16 @@ const FacebookIcon = ({ className }: { className?: string }) => (
 
 const FAQS = [
   {
-    q: "What is the cost to get started?",
-    a: "Costs vary depending on what you need. Lead generation starts at $1,499/month. Video production starts at $699. We offer a free audit to discuss your specific needs and provide an accurate quote."
+    q: "What does the free local growth assessment include?",
+    a: "We review your current online presence, including Google Business Profile, search visibility, and website conversion, and discuss where you may be losing customer inquiries. We'll walk you through recommended scope and budget based on your market and goals."
   },
   {
     q: "How quickly can you get me leads?",
-    a: "We can have campaigns live within 7-10 days. Most clients see their first leads within 2-3 weeks. Significant results typically come in 30-60 days as campaigns optimize."
-  },
-  {
-    q: "What if I am not happy with the results?",
-    a: "We offer a 30-day results guarantee. If you are not seeing progress, we will either optimize your campaigns or refund your month's fees. Your success is our success."
+    a: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Paid campaigns can go live within days; local search and AI discoverability improvements build over a longer period."
   },
   {
     q: "Do you work with businesses outside of local services?",
-    a: "We specialize in local service businesses, restaurants, and real estate. We understand these industries deeply. If you are in another industry, we can discuss if we are the right fit."
+    a: "We specialize in local service businesses: contractors, painters, roofers, electricians, plumbers, HVAC companies, and similar trades. If you're in another industry, we can discuss whether we're the right fit."
   },
   {
     q: "Can I change or cancel my service at any time?",
@@ -51,7 +47,7 @@ const FAQS = [
   },
   {
     q: "How do you report on results?",
-    a: "Monthly reports via email showing leads, calls, bookings, revenue, and ROI from each campaign. You have a dedicated account manager for questions."
+    a: "Reports cover leads, calls, and inquiries where tracking data is available, so you can see what's working."
   }
 ];
 
@@ -134,9 +130,9 @@ export default function ContactPage() {
 
       <PageHero
         label="Contact"
-        title="Let's Talk About"
-        titleAccent="Your Business"
-        subtitle="Whether you have questions about our services, want to discuss your specific needs, or are ready to get started, we would love to hear from you."
+        title="Get a Free Local"
+        titleAccent="Growth Assessment"
+        subtitle="Tell us about your business and we'll review your current online presence to find where you may be losing customer inquiries."
         breadcrumbs={[{ label: "Contact" }]}
         fadeToColor="#F8FAFC"
       />
@@ -229,7 +225,7 @@ export default function ContactPage() {
                       className="w-4 h-4 text-accent-primary border-[#ddd] rounded focus:ring-accent-primary"
                     />
                     <label htmlFor="strategy" className="text-sm text-[#555] ml-2 cursor-pointer">
-                      I am interested in booking a free strategy call
+                      I&apos;m interested in a free local growth assessment
                     </label>
                   </div>
 

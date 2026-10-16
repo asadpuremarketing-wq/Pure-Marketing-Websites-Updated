@@ -41,7 +41,7 @@ export default function ClientsCarousel() {
           {...fadeUp(0.1)}
           className="text-[28px] md:text-[36px] font-black text-white leading-tight"
         >
-          150+ Businesses Across Canada
+          Trusted by Local Businesses Across Canada
         </motion.h2>
       </div>
 

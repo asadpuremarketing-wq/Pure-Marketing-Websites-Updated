@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Play, Calendar, Clock, ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { Play, Calendar, Clock, ArrowRight, Film } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const BookCallModal = dynamic(() => import("@/components/ui/BookCallModal"), { ssr: false });
@@ -25,13 +24,29 @@ function getNextFiveWeekdays() {
   return result;
 }
 
-const VIDEO_ID = "dCJCZmdhcNM";
+/**
+ * VIDEO_CONFIG — set this once a real overview video is ready.
+ * Leaving `embedUrl` / `youtubeId` null renders the "coming soon" placeholder below.
+ * To wire up a real video later, set either:
+ *   - youtubeId: "xxxxxxxxxxx"  (renders a youtube-nocookie embed), or
+ *   - embedUrl: "https://..."   (renders any direct embeddable video URL)
+ */
+const VIDEO_CONFIG: { youtubeId: string | null; embedUrl: string | null; thumbnailUrl: string | null } = {
+  youtubeId: null,
+  embedUrl: null,
+  thumbnailUrl: null,
+};
 
 export default function IntroVideo() {
   const [playing, setPlaying] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [selectedPreviewDate, setSelectedPreviewDate] = useState<Date | undefined>(undefined);
   const dates = getNextFiveWeekdays();
+
+  const hasVideo = Boolean(VIDEO_CONFIG.youtubeId || VIDEO_CONFIG.embedUrl);
+  const embedSrc = VIDEO_CONFIG.youtubeId
+    ? `https://www.youtube-nocookie.com/embed/${VIDEO_CONFIG.youtubeId}?autoplay=1&rel=0&playsinline=1`
+    : VIDEO_CONFIG.embedUrl ?? "";
 
   function openWithDate(d: Date) {
     setSelectedPreviewDate(d);
@@ -49,7 +64,7 @@ export default function IntroVideo() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-16 items-center">
 
-            {/* LEFT: Video player */}
+            {/* LEFT: Video player / placeholder */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -57,39 +72,59 @@ export default function IntroVideo() {
               transition={{ duration: 0.6 }}
               className="flex flex-col"
             >
-              <div className="relative aspect-video rounded-2xl border border-black/10 shadow-2xl overflow-hidden">
-                {playing ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
-                    title="How We Help Local Businesses Generate More Leads"
-                    allow="autoplay; fullscreen; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                ) : (
-                  <button
-                    onClick={() => setPlaying(true)}
-                    className="absolute inset-0 w-full h-full group focus:outline-none"
-                    aria-label="Play video"
-                  >
-                    <Image
-                      src={`https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
-                      alt="How We Help Local Businesses Generate More Leads"
-                      fill
-                      className="object-cover"
-                      unoptimized
+              <div className="relative aspect-video rounded-2xl border border-black/10 shadow-2xl overflow-hidden bg-[#111]">
+                {hasVideo ? (
+                  playing ? (
+                    <iframe
+                      src={embedSrc}
+                      title="See How We Help Local Businesses Get More Work"
+                      allow="autoplay; fullscreen; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-200" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 12 }}
-                        className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl"
-                      >
-                        <Play className="w-8 h-8 text-accent-primary ml-1" fill="currentColor" />
-                      </motion.div>
+                  ) : (
+                    <button
+                      onClick={() => setPlaying(true)}
+                      className="absolute inset-0 w-full h-full group focus:outline-none"
+                      aria-label="Play video"
+                    >
+                      {VIDEO_CONFIG.thumbnailUrl && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={VIDEO_CONFIG.thumbnailUrl}
+                          alt="See How We Help Local Businesses Get More Work"
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-200" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 12 }}
+                          className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl"
+                        >
+                          <Play className="w-8 h-8 text-accent-primary ml-1" fill="currentColor" />
+                        </motion.div>
+                      </div>
+                    </button>
+                  )
+                ) : (
+                  /* Polished "coming soon" placeholder — no embed, no autoplay */
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+                    <div
+                      className="absolute inset-0 opacity-[0.08]"
+                      style={{ backgroundImage: "radial-gradient(#F06428 1px, transparent 1px)", backgroundSize: "24px 24px" }}
+                    />
+                    <div className="relative z-10 w-16 h-16 rounded-2xl bg-accent-primary/15 border border-accent-primary/30 flex items-center justify-center mb-5">
+                      <Film className="w-7 h-7 text-accent-primary" />
                     </div>
-                  </button>
+                    <p className="relative z-10 text-white font-bold text-[17px] mb-1.5">
+                      Our Overview Video Is Coming Soon
+                    </p>
+                    <p className="relative z-10 text-white/50 text-sm max-w-[320px] leading-relaxed">
+                      In the meantime, book a free assessment and we&apos;ll walk you through the system directly.
+                    </p>
+                  </div>
                 )}
               </div>
 
@@ -98,8 +133,10 @@ export default function IntroVideo() {
                   <Play className="w-3.5 h-3.5 text-accent-primary ml-0.5" fill="currentColor" />
                 </div>
                 <div>
-                  <p className="text-sm font-black text-[#0d0d0d]">How We Grow Local Businesses</p>
-                  <p className="text-xs text-[#999]">2 min overview · No fluff</p>
+                  <p className="text-sm font-black text-[#0d0d0d]">See How We Help Local Businesses Get More Work</p>
+                  <p className="text-xs text-[#999]">
+                    Discover how our local lead generation system helps businesses get found, attract qualified customers, and turn inquiries into job opportunities.
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -118,7 +155,7 @@ export default function IntroVideo() {
                   <Calendar className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="text-white text-[15px] font-bold leading-tight">Book a Free Strategy Call</p>
+                  <p className="text-white text-[15px] font-bold leading-tight">Get a Free Local Growth Assessment</p>
                   <p className="text-white/30 text-[11px]">30 min · Google Meet · Mon–Fri, 8am–8pm EST</p>
                 </div>
               </div>

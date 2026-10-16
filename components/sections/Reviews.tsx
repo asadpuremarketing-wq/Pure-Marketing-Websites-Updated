@@ -5,14 +5,17 @@ import { Star, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+/* Genuine Google reviews — order favors reviews about general business
+   results/relationship over ones specifically about a now-retired standalone
+   service (e.g. social media management). Text is left unaltered. */
 const GOOGLE_REVIEWS = [
-  { name: "Dennis Aboagye",  badge: "",           time: "a month ago",  photo: "https://randomuser.me/api/portraits/men/32.jpg",   text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
-  { name: "Unnati Oza",      badge: "Local Guide", time: "a month ago",  photo: "https://randomuser.me/api/portraits/women/44.jpg", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
-  { name: "Benard Yeboah",   badge: "",           time: "a month ago",  photo: "https://randomuser.me/api/portraits/men/75.jpg",   text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
-  { name: "Wade Beattie",    badge: "",           time: "7 months ago", photo: "https://randomuser.me/api/portraits/men/52.jpg",   text: "Great communication, and pricing." },
   { name: "Eleanor Wilson",  badge: "",           time: "4 months ago", photo: "https://randomuser.me/api/portraits/women/68.jpg", text: "Gravity contractors referred me to them and they do a very good job." },
   { name: "John Riadhh",     badge: "Local Guide", time: "4 months ago", photo: "https://randomuser.me/api/portraits/men/41.jpg",  text: "Asad was very professional in helping, definitely recommend their marketing team." },
   { name: "John Williamson", badge: "",           time: "14 hours ago", photo: "https://randomuser.me/api/portraits/men/60.jpg",   text: "Fantastic business first class." },
+  { name: "Wade Beattie",    badge: "",           time: "7 months ago", photo: "https://randomuser.me/api/portraits/men/52.jpg",   text: "Great communication, and pricing." },
+  { name: "Dennis Aboagye",  badge: "",           time: "a month ago",  photo: "https://randomuser.me/api/portraits/men/32.jpg",   text: "Excellent social media management service! Very professional, creative, and always responsive. Highly recommend for anyone looking to grow their online presence." },
+  { name: "Unnati Oza",      badge: "Local Guide", time: "a month ago",  photo: "https://randomuser.me/api/portraits/women/44.jpg", text: "I have been dealing with Pure marketing from past 5-6 months. Asad has been handling my social media page and he has been very professional and easy to contact and connect when needed. I would recommend his service 100%." },
+  { name: "Benard Yeboah",   badge: "",           time: "a month ago",  photo: "https://randomuser.me/api/portraits/men/75.jpg",   text: "Asad does an excellent job managing my social media across multiple platforms. Reliable, and easy to work with." },
   { name: "Negril 25",       badge: "",           time: "9 months ago", photo: "https://randomuser.me/api/portraits/men/88.jpg",   text: "Asad was very professional and patient while working with me. He helped me to create my Website for my healthcare business. He also helped with creating business cards and pamphlets. I am very happy with the outcome and I will continue to use him for Social Media services. I highly recommend him." },
 ];
 

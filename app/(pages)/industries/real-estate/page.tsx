@@ -4,11 +4,11 @@ import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Marketing for Real Estate Agents | Property Videos & Lead Gen - Pure Marketing",
+  title: "Lead Generation for Real Estate Agents | Pure Marketing",
   description:
-    "We help real estate agents in Canada sell faster with property tour videos, agent websites, and targeted lead generation campaigns. 4.2x faster sales on average.",
+    "We help real estate agents in Canada generate more qualified buyer and seller inquiries through property tour videos, agent websites, and targeted lead generation campaigns.",
   keywords: [
-    "real estate marketing Canada",
+    "real estate lead generation Canada",
     "real estate agent marketing Ontario",
     "property tour video Hamilton",
     "real estate lead generation",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/industries/real-estate` },
   openGraph: {
     url: `${BASE}/industries/real-estate`,
-    title: "Marketing for Real Estate Agents | 4.2x Faster Sales - Pure Marketing",
+    title: "Lead Generation for Real Estate Agents | Pure Marketing",
     description:
-      "Pure Marketing helps real estate agents sell faster with property videos, agent branding, and lead gen campaigns. Book a free audit.",
+      "Pure Marketing helps real estate agents generate more qualified buyer and seller inquiries with property videos, agent branding, and lead gen campaigns.",
   },
 };
 
@@ -132,22 +132,22 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How do real estate agents get more leads online?",
-      acceptedAnswer: { "@type": "Answer", text: "A combination of professional property tour videos, targeted Facebook and Instagram ads to specific buyer demographics, Google Ads for buyer and seller intent searches, and an agent website optimized for local search. Pure Marketing clients average 4.2x faster property sales and 35% more qualified buyer leads." },
+      acceptedAnswer: { "@type": "Answer", text: "A combination of professional property tour videos, targeted Facebook and Instagram ads to specific buyer demographics, Google Ads for buyer and seller intent searches, and an agent website optimized for local search." },
     },
     {
       "@type": "Question",
       name: "Do real estate agents need video marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Properties with professional video tours sell significantly faster than those without. Video also establishes the agent's personal brand, builds trust with sellers, and performs exceptionally on social media. Pure Marketing produces professional property tour and agent brand videos." },
+      acceptedAnswer: { "@type": "Answer", text: "Video can help properties stand out and establishes the agent's personal brand, building trust with sellers while performing well on social media." },
     },
     {
       "@type": "Question",
       name: "What digital marketing works best for real estate agents?",
-      acceptedAnswer: { "@type": "Answer", text: "Video production for listings, Instagram and Facebook content for brand building, targeted Meta Ads to buyer and seller audiences, Google Ads for specific search intent, and a professional agent website. Pure Marketing manages this full system for real estate agents across Canada." },
+      acceptedAnswer: { "@type": "Answer", text: "Video for listings, Instagram and Facebook content for brand building, targeted Meta Ads to buyer and seller audiences, Google Ads for specific search intent, and a professional agent website working together as one system." },
     },
     {
       "@type": "Question",
-      name: "How much does real estate marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Pure Marketing offers custom packages for real estate agents covering video production, social media management, and Google and Meta Ads management. Contact for a free audit." },
+      name: "How much does real estate lead generation cost?",
+      acceptedAnswer: { "@type": "Answer", text: "Scope and cost depend on your market and goals. We'll walk you through recommendations on a free local growth assessment rather than publishing blanket pricing." },
     },
   ],
 };

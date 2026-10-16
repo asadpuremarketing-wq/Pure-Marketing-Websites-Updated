@@ -66,7 +66,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does digital marketing cost for Oakville businesses?",
-      acceptedAnswer: { "@type": "Answer", text: "Pure Marketing Oakville pricing: lead generation from $1,499/month, Google and Meta Ads management from $500/month, social media management from $899/month, video production from $699. Web design is custom-quoted. All month-to-month with no long-term contracts." },
+      acceptedAnswer: { "@type": "Answer", text: "Pricing and scope depend on your market and goals. We discuss recommended budget and scope on a free local growth assessment rather than publishing blanket pricing. All engagements are month-to-month with no long-term contracts." },
     },
     {
       "@type": "Question",
@@ -95,7 +95,7 @@ const config: CityConfig = {
     },
     {
       q: "How much does digital marketing cost for Oakville businesses?",
-      a: "Lead generation from $1,499/month. Google and Meta Ads from $500/month. Social media management from $899/month. Video production from $699. All month-to-month, no contracts.",
+      a: "Pricing and scope depend on your market and goals. We discuss recommended budget on a free local growth assessment rather than publishing blanket pricing. All engagements are month-to-month, no contracts.",
     },
     {
       q: "Does Pure Marketing require long-term contracts?",

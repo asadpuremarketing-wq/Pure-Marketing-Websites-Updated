@@ -3,14 +3,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone, Star } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
-
-const STATS = [
-  { value: "150+", label: "Clients" },
-  { value: "4.9★", label: "Rating" },
-  { value: "$2M+", label: "Revenue Gen." },
-];
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -82,22 +76,22 @@ export default function Hero() {
             >
               <span className="w-2 h-2 rounded-full bg-[#F06428] animate-pulse" />
               <span className="text-[#F06428] text-xs font-semibold uppercase tracking-widest">
-                Marketing Agency for Local Businesses
+                Local Lead Generation for Canadian Service Businesses
               </span>
             </motion.div>
 
             {/* H1 — no motion animation to avoid delaying LCP */}
             <h1 className="text-[44px] md:text-[64px] leading-[1.05] font-black text-white tracking-tight">
-              Grow Your Business<br />
-              With Marketing That{" "}
-              <span className="text-[#F06428]">Actually Works</span>
+              More Calls. More Estimates.<br />
+              More <span className="text-[#F06428]">Local Jobs.</span>
             </h1>
 
             {/* Subtext */}
             <p className="text-[17px] text-[#b3b3b3] max-w-[500px] leading-relaxed">
-              We help electricians, plumbers, HVAC companies, restaurants, and
-              real estate agents get more leads, more bookings, and more revenue
-              through proven digital marketing systems.
+              We help Canadian contractors and local service companies attract
+              customers in their service areas through targeted advertising,
+              stronger Google visibility, AI search discoverability, and better
+              lead conversion.
             </p>
 
             {/* CTAs */}
@@ -111,28 +105,29 @@ export default function Hero() {
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-[#F06428] text-white rounded-xl px-7 py-4 font-bold text-[15px] hover:bg-[#D9531E] transition-colors duration-300 shadow-xl shadow-[#F06428]/30"
               >
-                Book a Free Strategy Call
+                Get a Free Local Growth Assessment
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="tel:+16479512786"
+              <Link
+                href="/services/lead-generation"
                 className="inline-flex items-center gap-2 border border-white/15 text-white/75 rounded-xl px-6 py-4 hover:border-white/35 hover:text-white transition-all duration-300 text-sm backdrop-blur-sm"
               >
-                <Phone className="w-4 h-4" />
-                +1 647-951-2786
-              </a>
+                See How Our System Works
+              </Link>
             </motion.div>
 
             {/* Trust line */}
             <motion.p
-              className="text-sm text-[#888] pt-1"
+              className="text-sm text-[#888] pt-1 flex items-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Trusted by{" "}
-              <span className="text-white font-semibold">150+ local businesses</span>{" "}
-              across Canada · No contracts · Results guaranteed
+              <Phone className="w-3.5 h-3.5" />
+              <a href="tel:+16479512786" className="hover:text-white transition-colors">
+                +1 647-951-2786
+              </a>
+              {" "}· Serving local service businesses across Canada
             </motion.p>
 
           </div>
@@ -159,16 +154,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Stats + trust strip */}
+            {/* Trust strip */}
             <div className="flex flex-col gap-3 w-full">
-              <div className="grid grid-cols-3 gap-3">
-                {STATS.map(({ value, label }) => (
-                  <div key={label} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
-                    <span className="text-white font-black text-[22px] leading-none block">{value}</span>
-                    <span className="text-[#888] text-[10px] mt-1 uppercase tracking-wider block">{label}</span>
-                  </div>
-                ))}
-              </div>
               <div className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {["bg-orange-400","bg-orange-500","bg-amber-500"].map((c, i) => (
@@ -177,12 +164,7 @@ export default function Hero() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[#999] text-[12px]">Strategy. Systems. Growth.</p>
-                <div className="flex gap-0.5 ml-auto">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3 h-3 text-[#F06428] fill-[#F06428]" />
-                  ))}
-                </div>
+                <p className="text-[#999] text-[12px]">Local Lead Generation System</p>
               </div>
             </div>
           </motion.div>

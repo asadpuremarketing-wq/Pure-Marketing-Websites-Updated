@@ -18,11 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const servicePages = [
-    "web-development",
     "lead-generation",
-    "video-production",
-    "social-media-management",
-    "google-meta-ads",
   ].map((slug) => ({
     url: `${BASE}/services/${slug}`,
     priority: 0.85,

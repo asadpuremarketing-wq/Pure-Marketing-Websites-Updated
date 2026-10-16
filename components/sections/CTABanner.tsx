@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 
-const TRUST_PILLS = ["No contracts", "Results guaranteed", "Local business specialists"];
+const TRUST_PILLS = ["No contracts", "Canada-wide", "Local service business specialists"];
 
 export default function CTABanner() {
   return (
@@ -61,14 +61,14 @@ export default function CTABanner() {
 
           {/* Headline */}
           <h2 className="font-black text-[36px] md:text-[52px] text-white leading-[1.05] tracking-tight mb-5 max-w-[820px]">
-            Ready to Get More Leads?{" "}
+            Ready to Get More Local Customers?{" "}
             <span className="text-[#F06428]">Let&apos;s Talk.</span>
           </h2>
 
           {/* Subtext */}
           <p className="text-[17px] text-[#999] max-w-[520px] mb-10 leading-relaxed">
-            Book a free 30-minute strategy call. We&apos;ll review your current
-            marketing, find the gaps, and show you exactly how we&apos;d grow your business. No fluff, no pressure.
+            Get a free local growth assessment. We&apos;ll review your current
+            online presence, find the gaps, and show you exactly how our system can help your business get more calls and booked jobs.
           </p>
 
           {/* CTA buttons */}
@@ -77,7 +77,7 @@ export default function CTABanner() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-[#F06428] text-white rounded-xl px-8 py-4 font-bold text-[15px] hover:bg-[#D9531E] transition-colors duration-300 shadow-xl shadow-[#F06428]/30 w-full sm:w-auto justify-center"
             >
-              Get My Free Marketing Plan
+              Get My Free Local Growth Assessment
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a

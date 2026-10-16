@@ -53,10 +53,10 @@ export default function ContactSection() {
         <div className="text-center mb-14">
           <SectionLabel className="mb-4 block">Get In Touch</SectionLabel>
           <h2 className="text-[30px] md:text-[38px] font-black text-[#080808] leading-tight mb-4">
-            Ready to Get More Leads?
+            Ready to Get More Local Customers?
           </h2>
           <p className="text-[17px] text-[#555] max-w-[560px] mx-auto">
-            Tell us about your business and we will put together a free strategy for you.
+            Tell us about your business and we will review your current online presence as part of your free local growth assessment.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export default function ContactSection() {
                     className="w-4 h-4 text-accent-primary border-[#ddd] rounded focus:ring-accent-primary"
                   />
                   <label htmlFor="strategy-section" className="text-sm text-[#555] ml-2 cursor-pointer">
-                    I am interested in booking a free strategy call
+                    I&apos;m interested in a free local growth assessment
                   </label>
                 </div>
 
@@ -243,9 +243,9 @@ export default function ContactSection() {
             <motion.div {...fadeUp(0.4)} className="bg-background-secondary border border-border rounded-2xl p-6 space-y-3">
               {[
                 "No long-term contracts",
-                "First leads within 7-14 days",
-                "Free strategy audit included",
-                "Dedicated account manager",
+                "Free local growth assessment included",
+                "Canada-wide service",
+                "Month-to-month, cancel anytime",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 text-sm text-text-secondary">
                   <svg className="w-4 h-4 text-accent-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

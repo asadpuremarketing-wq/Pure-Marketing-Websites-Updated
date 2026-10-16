@@ -1,5 +1,5 @@
 export const SITE_NAME = "Pure Marketing";
-export const TAGLINE = "Elevating local businesses with premium digital experiences and conversion-focused marketing.";
+export const TAGLINE = "Local lead generation and customer acquisition for Canadian service businesses.";
 
 export const CONTACT_INFO = {
   email: "info@puremarketing.ca",
@@ -9,10 +9,9 @@ export const CONTACT_INFO = {
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
+  { name: "Our System", href: "/services/lead-generation" },
+  { name: "Results", href: "/results" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 

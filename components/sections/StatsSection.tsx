@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, RefreshCw, TrendingUp } from "lucide-react";
+import { Target, MapPin, PhoneCall } from "lucide-react";
 
 const STATS = [
-  { value: "150+", label: "Clients Served",        icon: Users,      detail: "Across Canada" },
-  { value: "92%",  label: "Client Retention Rate", icon: RefreshCw,  detail: "Stay with us long-term" },
-  { value: "4.2x", label: "Average ROI Increase",  icon: TrendingUp, detail: "Across all campaigns" },
+  { value: "1", label: "Focused System",      icon: Target,    detail: "Built specifically for local service businesses" },
+  { value: "CA", label: "Canada-Wide",         icon: MapPin,    detail: "Serving contractors across Canada" },
+  { value: "0", label: "Long-Term Contracts",  icon: PhoneCall, detail: "Month-to-month, no lock-in" },
 ];
 
 export default function StatsSection() {
@@ -33,9 +33,9 @@ export default function StatsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-[#F06428] text-xs font-bold uppercase tracking-widest mb-3">By The Numbers</p>
+          <p className="text-[#F06428] text-xs font-bold uppercase tracking-widest mb-3">How We Work</p>
           <h2 className="text-white text-[28px] md:text-[38px] font-black tracking-tight">
-            The Numbers Behind Our Growth
+            Built for Local Service Businesses
           </h2>
         </motion.div>
 

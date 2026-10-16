@@ -17,24 +17,18 @@ export interface CityConfig {
 }
 
 const SERVICES = [
-  { name: "Lead Generation", href: "/services/lead-generation", desc: "40-80 qualified leads/month" },
-  { name: "Google Ads Management", href: "/services/google-meta-ads", desc: "Average 5-8x return on ad spend" },
-  { name: "Meta Ads Management", href: "/services/google-meta-ads", desc: "Facebook and Instagram ads" },
-  { name: "Web Design", href: "/services/web-development", desc: "Conversion-optimized websites" },
-  { name: "Social Media Management", href: "/services/social-media-management", desc: "Full content and posting service" },
-  { name: "Video Production", href: "/services/video-production", desc: "Reels, testimonials, brand videos" },
+  { name: "Local Lead Generation", href: "/services/lead-generation", desc: "Paid advertising, Google Maps visibility, AI search discoverability & lead conversion" },
 ];
 
 const INDUSTRIES = [
-  "Electricians", "Plumbers", "HVAC Companies", "Landscapers",
-  "General Contractors", "Painters", "Real Estate Agents", "Cleaning Services",
-  "Roofers", "Locksmiths", "Renovation Companies", "Home Service Businesses",
+  "Painters", "Roofers", "Electricians", "Plumbers",
+  "HVAC Companies", "Garage Door Companies", "Siding & Exterior Contractors",
+  "Landscaping Companies", "General Contractors", "Renovation Companies",
 ];
 
 const STATS = [
-  { value: "150+", label: "Local Businesses Served" },
-  { value: "$2M+", label: "Ad Spend Managed" },
-  { value: "4.9", label: "Average Client Rating" },
+  { value: "1", label: "Focused Local Lead Generation System" },
+  { value: "CA", label: "Canada-Wide Service" },
   { value: "0", label: "Long-Term Contracts" },
 ];
 
