@@ -4,9 +4,9 @@ import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Marketing for HVAC Companies | Google Ads & Lead Gen - Pure Marketing",
+  title: "Local Lead Generation for HVAC Companies | Pure Marketing",
   description:
-    "We help HVAC companies get AC tune-ups, furnace installs, and emergency heating calls year-round with Google Ads and Local Service Ads. 267% avg lead increase.",
+    "We help HVAC companies get more AC tune-up, furnace install, and emergency heating inquiries year-round with Google Ads, Local Service Ads, Google Maps visibility, and lead capture.",
   keywords: [
     "HVAC marketing Canada",
     "Google Ads for HVAC companies",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/industries/hvac` },
   openGraph: {
     url: `${BASE}/industries/hvac`,
-    title: "Marketing for HVAC Companies | 267% More Leads - Pure Marketing",
+    title: "Local Lead Generation for HVAC Companies | Pure Marketing",
     description:
-      "Pure Marketing keeps HVAC companies busy year-round with seasonal Google Ads and lead generation. Book a free audit.",
+      "Pure Marketing helps Canadian HVAC companies stay busy year-round with seasonal Google Ads and local lead generation. Book a free local growth assessment.",
   },
 };
 
@@ -32,13 +32,13 @@ const SERVICE_SCHEMA = {
   serviceType: "Digital Marketing",
   areaServed: { "@type": "Country", name: "Canada" },
   description:
-    "Specialized Google Ads, seasonal campaigns, web design, and lead generation for HVAC companies across Canada. Average 267% lead increase.",
+    "Specialized Google Ads, seasonal campaigns, web design, and lead generation for HVAC companies across Canada.",
   url: `${BASE}/industries/hvac`,
 };
 
 const config: IndustryFullConfig = {
   industry: "HVAC",
-  badge: "90-Day HVAC Growth System",
+  badge: "Local Lead Generation for HVAC Companies",
   headline: "Stay Busy Year-Round.",
   headlineAccent: "AC, Furnace & Emergency Calls.",
   subheadline:
@@ -49,7 +49,7 @@ const config: IndustryFullConfig = {
     "Year-Round Emergency Calls",
   ],
   dashboard: {
-    url: "climatecontrolpro.ca",
+    url: "yourhvacco.ca",
     headline: "Comfort All Year.",
     headlineAccent: "Expert HVAC Service.",
     tagline: "AC, furnace, heat pumps & emergency heating. Licensed & insured.",
@@ -62,15 +62,15 @@ const config: IndustryFullConfig = {
     ],
   },
   heroMetrics: [
-    { label: "Monthly Calls", val: "267", chg: "+35%" },
-    { label: "Jobs Booked", val: "148", chg: "+29%" },
-    { label: "Revenue", val: "+141%", chg: "+41%" },
+    { label: "Lead Capture", val: "24/7", chg: "always on" },
+    { label: "Service Area", val: "Canada-Wide", chg: "" },
+    { label: "Contracts", val: "0", chg: "month-to-month" },
   ],
   bandStats: [
-    { value: "267%", label: "Avg lead increase" },
-    { value: "19+", label: "Service calls/month" },
-    { value: "4.8★", label: "Avg Google rating" },
-    { value: "141%", label: "Revenue growth 90 days" },
+    { value: "1", label: "Focused System" },
+    { value: "CA", label: "Canada-Wide" },
+    { value: "0", label: "Long-Term Contracts" },
+    { value: "24/7", label: "Lead Capture" },
   ],
   problemHeadline: "Why HVAC Companies Struggle to Stay Busy Off-Season",
   problemSubtext:

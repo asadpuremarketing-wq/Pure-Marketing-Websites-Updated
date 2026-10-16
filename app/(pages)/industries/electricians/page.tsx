@@ -4,9 +4,9 @@ import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Marketing for Electricians | Google Ads & Lead Gen - Pure Marketing",
+  title: "Local Lead Generation for Electricians | Pure Marketing",
   description:
-    "We help electricians across Canada get more emergency calls, panel upgrades, and residential jobs with Google Ads, Local Service Ads, and conversion-focused websites. 312% avg lead increase.",
+    "We help electricians across Canada get more emergency calls, panel upgrades, and residential jobs with Google Ads, Local Service Ads, Google Maps visibility, and lead capture built into one system.",
   keywords: [
     "electrician marketing Canada",
     "Google Ads for electricians",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/industries/electricians` },
   openGraph: {
     url: `${BASE}/industries/electricians`,
-    title: "Marketing for Electricians | 312% More Leads - Pure Marketing",
+    title: "Local Lead Generation for Electricians | Pure Marketing",
     description:
-      "Pure Marketing helps electricians get 18+ qualified leads per week with Google Ads, LSA, and conversion websites. Book a free audit.",
+      "Pure Marketing helps Canadian electricians generate more qualified calls with Google Ads, Local Service Ads, and conversion-focused websites. Book a free local growth assessment.",
   },
 };
 
@@ -32,20 +32,20 @@ const SERVICE_SCHEMA = {
   serviceType: "Digital Marketing",
   areaServed: { "@type": "Country", name: "Canada" },
   description:
-    "Specialized Google Ads, Local Service Ads, web design, and lead generation for electricians across Canada. Average 312% lead increase in 90 days.",
+    "Specialized Google Ads, Local Service Ads, web design, and lead generation for electricians across Canada.",
   url: `${BASE}/industries/electricians`,
 };
 
 const config: IndustryFullConfig = {
   industry: "Electricians",
-  badge: "90-Day Electrician Growth System",
+  badge: "Local Lead Generation for Electricians",
   headline: "Stop Waiting for Referrals.",
   headlineAccent: "Get Qualified Calls Every Week.",
   subheadline:
     "Websites, Google, Content, Ads, Automation & SEO: unified into one predictable lead generation machine built exclusively for electricians.",
   heroCheckmarks: ["More Service Calls", "Higher-Value Panels & Installs", "Fully Booked Schedule"],
   dashboard: {
-    url: "sparkelectrical.ca",
+    url: "yourelectricalco.ca",
     headline: "Powering Homes.",
     headlineAccent: "Trusted Electricians.",
     tagline: "Licensed & insured. Emergency service available.",
@@ -58,15 +58,15 @@ const config: IndustryFullConfig = {
     ],
   },
   heroMetrics: [
-    { label: "New Calls", val: "312", chg: "+41%" },
-    { label: "Jobs Booked", val: "186", chg: "+34%" },
-    { label: "Revenue", val: "+152%", chg: "+38%" },
+    { label: "Lead Capture", val: "24/7", chg: "always on" },
+    { label: "Service Area", val: "Canada-Wide", chg: "" },
+    { label: "Contracts", val: "0", chg: "month-to-month" },
   ],
   bandStats: [
-    { value: "312%", label: "Avg lead increase" },
-    { value: "18+", label: "Leads per week" },
-    { value: "90", label: "Days to scale" },
-    { value: "152%", label: "Avg revenue growth 90 days" },
+    { value: "1", label: "Focused System" },
+    { value: "CA", label: "Canada-Wide" },
+    { value: "0", label: "Long-Term Contracts" },
+    { value: "24/7", label: "Lead Capture" },
   ],
   problemHeadline: "Why Electricians Stay Stuck on Referrals",
   problemSubtext:
@@ -138,7 +138,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How quickly can an electrician get leads from Google Ads?",
-      acceptedAnswer: { "@type": "Answer", text: "Most electrician clients see their first leads within 7-14 days of campaign launch. Full results typically build over 30-90 days as Google optimizes ad delivery and the Quality Score improves." },
+      acceptedAnswer: { "@type": "Answer", text: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Paid campaigns can go live within days; Google Maps and local search improvements typically build over a longer period as Quality Score and visibility improve." },
     },
     {
       "@type": "Question",

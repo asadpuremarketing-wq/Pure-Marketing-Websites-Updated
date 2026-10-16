@@ -4,9 +4,9 @@ import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Marketing for Plumbers | Google Ads & Lead Gen - Pure Marketing",
+  title: "Local Lead Generation for Plumbers | Pure Marketing",
   description:
-    "We help plumbers across Canada get emergency calls, drain cleanings, and water heater installs with Google Ads and Local Service Ads. 289% avg lead increase. Book a free audit.",
+    "We help plumbers across Canada get more emergency calls, drain cleanings, and water heater install inquiries with Google Ads, Local Service Ads, Google Maps visibility, and lead capture.",
   keywords: [
     "plumber marketing Canada",
     "Google Ads for plumbers",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/industries/plumbers` },
   openGraph: {
     url: `${BASE}/industries/plumbers`,
-    title: "Marketing for Plumbers | 289% More Leads - Pure Marketing",
+    title: "Local Lead Generation for Plumbers | Pure Marketing",
     description:
-      "Pure Marketing helps plumbers get 22+ qualified calls per week with Google Ads and conversion websites. Book a free audit.",
+      "Pure Marketing helps Canadian plumbers generate more qualified calls with Google Ads, Local Service Ads, and conversion-focused websites. Book a free local growth assessment.",
   },
 };
 
@@ -32,20 +32,20 @@ const SERVICE_SCHEMA = {
   serviceType: "Digital Marketing",
   areaServed: { "@type": "Country", name: "Canada" },
   description:
-    "Specialized Google Ads, Local Service Ads, web design, and lead generation for plumbers across Canada. Average 289% lead increase in 90 days.",
+    "Specialized Google Ads, Local Service Ads, web design, and lead generation for plumbers across Canada.",
   url: `${BASE}/industries/plumbers`,
 };
 
 const config: IndustryFullConfig = {
   industry: "Plumbers",
-  badge: "90-Day Plumber Growth System",
+  badge: "Local Lead Generation for Plumbers",
   headline: "More Emergency Calls.",
   headlineAccent: "More Booked Jobs. Every Week.",
   subheadline:
     "Websites, Google, Content, Ads, Automation & SEO: one system that keeps plumbers fully booked with qualified work year-round.",
   heroCheckmarks: ["More Emergency Calls", "Consistent High-Value Jobs", "Never Slow in Off-Season"],
   dashboard: {
-    url: "bluewaveplumbing.ca",
+    url: "yourplumbingco.ca",
     headline: "Fast. Reliable.",
     headlineAccent: "Licensed Plumbers.",
     tagline: "Emergency service available 24/7. Free estimates.",
@@ -58,15 +58,15 @@ const config: IndustryFullConfig = {
     ],
   },
   heroMetrics: [
-    { label: "Weekly Calls", val: "289", chg: "+38%" },
-    { label: "Jobs Booked", val: "164", chg: "+32%" },
-    { label: "Revenue", val: "+144%", chg: "+44%" },
+    { label: "Lead Capture", val: "24/7", chg: "always on" },
+    { label: "Service Area", val: "Canada-Wide", chg: "" },
+    { label: "Contracts", val: "0", chg: "month-to-month" },
   ],
   bandStats: [
-    { value: "289%", label: "Avg lead increase" },
-    { value: "22+", label: "Calls per week" },
-    { value: "14", label: "Days to first lead" },
-    { value: "144%", label: "Revenue growth 90 days" },
+    { value: "1", label: "Focused System" },
+    { value: "CA", label: "Canada-Wide" },
+    { value: "0", label: "Long-Term Contracts" },
+    { value: "24/7", label: "Lead Capture" },
   ],
   problemHeadline: "Why Plumbers Can't Break Out of Referral Dependency",
   problemSubtext:
@@ -138,12 +138,12 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How much does plumbing marketing cost?",
-      acceptedAnswer: { "@type": "Answer", text: "Most clients achieve positive ROI within 30-60 days. Ad spend (the budget paid to Google) is separate and varies by market and competition level. Contact us for a free quote." },
+      acceptedAnswer: { "@type": "Answer", text: "Ad spend and scope depend on your market and competition level. We'll walk you through recommendations on a free local growth assessment rather than publishing blanket pricing." },
     },
     {
       "@type": "Question",
       name: "How quickly can a plumber get leads from digital marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "With Google Ads and Local Service Ads, most plumbing clients start receiving qualified calls within 3-14 days of campaigns launching, because plumbing searches are constant and high-intent." },
+      acceptedAnswer: { "@type": "Answer", text: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Paid campaigns can go live within days; local search and AI discoverability improvements build over a longer period." },
     },
   ],
 };

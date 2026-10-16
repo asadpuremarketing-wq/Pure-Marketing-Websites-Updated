@@ -4,9 +4,9 @@ import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Marketing for Locksmiths | Google Ads & Local SEO - Pure Marketing",
+  title: "Local Lead Generation for Locksmiths | Pure Marketing",
   description:
-    "We put locksmiths at the top of Google for emergency lockout searches with Google Local Service Ads and Local SEO. Live in as little as 7 days.",
+    "We help locksmiths get more emergency lockout calls with Google Local Service Ads, Google Maps visibility, and Local SEO built for always-on demand.",
   keywords: [
     "locksmith marketing Canada",
     "Google Ads for locksmiths",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/industries/locksmiths` },
   openGraph: {
     url: `${BASE}/industries/locksmiths`,
-    title: "Marketing for Locksmiths | More Emergency Calls - Pure Marketing",
+    title: "Local Lead Generation for Locksmiths | Pure Marketing",
     description:
-      "Pure Marketing puts locksmiths at the top of Google for emergency searches. Live in as little as 7 days. Book a free audit.",
+      "Pure Marketing helps Canadian locksmiths get more emergency calls through Google visibility and lead capture. Book a free local growth assessment.",
   },
 };
 
@@ -39,7 +39,7 @@ const SERVICE_SCHEMA = {
 
 const config: IndustryFullConfig = {
   industry: "Locksmiths",
-  badge: "90-Day Locksmith Growth System",
+  badge: "Local Lead Generation for Locksmiths",
   headline: "More Emergency Calls.",
   headlineAccent: "24/7. Around the Clock.",
   subheadline:
@@ -50,7 +50,7 @@ const config: IndustryFullConfig = {
     "24/7 Automated Lead Recovery",
   ],
   dashboard: {
-    url: "citylocksmith.ca",
+    url: "yourlocksmithco.ca",
     headline: "Locked Out?",
     headlineAccent: "We're On Our Way.",
     tagline: "Emergency locksmith service. Residential, automotive & commercial.",
@@ -63,15 +63,15 @@ const config: IndustryFullConfig = {
     ],
   },
   heroMetrics: [
-    { label: "Daily Calls", val: "300%", chg: "+300%" },
-    { label: "Avg Response", val: "< 3min", chg: "instant" },
-    { label: "Rating", val: "5.0★", chg: "+0.8★" },
+    { label: "Lead Capture", val: "24/7", chg: "always on" },
+    { label: "Service Area", val: "Canada-Wide", chg: "" },
+    { label: "Contracts", val: "0", chg: "month-to-month" },
   ],
   bandStats: [
-    { value: "300%+", label: "Avg lead increase" },
-    { value: "7", label: "Days to launch" },
-    { value: "24/7", label: "Lead generation" },
-    { value: "5★", label: "Avg Google rating" },
+    { value: "1", label: "Focused System" },
+    { value: "CA", label: "Canada-Wide" },
+    { value: "0", label: "Long-Term Contracts" },
+    { value: "24/7", label: "Lead Capture" },
   ],
   problemHeadline: "Why Locksmiths Lose Emergency Calls Every Day",
   problemSubtext:
@@ -117,10 +117,10 @@ const config: IndustryFullConfig = {
   resultsHeadline: "What Locksmith Clients Tell Us",
   results: [
     {
-      metric: "More Calls",
-      label: "Daily Emergency Calls",
-      client: "Prudent Locksmith, Hamilton, Ontario",
-      detail: "A steady increase in daily emergency calls after the system launched, with the phone ringing around the clock.",
+      metric: "Stronger Local Presence",
+      label: "Website & Local Visibility",
+      client: "Prudent Locksmith & Garage Services, Hamilton, Ontario",
+      detail: "A dedicated website and local presence built around capturing emergency locksmith and garage door service-area inquiries.",
     },
     {
       metric: "Top Rankings",
@@ -153,12 +153,12 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "Should locksmiths use Google Local Service Ads?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes, absolutely. LSAs are the ideal marketing tool for locksmiths because you only pay per verified call, you appear above regular Google Ads, and the Google Guarantee builds trust for people in stressful lockout situations. Pure Marketing can have locksmith LSA campaigns live within 7 days." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. LSAs are an effective marketing tool for locksmiths because you only pay per verified call, you appear above regular Google Ads, and the Google Guarantee builds trust for people in stressful lockout situations." },
     },
     {
       "@type": "Question",
       name: "How quickly can a locksmith get leads from digital marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "Locksmith clients typically see their first emergency calls within 3-7 days of campaigns launching, because lockout searches happen 24/7 and are extremely high-intent. Pure Marketing also sets up missed-call text automation so no lead is ever lost to voicemail." },
+      acceptedAnswer: { "@type": "Answer", text: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Paid campaigns can go live within days; local search improvements build over a longer period. We also set up missed-call follow-up so inquiries aren't lost to voicemail." },
     },
     {
       "@type": "Question",

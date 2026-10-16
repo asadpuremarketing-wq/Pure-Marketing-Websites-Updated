@@ -218,10 +218,10 @@ export default function PortfolioPage() {
               {...fadeUp(0.1)}
               className="text-[32px] md:text-[46px] font-black text-white leading-tight mb-4"
             >
-              Web Development Projects
+              Lead-Capture Websites We&apos;ve Built
             </motion.h2>
             <motion.p {...fadeUp(0.2)} className="text-[17px] text-[#666] max-w-[540px]">
-              Every project built to convert, designed to last, and optimized for growth.
+              The website and landing page infrastructure behind client lead generation systems: built to capture and convert inquiries, not just look good.
             </motion.p>
           </div>
 
@@ -371,13 +371,13 @@ export default function PortfolioPage() {
                 {...fadeUp(0)}
                 className="text-accent-primary text-xs font-bold uppercase tracking-widest mb-3"
               >
-                Social Media Management
+                Ongoing Local Presence
               </motion.p>
               <motion.h2
                 {...fadeUp(0.1)}
                 className="text-[28px] md:text-[42px] font-black text-white tracking-tight leading-tight"
               >
-                Brands We Manage Online
+                Keeping Clients Visible Between Jobs
               </motion.h2>
             </div>
             <motion.div {...fadeUp(0.2)} className="flex flex-wrap gap-3">

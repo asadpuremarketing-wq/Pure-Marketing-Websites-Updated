@@ -4,9 +4,9 @@ import IndustryFullPageTemplate, { type IndustryFullConfig } from "@/components/
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Marketing for Painters | Google Ads & Lead Gen - Pure Marketing",
+  title: "Local Lead Generation for Painters | Pure Marketing",
   description:
-    "We help painting companies book more residential and commercial projects with Google Ads, Meta Ads, and before/after video content. 324% avg project increase.",
+    "We help painting companies get more residential and commercial project inquiries with Google Ads, Meta Ads, Google Maps visibility, and before/after visual content.",
   keywords: [
     "painter marketing Canada",
     "Google Ads for painters",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${BASE}/industries/painters` },
   openGraph: {
     url: `${BASE}/industries/painters`,
-    title: "Marketing for Painters | 324% More Projects - Pure Marketing",
+    title: "Local Lead Generation for Painters | Pure Marketing",
     description:
-      "Pure Marketing helps painting companies book 12+ projects per month with Google Ads, Meta Ads, and visual content. Book a free audit.",
+      "Pure Marketing helps painting companies generate more quote requests with Google Ads, Meta Ads, and visual content. Book a free local growth assessment.",
   },
 };
 
@@ -38,7 +38,7 @@ const SERVICE_SCHEMA = {
 
 const config: IndustryFullConfig = {
   industry: "Painters",
-  badge: "90-Day Painter Growth System",
+  badge: "Local Lead Generation for Painters",
   headline: "Stop Waiting for Word of Mouth.",
   headlineAccent: "Book Projects Consistently.",
   subheadline:
@@ -49,7 +49,7 @@ const config: IndustryFullConfig = {
     "Consistent Quote Requests",
   ],
   dashboard: {
-    url: "premierpaintingsolutions.ca",
+    url: "yourpaintingco.ca",
     headline: "Flawless Finishes.",
     headlineAccent: "Every Time.",
     tagline: "Interior, exterior & commercial painting. Free estimates.",
@@ -62,15 +62,15 @@ const config: IndustryFullConfig = {
     ],
   },
   heroMetrics: [
-    { label: "Monthly Projects", val: "324", chg: "+44%" },
-    { label: "Quote Requests", val: "189", chg: "+38%" },
-    { label: "Revenue", val: "+141%", chg: "+41%" },
+    { label: "Lead Capture", val: "24/7", chg: "always on" },
+    { label: "Service Area", val: "Canada-Wide", chg: "" },
+    { label: "Contracts", val: "0", chg: "month-to-month" },
   ],
   bandStats: [
-    { value: "324%", label: "Project increase" },
-    { value: "12+", label: "Projects per month" },
-    { value: "75", label: "Days to scale" },
-    { value: "141%", label: "Revenue growth 90 days" },
+    { value: "1", label: "Focused System" },
+    { value: "CA", label: "Canada-Wide" },
+    { value: "0", label: "Long-Term Contracts" },
+    { value: "24/7", label: "Lead Capture" },
   ],
   problemHeadline: "Why Great Painters Struggle to Stay Fully Booked",
   problemSubtext:
@@ -142,7 +142,7 @@ const FAQ_SCHEMA = {
     {
       "@type": "Question",
       name: "How quickly can a painting company get leads from digital marketing?",
-      acceptedAnswer: { "@type": "Answer", text: "Google Ads campaigns go live within 7-10 days and most painting clients see their first qualified estimate requests within 14 days. Results continue to build over 60-90 days as the campaigns and local SEO compound." },
+      acceptedAnswer: { "@type": "Answer", text: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Paid campaigns can go live within days; local search and AI discoverability improvements build over a longer period." },
     },
     {
       "@type": "Question",

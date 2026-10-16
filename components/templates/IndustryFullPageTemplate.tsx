@@ -243,7 +243,7 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
             </motion.div>
 
             <motion.p {...fadeUp(0.34)} className="text-[#555] text-[13px]">
-              No contracts &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results within 30 days
+              No contracts &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Month-to-month
             </motion.p>
           </div>
 

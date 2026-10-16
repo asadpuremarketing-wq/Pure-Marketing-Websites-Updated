@@ -232,9 +232,9 @@ const SERVICES = [
     popular: true,
     tag: "Our One Service",
     title: "Local Lead Generation System",
-    headline: "Local Lead Generation That Helps Your Business Get More Work",
+    headline: "One Complete System to Generate More Local Business.",
     description:
-      "Great service isn't enough if customers can't find you. We build a complete local lead generation system: paid advertising, Google Maps visibility, AI search discoverability, and lead conversion, so your business gets more calls, estimates, and booked jobs.",
+      "Inconsistent customer inquiries are rarely a sign that your work isn't good enough: they're usually a sign that customers can't find you or aren't converting once they do. We combine targeted advertising, stronger local search visibility, AI search discoverability, and improved lead conversion to help Canadian service businesses attract more qualified customer inquiries, calls, estimates, and booked jobs.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85",
     result: "A coordinated system built specifically for local service businesses",
     outcomes: [
@@ -247,22 +247,23 @@ const SERVICES = [
       author: "Local Trades Client, Hamilton ON",
     },
     features: [
-      { title: "Google Local Service Ads", desc: "Where eligible, these put your business in front of customers actively looking for your service, with a verified-business badge." },
-      { title: "Google Search Ads", desc: "Capture people actively searching for your service right now, in your exact service area." },
-      { title: "Meta Ads (Facebook + Instagram)", desc: "Build awareness and retarget website visitors with creative built around your actual work." },
-      { title: "Google Business Profile & Local SEO", desc: "Optimized business info, service-area content, and review strategy to improve visibility to nearby searchers." },
-      { title: "AI Search Discoverability", desc: "Clear, well-structured content so your business is easier to find and recommend across traditional and AI-powered search." },
-      { title: "Lead Capture & Conversion Tracking", desc: "High-converting forms, click-to-call, and attribution so you know which channels are actually producing job opportunities." },
+      { title: "Paid Customer Acquisition", desc: "Google Search Ads, Google Local Services Ads where eligible, and Meta Ads (Facebook + Instagram) to put your business in front of people actively looking for your service, right in your service area." },
+      { title: "Google Maps & Local Search Visibility", desc: "Google Business Profile optimization, service-area content, and review strategy to improve how nearby searchers find you on Google Maps and local search." },
+      { title: "AI Search Discoverability", desc: "Clear, well-structured content so your business is easier to find and recommend across traditional search and AI-powered search tools." },
+      { title: "Lead Capture & Conversion", desc: "High-converting landing pages, forms, click-to-call, and attribution so you know which channels are actually producing estimates and booked jobs." },
     ],
     process: [
-      { step: "01", title: "Analyze Your Business", desc: "We review your current online presence, service area, and competition to find where you're losing customer inquiries." },
-      { step: "02", title: "Build Your Acquisition Strategy", desc: "We build a strategy combining the channels that make sense for your market and goals." },
-      { step: "03", title: "Launch & Optimize", desc: "Campaigns and visibility improvements go live, then get refined based on real performance." },
-      { step: "04", title: "Track & Improve", desc: "We track calls and inquiries where data is available and keep improving the system month over month." },
+      { step: "01", title: "Audit", desc: "We review your current online presence, service area, and competition to find where you're losing customer inquiries." },
+      { step: "02", title: "Strategy", desc: "We build an acquisition strategy combining the channels that make sense for your market and goals." },
+      { step: "03", title: "Implementation", desc: "Campaigns, local visibility improvements, and conversion changes go live." },
+      { step: "04", title: "Optimization & Measurement", desc: "We track calls and inquiries where data is available, and keep refining the system based on real performance." },
     ],
     faqs: [
       { q: "How fast will I see results?", a: "It depends on your market, competition, and starting point, so we don't promise a fixed timeline. Paid campaigns can go live within days; local search and AI discoverability improvements build over a longer period." },
+      { q: "Will the leads actually be good quality?", a: "We focus on people actively searching for your specific service in your service area, and refine targeting over time based on which inquiries turn into real estimates and jobs. No system eliminates every unqualified inquiry, but lead quality is something we actively manage, not an afterthought." },
+      { q: "How much competition is there in my area, and does that matter?", a: "Yes. Competition affects cost per lead and how much visibility work is needed. We review your local competitive landscape as part of the assessment so expectations are realistic for your market." },
       { q: "What is the ad budget?", a: "We'll walk you through recommended ad spend and scope on a free local growth assessment, based on your market and goals. We don't publish blanket pricing because every market is different." },
+      { q: "How do you measure results?", a: "We track customer calls, form submissions, and quote requests where tracking data is available, and distinguish paid-ad inquiries from organic or referral sources where relevant." },
       { q: "Do I need a good website first?", a: "Not necessarily, but your site needs to convert visitors into inquiries. If it needs work, we'll tell you upfront as part of the assessment." },
       { q: "Is there a contract?", a: "No long-term contracts. Month-to-month." },
     ],
@@ -438,11 +439,18 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className="btn-primary">Book a Free Strategy Call</Link>
+                <Link href="/contact" className="btn-primary">
+                  {service.slug === "lead-generation" ? "Get a Free Local Growth Assessment" : "Book a Free Strategy Call"}
+                </Link>
                 <a href="tel:+16479512786" className="flex items-center justify-center gap-2 border border-white/20 rounded-lg px-5 py-3 text-sm font-medium text-white/60 hover:border-accent-primary hover:text-accent-primary transition-colors">
                   <Phone className="w-4 h-4" /> Call Us Now
                 </a>
               </div>
+              {service.slug === "lead-generation" && (
+                <Link href="/results" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-primary hover:underline mt-4">
+                  See real client results <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              )}
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>

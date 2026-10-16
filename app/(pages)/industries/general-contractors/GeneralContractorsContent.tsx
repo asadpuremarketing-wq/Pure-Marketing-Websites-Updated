@@ -54,10 +54,10 @@ const fadeUp = (delay = 0) => ({
 
 /* ── data ─────────────────────────────────────────────────── */
 const STATS = [
-  { value: "250%+", label: "Average lead increase" },
-  { value: "90",    label: "Days to full system" },
-  { value: "10+",   label: "Qualified leads/month" },
-  { value: "50+",   label: "Projects booked" },
+  { value: "1",    label: "Focused System" },
+  { value: "CA",   label: "Canada-Wide" },
+  { value: "0",    label: "Long-Term Contracts" },
+  { value: "24/7", label: "Lead Capture" },
 ];
 
 
@@ -133,7 +133,7 @@ export default function GeneralContractorsContent() {
           <div className="flex flex-col gap-8">
             <motion.div {...fadeUp(0)} className="inline-flex items-center gap-2.5 border border-accent-primary/30 bg-accent-primary/8 rounded-full px-4 py-1.5 w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
-              <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">90-Day General Contractor Growth System</span>
+              <span className="text-accent-primary text-[11px] font-bold uppercase tracking-[0.2em]">Local Lead Generation for General Contractors</span>
             </motion.div>
 
             <motion.h1 {...fadeUp(0.08)} className="text-[44px] md:text-[64px] font-black text-white leading-[1.02] tracking-[-0.02em]">
@@ -166,7 +166,7 @@ export default function GeneralContractorsContent() {
             </motion.div>
 
             <motion.p {...fadeUp(0.34)} className="text-[#555] text-[13px]">
-              No contracts &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Results within 30 days
+              No contracts &nbsp;·&nbsp; No obligation &nbsp;·&nbsp; Month-to-month
             </motion.p>
           </div>
 
@@ -195,9 +195,9 @@ export default function GeneralContractorsContent() {
             <div className="flex flex-col gap-3 w-full">
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { label: "New Leads",   val: "248", chg: "+32%" },
-                  { label: "Phone Calls", val: "156", chg: "+28%" },
-                  { label: "Closed Jobs", val: "38",  chg: "+36%" },
+                  { label: "Lead Capture", val: "24/7", chg: "always on" },
+                  { label: "Service Area", val: "Canada-Wide", chg: "" },
+                  { label: "Contracts", val: "0", chg: "month-to-month" },
                 ].map(({ label, val, chg }) => (
                   <div key={label} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
                     <p className="text-white font-black text-[22px] leading-none">{val}</p>
