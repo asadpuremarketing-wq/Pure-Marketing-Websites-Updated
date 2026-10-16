@@ -8,7 +8,7 @@ export default function ElectriciansContent() {
         Ask any electrician where their jobs come from and the answer is almost always the same: referrals and repeat customers. That feels like a good thing, and it is, until a slow month hits and the phone goes quiet for three weeks. Referrals are unpredictable. You have zero control over when they come, how many arrive, or whether they stop entirely.
       </p>
       <p className="text-[17px] leading-relaxed">
-        The electricians we work with at Pure Marketing were in exactly this position before we built their lead generation system. Now they average 18+ qualified calls per week, from homeowners actively searching for an electrician in their area, right now. Here is exactly how that system works.
+        Electricians who build a dedicated lead generation system on top of their referral business put themselves in front of homeowners actively searching for an electrician in their area, right now, instead of waiting for someone to remember their name. Here is exactly how that system works.
       </p>
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">1. The Referral Trap (And Why It Keeps You Stuck)</h2>
@@ -39,7 +39,7 @@ export default function ElectriciansContent() {
       </div>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;Our electrician client Bright Spark Electric went from 3 calls per week to 18+ within 60 days of launching their LSA campaign. Revenue increased 38% in the same period.&rdquo;
+        &ldquo;An LSA campaign that is set up correctly, with the right service area, job types, and response hours, consistently outperforms generic Google Ads for electricians because every lead is a verified phone call, not just a click.&rdquo;
       </blockquote>
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">3. Google Business Profile: Your Map Pack Ranking</h2>
@@ -80,7 +80,7 @@ export default function ElectriciansContent() {
       </p>
 
       <p className="text-[17px] leading-relaxed mt-8">
-        The combination of LSA, an optimized GBP, a conversion-focused website, and follow-up automation is what creates a consistent, predictable flow of qualified electrical jobs. If you want to see what this system looks like specifically for your market and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link> and we will walk through the numbers with you. See our full <Link href="/industries/electricians" className="text-accent-primary underline font-medium">electrician marketing services</Link> or learn more about how our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link> works.
+        The combination of LSA, an optimized GBP, a conversion-focused website, and follow-up automation is what creates a steadier, more predictable flow of qualified electrical jobs. Results build over time as your campaigns, rankings, and reviews mature, and the pace depends on your market and competition. If you want to see what this system could look like for your service area, <Link href="/contact" className="text-accent-primary underline font-medium">get a free local growth assessment</Link> and we will walk through it with you. See our full <Link href="/industries/electricians" className="text-accent-primary underline font-medium">electrician marketing services</Link> or learn more about how our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link> works.
       </p>
     </>
   );

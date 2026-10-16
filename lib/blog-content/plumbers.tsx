@@ -40,7 +40,7 @@ export default function PlumbersContent() {
       </p>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;Blue Wave Plumbing went from 6 calls per week to 22+ after we launched their LSA and Google Ads system. They were fully booked 3 weeks out within 90 days.&rdquo;
+        &ldquo;For emergency trades, a well-run LSA and Google Ads system tends to compound: early calls fund more reviews, more reviews improve Map Pack ranking, and better ranking lowers the cost of every lead that follows.&rdquo;
       </blockquote>
 
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden my-10 border border-border shadow">
@@ -69,14 +69,14 @@ export default function PlumbersContent() {
         The plumbing businesses consistently getting 22+ calls per week are not doing one thing right. They are doing five things consistently:
       </p>
       <ul className="list-disc pl-6 space-y-3 mb-8">
-        <li><strong>LSA campaign</strong> for emergency and high-intent searches, set to the exact service area where they want jobs</li>
+        <li><strong>LSA campaign</strong> for emergency and high-intent searches, set to the exact service area where they want jobs, often one of the faster channels to go live</li>
         <li><strong>Google Ads</strong> targeting drain cleaning, water heater, and renovation plumbing searches that LSA does not cover</li>
         <li><strong>Google Business Profile</strong> optimized with every service, pricing ranges, and weekly photo uploads from real jobs</li>
         <li><strong>Fast, mobile-first website</strong> with a click-to-call button in the first screen and a form for non-emergency bookings</li>
         <li><strong>Missed-call automation</strong> that texts every unanswered call within 30 seconds, keeping your lead from calling the next plumber</li>
       </ul>
       <p className="text-[17px] leading-relaxed">
-        If you want to see where your business stands against this checklist and what it would take to get your first qualified calls within 7-14 days, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will audit your current visibility and show you exactly where the calls are going. You can also see our full <Link href="/industries/plumbers" className="text-accent-primary underline font-medium">plumber marketing services</Link> and how our <Link href="/services/google-meta-ads" className="text-accent-primary underline font-medium">Google Ads management</Link> works.
+        Paid campaigns like LSA can often go live quickly, but how fast calls build from there depends on your market, competition, and review history, so we don&apos;t promise a fixed number of leads by a fixed date. If you want to see where your business stands against this checklist, <Link href="/contact" className="text-accent-primary underline font-medium">get a free local growth assessment</Link>. We will audit your current visibility and show you exactly where the calls are going. You can also see our full <Link href="/industries/plumbers" className="text-accent-primary underline font-medium">plumber marketing services</Link> and how our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link> works.
       </p>
     </>
   );

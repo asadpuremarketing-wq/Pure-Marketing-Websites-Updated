@@ -43,7 +43,7 @@ export default function LocksmithsContent() {
       </p>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;Rapid Lock Service had 11 reviews when they started. We implemented LSA, GBP optimization, and the review text system. Within 60 days they had 74 reviews, Map Pack position 2, and calls had more than doubled.&rdquo;
+        &ldquo;A consistent review request system, paired with LSA and GBP optimization, is one of the most reliable ways for a locksmith to climb toward the Map Pack top three over time.&rdquo;
       </blockquote>
 
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden my-10 border border-border shadow">
@@ -69,7 +69,7 @@ export default function LocksmithsContent() {
         Emergency lockouts are high-margin but unpredictable. Rekeying, commercial lock installations, master key systems, and access control upgrades are planned services with higher average job values and repeat business potential. A separate Google Ads campaign targeting these non-emergency searches (&ldquo;lock rekey [city],&rdquo; &ldquo;commercial locksmith [city],&rdquo; &ldquo;access control installation Ontario&rdquo;) adds predictable revenue alongside emergency call volume.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want to see exactly where your locksmith business stands in local search and what it would take to reach the top three in your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will pull your current ranking data and show you the specific steps. See our full <Link href="/industries/locksmiths" className="text-accent-primary underline font-medium">locksmith marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.
+        LSA campaigns can often go live quickly, but climbing toward the Map Pack top three and growing your emergency call volume happens over time as reviews, rankings, and visibility build, so we don&apos;t promise a fixed timeline or a fixed number of calls. If you want to see where your locksmith business stands in local search today, <Link href="/contact" className="text-accent-primary underline font-medium">get a free local growth assessment</Link>. We will pull your current visibility data and show you the specific steps. See our full <Link href="/industries/locksmiths" className="text-accent-primary underline font-medium">locksmith marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.
       </p>
     </>
   );

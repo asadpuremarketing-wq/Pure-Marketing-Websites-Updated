@@ -51,6 +51,26 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      // Retired blog posts for discontinued industries (restaurants, real
+      // estate agents, and landscaping - landscaping was never a real
+      // industry page on this site). Redirected rather than left as 404s
+      // since these URLs may already be indexed. Underlying content files
+      // and BLOG_CONTENT map entries are untouched.
+      {
+        source: "/blog/gta-restaurant-marketing-guide",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/real-estate-agent-video-marketing",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/blog/landscaping-company-lead-generation",
+        destination: "/blog",
+        permanent: true,
+      },
     ];
   },
   images: {

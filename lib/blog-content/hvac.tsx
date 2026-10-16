@@ -41,7 +41,7 @@ export default function HvacContent() {
       </div>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;Arctic Air HVAC was dark during spring and fall before working with us. After implementing the year-round campaign calendar, they had their first fully booked spring in 5 years of business.&rdquo;
+        &ldquo;HVAC companies that keep campaigns running year-round, shifting the message each season, tend to avoid the restart penalty that comes from pausing ads and re-launching them once demand returns.&rdquo;
       </blockquote>
 
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden my-10 border border-border shadow">
@@ -73,7 +73,7 @@ export default function HvacContent() {
         The off-season campaigns are not about driving emergency calls: they are about capturing homeowners who are thinking about replacing an older unit, looking for an annual service plan, or want a quote before their furnace or AC fails completely. These jobs are larger and less price-sensitive than emergency repairs.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want to see a specific campaign calendar built for your HVAC business and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will build out the month-by-month plan and show you what year-round revenue looks like for a business your size. See our full <Link href="/industries/hvac" className="text-accent-primary underline font-medium">HVAC marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.
+        If you want to see what a campaign calendar could look like for your HVAC business and your service area, <Link href="/contact" className="text-accent-primary underline font-medium">get a free local growth assessment</Link>. We will walk through a month-by-month plan and what it could mean for a business your size, with timelines that depend on your market and competition rather than a fixed guarantee. See our full <Link href="/industries/hvac" className="text-accent-primary underline font-medium">HVAC marketing services</Link> and our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link>.
       </p>
     </>
   );

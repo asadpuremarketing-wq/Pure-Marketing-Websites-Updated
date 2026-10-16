@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { ALL_POSTS } from "@/lib/blog-posts";
 
 const BASE = "https://puremarketing.ca";
 
@@ -56,10 +57,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
+  const blogPages = ALL_POSTS.map((post) => ({
+    url: `${BASE}/blog/${post.slug}`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+    lastModified: now,
+  }));
+
   return [
     ...staticPages.map((p) => ({ ...p, lastModified: now })),
     ...servicePages,
     ...industryPages,
     ...locationPages,
+    ...blogPages,
   ];
 }

@@ -15,6 +15,8 @@ import GeneralContractorsContent from "@/lib/blog-content/general-contractors";
 import RealEstateContent from "@/lib/blog-content/real-estate";
 import LocksmithsContent from "@/lib/blog-content/locksmiths";
 import LandscapersContent from "@/lib/blog-content/landscapers";
+import RoofingContent from "@/lib/blog-content/roofing";
+import ExteriorServicesContent from "@/lib/blog-content/exterior-services";
 
 const BASE = "https://puremarketing.ca";
 
@@ -28,6 +30,8 @@ const BLOG_CONTENT: Record<string, React.ComponentType> = {
   "real-estate-agent-video-marketing": RealEstateContent,
   "locksmith-google-ads-strategy": LocksmithsContent,
   "landscaping-company-lead-generation": LandscapersContent,
+  "roofing-company-storm-season-leads": RoofingContent,
+  "exterior-siding-contractor-lead-generation": ExteriorServicesContent,
 };
 
 export function generateStaticParams() {

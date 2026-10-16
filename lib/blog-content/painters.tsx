@@ -38,7 +38,7 @@ export default function PaintersContent() {
       </div>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;ProPaint Hamilton had never tried video marketing before. Within 6 weeks of their first reel strategy, they were 8 weeks booked out, in February, their historically slowest month.&rdquo;
+        &ldquo;A consistent before/after content strategy tends to pay off fastest in a painting company's historically slowest months, because it's creating demand rather than competing for search traffic that barely exists yet.&rdquo;
       </blockquote>
 
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden my-10 border border-border shadow">
@@ -67,7 +67,7 @@ export default function PaintersContent() {
         A separate campaign targeting commercial painting searches (&ldquo;office painting contractor,&rdquo; &ldquo;commercial painter [city],&rdquo; &ldquo;strata painting company&rdquo;) with a landing page specifically addressing commercial clients (pricing by square footage, project timelines, portfolio of commercial work) adds a revenue stream that fills the residential off-season gaps.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        If you want a marketing system that keeps your painting business booked before the spring rush hits and extends your revenue into the slow months, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. We will show you exactly what a painter marketing system looks like for your market. See our full <Link href="/industries/painters" className="text-accent-primary underline font-medium">painting company marketing services</Link> and how <Link href="/services/social-media-management" className="text-accent-primary underline font-medium">social media management</Link> works for trade businesses.
+        If you want a marketing system that helps keep your painting business booked before the spring rush hits and extends your revenue into the slow months, <Link href="/contact" className="text-accent-primary underline font-medium">get a free local growth assessment</Link>. We will show you what a painter marketing system could look like for your market. See our full <Link href="/industries/painters" className="text-accent-primary underline font-medium">painting company marketing services</Link> and how our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link> works for trade businesses.
       </p>
     </>
   );

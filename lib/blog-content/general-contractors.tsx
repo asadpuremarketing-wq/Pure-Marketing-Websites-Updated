@@ -8,7 +8,7 @@ export default function GeneralContractorsContent() {
         General contractors have one of the most difficult marketing problems in the trades. Projects are large and infrequent: a homeowner might do one major renovation every 5-10 years. The sales cycle is long. Estimates are time-consuming. And most leads from generic Google searches are early-stage researchers, not buyers ready to commit. Done wrong, contractor marketing burns money chasing leads that never convert.
       </p>
       <p className="text-[17px] leading-relaxed">
-        Done right, it fills your project calendar 6-8 weeks in advance with qualified homeowners who have budgets and timelines. Here is the 90-day system we use to get there.
+        Done right, it builds a steadier pipeline of qualified homeowners who have budgets and timelines. Here is a typical 90-day buildout, used as an illustrative example of how the pieces come together, not a guaranteed timeline for every contractor.
       </p>
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">Why Contractors Struggle With Consistent Work</h2>
@@ -70,7 +70,7 @@ export default function GeneralContractorsContent() {
       </p>
 
       <blockquote className="border-l-4 border-accent-primary pl-6 my-10 italic text-lg text-text-primary bg-accent-primary/5 py-4 pr-4 rounded-r-xl">
-        &ldquo;Most contractor clients start seeing estimate requests within 2-3 weeks of launching Google Ads. The key is having the landing pages and follow-up system in place before the traffic arrives.&rdquo;
+        &ldquo;How quickly estimate requests start coming in after launching Google Ads depends heavily on market and competition, but having the landing pages and follow-up system in place before the traffic arrives matters more than the campaign itself.&rdquo;
       </blockquote>
 
       <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">Month 3: Scale What Works</h2>
@@ -81,12 +81,12 @@ export default function GeneralContractorsContent() {
         Two additional systems get activated in Month 3: <strong>retargeting</strong> (showing ads specifically to homeowners who visited your website but did not submit an estimate request) and <strong>local SEO</strong> (service-area pages that begin ranking organically for renovation searches in specific neighbourhoods). Retargeting closes the gap on homeowners who were interested but not ready, and renovation homeowners often visit contractor websites 3-5 times before making contact.
       </p>
 
-      <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">What to Expect in 90 Days</h2>
+      <h2 className="font-serif text-[28px] text-text-primary mt-14 mb-6">What a Typical Buildout Looks Like</h2>
       <p>
-        A realistic outcome for a general contractor starting from little or no online presence: 6-10 qualified estimate requests per month by the end of Month 3, with 2-4 converting to signed projects depending on average project value and your close rate. For contractors with average job values of $20,000-$50,000, this produces $40,000-$200,000 in new project revenue from the first 90 days of the system.
+        By the end of a typical 90-day buildout, a general contractor starting from little or no online presence should have a working foundation (website, GBP, tracking), active paid campaigns across Google and Meta, and the beginning of a retargeting and local SEO presence. How many estimate requests and signed projects come out of that depends on your market, competition, average job value, and close rate, so we don&apos;t promise a fixed number or a fixed revenue figure. What we can commit to is building the system correctly and adjusting it based on what the data shows each month.
       </p>
       <p className="text-[17px] leading-relaxed mt-4">
-        Our complete 90-day contractor growth system covers all 10 components described above. If you want to see what this looks like specifically for your market and project types, <Link href="/contact" className="text-accent-primary underline font-medium">book a free strategy call</Link>. See our full <Link href="/industries/general-contractors" className="text-accent-primary underline font-medium">general contractor marketing services</Link> and how our <Link href="/services/google-meta-ads" className="text-accent-primary underline font-medium">Google and Meta Ads management</Link> works.
+        If you want to see what a buildout like this could look like for your market and project types, <Link href="/contact" className="text-accent-primary underline font-medium">get a free local growth assessment</Link>. See our full <Link href="/industries/general-contractors" className="text-accent-primary underline font-medium">general contractor marketing services</Link> and how our <Link href="/services/lead-generation" className="text-accent-primary underline font-medium">lead generation system</Link> works.
       </p>
     </>
   );
