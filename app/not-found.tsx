@@ -43,7 +43,7 @@ export default function NotFound() {
             href="/contact"
             className="inline-flex items-center gap-2 bg-accent-primary text-white rounded-lg px-7 py-3.5 font-bold text-[15px] hover:bg-[#D9531E] transition-colors shadow-lg shadow-accent-primary/30"
           >
-            Book a Free Strategy Call
+            Get a Free Local Growth Assessment
           </Link>
           <a
             href="tel:+16479512786"

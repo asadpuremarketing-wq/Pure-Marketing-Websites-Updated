@@ -158,7 +158,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <div className="mt-14 bg-accent-primary/10 border border-accent-primary/20 rounded-2xl p-8 md:p-10">
               <h3 className="font-serif text-[24px] text-text-primary mb-3">{post.ctaTitle}</h3>
               <p className="text-text-secondary mb-6">{post.ctaDesc}</p>
-              <Link href="/contact" className="btn-primary inline-block">Book a Free Strategy Call</Link>
+              <Link href="/contact" className="btn-primary inline-block">Get a Free Local Growth Assessment</Link>
             </div>
 
             {/* AUTHOR */}

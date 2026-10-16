@@ -5,10 +5,10 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Portfolio & Case Studies | Pure Marketing Hamilton",
   description:
-    "See real results from Pure Marketing clients. Web design, Google Ads, and lead generation case studies for electricians, plumbers, contractors, and local businesses across Canada.",
+    "See the lead generation systems Pure Marketing has built for clients. Google Ads, lead-capture websites, and local SEO case studies for electricians, plumbers, contractors, and local businesses across Canada.",
   keywords: [
     "marketing agency portfolio Hamilton",
-    "web design portfolio Ontario",
+    "lead generation portfolio Ontario",
     "Google Ads case studies Canada",
     "local business marketing results",
     "Pure Marketing portfolio",

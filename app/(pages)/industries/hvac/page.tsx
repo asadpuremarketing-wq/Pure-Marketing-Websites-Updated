@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 const SERVICE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Digital Marketing for HVAC Companies",
+  name: "Local Lead Generation for HVAC Companies",
   provider: { "@id": `${BASE}/#organization` },
-  serviceType: "Digital Marketing",
+  serviceType: "Local Lead Generation",
   areaServed: { "@type": "Country", name: "Canada" },
   description:
-    "Specialized Google Ads, seasonal campaigns, web design, and lead generation for HVAC companies across Canada.",
+    "Local lead generation for HVAC companies across Canada: Google Ads, seasonal campaigns, Google Maps visibility, and lead capture.",
   url: `${BASE}/industries/hvac`,
 };
 

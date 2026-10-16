@@ -33,15 +33,12 @@ export default function TermsOfServicePage() {
           </Section>
 
           <Section title="2. Services">
-            <p>Pure Marketing provides digital marketing services including, but not limited to:</p>
+            <p>Pure Marketing provides a local lead generation and customer acquisition system for local service businesses, combining:</p>
             <ul>
-              <li>Website design and development</li>
-              <li>Google Ads and Local Service Ads management</li>
-              <li>Meta (Facebook & Instagram) advertising</li>
-              <li>Social media management</li>
-              <li>Search engine optimization (SEO)</li>
-              <li>Content creation and video production</li>
-              <li>Lead generation systems</li>
+              <li>Paid customer acquisition (Google Ads, Local Service Ads, and Meta advertising)</li>
+              <li>Google Maps and local search visibility (Google Business Profile optimization and local SEO)</li>
+              <li>AI search discoverability</li>
+              <li>Lead capture and conversion tracking</li>
             </ul>
             <p>The specific scope of services, deliverables, timelines, and fees are outlined in individual client agreements or proposals provided separately.</p>
           </Section>

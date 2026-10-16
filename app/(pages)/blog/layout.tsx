@@ -5,12 +5,12 @@ const BASE = "https://puremarketing.ca";
 export const metadata: Metadata = {
   title: "Marketing Blog | Tips for Local Businesses - Pure Marketing",
   description:
-    "Marketing tips, Google Ads strategies, web design guides, and lead generation tactics for local service businesses. Written by the Pure Marketing team in Hamilton, Ontario.",
+    "Local lead generation tips, Google Ads strategies, and customer acquisition tactics for local service businesses. Written by the Pure Marketing team in Hamilton, Ontario.",
   keywords: [
     "local business marketing tips",
     "Google Ads tips for trades",
     "lead generation for contractors",
-    "digital marketing blog Hamilton",
+    "local lead generation blog Hamilton",
     "marketing for electricians plumbers HVAC",
   ],
   alternates: { canonical: `${BASE}/blog` },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: `${BASE}/blog`,
     title: "Marketing Blog | Local Business Tips - Pure Marketing",
     description:
-      "Actionable marketing strategies for local service businesses - Google Ads, lead generation, web design, and more.",
+      "Actionable local lead generation strategies for local service businesses - Google Ads, Google Maps visibility, and more.",
   },
 };
 

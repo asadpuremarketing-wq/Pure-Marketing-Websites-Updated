@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 const SERVICE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Digital Marketing for Plumbers",
+  name: "Local Lead Generation for Plumbers",
   provider: { "@id": `${BASE}/#organization` },
-  serviceType: "Digital Marketing",
+  serviceType: "Local Lead Generation",
   areaServed: { "@type": "Country", name: "Canada" },
   description:
-    "Specialized Google Ads, Local Service Ads, web design, and lead generation for plumbers across Canada.",
+    "Local lead generation for plumbers across Canada: Google Ads, Local Service Ads, Google Maps visibility, and lead capture.",
   url: `${BASE}/industries/plumbers`,
 };
 

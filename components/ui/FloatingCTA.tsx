@@ -53,14 +53,14 @@ export default function FloatingCTA() {
           </button>
           <div className="bg-white border border-border rounded-2xl shadow-2xl p-4 flex flex-col gap-3 w-[240px]">
             <div>
-              <p className="font-bold text-text-primary text-sm">Get a Free Marketing Audit</p>
+              <p className="font-bold text-text-primary text-sm">Get a Free Local Growth Assessment</p>
               <p className="text-xs text-text-muted mt-0.5">No commitment · Free strategy call</p>
             </div>
             <Link
               href="/contact"
               className="flex items-center justify-center gap-2 bg-accent-primary text-white rounded-lg px-4 py-2.5 text-sm font-bold hover:bg-[#D9531E] transition-colors"
             >
-              Book Free Call
+              Get Free Assessment
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <a

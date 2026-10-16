@@ -224,7 +224,7 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
 
             <motion.div {...fadeUp(0.28)} className="flex flex-col sm:flex-row gap-3 pt-1">
               <Link href="/contact" className="group inline-flex items-center justify-center gap-2 bg-accent-primary hover:bg-[#d9531e] text-white font-bold text-[15px] rounded-xl px-8 py-4 transition-all duration-300 shadow-2xl shadow-accent-primary/25">
-                Book a Free Strategy Call
+                Get a Free Local Growth Assessment
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a href="tel:+16479512786" className="inline-flex items-center justify-center gap-2 border border-white/15 text-white/70 hover:border-white/30 hover:text-white rounded-xl px-6 py-4 text-[15px] transition-all duration-300">
@@ -603,7 +603,7 @@ export default function IndustryFullPageTemplate({ config, children }: { config:
 
           <motion.div {...fadeUp(0.5)} className="text-center mt-14">
             <Link href="/contact" className="group inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white hover:text-[#0d0d0d] font-bold text-[14px] rounded-xl px-8 py-4 transition-all duration-300">
-              Start With a Free Audit
+              Get a Free Local Growth Assessment
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </motion.div>

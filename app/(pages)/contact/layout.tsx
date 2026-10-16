@@ -3,21 +3,21 @@
 const BASE = "https://puremarketing.ca";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Free Marketing Audit - Pure Marketing Hamilton",
+  title: "Contact Us | Free Local Growth Assessment - Pure Marketing Hamilton",
   description:
-    "Book a free strategy call with Pure Marketing. We serve local businesses in Hamilton, Ontario and across Canada. Call +1 647-951-2786 or email info@puremarketing.ca.",
+    "Get a free local growth assessment from Pure Marketing. We serve local businesses in Hamilton, Ontario and across Canada. Call +1 647-951-2786 or email info@puremarketing.ca.",
   keywords: [
     "contact Pure Marketing",
-    "marketing agency Hamilton contact",
-    "free marketing audit Hamilton",
+    "local lead generation agency Hamilton contact",
+    "free local growth assessment Hamilton",
     "book strategy call Hamilton",
   ],
   alternates: { canonical: `${BASE}/contact` },
   openGraph: {
     url: `${BASE}/contact`,
-    title: "Contact Us | Free Marketing Audit - Pure Marketing",
+    title: "Contact Us | Free Local Growth Assessment - Pure Marketing",
     description:
-      "Get a free marketing audit from Pure Marketing. We help Hamilton-area businesses grow with Google Ads, web design, and lead generation.",
+      "Get a free local growth assessment from Pure Marketing. We help Hamilton-area businesses get more calls, estimates, and local jobs.",
   },
 };
 
@@ -26,7 +26,7 @@ const CONTACT_PAGE_SCHEMA = {
   "@type": "ContactPage",
   "@id": `${BASE}/contact#webpage`,
   url: `${BASE}/contact`,
-  name: "Contact Pure Marketing | Book a Free Strategy Call",
+  name: "Contact Pure Marketing | Get a Free Local Growth Assessment",
   description:
     "Contact Pure Marketing to book a free 30-minute strategy call. Reach us by phone at +1 647-951-2786, email info@puremarketing.ca, or fill out our contact form.",
   isPartOf: { "@id": `${BASE}/#website` },
